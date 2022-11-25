@@ -1,5 +1,8 @@
+import { Autocomplete, Checkbox, Slider, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/GameByCategory.module.css";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 const categories = [
   {
@@ -28,38 +31,44 @@ const categories = [
   },
 ];
 
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
 const GameByCategory = () => {
+  const categoriesMap = categories.flatMap((category) =>
+    category.subcategories.map((subcategory) => ({
+      category: category.name,
+      subcategory: subcategory.name,
+    }))
+  );
+  console.log(categoriesMap);
   return (
     <section className={styles.gameByCategory}>
-      <div className={styles.categories}>
-        {categories.map((item) => (
-          <Category key={item.name} item={item} />
-        ))}
-      </div>
+      <Stack direction="column" spacing={2}>
+      <Autocomplete
+          multiple
+          disableCloseOnSelect
+          options={categoriesMap}
+          groupBy={(option) => option.category}
+          getOptionLabel={(option) => option.subcategory}
+          renderOption={(props, option, { selected }) => (
+            <li {...props}>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8 }}
+                checked={selected}
+              />
+              {option.subcategory}
+            </li>
+          )}
+          renderInput={(params) => <TextField {...params} label="Categorias" />}
+        />
+         <Typography gutterBottom>Numero de casos clinicos</Typography>
+        <Slider valueLabelDisplay="auto" defaultValue={30} max={50} />
+      </Stack>
+       
     </section>
-  );
-};
-
-const Category = ({ item }) => {
-  const [areSubcategoriesVisibles, setAreSubcategoriesVisibles] =
-    useState(false);
-
-  const toggleSubcategoriesVisibility = () =>
-    setAreSubcategoriesVisibles(!areSubcategoriesVisibles);
-
-  return (
-    <div className={styles.category} onClick={toggleSubcategoriesVisibility}>
-      <span>{item.name}</span>
-      {areSubcategoriesVisibles && (
-        <div className="subcategories">
-          {item.subcategories.map((item) => (
-            <div key={item.name} className="subcategory">
-              <span>{item.name}</span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
   );
 };
 

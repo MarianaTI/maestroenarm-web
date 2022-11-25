@@ -1,7 +1,8 @@
 .gameByCategory{
-    background-color: rgb(113, 210, 255);
     padding:16px;
     height:100vh;
+    max-width: 800px;
+    margin:auto
 }
 
 .categories{
