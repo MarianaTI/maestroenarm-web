@@ -1,4 +1,12 @@
-import { Autocomplete, Checkbox, Slider, Stack, TextField, Typography } from "@mui/material";
+import {
+  Autocomplete,
+  Checkbox,
+  Slider,
+  Stack,
+  TextField,
+  Typography,
+  Button,
+} from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/GameByCategory.module.css";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
@@ -41,11 +49,11 @@ const GameByCategory = () => {
       subcategory: subcategory.name,
     }))
   );
-  console.log(categoriesMap);
+
   return (
     <section className={styles.gameByCategory}>
       <Stack direction="column" spacing={2}>
-      <Autocomplete
+        <Autocomplete
           multiple
           disableCloseOnSelect
           options={categoriesMap}
@@ -64,10 +72,10 @@ const GameByCategory = () => {
           )}
           renderInput={(params) => <TextField {...params} label="Categorias" />}
         />
-         <Typography gutterBottom>Numero de casos clinicos</Typography>
+        <Typography gutterBottom>Numero de casos clinicos</Typography>
         <Slider valueLabelDisplay="auto" defaultValue={30} max={50} />
+        <Button>Jugar</Button>
       </Stack>
-       
     </section>
   );
 };
