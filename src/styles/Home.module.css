@@ -32,19 +32,19 @@
 }
 
  .answer:nth-child(1){
-  background-color: rgb(226, 27, 60);;
+  background: rgba(5, 41, 112, 0.5);
 }
 
  .answer:nth-child(2){
-  background-color: rgb(19, 104, 206);
+  background: rgba(5, 41, 112, 0.5);
 }
 
  .answer:nth-child(3){
-  background-color: rgb(216, 158, 0);
+  background: rgba(5, 41, 112, 0.5);
 }
 
  .answer:nth-child(4){
-  background-color: rgb(38, 137, 12);
+  background: rgba(5, 41, 112, 0.5);
 }
 
 .is-wrong-answer{

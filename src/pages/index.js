@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -10,6 +11,9 @@ export default function Home() {
   const [isCounterHidden, setIsCounterHidden] = useState(true);
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
+  const subcategories = useSelector((state) => state.game.subcategories);
+
+  console.log(subcategories);
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
