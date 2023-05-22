@@ -1,5 +1,5 @@
 import { Doughnut } from "../components/Charts/Doughnut";
 
 export default function stadistics() {
-    return <Doughnut />
+    return <h1>Estadisticas de uso de app</h1>
 }
