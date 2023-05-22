@@ -87,8 +87,9 @@ function Answers({ answers, onClick, isResultRevealed }) {
 
   return (
     <div className={styles.answers}>
-      {answers.map((answer) => (
+      {answers.map((answer, index) => (
         <Answer
+        key={index}
           className={`${
             isResultRevealed
               ? !answer.isCorrect
