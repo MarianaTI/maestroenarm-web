@@ -21,7 +21,7 @@ export default function ProfileSettings() {
             <p>Cuenta Básica</p>
         </AvatarContainer>
         <ProfileSettingsForm>
-            {profileFields.map(({ label, text }, index) => <ProfileField key={index}>
+            {profileFields.map(({ label, text }) => <ProfileField key={label}>
                 <strong>{label}: </strong> {text}
             </ProfileField>)}
         </ProfileSettingsForm>
