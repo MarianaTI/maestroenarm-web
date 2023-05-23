@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import {
   Box,
-  Typography,
-  TextField,
   Link,
   Button,
-  DialogTitle,
   Grid,
 } from "@mui/material";
 
@@ -35,12 +32,18 @@ export const SignupContainer = styled.div`
   margin-top: 32px;
 `;
 
+
+
+
+
+
+
 //login nuevo
 export const LoginGrid = styled(Grid)`
   height: 100vh;
   background-color: #f4f4f4;
   width: 100%;
-  padding: 8px;
+  padding: 2px;
   & h1 {
     font-size: 32px;
     font-weight: 600;
@@ -72,25 +75,26 @@ export const FormStyled = styled.div`
     color: #000000;
   }
 `;
-
 export const QuestionStyled = styled.div`
   padding: 20px 0 20px 0;
   & span {
     display: inline;
   }
+  & span:first-child{
+    font-size: 14px;
+    color: #000000;
+  }
 `;
-
 export const LinkText = styled(Link)`
-padding-left: 16px;
+  padding-left: 16px;
   font-size: 14px;
   color: #052970;
   font-weight: 600;
   text-decoration: none;
   display: inline;
 `;
-
 export const ButtonStyled = styled(Button)`
-  width: 350px;
+  width: 65%;
   height: 40px;
   background-color: #052970;
   border-radius: 15px;
@@ -98,22 +102,22 @@ export const ButtonStyled = styled(Button)`
   color: #ffffff;
   font-family: "Poppins";
   font-weight: 500;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
   &:hover {
     background: #05297099;
   }
 `;
-export const BoxOptions = styled(Box)`
+export const BoxOptions = styled.div`
   display: flex;
   gap: 2px;
   flex-wrap: wrap;
   margin: 7px;
   padding: 10px;
 `;
-export const ButtonGoogle = styled(Button)`
+export const ButtonIconStyled = styled(Button)`
   height: 45px;
-  margin-right: 60px;
+  margin: 10px;
   background-color: #ebebeb;
   border-radius: 10px;
   background-image: url(./google.svg);
@@ -122,56 +126,19 @@ export const ButtonGoogle = styled(Button)`
   background-repeat: no-repeat;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
-export const ButtonMicrosoft = styled(Button)`
-  height: 45px;
-  margin-right: 60px;
-  background-color: #ebebeb;
-  border-radius: 10px;
+export const ButtonIconStyled2 = styled(ButtonIconStyled)`
   background-image: url(./microsoft.svg);
-  background-size: 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
-export const ButtonApple = styled(Button)`
-  height: 45px;
-  background-color: #ebebeb;
-  border-radius: 10px;
+export const ButtonIconStyled3 = styled(ButtonIconStyled)`
   background-image: url(./apple.svg);
-  background-size: 24px;
+`;
+export const GridImage = styled(Grid)`
+  background-image: url(./doctors_login.svg);
+  background-size: 500px;
   background-position: center;
+  position: center;
   background-repeat: no-repeat;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-`;
-export const DialogTitleStyled = styled(DialogTitle)`
-  font-size: 16px;
-  color: #000000;
-  font-family: "Poppins";
-  font-weight: 500;
-  padding-right: 22px;
-`;
-export const NormalTextDialog = styled(Typography)`
-  font-size: 14px;
-  color: #00000090;
-  font-family: "Poppins";
-  font-weight: 500;
-  margin-bottom: 25px;
-`;
-export const ButtonDialog = styled(Button)`
-  background-color: #052970;
-  border-radius: 15px;
-  font-size: 12px;
-  color: #ffffff;
-  font-family: "Poppins";
-  font-weight: 500;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-  &:hover {
-    background: #05297099;
-  }
-`;
-const StyledBox = styled(Box)`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;

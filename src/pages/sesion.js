@@ -1,26 +1,16 @@
-import {
-  Link,
-  Box,
-  Grid,
-  Dialog,
-  DialogContent,
-  Typography,
-} from "@mui/material";
+import { Grid } from "@mui/material";
 import {
   StyledCard,
-  Input,
   ButtonStyled,
   BoxOptions,
-  ButtonGoogle,
-  ButtonMicrosoft,
-  ButtonApple,
-  DialogTitleStyled,
-  NormalTextDialog,
-  ButtonDialog,
   LoginGrid,
   FormStyled,
   LinkText,
   QuestionStyled,
+  ButtonIconStyled,
+  ButtonIconStyled2,
+  ButtonIconStyled3,
+  GridImage,
 } from "../styles/Login.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
@@ -33,7 +23,6 @@ const Sesion = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <>
       <LoginGrid container component="main">
         <Grid item xs={12} md={6} sm={6}>
           <StyledCard>
@@ -51,50 +40,23 @@ const Sesion = () => {
                 </LinkText>
               </QuestionStyled>
               <CustomModal open={open} onClose={handleClose} />
-            
-            
             </FormStyled>
             <ButtonStyled>Iniciar</ButtonStyled>
             <BoxOptions>
-              <ButtonGoogle></ButtonGoogle>
-              <ButtonMicrosoft></ButtonMicrosoft>
-              <ButtonApple></ButtonApple>
+              <ButtonIconStyled></ButtonIconStyled>
+              <ButtonIconStyled2></ButtonIconStyled2>
+              <ButtonIconStyled3></ButtonIconStyled3>
             </BoxOptions>
-            <Typography>
-              ¿Aún no tienes cuenta?
-              <Link
-                href="#"
-                style={{
-                  fontSize: 14,
-                  color: "#052970",
-                  fontFamily: "Poppins",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                }}
-              >
-                {"    Registrate"}
-              </Link>{" "}
-            </Typography>
+            <QuestionStyled>
+              <span>
+                ¿Aún no tienes cuenta?
+                <LinkText href="#">Registrate</LinkText>{" "}
+              </span>
+            </QuestionStyled>
           </StyledCard>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sm={6}
-          sx={{
-            backgroundImage: "url(./doctors_login.svg)",
-            backgroundSize: "500px",
-            backgroundPosition: "center",
-            position: "center",
-            backgroundRepeat: "no-repeat",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        />
+        <GridImage item xs={12} md={6} sm={6}/>
       </LoginGrid>
-    </>
   );
 };
 export default Sesion;
