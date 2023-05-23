@@ -11,69 +11,21 @@ import {
   ThirdPlaceCard,
   TitleText,
 } from "../styles/ranking-user.style";
+import { rankingUsers } from "../constants";
+import RankingCard from "../components/RankingCard";
 
-const DetailUser = [
-  {
-    username: "Angel Ricardez",
-    university: "Universidad Tecnologica Metropolitana",
-    specialty: "Cirugia General",
-    globalTop: "1",
-    point: "24.0008",
-  },
-  {
-    username: "Rodrigo Caraveo",
-    university: "Universidad Tecnologica Metropolitana",
-    specialty: "Cirugia General",
-    globalTop: "2",
-    point: "25.7188",
-  },
-  {
-    username: "Mariana Trujillo",
-    university: "Universidad Tecnologica Metropolitana",
-    specialty: "Cirugia General",
-    globalTop: "3",
-    point: "22.7305",
-  },
-];
+const getTopThreeRankingUsers = () =>
+  rankingUsers.sort((a, b) => a.point - b.point).slice(0, 3);
 
 const RankingUser = () => {
-  const topThree = DetailUser.sort((a, b) => a.globalTop - b.globalTop).slice(
-    0,
-    3
-  );
-
-  if (topThree.length > 1) {
-    const firstPlace = topThree.shift();
-    topThree.splice(1, 0, firstPlace);
-  }
+  const [firstPlaceUser, secondPlaceUser, thirdPlaceUser] =
+    getTopThreeRankingUsers();
 
   return (
     <RankingContainer>
-      {topThree.map((user, index) => {
-        let CardComponent;
-
-        if (index === 0) {
-          CardComponent = SecondPlaceCard;
-        } else if (index === 1) {
-          CardComponent = FirstPlaceCard;
-        } else if (index === 2) {
-          CardComponent = ThirdPlaceCard;
-        } else {
-          CardComponent = StyledCard;
-        }
-
-        return (
-          <CardComponent key={index}>
-            <AvatarWrapper>
-              <StyledAvatar></StyledAvatar>
-            </AvatarWrapper>
-            <TextContainer>
-                <TitleText>{user.username}</TitleText>
-                <SubtitleText>{user.university}</SubtitleText>
-              </TextContainer>
-          </CardComponent>
-        );
-      })}
+      <RankingCard user={firstPlaceUser} variant="secondPlace" />
+      <RankingCard user={secondPlaceUser} variant="firstPlace" />
+      <RankingCard user={thirdPlaceUser} variant="thirdPlace" />
     </RankingContainer>
   );
 };

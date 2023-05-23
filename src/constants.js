@@ -1,3 +1,27 @@
+export const rankingUsers = [
+  {
+    username: "Angel Ricardez",
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    globalTop: "1",
+    point: "24.0008",
+  },
+  {
+    username: "Rodrigo Caraveo",
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    globalTop: "2",
+    point: "25.7188",
+  },
+  {
+    username: "Mariana Trujillo",
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    globalTop: "3",
+    point: "22.7305",
+  },
+];
+
 export default {
   clinicalCases: [
     {
