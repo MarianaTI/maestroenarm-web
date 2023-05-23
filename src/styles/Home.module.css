@@ -1,5 +1,5 @@
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin:auto;
 }
 
@@ -55,7 +55,7 @@
   display:grid;
   grid-template-columns: repeat(2,1fr);
   gap:8px;
-  padding: 8px 0px;
+  padding: 8px 245px;
 }
 
 .counter{

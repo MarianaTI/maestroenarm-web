@@ -51,13 +51,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+      <Question>{question.label}</Question>
         <LinearProgress></LinearProgress>
         <Question >{clinicalCase.label}</Question>
-        <p>Pregunta</p>
-        <Question>{question.label}</Question>
+        <p className={caso.pregunta}>Pregunta</p>
+       
         {isFeedbackHidden && (
           <div className="container">
-            <p>Respuestas</p>
+            
             <div className={styles.answersContainer}>
               <Answers
                 answers={question.answers}
