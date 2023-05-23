@@ -1,0 +1,16 @@
+.scoreContainer {
+    margin-top: 24px;
+    height: 42px;
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #D9D9D9;
+    gap: 16px;
+    padding-left: 16px;
+    border-radius: 10px;
+}
+
+.score {
+    justify-self: end;
+}
