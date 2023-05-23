@@ -1,12 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .bienvenido{
-  position: absolute;
-  width: 458px;
-  height: 134px;
-  left: 525px;
-  top: 188px;
-
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
@@ -23,25 +17,23 @@
 }
 
 .imagenDoctor {
-  position: absolute;
   width: 204px;
   height: 222px;
-  left: 651px;
-  top: 375px;
-
+  margin:auto;
+  margin-block-end: 37.52px;
   background: url(../public/images/doctor.jpeg);
+  background-blend-mode: darken;
   background-size: cover;
 }
 
 .boton {
+  margin:auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
   gap: 8px;
-
-  position: absolute;
   width: 643px;
   height: 90px;
   left: 432px;
@@ -52,8 +44,6 @@
 }
 
 .boton span {
-  width: 108px;
-  height: 24px;
 
   /* WF Buttons/Button Large */
 
@@ -78,7 +68,6 @@
 }
 
 .saltarDemo {
-  position: absolute;
   width: 269px;
   height: 24px;
   left: 812px;
@@ -95,13 +84,12 @@
   align-items: flex-end;
   letter-spacing: -0.01em;
   font-feature-settings: 'calt' off;
-
+  margin-inline-start: 430px;
   color: #000000;
 
 }
 
 #contenedorCentrado {
-    height:100vh;
-    max-width: 800px;
+    max-width: 700px;
     margin:auto
 }

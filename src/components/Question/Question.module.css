@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .question{
-    font-size:24px;
+    font-family: 'Poppins';
+    font-size:normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
     text-align: justify;
 }

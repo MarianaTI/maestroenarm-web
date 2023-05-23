@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
+import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
+import LinearProgress from "../components/LinearProgress/index";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -49,8 +51,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <p>Caso clinico:</p>
-        <Question>{clinicalCase.label}</Question>
+        <LinearProgress></LinearProgress>
+        <Question >{clinicalCase.label}</Question>
         <p>Pregunta</p>
         <Question>{question.label}</Question>
         {isFeedbackHidden && (

@@ -1,0 +1,17 @@
+.progressContainer {
+  width: 100%;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.progress {
+  width: 100%;
+  margin-right: 1px;
+}
+
+.progressLabel {
+  min-width: 35px;
+}
