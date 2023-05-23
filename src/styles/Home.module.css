@@ -1,11 +1,9 @@
 .container {
-  max-width: 800px;
+  max-width: auto;
   margin:auto;
+  
 }
 
-.main {
-
-}
 
 .button{
   background:none;
@@ -15,10 +13,13 @@
   border-radius: 4px;
 }
 
+.main{
+  margin: 100px;
+}
+
 .answer{
   border-radius: 4px;
   color:rgba(255,255,255);
-  padding:8px 16px;
   cursor:pointer;
   min-height: 100px;
   box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
@@ -28,23 +29,24 @@
 }
 
 .answer span{
+  
   word-break: break-word;
 }
 
  .answer:nth-child(1){
-  background-color: rgb(226, 27, 60);;
+  background-color: rgb(95, 128, 190);
 }
 
  .answer:nth-child(2){
-  background-color: rgb(19, 104, 206);
+  background-color: rgb(95, 128, 190)
 }
 
  .answer:nth-child(3){
-  background-color: rgb(216, 158, 0);
+  background-color: rgb(95, 128, 190)
 }
 
  .answer:nth-child(4){
-  background-color: rgb(38, 137, 12);
+  background-color: rgb(95, 128, 190)
 }
 
 .is-wrong-answer{

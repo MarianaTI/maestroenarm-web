@@ -6,12 +6,14 @@ export const LoginContainer = styled.div`
     width:100%;
     height: 100vh;
     padding:64px 32px;
+   
 `;
 
 export const StyledCard = styled(Card)`
     max-width: 600px;
     margin: auto;
     padding:32px;
+   
 `
 
 export const Form = styled.form`
@@ -31,5 +33,6 @@ export const SignupContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 32px;
+    
 `
 
