@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import {
-  Card,
   Box,
   Typography,
   TextField,
   Link,
   Button,
   DialogTitle,
+  Grid,
 } from "@mui/material";
 
 export const LoginContainer = styled.div`
@@ -35,70 +35,58 @@ export const SignupContainer = styled.div`
   margin-top: 32px;
 `;
 
+//login nuevo
+export const LoginGrid = styled(Grid)`
+  height: 100vh;
+  background-color: #f4f4f4;
+  width: 100%;
+  padding: 8px;
+  & h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #052970;
+  }
+`;
 export const StyledCard = styled(Box)`
-  max-width: 700px;
+  max-width: 800px;
   height: 500px;
-  margin: auto;
+  margin: 10%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-`;
-export const LoginTextStyled = styled(Typography)`
-  font-size: 32px;
-  color: #052970;
-  font-family: "Poppins";
-  font-weight: 600;
-  padding: 10px;
-`;
-export const NormalText = styled(Typography)`
-  font-size: 14px;
-  color: #00000090;
-  font-family: "Poppins";
-  font-weight: 500;
-  padding: 10px;
-`;
-export const InputText = styled(Typography)`
-  font-size: 14px;
-  color: #000000;
-  font-family: "Poppins";
-  font-weight: 500;
-  padding: 8px;
-`;
-export const LinkText = styled(Link)`
-  font-size: 14px;
-  color: #052970;
-  font-family: "Poppins";
-  font-weight: 500;
-`;
-export const Input = styled(TextField)`
-  width: 350px;
-  background-color: #ebebeb;
-  border-radius: 10px;
-  height: 45px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-
-  & .MuiOutlinedInput-root {
-    display: flex;
-    align-items: center; /* Alinear verticalmente */
-    justify-content: flex-start; /* Alinear horizontalmente a la izquierda */
-    border: none;
-  }
-
-  & .MuiOutlinedInput-notchedOutline {
-    border: none;
-  }
-
-  & .MuiOutlinedInput-input {
-    &:focus {
-      border: none;
-    }
-  }
-  input::placeholder {
-    color: #000000;
-    font-size: 14px;
-    font-family: "Poppins";
+  & span {
+    color: #00000090;
     font-weight: 500;
+    padding: 10px 0 10px 0;
+    letter-spacing: -0.01em;
+    font-feature-settings: "calt" off;
+  }
+`;
+export const FormStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 100vh;
+  font-size: 14px;
+  & span {
+    color: #000000;
+  }
+`;
+
+export const QuestionStyled = styled.div`
+  padding: 20px 0 20px 0;
+  & span {
+    display: inline;
+  }
+`;
+
+export const LinkText = styled(Link)`
+padding-left: 16px;
+  font-size: 14px;
+  color: #052970;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline;
 `;
 
 export const ButtonStyled = styled(Button)`
