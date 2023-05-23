@@ -1,4 +1,4 @@
-import { DoughnutChart } from "../components/Charts/Doughnut"
+import { DoughnutChart } from "../components/DoughnutChart"
 import { StatisticsList } from "../components/StatisticsList";
 import { StatisticsContainer } from "../styles/statistics";
 

@@ -7,7 +7,7 @@ export const data = {
     // labels: ['opcion1', 'opcion2', 'opcion3'],
     datasets: [
         {
-            label: '# of Votes',
+            label: 'score',
             data: [70, 20, 10],
             backgroundColor: [
                 '#5f9ffa',
