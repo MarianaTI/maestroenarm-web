@@ -35,7 +35,7 @@ export const ButtonGroup = styled.div({
     gap: '24px'
 });
 
-export const ProfileSettingsForm = styled.form({
+export const ProfileSettingsForm = styled.div({
     margin: '24px',
     display: 'flex',
     flexDirection: 'column',
@@ -45,7 +45,7 @@ export const ProfileSettingsForm = styled.form({
 });
 
 export const ProfileField = styled.div({
-    width: 625,
+    width: 600,
     height: 56,
     display: 'flex',
     justifyContent: 'flex-start',

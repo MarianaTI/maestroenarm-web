@@ -1,0 +1,24 @@
+.ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+}
+
+.li {
+    margin-top: 16px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image {
+    margin: auto;
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+}
+
+.score {
+    margin: auto;
+}
