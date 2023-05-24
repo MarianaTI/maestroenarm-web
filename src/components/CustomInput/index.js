@@ -5,7 +5,6 @@ import {
   InputWrapper,
   IconWrapper,
 } from "./index.style";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const CustomInput = ({ placeholder, label, type, icon }) => {
   return (

@@ -19,14 +19,15 @@ import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
 import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Sesion = () => {
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
 
-  const handleOpenForgotPassword = () => setOpenForgotPassword(true);
-  const handleCloseForgotPassword = () => setOpenForgotPassword(false);
+  const toggleForgotPasswordModal = () =>
+    setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+
   const handleCloseChangePassword = () => setOpenChangePassword(false);
   const handleOpenChangePassword = () => {
     setOpenForgotPassword(false); // Cerrar el primer modal
@@ -41,7 +42,10 @@ const Sesion = () => {
           <span> Gracias por regresar. Por favor ingresa tus datos </span>
           <FormStyled>
             <CustomInput label="Correo electronico" />
-            <CustomInput label="Contraseña" icon={<VisibilityOffIcon/>}></CustomInput>
+            <CustomInput
+              label="Contraseña"
+              icon={<VisibilityOffIcon />}
+            ></CustomInput>
             <QuestionStyled>
               <span>¿Olvidaste tu contraseña?</span>
               <LinkText href="#" onClick={handleOpenForgotPassword}>
@@ -87,9 +91,12 @@ const Sesion = () => {
         title="Ingresa tu nueva contraseña"
         message="Ingresa mínimo 8 caracteres"
       >
-        <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon/>}/>
-        <CustomInput label="Confirma la contraseña" icon={<VisibilityOffIcon/>}/>
-        <CustomButton buttonText="Confirmar" width="100%" />
+        <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon />} />
+        <CustomInput
+          label="Confirma la contraseña"
+          icon={<VisibilityOffIcon />}
+        />
+        <CustomButton buttonText="Confirmar" fullWidth />
       </CustomModal>
     </LoginGrid>
   );
