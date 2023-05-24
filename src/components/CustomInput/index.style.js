@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const InputStyled = styled.input`
-width: 100%;
+  margin: 8px 0px 8px 0px;
+  width: 100%;
   background-color: #ebebeb;
   border-radius: 10px;
   height: 50px;
@@ -21,4 +22,9 @@ width: 100%;
     font-size: 14px;
     padding: 8px;
   }
+`;
+export const LabelStyled = styled.label`
+  font-size: 14px;
+  color: #000000;
+  font-weight: 500;
 `;

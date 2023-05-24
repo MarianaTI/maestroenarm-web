@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
+import CustomButton from "../components/CustomButton";
 
 const Sesion = () => {
   const [open, setOpen] = useState(false);
@@ -29,19 +30,25 @@ const Sesion = () => {
           <h1> Iniciar sesión </h1>
           <span> Gracias por regresar. Por favor ingresa tus datos </span>
           <FormStyled>
-            <span>Correo electronico</span>
-            <CustomInput />
-            <span>Contraseña</span>
-            <CustomInput/>
+            <CustomInput label="Correo electronico" />
+            <CustomInput label="Contraseña" />
             <QuestionStyled>
               <span>¿Olvidaste tu contraseña?</span>
               <LinkText href="#" onClick={handleClickOpen}>
                 Recuperar
               </LinkText>
             </QuestionStyled>
-            <CustomModal open={open} onClose={handleClose} />
+            <CustomModal
+              open={open}
+              onClose={handleClose}
+              title="¿Olvidaste tu contraseña?"
+              message="No te preocupes, te mandaremos las instrucciones"
+            >
+              <CustomInput placeholder="Ingresa tu correo electronico" />
+              <CustomButton buttonText="Enviar" width="100%" />
+            </CustomModal>
           </FormStyled>
-          <ButtonStyled>Iniciar</ButtonStyled>
+          <CustomButton buttonText="Iniciar" width="65%" />
           <BoxOptions>
             <ButtonIconStyled></ButtonIconStyled>
             <ButtonIconStyled2></ButtonIconStyled2>

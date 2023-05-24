@@ -1,29 +1,12 @@
 import styled from "@emotion/styled";
-import {Button } from "@mui/material";
-
-export const ButtonStyled = styled(Button)`
-  width: 350px;
-  height: 40px;
-  background-color: #052970;
-  border-radius: 15px;
-  font-size: 12px;
-  color: #ffffff;
-  font-family: "Poppins";
-  font-weight: 500;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  margin: 20px;
-  &:hover {
-    background: #05297099;
-  }
-`;
+import CloseIcon from '@mui/icons-material/Close';
 
 export const ModalContent = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 500px;
   transform: translate(-50%, -50%);
-  width: 400;
   background-color: #f4f4f4;
   box-shadow: 24;
   padding: 2%;
@@ -42,9 +25,16 @@ export const ModalContent = styled.div`
   }
 `;
 
-export const ModalForm = styled.div`
+
+export const ModalHead = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 2px;
+`; 
+
+export const ModalCloseIcon = styled(CloseIcon)`
+  cursor: pointer;
+  margin-left: auto;
+  height: 24px;
+  width: 24px;
 `;
+

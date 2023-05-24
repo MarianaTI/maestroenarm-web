@@ -52,8 +52,8 @@ export const LoginGrid = styled(Grid)`
 `;
 export const StyledCard = styled(Box)`
   max-width: 800px;
-  height: 500px;
-  margin: 10%;
+  height: auto;
+  margin: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,14 +69,9 @@ export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 65%;
-  height: 100vh;
-  font-size: 14px;
-  & span {
-    color: #000000;
-  }
 `;
 export const QuestionStyled = styled.div`
-  padding: 20px 0 20px 0;
+  padding: 16px 0 16px 0;
   & span {
     display: inline;
   }
@@ -93,21 +88,7 @@ export const LinkText = styled(Link)`
   text-decoration: none;
   display: inline;
 `;
-export const ButtonStyled = styled(Button)`
-  width: 65%;
-  height: 40px;
-  background-color: #052970;
-  border-radius: 15px;
-  font-size: 12px;
-  color: #ffffff;
-  font-family: "Poppins";
-  font-weight: 500;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  &:hover {
-    background: #05297099;
-  }
-`;
+
 export const BoxOptions = styled.div`
   display: flex;
   gap: 2px;

@@ -1,28 +1,24 @@
 import React from "react";
-import { Modal, Box, Typography } from "@mui/material";
-import { Text, ButtonStyled, ModalContent } from "./index.style";
-import CustomInput from "../CustomInput";
+import { Modal, Box } from "@mui/material";
+import { ButtonStyled, ModalContent, ModalHead, ModalCloseIcon } from "./index.style";
+import CustomButton from "../CustomButton";
 
-const CustomModal = ({ open, onClose }) => {
+const CustomModal = ({
+  open,
+  onClose,
+  title,
+  message,
+  children,
+}) => {
   return (
     <Modal open={open} onClose={onClose}>
       <ModalContent>
-        <h1>¿Olvidaste tu contraseña?</h1>
-        <span>No te preocupes, te mandaremos las instrucciones</span>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            mt: 2,
-          }}
-        >
-          <CustomInput placeholder="Ingresa tu correo electronico"/>
-          <ButtonStyled variant="contained" onClick={onClose}>
-            Enviar
-          </ButtonStyled>
-          <Typography>Regresar al login</Typography>
-        </Box>
+        <ModalHead>
+          <h1>{title}</h1>
+          <ModalCloseIcon onClick={onClose}/>
+        </ModalHead>
+        <span>{message}</span>
+        {children}
       </ModalContent>
     </Modal>
   );
