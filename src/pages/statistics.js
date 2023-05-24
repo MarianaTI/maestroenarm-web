@@ -1,6 +1,5 @@
-import { DoughnutChart } from "../components/DoughnutChart"
 import { ScoreField } from "../components/ScoreField";
-import { StatisticsList } from "../components/StatisticsList";
+import { StatisticChart } from "../components/StatisticChart";
 import { StatisticsContainer } from "../styles/statistics";
 
 const items = [
@@ -19,8 +18,7 @@ const scoreFields = [
 export default function stadistics() {
     return (
         <StatisticsContainer>
-            <DoughnutChart></DoughnutChart>
-            <StatisticsList items={items}></StatisticsList>
+            <StatisticChart items={items}></StatisticChart>
             {scoreFields.map(({ label, score }) => <ScoreField label={label} score={score}/>)}
         </StatisticsContainer>
     );
