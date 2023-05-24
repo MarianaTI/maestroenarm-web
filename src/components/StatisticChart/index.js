@@ -29,7 +29,7 @@ export const StatisticChart = ({ height = 400, width = 400, items }) => {
 
     return (
         <div>
-            <div style={{ height, width, margin: 'auto' }}>
+            <div className={styles.statisticChartContainer}>
                 <Doughnut data={data} />
             </div>
             <ul className={styles.ul}>
@@ -42,4 +42,6 @@ export const StatisticChart = ({ height = 400, width = 400, items }) => {
         </div>
     );
 }
+
+
 

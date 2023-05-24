@@ -19,9 +19,6 @@ export default function stadistics() {
     return (
         <StatisticsContainer>
             <StatisticChart items={items}></StatisticChart>
-            <StatisticChart items={items}></StatisticChart>
-            <StatisticChart items={items}></StatisticChart>
-            <StatisticChart items={items}></StatisticChart>
             {scoreFields.map(({ label, score }) => <ScoreField label={label} score={score}/>)}
         </StatisticsContainer>
     );

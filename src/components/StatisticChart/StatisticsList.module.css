@@ -21,6 +21,13 @@
     object-fit: cover;
 }
 
-.score, .label {
+.score,
+.label {
     margin: auto;
+}
+
+.statisticChartContainer {
+    height: 400px;
+    width: 400px;
+    margin: 'auto'
 }
