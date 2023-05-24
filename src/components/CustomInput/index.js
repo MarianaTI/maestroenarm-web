@@ -1,9 +1,9 @@
 import React from 'react';
 import { InputStyled } from './index.style';
 
-const CustomInput = () => {
+const CustomInput = ({placeholder}) => {
   return (
-      <InputStyled type="text" />
+      <InputStyled type="text" placeholder={placeholder} />
   );
 };
 

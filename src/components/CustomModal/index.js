@@ -1,38 +1,30 @@
 import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  Box,
-  Button,
-  Typography,
-} from "@mui/material";
-import { DialogTitleStyled, Text, ButtonStyled } from "./index.style";
+import { Modal, Box, Typography } from "@mui/material";
+import { Text, ButtonStyled, ModalContent } from "./index.style";
 import CustomInput from "../CustomInput";
 
 const CustomModal = ({ open, onClose }) => {
   return (
-    <Dialog open={open} onClose={onClose} aria-labelledby="alert-dialog-title">
-      <DialogTitleStyled id="alert-dialog-title">
-        ¿Olvidaste tu contraseña?
-      </DialogTitleStyled>
-      <DialogContent>
-        <Text>No te preocupes, te mandaremos las instrucciones</Text>
+    <Modal open={open} onClose={onClose}>
+      <ModalContent>
+        <h1>¿Olvidaste tu contraseña?</h1>
+        <span>No te preocupes, te mandaremos las instrucciones</span>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            mt: 2,
           }}
         >
-          <CustomInput />
+          <CustomInput placeholder="Ingresa tu correo electronico"/>
           <ButtonStyled variant="contained" onClick={onClose}>
             Enviar
           </ButtonStyled>
-          <Text>Regresar al login</Text>
+          <Typography>Regresar al login</Typography>
         </Box>
-      </DialogContent>
-    </Dialog>
+      </ModalContent>
+    </Modal>
   );
 };
 

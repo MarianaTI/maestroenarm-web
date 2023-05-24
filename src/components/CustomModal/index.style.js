@@ -1,21 +1,5 @@
 import styled from "@emotion/styled";
-import { DialogTitle, Typography, Button } from "@mui/material";
-
-export const DialogTitleStyled = styled(DialogTitle)`
-  font-size: 16px;
-  color: #000000;
-  font-family: "Poppins";
-  font-weight: 500;
-`;
-
-export const Text = styled(Typography)`
-  font-size: 14px;
-  color: #00000098;
-  font-family: "Poppins";
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  font-feature-settings: "calt" off;
-`;
+import {Button } from "@mui/material";
 
 export const ButtonStyled = styled(Button)`
   width: 350px;
@@ -32,4 +16,35 @@ export const ButtonStyled = styled(Button)`
   &:hover {
     background: #05297099;
   }
+`;
+
+export const ModalContent = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  background-color: #f4f4f4;
+  box-shadow: 24;
+  padding: 2%;
+  border-radius: 15px;
+  & h1 {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+  }
+  & span {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.74);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-feature-settings: "calt" off;
+  }
+`;
+
+export const ModalForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
 `;
