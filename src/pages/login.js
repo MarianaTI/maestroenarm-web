@@ -16,7 +16,7 @@ const Login = () => {
         <StyledCard>
         <h1>Bienvenido a Maestro ENARM</h1>
         <span>Por favor agrega los datos para iniciar sesión o registrarse</span>
-
+    
         <Form onSubmit={handleSubmit(onSubmit)}>
             <CustomTextField name="email" control={control} label="Email"/>
             <CustomTextField name="password" control={control} label="Password" type="password"/>
