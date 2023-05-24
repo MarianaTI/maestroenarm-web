@@ -5,8 +5,6 @@ import { faBars, faBarsStaggered, faHome, faUser } from "@fortawesome/free-solid
 import { Icon, IconButton } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 
-
-
 const links = [
   {
     label: 'Examenes',

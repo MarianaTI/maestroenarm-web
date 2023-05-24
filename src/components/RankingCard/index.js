@@ -1,24 +1,20 @@
+import Avatar from "../Avatar";
 import {
-  AvatarWrapper,
-  StyledAvatar,
   StyledCard,
-  SubtitleText,
   TextContainer,
-  TitleText,
 } from "./index.style";
 
 const RankingCard = ({ user, variant }) => {
   return (
     <StyledCard variant={variant}>
-      <AvatarWrapper>
-        <StyledAvatar></StyledAvatar>
-      </AvatarWrapper>
+      <Avatar></Avatar>
       <TextContainer>
         <span>{user.username}</span>
         <span>{user.university}</span>
+        <span>{user.specialty}</span>
+        <span>{user.point}</span>
       </TextContainer>
     </StyledCard>
   );
 };
-
 export default RankingCard;

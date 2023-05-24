@@ -5,7 +5,6 @@ export const MenuContainer = styled.div`
     width: 100%;
     height: 100vh;
     padding: 60px;
-    
 `;
 
 export const StyledButton = styled(Button)`
