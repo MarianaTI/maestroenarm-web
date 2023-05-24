@@ -5,7 +5,7 @@ const CustomInput = ({placeholder, label, type}) => {
   return (
     <>
       <LabelStyled>{label}</LabelStyled>
-      <InputStyled type={type} placeholder={placeholder}/>
+      <InputStyled type={type} placeholder={placeholder} ></InputStyled>
     </>
   );
 };

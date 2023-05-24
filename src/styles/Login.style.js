@@ -1,10 +1,6 @@
 import styled from "@emotion/styled";
-import {
-  Box,
-  Link,
-  Button,
-  Grid,
-} from "@mui/material";
+import { Box, Link, Button, Grid } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const LoginContainer = styled.div`
   background-color: #f4f4f4;
@@ -31,12 +27,6 @@ export const SignupContainer = styled.div`
   align-items: center;
   margin-top: 32px;
 `;
-
-
-
-
-
-
 
 //login nuevo
 export const LoginGrid = styled(Grid)`
@@ -75,7 +65,7 @@ export const QuestionStyled = styled.div`
   & span {
     display: inline;
   }
-  & span:first-child{
+  & span:first-child {
     font-size: 14px;
     color: #000000;
   }
@@ -96,23 +86,7 @@ export const BoxOptions = styled.div`
   margin: 7px;
   padding: 10px;
 `;
-export const ButtonIconStyled = styled(Button)`
-  height: 45px;
-  margin: 10px;
-  background-color: #ebebeb;
-  border-radius: 10px;
-  background-image: url(./google.svg);
-  background-size: 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-`;
-export const ButtonIconStyled2 = styled(ButtonIconStyled)`
-  background-image: url(./microsoft.svg);
-`;
-export const ButtonIconStyled3 = styled(ButtonIconStyled)`
-  background-image: url(./apple.svg);
-`;
+
 export const GridImage = styled(Grid)`
   background-image: url(./doctors_login.svg);
   background-size: 500px;
@@ -122,4 +96,24 @@ export const GridImage = styled(Grid)`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+export const BackLoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 16px 0px 0px 0px;
+  cursor: pointer;
+`;
+
+export const BackLoginIcon = styled(ArrowBackIcon)`
+  height: 24px;
+  width: 24px;
+  color: rgba(0, 0, 0, 0.74);
+`;
+
+export const BackLoginLink = styled(Link)`
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.74);
+  font-weight: 500;
+  padding-left: 8px;
+  text-decoration: none;
 `;
