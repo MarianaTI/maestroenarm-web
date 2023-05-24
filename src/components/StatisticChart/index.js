@@ -29,13 +29,13 @@ export const StatisticChart = ({ height = 400, width = 400, items }) => {
 
     return (
         <div>
-            <div style={{ height, width }}>
+            <div style={{ height, width, margin: 'auto' }}>
                 <Doughnut data={data} />
             </div>
             <ul className={styles.ul}>
                 {items.map(item => <li key={item.label} className={styles.li}>
                     <img className={styles.image} src={item.imageUrl} alt={item.label} />
-                    <span>{item.name}</span>
+                    <span className={styles.label}>{item.label}</span>
                     <span className={styles.score}>{item.score}</span>
                 </li>)}
             </ul>

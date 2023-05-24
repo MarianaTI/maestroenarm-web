@@ -1,10 +1,12 @@
 .ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 120px;
+    gap: 64px;
+    padding: 0;
 }
 
 .li {
+    width: 100px;
     margin-top: 16px;
     list-style-type: none;
     display: flex;
@@ -19,6 +21,6 @@
     object-fit: cover;
 }
 
-.score {
+.score, .label {
     margin: auto;
 }
