@@ -19,6 +19,7 @@ import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
 import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Sesion = () => {
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
@@ -40,7 +41,7 @@ const Sesion = () => {
           <span> Gracias por regresar. Por favor ingresa tus datos </span>
           <FormStyled>
             <CustomInput label="Correo electronico" />
-            <CustomInput label="Contraseña" />
+            <CustomInput label="Contraseña" icon={<VisibilityOffIcon/>}></CustomInput>
             <QuestionStyled>
               <span>¿Olvidaste tu contraseña?</span>
               <LinkText href="#" onClick={handleOpenForgotPassword}>
@@ -86,8 +87,8 @@ const Sesion = () => {
         title="Ingresa tu nueva contraseña"
         message="Ingresa mínimo 8 caracteres"
       >
-        <CustomInput label="Contraseña nueva" />
-        <CustomInput label="Confirma la contraseña" />
+        <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon/>}/>
+        <CustomInput label="Confirma la contraseña" icon={<VisibilityOffIcon/>}/>
         <CustomButton buttonText="Confirmar" width="100%" />
       </CustomModal>
     </LoginGrid>

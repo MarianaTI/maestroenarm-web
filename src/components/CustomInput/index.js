@@ -1,11 +1,20 @@
-import React from 'react';
-import { InputStyled, LabelStyled } from './index.style';
+import React from "react";
+import {
+  InputStyled,
+  LabelStyled,
+  InputWrapper,
+  IconWrapper,
+} from "./index.style";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const CustomInput = ({placeholder, label, type}) => {
+const CustomInput = ({ placeholder, label, type, icon }) => {
   return (
     <>
       <LabelStyled>{label}</LabelStyled>
-      <InputStyled type={type} placeholder={placeholder} ></InputStyled>
+      <InputWrapper>
+        <InputStyled type={type} placeholder={placeholder} />
+        {icon && <IconWrapper>{icon}</IconWrapper>}
+      </InputWrapper>
     </>
   );
 };

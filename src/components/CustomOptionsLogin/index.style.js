@@ -11,11 +11,3 @@ export const ButtonIconStyled = styled(Button)`
   background-repeat: no-repeat;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
-
-// background-image: url(./google.svg);
-// export const ButtonIconStyled2 = styled(ButtonIconStyled)`
-//   background-image: url(./microsoft.svg);
-// `;
-// export const ButtonIconStyled3 = styled(ButtonIconStyled)`
-//   background-image: url(./apple.svg);
-// `;
