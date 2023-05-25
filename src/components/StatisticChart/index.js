@@ -4,7 +4,7 @@ import styles from './StatisticsList.module.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const StatisticChart = ({ height = 400, width = 400, items }) => {
+export const StatisticChart = ({ items }) => {
 
     const data = {
         //labels: ['opcion1', 'opcion2', 'opcion3'],
