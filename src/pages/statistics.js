@@ -4,7 +4,7 @@ import { StatisticsContainer } from "../styles/statistics";
 
 const items = [
     { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: 25 },
-    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: 0 },
+    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: 6 },
     { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: 40 }
 ];
 
@@ -19,7 +19,7 @@ export default function stadistics() {
     return (
         <StatisticsContainer>
             <StatisticChart items={items}></StatisticChart>
-            {scoreFields.map(({ label, score }) => <ScoreField label={label} score={score}/>)}
+            {scoreFields.map(({ label, score }) => <ScoreField key={label} label={label} score={score} />)}
         </StatisticsContainer>
     );
 }

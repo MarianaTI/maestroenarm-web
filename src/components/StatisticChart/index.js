@@ -13,19 +13,15 @@ export const StatisticChart = ({ height = 400, width = 400, items }) => {
                 label: 'score',
                 data: items.map(item => item.score),
                 backgroundColor: [
-                    '#5f9ffa',
-                    '#024CA1',
-                    '#88b7f8'
+                    '#6aa6fa',
+                    '#024CBB',
+                    '#7cbdff'
                 ],
-                borderColor: [
-                    '#5f9ffa',
-                    '#024CA1',
-                    '#88b7f8'
-                ],
-                borderWidth: 1,
+                borderWidth: 0,
             },
         ],
     };
+
 
     return (
         <div>

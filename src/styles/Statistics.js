@@ -5,5 +5,5 @@ export const StatisticsContainer = styled.div({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
 })
