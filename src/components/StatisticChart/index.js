@@ -22,7 +22,6 @@ export const StatisticChart = ({ items }) => {
         ],
     };
 
-
     return (
         <div>
             <div className={styles.statisticChartContainer}>
