@@ -1,8 +1,8 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import styles from './StatisticsList.module.css';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement);
 
 export const StatisticChart = ({ items }) => {
 
@@ -37,6 +37,3 @@ export const StatisticChart = ({ items }) => {
         </div>
     );
 }
-
-
-
