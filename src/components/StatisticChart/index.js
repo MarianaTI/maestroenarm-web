@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export const StatisticChart = ({ height = 400, width = 400, items }) => {
 
     const data = {
-        // labels: ['opcion1', 'opcion2', 'opcion3'],
+        //labels: ['opcion1', 'opcion2', 'opcion3'],
         datasets: [
             {
                 label: 'score',
