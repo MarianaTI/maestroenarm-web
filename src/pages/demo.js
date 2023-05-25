@@ -10,7 +10,7 @@ const Bienvenido = () => {
       <button className={styles.boton}>
       <span>Jugar Demo</span>
       </button>
-      <p className={styles.saltarDemo}>Desea saltar la DEMO? Saltar </p>
+      <p className={styles.saltarDemo}>Desea saltar la DEMO?  <a href="#">Saltar</a> </p>
     </div>
   );
 };
