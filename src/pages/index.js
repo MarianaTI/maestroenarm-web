@@ -6,6 +6,7 @@ import styles from "../styles/Home.module.css";
 import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
+import DotsMobileStepper from "../components/DotsMobileStepper";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -78,6 +79,7 @@ export default function Home() {
             <Feedback text={clinicalCase.feedback.text} />
           </div>
         )}
+        <DotsMobileStepper></DotsMobileStepper>
       </main>
     </div>
   );

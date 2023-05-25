@@ -2,7 +2,7 @@ export default {
   clinicalCases: [
     {
       label:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. Sed ullamcorper nulla justo, et molestie mi feugiat vitae. Aliquam porta ipsum eu interdum lobortis. Sed et elit sem. Aliquam luctus ullamcorper libero, et sollicitudin metus tempor malesuada. Proin porta porta volutpat. Curabitur a nibh vitae libero egestas porttitor.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. Sed ullamcorper nulla justo, et molestie mi feugiat vitae. Aliquam porta ipsum eu interdum lobortis. Sed et elit sem. Aliquam luctus ullamcorper libero",
       questions: [
         {
           label: "Pregunta uno",
