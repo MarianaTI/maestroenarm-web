@@ -1,5 +1,6 @@
 import Avatar from "../Avatar";
-import { StyledList, StyledListItem, StyledTextContainer } from "./index.style";
+import NumbersIcon from "@mui/icons-material/Numbers";
+import { StyledList, StyledTextContainer } from "./index.style";
 
 const RankingList = ({ users }) => {
   return (
@@ -7,7 +8,9 @@ const RankingList = ({ users }) => {
       {users.map((user, index) => (
         <StyledList key={index}>
           <StyledTextContainer>
-            <Avatar size={"width:50px"}/>
+            <NumbersIcon></NumbersIcon>
+            <span>{index + 4}</span>
+            <Avatar size={"50px"} />
             <span>{user.username}</span>
             <span>{user.specialty}</span>
             <span>{user.point}</span>

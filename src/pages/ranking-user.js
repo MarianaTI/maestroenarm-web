@@ -1,13 +1,15 @@
 import {
   RankingContainer,
   RankingListContainer,
-} from "../styles/ranking-user.style";
+} from "../styles/Ranking-user.style";
 import { rankingUsers } from "../constants";
 import RankingCard from "../components/RankingCard";
 import RankingList from "../components/RankingList";
+import Navigation from "../components/Nabvar";
 
 const getTopThreeRankingUsers = () =>
-  rankingUsers.sort((a, b) => Number(b.point) - Number(a.point)).slice(0, 3);
+  rankingUsers.sort((a, b) => Number(b.point) - Number(a.point))
+  .slice(0, 3);
 
 const RankingUser = () => {
   const [firstPlaceUser, secondPlaceUser, thirdPlaceUser] =
@@ -17,10 +19,11 @@ const RankingUser = () => {
 
   return (
     <>
+    <Navigation/>
       <RankingContainer>
-        <RankingCard user={secondPlaceUser} variant="SecondPlace" />
-        <RankingCard user={firstPlaceUser} variant="firstPlace" />
-        <RankingCard user={thirdPlaceUser} variant="thirdPlace" />
+        <RankingCard user={secondPlaceUser} position={2} variant="SecondPlace" />
+        <RankingCard user={firstPlaceUser} position={1} variant="firstPlace" />
+        <RankingCard user={thirdPlaceUser} position={3} variant="thirdPlace" />
       </RankingContainer>
       <RankingListContainer>
         <RankingList users={remainingUsers} />

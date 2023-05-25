@@ -1,11 +1,11 @@
 import { Typography, Button } from "@mui/material";
 import { MenuContainer, StyledButton } from "../styles/menu.style";
-import Navigation from "../components/nabvar";
+import Navigation from "../components/Nabvar";
 
 const Menu = () => {
   return (
     <MenuContainer>
-      <Navigation></Navigation>
+      <Navigation/>
       <Typography>MODO PRACTICA</Typography>
         <span>Feedback despues de cada pregunta</span>
 

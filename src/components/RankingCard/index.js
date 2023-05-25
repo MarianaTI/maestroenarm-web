@@ -1,13 +1,29 @@
 import Avatar from "../Avatar";
-import {
-  StyledCard,
-  TextContainer,
-} from "./index.style";
+import NumbersIcon from "@mui/icons-material/Numbers";
+import { PositionSpan, StyledCard, TextContainer } from "./index.style";
 
-const RankingCard = ({ user, variant }) => {
+const RankingCard = ({ user, position, variant }) => {
   return (
     <StyledCard variant={variant}>
-      <Avatar></Avatar>
+      <div style={{ display: "flex" }}>
+        <PositionSpan>
+          <NumbersIcon style={{ marginTop: "10px", fontSize: "33px" }} />
+          {position}
+        </PositionSpan>
+
+        <div
+          style={{
+            display: "flex",
+            marginRight: "50px",
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Avatar />
+        </div>
+      </div>
+
       <TextContainer>
         <span>{user.username}</span>
         <span>{user.university}</span>
