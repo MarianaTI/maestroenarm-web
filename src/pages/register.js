@@ -1,4 +1,3 @@
-import {Grid} from "@mui/material";
 import {RegisterContainer, CardStyle,LoginContainer, LinkLog, Button, ImageStyle, FormStyle} from "../styles/Register.style";
 import CustomInput from "../components/CustomInput";
 
