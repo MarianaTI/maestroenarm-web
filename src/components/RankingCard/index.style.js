@@ -5,6 +5,9 @@ const cardVariants = {
   firstPlace: "max-width: 361px; height: 337px;",
   secondPlace: "max-width: 361px; height: 317px;",
   thirdPlace: "max-width: 361px; height: 317px;",
+  firstPlacUniversity: "max-width: 361px; height: 240px;",
+  secondPlaceUniversity: "max-width: 361px; height: 220px;",
+  thirdPlaceUniversity: "max-width: 361px; height: 220px;",
 };
 
 export const StyledCard = styled(Card)`
@@ -17,11 +20,11 @@ export const StyledCard = styled(Card)`
   border-radius: 10px;
   background: #fcfcfc;
 
-  &:nth-child(1) {
+  &:nth-of-type(1) {
     margin-top: 20px;
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     margin-top: 20px;
   }
 `;
@@ -30,8 +33,6 @@ export const PositionSpan = styled.span`
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  margin-right: auto;
-  margin-bottom: 20%;
   display: flex;
   font-size: 34px;
   line-height: 56px;
@@ -53,23 +54,23 @@ export const TextContainer = styled.div`
     letter-spacing: -0.01em;
     font-feature-settings: "calt" off;
   }
-  & span:nth-of-type(1) {
+  & span.name {
     font-size: 20px;
     color: #000000;
   }
-  & span:nth-of-type(2) {
-    font-size: 16px;
+  & span.university {
+    font-size: ${(props => props.universityStyle.fontSize || "16px")};
     text-align: center;
-    color: rgba(0, 0, 0, 0.65);
+    color: ${(props) => props.universityStyle.color || "rgba(0, 0, 0, 0.65)"};
   }
-  & span:nth-of-type(3) {
+  & span.specialty {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: -0.01em;
     color: rgba(0, 0, 0, 0.38);
   }
-  & span:nth-of-type(4) {
+  & span.point {
     padding: 16px;
     font-style: normal;
     font-weight: 500;

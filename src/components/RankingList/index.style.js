@@ -46,3 +46,10 @@ export const StyledTextContainer = styled.div`
     text-align: center;
   }
 `;
+
+const StyledSpan = styled.span`
+  color: black;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem; // Espacio entre elementos
+`;

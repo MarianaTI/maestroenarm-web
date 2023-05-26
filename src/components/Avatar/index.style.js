@@ -1,6 +1,5 @@
 import { Avatar } from "@mui/material";
 import styled from "@emotion/styled";
-import { AccessTime } from "@mui/icons-material";
 
 export const AvatarWrapper = styled.div`
   display: flex;
