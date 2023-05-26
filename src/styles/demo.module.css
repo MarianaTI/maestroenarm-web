@@ -94,3 +94,44 @@
     max-width: 700px;
     margin:auto
 }
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .imagenDoctor {
+    width: 150px;
+    height: 160px;
+  }
+  
+  .boton {
+    width: 100%;
+    left: 0;
+    top: auto;
+    margin-top: 20px;
+  }
+  
+  .boton span {
+    font-size: 16px;
+  }
+  
+  .saltarDemo {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    margin-inline-start: 0;
+  }
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 480px) {
+  .bienvenido {
+    font-size: 40px;
+  }
+  
+  .boton {
+    height: 70px;
+  }
+  
+  .saltarDemo {
+    font-size: 16px;
+  }
+}
