@@ -1,39 +1,42 @@
-.container {
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+
+
+export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
+`;
 
-.ul {
+export const ChartContainer = styled.div`
+    height: 368px;
+    width: 368px;
+`;
+
+export const CustomUl = styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 48px;
     padding: 0;
-}
+`;
 
-.li {
+export const CustomLi = styled.li`
     width: 100px;
     margin-top: 16px;
     list-style-type: none;
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+`;
 
-.image {
+export const Image = styled.img`
     margin: auto;
     height: 32px;
     width: 32px;
     object-fit: cover;
-}
+`;
 
-.score,
-.label {
-    margin: auto;
-}
-
-.chart {
-    height: 368px;
-    width: 368px;
-}
+export const CustomSpan = styled.span`
+    margin: auto
+`;
