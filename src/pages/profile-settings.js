@@ -1,5 +1,6 @@
 import { Avatar } from '@mui/material';
-import { AvatarContainer, Button, ButtonGroup, ProfileSettingsContainer, ProfileField } from '../styles/ProfileSettings';
+import { AvatarContainer, Button, ButtonGroup, ProfileSettingsContainer } from '../styles/ProfileSettings';
+import { ProfileField } from '../components/ProfileField';
 
 const profileFields = [
     { label: 'Nombre de Usuario', text: 'ZeeN' },
@@ -21,9 +22,7 @@ export default function ProfileSettings() {
             <p>Cuenta Básica</p>
         </AvatarContainer>
         <ProfileSettingsContainer>
-            {profileFields.map(({ label, text }) => <ProfileField key={label}>
-                <strong>{label}: </strong> {text}
-            </ProfileField>)}
+            {profileFields.map(({ label, text }) => <ProfileField key={label} label={label} text={text}></ProfileField>)}
         </ProfileSettingsContainer>
         <ButtonGroup>
             {buttons.map(button => <Button
