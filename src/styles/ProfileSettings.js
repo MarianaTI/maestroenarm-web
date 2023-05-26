@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 // const mediaQueries = breakpoints.map(breakPoint => `@media (min-width: ${breakPoint}px)`)
 
 export const AvatarContainer = styled.div`
-    margin: 24px;
+    margin-top: 64px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
