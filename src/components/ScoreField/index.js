@@ -1,11 +1,11 @@
-import styles from './ScoreField.module.css';
+import { ScoreFieldContainer } from './index.style';
 
 export const ScoreField = ({ label, score }) => {
     return (
-        <div className={styles.scoreContainer}>
+        <ScoreFieldContainer>
             <span>{label}:</span>
-            <span className={styles.score}>{score}</span>
-        </div>
+            <span>{score}</span>
+        </ScoreFieldContainer>
     );
 };
 

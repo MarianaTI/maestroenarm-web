@@ -1,4 +1,6 @@
-.scoreContainer {
+import styled from "@emotion/styled";
+
+export const ScoreFieldContainer = styled.div`
     margin-top: 24px;
     height: 42px;
     width: 70%;
@@ -9,8 +11,4 @@
     gap: 16px;
     padding-left: 16px;
     border-radius: 10px;
-}
-
-.score {
-    justify-self: end;
-}
+`;

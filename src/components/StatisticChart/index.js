@@ -1,6 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { ChartContainer, Container, CustomLi, CustomSpan, CustomUl, Image, List } from "./index.style";
+import { ChartContainer, Container, CustomLi, CustomSpan, CustomUl, Image } from "./index.style";
 
 ChartJS.register(ArcElement, Tooltip);
 

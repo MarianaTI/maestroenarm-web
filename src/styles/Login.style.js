@@ -12,7 +12,7 @@ export const StyledCard = styled(Card)`
     max-width: 600px;
     margin: auto;
     padding:32px;
-`
+`;
 
 export const Form = styled.form`
     display: flex;
