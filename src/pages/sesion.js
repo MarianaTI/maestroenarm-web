@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { userAccount } from "../constants";
 import * as yup from "yup";
 import {
   StyledCard,
@@ -15,7 +16,7 @@ import {
   GridForm,
   OpenModalButton,
   BackQuestionStyled,
-  ErrorMessage
+  ErrorMessage,
 } from "../styles/Login.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
@@ -31,13 +32,17 @@ const loginSchema = yup
   })
   .required();
 
-const userAccount= {
-  email: "mariana@hotmail.com",
-  password: "password123",
-};
-
 const Sesion = () => {
   const [isErrorLogin, setErrorLogin] = useState(false);
+
+  const authenticateUser = (email, password) => {
+    const user = userAccount.find(
+      (account) => account.email === email && account.password === password
+    );
+    if (!user) {
+      throw new Error("Error de autenticación");
+    }
+  };
 
   const {
     handleSubmit,
@@ -51,16 +56,17 @@ const Sesion = () => {
     resolver: yupResolver(loginSchema),
   });
   const onSubmit = (values) => {
-    if (values.email === userAccount.email && values.password === userAccount.password) {
+    try {
+      authenticateUser(values.email, values.password);
       console.log("Autenticación exitosa");
       setErrorLogin(false);
-    } else {
-      console.log("Error de autenticación");
+    } catch (error) {
+      console.log(error.message);
       setErrorLogin(true);
     }
-  }
+  };
 
-  const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
+  const [isOpenForgotPassword, setOpenForgotPassñword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
 
   const toggleForgotPasswordModal = () =>
@@ -68,8 +74,8 @@ const Sesion = () => {
 
   const handleCloseChangePassword = () => setOpenChangePassword(false);
   const handleOpenChangePassword = () => {
-    setOpenForgotPassword(false); // Cerrar el primer modal
-    setOpenChangePassword(true); // Abrir el segundo modal
+    setOpenForgotPassword(false);
+    setOpenChangePassword(true);
   };
 
   return (
@@ -78,7 +84,11 @@ const Sesion = () => {
         <StyledCard>
           <h1> Iniciar sesión </h1>
           <span> Gracias por regresar. Por favor ingresa tus datos </span>
-          {isErrorLogin && <ErrorMessage>El correo electrónico o la contraseña son incorrectos</ErrorMessage>}
+          {isErrorLogin && (
+            <ErrorMessage>
+              El correo electrónico o la contraseña son incorrectos
+            </ErrorMessage>
+          )}
           <FormStyled onSubmit={handleSubmit(onSubmit)}>
             <CustomInput
               label="Correo electronico"
@@ -123,7 +133,11 @@ const Sesion = () => {
         title="¿Olvidaste tu contraseña?"
         message="No te preocupes, te mandaremos las instrucciones"
       >
-        <CustomInput placeholder="Ingresa tu correo electronico" name="confirmemail" control={control}/>
+        <CustomInput
+          placeholder="Ingresa tu correo electronico"
+          name="confirmemail"
+          control={control}
+        />
         <CustomButton buttonText="Enviar" onClick={handleOpenChangePassword} />
         <BackLoginContainer>
           <BackLoginIcon />

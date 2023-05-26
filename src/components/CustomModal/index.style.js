@@ -9,7 +9,7 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   background-color: #f4f4f4;
   box-shadow: 24;
-  padding: 2%;
+  padding: 24px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,10 @@ export const ModalContent = styled.div`
     color: rgba(0, 0, 0, 0.74);
     font-weight: 500;
     letter-spacing: -0.01em;
+  }
+  @media (max-width: 768px) {
+    width: 400px;
+    padding: 24px;
   }
 `;
 

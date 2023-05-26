@@ -3,7 +3,7 @@ import { ButtonStyled } from "./index.style";
 
 const CustomButton = ({ buttonText, onClick, type }) => {
   return (
-    <ButtonStyled fullwidth onClick={onClick} type={type}>
+    <ButtonStyled fullwidth="true" onClick={onClick} type={type}>
       {buttonText}
     </ButtonStyled>
   );

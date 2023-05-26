@@ -25,7 +25,7 @@ const CustomInput = ({ error, label, icon, control, name, ...props}) => {
       <LabelStyled>{label}</LabelStyled>
       <InputWrapper>
         <InputStyled
-          fullwidth
+          fullwidth="true"
           {...props}
           onChange={field.onChange}
           onBlur={field.onBlur}
