@@ -1,13 +1,15 @@
 import React from 'react';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import styles from './TimeIcon.module.css';
+import { TimeIconContainer, TimeText } from './TimeIcon.style';
 
 function TimeIcon() {
   return (
-    <div>
-      <AccessTimeIcon  className={styles.clock}/> <span className={styles.time}>1:00</span>
-    </div>
+    <TimeIconContainer>
+      <AccessTimeIcon />
+      <TimeText>1:00</TimeText>
+    </TimeIconContainer>
   );
 }
 
 export default TimeIcon;
+

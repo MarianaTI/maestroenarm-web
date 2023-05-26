@@ -117,3 +117,8 @@
     filter: invert(1);
   }
 }
+
+
+.centeredStepper {
+  margin-left: 50%;
+}

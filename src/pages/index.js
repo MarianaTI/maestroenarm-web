@@ -79,7 +79,7 @@ export default function Home() {
             <Feedback text={clinicalCase.feedback.text} />
           </div>
         )}
-        <DotsMobileStepper></DotsMobileStepper>
+        <DotsMobileStepper ></DotsMobileStepper>
       </main>
     </div>
   );

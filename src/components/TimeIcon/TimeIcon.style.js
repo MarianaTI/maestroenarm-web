@@ -1,17 +1,18 @@
-.clock {
+import styled from "@emotion/styled";
+
+  export const TimeIconContainer = styled.div`
     margin-left: 1050px;
     margin-top: 12px;
     color: #052970;
-}
+  `;
 
-.time{
+  export const TimeText = styled.span`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
     line-height: 140%;
-    /* identical to box height, or 42px */
     align-items: center;
     margin-left: 6px;
     color: #052970;
-}
+  `;

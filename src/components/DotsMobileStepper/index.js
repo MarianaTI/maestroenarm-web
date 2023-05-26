@@ -1,51 +1,41 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import { useTheme, styled } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
-import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import './DotsMobileStepper.module.css'; // Importar el archivo de estilos CSS
+import { Container } from './Index.style'; //esta raro
+
+
+const CustomDot = styled(MobileStepper)(({ theme }) => ({
+  "& .MuiMobileStepper-dot": {
+    width: 40,
+    height: 8,
+    backgroundColor: '',
+    borderRadius: 7,
+    margin: '20px 4px ',
+  },
+}));
 
 export default function DotsMobileStepper() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveStep((prevActiveStep) => (prevActiveStep >= 5 ? 0 : prevActiveStep + 1));
+    }, 2000); // Cambiar el tiempo de transición a tu preferencia (en milisegundos)
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    return () => clearTimeout(timer);
+  }, [activeStep]);
 
   return (
-    <div className="dots-mobile-stepper-container">
-      <MobileStepper
+    <Container>
+      <CustomDot
         variant="dots"
         steps={6}
         position="static"
         activeStep={activeStep}
-        nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
-            Next
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
+        nextButton={null}
+        backButton={null}
       />
-    </div>
+    </Container>
   );
 }

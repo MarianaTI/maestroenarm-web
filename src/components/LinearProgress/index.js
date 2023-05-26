@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import styles from './linearProgress.module.css';
+import {
+  ProgressContainer,
+  ProgressWrapper,
+  Progress,
+  ProgressLabel,
+} from './Index.style';
 import TimeIcon from '../TimeIcon/index.js';
-import { styled } from '@mui/material/styles';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
-
-const BorderLinearProgress = styled(LinearProgress)(() => ({
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 12,
-    backgroundColor: '#052970',
-  },
-}));
-
-function LinearProgressWithLabel(props) {
+function ProgressWithLabel(props) {
   return (
-    <BorderLinearProgress variant="determinate" {...props} className={styles.progress} />
+    <Progress variant="determinate" {...props} />
   );
 }
 
-LinearProgressWithLabel.propTypes = {
+ProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
@@ -37,11 +32,14 @@ export default function LinearWithValueLabel() {
   }, []);
 
   return (
-    <Box className={styles.progressContainer}>
-      <LinearProgressWithLabel value={progress} />
+    <Box>
+      <ProgressContainer>
+        <ProgressWrapper>
+          <ProgressWithLabel value={progress} />
+          <ProgressLabel></ProgressLabel>
+        </ProgressWrapper>
+      </ProgressContainer>
       <TimeIcon />
     </Box>
   );
 }
-
-
