@@ -24,4 +24,4 @@ const CustomTextField = ({control,name,...props}) => {
       );
 }
 
-export default CustomTextField
+export default CustomTextFiel

@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 
 export const ButtonStyled = styled(Button)`
   height: 40px;
+  width: ${props => props.fullwidth ? "100%" : "auto"};
   background-color: #052970;
   border-radius: 15px;
   font-size: 12px;

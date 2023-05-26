@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 export const InputStyled = styled.input`
-padding-right: 40px;
-  margin: 8px 0px 8px 0px;
-  width: 100%;
+  margin: 4px 0px 8px 0px;
+  width: ${props => props.fullwidth ? "100%" : "auto"};
   background-color: #ebebeb;
   border-radius: 10px;
   height: 50px;
@@ -40,4 +39,10 @@ export const IconWrapper = styled.div`
   top: 55%;
   transform: translateY(-50%);
   font-size: 24px;
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 12px;
+  padding-left: 16px;
+  color: red;
 `;

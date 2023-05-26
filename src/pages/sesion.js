@@ -1,4 +1,6 @@
-import { Grid, Link } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import {
   StyledCard,
   BoxOptions,
@@ -6,13 +8,14 @@ import {
   FormStyled,
   LinkText,
   QuestionStyled,
-  ButtonIconStyled,
-  ButtonIconStyled2,
-  ButtonIconStyled3,
   GridImage,
   BackLoginContainer,
   BackLoginIcon,
   BackLoginLink,
+  GridForm,
+  OpenModalButton,
+  BackQuestionStyled,
+  ErrorMessage
 } from "../styles/Login.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
@@ -21,8 +24,43 @@ import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
+const loginSchema = yup
+  .object({
+    email: yup.string().email(),
+    password: yup.string(),
+  })
+  .required();
+
+const userAccount= {
+  email: "mariana@hotmail.com",
+  password: "password123",
+};
+
 const Sesion = () => {
-  const [openForgotPassword, setOpenForgotPassword] = useState(false);
+  const [isErrorLogin, setErrorLogin] = useState(false);
+
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: yupResolver(loginSchema),
+  });
+  const onSubmit = (values) => {
+    if (values.email === userAccount.email && values.password === userAccount.password) {
+      console.log("Autenticación exitosa");
+      setErrorLogin(false);
+    } else {
+      console.log("Error de autenticación");
+      setErrorLogin(true);
+    }
+  }
+
+  const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
 
   const toggleForgotPasswordModal = () =>
@@ -35,70 +73,77 @@ const Sesion = () => {
   };
 
   return (
-    <LoginGrid container component="main">
-      <Grid item xs={12} md={6} sm={6}>
+    <LoginGrid>
+      <GridForm>
         <StyledCard>
           <h1> Iniciar sesión </h1>
           <span> Gracias por regresar. Por favor ingresa tus datos </span>
-          <FormStyled>
-            <CustomInput label="Correo electronico" />
+          {isErrorLogin && <ErrorMessage>El correo electrónico o la contraseña son incorrectos</ErrorMessage>}
+          <FormStyled onSubmit={handleSubmit(onSubmit)}>
             <CustomInput
+              label="Correo electronico"
+              name="email"
+              control={control}
+              error={errors.email?.message}
+            />
+            <CustomInput
+              name="password"
+              control={control}
+              type="password"
               label="Contraseña"
               icon={<VisibilityOffIcon />}
+              error={errors.password?.message}
             ></CustomInput>
             <QuestionStyled>
               <span>¿Olvidaste tu contraseña?</span>
-              <LinkText href="#" onClick={handleOpenForgotPassword}>
+              <OpenModalButton onClick={toggleForgotPasswordModal}>
                 Recuperar
-              </LinkText>
+              </OpenModalButton>
             </QuestionStyled>
+            <CustomButton buttonText="Iniciar" type="submit" />
+            <BoxOptions>
+              <CustomOptionsLogin icon="./google.svg" />
+              <CustomOptionsLogin icon="./microsoft.svg" />
+              <CustomOptionsLogin icon="./apple.svg" />
+            </BoxOptions>
+            <BackQuestionStyled>
+              <span>
+                ¿Aún no tienes cuenta?
+                <LinkText href="#">Registrate</LinkText>
+              </span>
+            </BackQuestionStyled>
           </FormStyled>
-          <CustomButton buttonText="Iniciar" width="65%" />
-          <BoxOptions>
-            <CustomOptionsLogin icon="./google.svg" />
-            <CustomOptionsLogin icon="./microsoft.svg" />
-            <CustomOptionsLogin icon="./apple.svg" />
-          </BoxOptions>
-          <QuestionStyled>
-            <span>
-              ¿Aún no tienes cuenta?
-              <LinkText href="#">Registrate</LinkText>
-            </span>
-          </QuestionStyled>
         </StyledCard>
-      </Grid>
-      <GridImage item xs={12} md={6} sm={6} />
+      </GridForm>
+      <GridImage />
+
       <CustomModal
-        open={openForgotPassword}
-        onClose={handleCloseForgotPassword}
+        open={isOpenForgotPassword}
+        onClose={toggleForgotPasswordModal}
         title="¿Olvidaste tu contraseña?"
         message="No te preocupes, te mandaremos las instrucciones"
       >
-        <CustomInput placeholder="Ingresa tu correo electronico" />
-        <CustomButton
-          buttonText="Enviar"
-          width="100%"
-          onClick={handleOpenChangePassword}
-        />
+        <CustomInput placeholder="Ingresa tu correo electronico" name="confirmemail" control={control}/>
+        <CustomButton buttonText="Enviar" onClick={handleOpenChangePassword} />
         <BackLoginContainer>
           <BackLoginIcon />
           <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
         </BackLoginContainer>
       </CustomModal>
-      <CustomModal
-        open={openChangePassword}
-        onClose={handleCloseChangePassword}
-        title="Ingresa tu nueva contraseña"
-        message="Ingresa mínimo 8 caracteres"
-      >
-        <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon />} />
-        <CustomInput
-          label="Confirma la contraseña"
-          icon={<VisibilityOffIcon />}
-        />
-        <CustomButton buttonText="Confirmar" fullWidth />
-      </CustomModal>
     </LoginGrid>
   );
 };
 export default Sesion;
+
+{
+  /* <CustomModal
+  open={openChangePassword}
+  onClose={handleCloseChangePassword}
+  title="Ingresa tu nueva contraseña"
+  message="Ingresa mínimo 8 caracteres"
+>
+  <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon />} />
+  <CustomInput label="Confirma la contraseña" icon={<VisibilityOffIcon />} />
+  <CustomButton buttonText="Confirmar" fullWidth />
+</CustomModal>; */
+}

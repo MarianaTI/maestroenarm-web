@@ -1,9 +1,9 @@
 import React from "react";
 import { ButtonStyled } from "./index.style";
 
-const CustomButton = ({ buttonText, onClick, fullWidth }) => {
+const CustomButton = ({ buttonText, onClick, type }) => {
   return (
-    <ButtonStyled fullWidth={fullWidth} onClick={onClick}>
+    <ButtonStyled fullwidth onClick={onClick} type={type}>
       {buttonText}
     </ButtonStyled>
   );
