@@ -9,7 +9,7 @@ import {
 } from "./index.style";
 
 
-const CustomInput = ({ error, label, icon, control, name, ...props}) => {
+const CustomInput = ({ error, label, icon, control, name, type, ...props}) => {
   const {
     field,
     fieldState: { invalid, isTouched, isDirty },
@@ -32,6 +32,7 @@ const CustomInput = ({ error, label, icon, control, name, ...props}) => {
           value={field.value}
           name={field.name}
           inputRef={field.ref}
+          type={type}
         />
         {icon && <IconWrapper>{icon}</IconWrapper>}
       </InputWrapper>

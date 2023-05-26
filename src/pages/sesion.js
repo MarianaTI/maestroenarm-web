@@ -23,17 +23,19 @@ import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
 import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const loginSchema = yup
-  .object({
-    email: yup.string().email(),
-    password: yup.string(),
-  })
-  .required();
+const loginSchema = yup.object({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+});
 
 const Sesion = () => {
   const [isErrorLogin, setErrorLogin] = useState(false);
+  const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
+  const [openChangePassword, setOpenChangePassword] = useState(false);
+  const [isShowPassword, setShowPassword] = useState(false);
 
   const authenticateUser = (email, password) => {
     const user = userAccount.find(
@@ -55,6 +57,7 @@ const Sesion = () => {
     },
     resolver: yupResolver(loginSchema),
   });
+
   const onSubmit = (values) => {
     try {
       authenticateUser(values.email, values.password);
@@ -66,12 +69,8 @@ const Sesion = () => {
     }
   };
 
-  const [isOpenForgotPassword, setOpenForgotPassñword] = useState(false);
-  const [openChangePassword, setOpenChangePassword] = useState(false);
-
-  const toggleForgotPasswordModal = () =>
-    setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
-
+  const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+  const togglePasswordVisibility = () => (isShowPassword) => !isShowPassword;
   const handleCloseChangePassword = () => setOpenChangePassword(false);
   const handleOpenChangePassword = () => {
     setOpenForgotPassword(false);
@@ -99,9 +98,15 @@ const Sesion = () => {
             <CustomInput
               name="password"
               control={control}
-              type="password"
+              type={isShowPassword ? "text" : "password"}
               label="Contraseña"
-              icon={<VisibilityOffIcon />}
+              icon={
+                isShowPassword ? (
+                  <VisibilityIcon onClick={togglePasswordVisibility} />
+                ) : (
+                  <VisibilityOffIcon onClick={togglePasswordVisibility} />
+                )
+              }
               error={errors.password?.message}
             ></CustomInput>
             <QuestionStyled>

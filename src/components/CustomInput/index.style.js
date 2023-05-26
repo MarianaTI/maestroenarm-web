@@ -39,6 +39,7 @@ export const IconWrapper = styled.div`
   top: 55%;
   transform: translateY(-50%);
   font-size: 24px;
+  cursor: pointer;
 `;
 
 export const ErrorMessage = styled.p`
