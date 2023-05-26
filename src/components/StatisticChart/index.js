@@ -23,8 +23,8 @@ export const StatisticChart = ({ items }) => {
     };
 
     return (
-        <div>
-            <div className={styles.statisticChartContainer}>
+        <div className={styles.container}>
+            <div className={styles.chart}>
                 <Doughnut data={data} />
             </div>
             <ul className={styles.ul}>

@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material';
-import { AvatarContainer, Button, ButtonGroup, ProfileSettingsForm, ProfileField } from '../styles/ProfileSettings';
+import { AvatarContainer, Button, ButtonGroup, ProfileSettingsContainer, ProfileField } from '../styles/ProfileSettings';
 
 const profileFields = [
     { label: 'Nombre de Usuario', text: 'ZeeN' },
@@ -20,14 +20,14 @@ export default function ProfileSettings() {
             <Avatar sx={{ width: 132, height: 132 }} alt="Adrian Mis" src="" />
             <p>Cuenta Básica</p>
         </AvatarContainer>
-        <ProfileSettingsForm>
+        <ProfileSettingsContainer>
             {profileFields.map(({ label, text }) => <ProfileField key={label}>
                 <strong>{label}: </strong> {text}
             </ProfileField>)}
-        </ProfileSettingsForm>
+        </ProfileSettingsContainer>
         <ButtonGroup>
-            {buttons.map((button, index) => <Button
-                key={index}
+            {buttons.map(button => <Button
+                key={button.text}
                 bg={button.bgColor}
                 color="#F4F4F4">{button.text}</Button>)}
         </ButtonGroup>

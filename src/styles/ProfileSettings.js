@@ -1,4 +1,8 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+
+// const breakpoints = [576, 768, 992, 1200]
+// const mediaQueries = breakpoints.map(breakPoint => `@media (min-width: ${breakPoint}px)`)
 
 export const AvatarContainer = styled.div({
     margin: '24px',
@@ -12,8 +16,8 @@ export const Button = styled.button(
     {
         border: 'none',
         borderRadius: '16px',
-        width: 276,
-        height: 56,
+        width: 272,
+        height: 54,
 
         ":hover": {
             opacity: '.9'
@@ -35,7 +39,7 @@ export const ButtonGroup = styled.div({
     gap: '24px'
 });
 
-export const ProfileSettingsForm = styled.div({
+export const ProfileSettingsContainer = styled.div({
     margin: '24px',
     display: 'flex',
     flexDirection: 'column',
@@ -44,15 +48,20 @@ export const ProfileSettingsForm = styled.div({
     gap: '24px'
 });
 
-export const ProfileField = styled.div({
-    width: 600,
-    height: 56,
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    gap: 12,
-    border: '0.5px solid #888',
-    borderRadius: 10,
-    padding: 24,
-    boxShadow: '2px 3px 2px 2px rgba(0, 0, 0, 0.25)'
-});
+export const ProfileField = styled.div`
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    border: 0.5px solid #888;
+    border-radius: 10px;
+    padding: 24px;
+    boxShadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.25);
+    ${css`
+        @media screen and (min-width: 768px) {
+            width: 65%
+        },
+    `}
+`
