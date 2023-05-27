@@ -7,6 +7,7 @@ import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
+import advance from '../components/Question/Question.module.css';
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -31,12 +32,23 @@ export default function Home() {
     if (!question) setClinicalCaseCounter(clinicalCaseCounter + 1);
   };
 
+  //TODO:Esta función se utiliza como manejador de eventos para manejar el clic en una respuesta.( para mostrar o ocultar la respuesta correcta.)
+  // const handleAnswerClick = (isAnswerCorrect) => {
+  //   setIsCounterHidden(false);
+  //   toggleResultRevealed();
+  //   toggleResultRevealed();
+  // };
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
-    toggleResultRevealed();
-    toggleResultRevealed();
+    setIsResultRevealed(true);
+    setSelectedAnswer(isAnswerCorrect);
   };
+  
+  
 
+  //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico.
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
@@ -52,10 +64,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <Question>{question.label}</Question>
+      <p className={advance.question}>1 de 3</p>
         <LinearProgress></LinearProgress>
         <Question >{clinicalCase.label}</Question>
-        <p className={caso.pregunta}>Pregunta</p>
+        <p className={caso.pregunta}>{question.label}</p>
+        
        
         {isFeedbackHidden && (
           <div className="container">
@@ -85,6 +98,8 @@ export default function Home() {
   );
 }
 
+
+
 function Answers({ answers, onClick, isResultRevealed }) {
   const handleAnswerClick = (isCorrect) => {
     onClick(isCorrect);
@@ -98,7 +113,8 @@ function Answers({ answers, onClick, isResultRevealed }) {
             isResultRevealed
               ? !answer.isCorrect
                 ? styles["is-wrong-answer"]
-                : ""
+                : answer.isCorrect && styles["is-selected"] 
+                
               : ""
           }`}
           onClick={() => handleAnswerClick(answer.isCorrect)}
@@ -110,13 +126,21 @@ function Answers({ answers, onClick, isResultRevealed }) {
   );
 }
 
-function Answer({ children, className, ...props }) {
+// function Answer({ children, className, ...props }) {
+//   return (
+//     <div {...props} className={`${styles.answer} ${className}`}>
+//       <span>{children}</span>
+//     </div>
+//   );
+// }
+function Answer({ children, className, isCorrect, ...props }) {
   return (
-    <div {...props} className={`${styles.answer} ${className}`}>
+    <div {...props} className={`${styles.answer} ${className}`} data-is-correct={isCorrect}>
       <span>{children}</span>
     </div>
   );
 }
+
 
 function Button({ children, className, ...props }) {
   return (
