@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Card, Typography } from "@mui/material";
+import { Card } from "@mui/material";
 
 const cardVariants = {
   firstPlace: "max-width: 361px; height: 337px;",
