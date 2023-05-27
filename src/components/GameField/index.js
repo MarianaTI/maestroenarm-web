@@ -1,10 +1,10 @@
-import { FieldDecoration, Label, WrapperField } from "./index.style";
+import { FieldDecoration, Label, FieldWrapper } from "./index.style";
 
 export const GameField = ({ label, isSelected }) => {
     return (
-        <WrapperField isSelected={isSelected}>
+        <FieldWrapper isSelected={isSelected}>
             <FieldDecoration/>
             <Label>{label}</Label>
-        </WrapperField>
+        </FieldWrapper>
     );
 }

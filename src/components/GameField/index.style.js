@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const WrapperField = styled.div`
+export const FieldWrapper = styled.div`
     margin: 24px 124px;
     border: 2px solid #b9b9b9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
