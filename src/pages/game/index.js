@@ -1,12 +1,22 @@
 import { GameField } from "../../components/GameField";
-
-const gameFields = [
-    { label: 'Aleatorio', isSelected: false },
-    { label: 'Por Categoría', isSelected: true },
-];
+import MainLayout from "../../layouts/MainLayout";
 
 export default function Game() {
     return <>
-        {gameFields.map(({ label, isSelected }) => <GameField label={label} isSelected={isSelected} />)}
+        <MainLayout>
+            <div style={{ margin: '48px 100px 0px 124px' }}>
+                <h1 style={{ fontWeight: '500' }}>MODO PRÁCTICA</h1>
+                <p>Feedback déspues de cada pregunta</p>
+            </div>
+            <GameField label='Aleatorio' isSelected={false} />
+            <GameField label='Por Categoría' isSelected={false} />
+            <div style={{ margin: '48px 100px 0px 124px' }}>
+                <h1 style={{ fontWeight: '500' }}>MODO MULTIJUGADOR</h1>
+                <p>Feedback al finalizar el exámen</p>
+                <p>AMISTOSO</p>
+            </div>
+            <GameField label='Aleatorio' isSelected={false} />
+            <GameField label='Por Categoría' isSelected={true} />
+        </MainLayout>
     </>
 }
