@@ -36,12 +36,12 @@ export default function Navbar() {
                 <CustomNavUl>
                     <EnarmIcon> Maestro ENARM</EnarmIcon>
                     {links.map(({ label, route, icon }) => (
-                        <CustomNavLi  key={route}>
+                        <CustomNavLi key={route}>
                             {icon}
                             <Link href={route}>{label}</Link>
                         </CustomNavLi>))}
                     <CustomIconButton>
-                        <MenuIcon />
+                        <MenuIcon/>
                     </CustomIconButton>
                 </CustomNavUl>
             </nav>
