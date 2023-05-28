@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { IconButton } from "@mui/material";
+import { css } from "@emotion/react";
+import { IconButton} from "@mui/material";
 
 export const Header = styled.header`
     border: 2px solid#f0f0f0;
@@ -24,7 +25,6 @@ export const CustomNavUl = styled.ul`
 
 export const EnarmIcon = styled.span`
     color: black;
-    display: flex;
     font-family: Poppins;
     font-size: large;
     margin-top: 8px;
@@ -32,13 +32,24 @@ export const EnarmIcon = styled.span`
 
 export const CustomNavLi = styled.li`
     display: flex;
-    gap: 16px;
+    gap: 4px;
     align-items: center;
+    ${css`
+        @media screen and (max-width: 900px) {
+            display: none
+        },
+    `}
 `;
 
 export const CustomIconButton = styled(IconButton)`
+    display: none;
     color: rgb(16, 10, 95);
-    margin-left: auto;
-    margin-right: 50px;
+    margin: 0px 16px 0px auto;
+    padding: 0px;
     border-bottom-color: rgb(16, 10, 95);
+    ${css`
+        @media screen and (max-width: 900px) {
+            display: initial
+        },
+    `}
 `;

@@ -6,7 +6,7 @@ export const GameField = ({ label }) => {
         <FieldWrapper>
             <FieldDecoration />
             <Label>{label}</Label>
-            <GameSettingsModal />
+            <GameSettingsModal/>
         </FieldWrapper>
     );
 }
