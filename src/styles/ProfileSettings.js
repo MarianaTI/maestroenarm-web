@@ -28,12 +28,14 @@ export const Button = styled.button`
 `;
 
 export const ButtonGroup = styled.div`
-    margin: 24px;
+    margin: auto;
+    width: 276px;
+    heigth: 46px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px
+    gap: 8px
 `;
 
 export const ProfileSettingsContainer = styled.div`

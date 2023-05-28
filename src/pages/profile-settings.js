@@ -1,7 +1,8 @@
 import { Avatar } from '@mui/material';
-import { AvatarContainer, Button, ButtonGroup, ProfileSettingsContainer } from '../styles/ProfileSettings';
+import { AvatarContainer, ButtonGroup, ProfileSettingsContainer } from '../styles/ProfileSettings';
 import { ProfileField } from '../components/ProfileField';
 import MainLayout from '../layouts/MainLayout';
+import { CustomButton } from '../components/CustomButtom';
 
 const profileFields = [
     { label: 'Nombre de Usuario', text: 'ZeeN' },
@@ -11,9 +12,9 @@ const profileFields = [
 ];
 
 const buttons = [
-    { text: 'Premium', bgColor: '#FFAA2B' },
-    { text: 'Cerrar sesión', bgColor: '#052970' },
-    { text: 'Eliminar cuenta', bgColor: '#052970' }
+    { text: 'Premium', theme: 'secondary' },
+    { text: 'Cerrar sesión', theme: 'primary' },
+    { text: 'Eliminar cuenta', theme: 'primary' }
 ];
 
 export default function ProfileSettings() {
@@ -27,10 +28,11 @@ export default function ProfileSettings() {
                 {profileFields.map(({ label, text }) => <ProfileField key={label} label={label} text={text}></ProfileField>)}
             </ProfileSettingsContainer>
             <ButtonGroup>
-                {buttons.map(button => <Button
-                    key={button.text}
-                    bg={button.bgColor}
-                    color="#F4F4F4">{button.text}</Button>)}
+                {buttons.map(({ text, theme }) => <CustomButton
+                    theme={theme}
+                    fullWidth
+                    key={text}>
+                    <h3>{text}</h3></CustomButton>)}
             </ButtonGroup>
         </MainLayout>
     );
