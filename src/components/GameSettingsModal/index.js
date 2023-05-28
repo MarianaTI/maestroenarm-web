@@ -1,14 +1,13 @@
-import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { CustomButton } from '../CustomButtom';
 import { ModalBody, RangeContainer } from './index.style';
 
-export const GameSettingsModal = () => {
+export const GameSettingsModal = ({ isOpen }) => {
+    //todo:  usar estado global para cerrar el modal
     return (
         <Modal
-            open={true}
-            // onClose={handleClose}
+            open={isOpen}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >

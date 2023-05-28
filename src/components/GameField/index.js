@@ -1,12 +1,10 @@
-import { GameSettingsModal } from "../GameSettingsModal";
 import { FieldDecoration, Label, FieldWrapper } from "./index.style";
 
-export const GameField = ({ label }) => {
+export const GameField = ({ label, onClick }) => {
     return (
-        <FieldWrapper>
+        <FieldWrapper onClick={onClick} >
             <FieldDecoration />
             <Label>{label}</Label>
-            <GameSettingsModal/>
         </FieldWrapper>
     );
 }

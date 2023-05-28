@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { GameField } from "../../components/GameField";
+import { GameSettingsModal } from "../../components/GameSettingsModal";
 import MainLayout from "../../layouts/MainLayout";
 
 export default function Game() {
+    const [open, setOpen] = useState(false);
     return <>
         <MainLayout>
             <div style={{ margin: '48px 100px 0px 124px' }}>
@@ -16,7 +19,8 @@ export default function Game() {
                 <p>AMISTOSO</p>
             </div>
             <GameField label='Aleatorio' />
-            <GameField label='Por Categoría' />
+            <GameField label='Por Categoría' onClick={() => setOpen(true)} />
+            <GameSettingsModal isOpen={open} />
         </MainLayout>
     </>
 }
