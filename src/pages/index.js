@@ -33,20 +33,14 @@ export default function Home() {
   };
 
   //TODO:Esta función se utiliza como manejador de eventos para manejar el clic en una respuesta.( para mostrar o ocultar la respuesta correcta.)
-  // const handleAnswerClick = (isAnswerCorrect) => {
-  //   setIsCounterHidden(false);
-  //   toggleResultRevealed();
-  //   toggleResultRevealed();
-  // };
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
-    setIsResultRevealed(true);
-    setSelectedAnswer(isAnswerCorrect);
+    toggleResultRevealed();
+    toggleResultRevealed();
   };
-  
-  
+
+
+
 
   //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico.
   const handleCountFinish = () => {
@@ -64,15 +58,15 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <p className={advance.question}>1 de 3</p>
+        <p className={advance.question}>1 de 3</p>
         <LinearProgress></LinearProgress>
         <Question >{clinicalCase.label}</Question>
         <p className={caso.pregunta}>{question.label}</p>
-        
-       
+
+
         {isFeedbackHidden && (
           <div className="container">
-            
+
             <div className={styles.answersContainer}>
               <Answers
                 answers={question.answers}
@@ -98,48 +92,47 @@ export default function Home() {
   );
 }
 
+// isResultRevealed
+// ? !answer.isCorrect
+// ? ""
+// : answer.isCorrect && styles["is-selected"] 
 
+// : ""
+
+
+//  isResultReveled muestra las respuesta
 
 function Answers({ answers, onClick, isResultRevealed }) {
-  const handleAnswerClick = (isCorrect) => {
+  const handleAnswerClick = (isCorrect, item) => {
     onClick(isCorrect);
   };
 
   return (
     <div className={styles.answers}>
-      {answers.map((answer) => (
-        <Answer
-          className={`${
-            isResultRevealed
-              ? !answer.isCorrect
-                ? styles["is-wrong-answer"]
-                : answer.isCorrect && styles["is-selected"] 
-                
-              : ""
-          }`}
-          onClick={() => handleAnswerClick(answer.isCorrect)}
-        >
-          {answer.label}
-        </Answer>
-      ))}
-    </div>
+      {
+        answers.map((answer) => (
+          <Answer
+            onClick={evento => handleAnswerClick(answer.isCorrect, evento.target)}
+            className={isResultRevealed && answer.isCorrect ? styles["is-correct"]
+              : isResultRevealed && !answer.isCorrect ? styles["is-error"] : ''
+            }
+          >
+            {answer.label}
+          </Answer>
+        ))
+      }
+    </div >
   );
 }
 
-// function Answer({ children, className, ...props }) {
-//   return (
-//     <div {...props} className={`${styles.answer} ${className}`}>
-//       <span>{children}</span>
-//     </div>
-//   );
-// }
-function Answer({ children, className, isCorrect, ...props }) {
+function Answer({ children, className, ...props }) {
   return (
-    <div {...props} className={`${styles.answer} ${className}`} data-is-correct={isCorrect}>
+    <div {...props} className={`${styles.answer} ${className}`}>
       <span>{children}</span>
     </div>
   );
 }
+
 
 
 function Button({ children, className, ...props }) {

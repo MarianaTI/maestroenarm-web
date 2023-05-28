@@ -1,37 +1,35 @@
 .container {
   max-width: 1200px;
-  margin:auto;
+  margin: auto;
   padding-top: 16px;
 
   @media (max-width: 767px) {
     padding: 10px;
   }
-  
-}
-
-.main {
 
 }
 
-.button{
-  background:none;
-  border: 1px solid rgba(0,0,0,0.8);
+.main {}
+
+.button {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 8px 16px;
-  cursor:pointer;
+  cursor: pointer;
   border-radius: 4px;
 }
 
-.answer{
+.answer {
   border-radius: 4px;
-  color:rgba(255,255,255);
-  padding:8px 16px;
-  cursor:pointer;
+  color: rgba(255, 255, 255);
+  padding: 8px 16px;
+  cursor: pointer;
   min-height: 100px;
   box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 .answer span {
@@ -46,59 +44,56 @@
 }
 
 
-.is-wrong-answer{
-  opacity:0.3;
+.is-wrong-answer {
+  opacity: 0.3;
 }
 
-.is-correct-answer {
-  background: rgba(38, 163, 7, 0.75);
-}
-.answer.is-selected {
+.answer.is-correct {
   background: rgba(38, 163, 7, 0.75);
 }
 
-.answer.is-selectedError {
+.answer.is-error {
   background: rgba(225, 2, 2, 0.8);
 }
 
-
-.answers{
-  display:grid;
-  grid-template-columns: repeat(2,1fr);
-  gap:8px;
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
   padding: 8px 245px;
   transition: background-color 0.3s ease;
 }
+
 .answer:hover {
   background: rgba(5, 41, 112, 0.8);
 }
 
 
-.counter{
+.counter {
   background-color: #222;
-  color:rgba(255,255,255);
-  width:50px;
-  height:50px;
-  display:flex;
+  color: rgba(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius:4px;
-  font-size:16px;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-.answersContainer{
-  position:relative;
+.answersContainer {
+  position: relative;
 }
 
-.counterContainer{
-  position:absolute;
-  display:flex;
-  justify-content:center;
+.counterContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 
@@ -110,13 +105,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
   .footer {
     border-color: #222;
   }
+
   .code {
     background: #111;
   }
+
   .logo img {
     filter: invert(1);
   }
