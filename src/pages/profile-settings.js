@@ -32,7 +32,8 @@ export default function ProfileSettings() {
                     theme={theme}
                     fullWidth
                     key={text}>
-                    <h3>{text}</h3></CustomButton>)}
+                    <h3>{text}</h3>
+                </CustomButton>)}
             </ButtonGroup>
         </MainLayout>
     );
