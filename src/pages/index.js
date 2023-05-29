@@ -28,8 +28,6 @@ export default function Home() {
   const question = clinicalCase.questions[questionCounter];
   const lengthQuestions=clinicalCase.questions.length;
 
-  console.log('question', lengthQuestions)
-
   const goNext = () => {
     const question = clinicalCase.questions[questionCounter + 1];
     if (question) setQuestionCounter(questionCounter + 1);
