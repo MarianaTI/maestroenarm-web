@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/react"
 
 export const FieldWrapper = styled.div`
     background: #fcfcfc;
@@ -11,7 +12,14 @@ export const FieldWrapper = styled.div`
     align-items: center;
     &:hover {
         background: rgba(5, 41, 112, 0.2)
-    }
+    };
+
+    ${css`
+        @media screen and (max-width: 1080px) {
+            width: 90%;
+            margin: 24px auto;
+        }
+    `}
 `;
 
 export const Label = styled.span`

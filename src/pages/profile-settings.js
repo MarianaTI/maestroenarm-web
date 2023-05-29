@@ -11,12 +11,6 @@ const profileFields = [
     { label: 'Contraseña', text: '********' }
 ];
 
-const buttons = [
-    { text: 'Premium', theme: 'secondary' },
-    { text: 'Cerrar sesión', theme: 'primary' },
-    { text: 'Eliminar cuenta', theme: 'primary' }
-];
-
 export default function ProfileSettings() {
     return (
         <MainLayout>
@@ -25,16 +19,20 @@ export default function ProfileSettings() {
                 <p>Cuenta Básica</p>
             </AvatarContainer>
             <ProfileSettingsContainer>
-                {profileFields.map(({ label, text }) => <ProfileField key={label} label={label} text={text}></ProfileField>)}
+                {profileFields.map(({ label, text }) =>
+                    <ProfileField key={label} label={label} text={text}></ProfileField>)}
             </ProfileSettingsContainer>
             <ButtonGroup>
-                {buttons.map(({ text, theme }) => <CustomButton
-                    theme={theme}
-                    fullWidth
-                    key={text}>
-                    <h3>{text}</h3>
-                </CustomButton>)}
+                <CustomButton theme="secondary" fullWidth>
+                    <h3>Premium</h3>
+                </CustomButton>
+                <CustomButton fullWidth>
+                    <h3>Cerrar sesión</h3>
+                </CustomButton>
+                <CustomButton fullWidth>
+                    <h3>Eliminar cuenta</h3>
+                </CustomButton>
             </ButtonGroup>
-        </MainLayout>
+        </MainLayout >
     );
 }

@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const CustomProfileField = styled.div`
-    width: 100%;
+    width: 900px;
     height: 56px;
     display: flex;
     justify-content: flex-start;
@@ -13,8 +13,8 @@ export const CustomProfileField = styled.div`
     padding: 24px;
     box-shadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.25);
     ${css`
-        @media screen and (min-width: 768px) {
-            width: 65%
+        @media screen and (max-width: 1020px) {
+            width: 90%
         },
     `}
 `
