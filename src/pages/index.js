@@ -7,8 +7,8 @@ import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
-import advance from '../components/Question/Question.module.css';
-import TimeIcon from '../components/TimeIcon/index'
+import advance from "../components/Question/Question.module.css";
+import TimeIcon from "../components/TimeIcon/index";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -16,9 +16,8 @@ export default function Home() {
   const [isCounterHidden, setIsCounterHidden] = useState(true);
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
+  const [isCounting, setIsCounting] = useState(true);
   const subcategories = useSelector((state) => state.game.subcategories);
-
-  
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -26,38 +25,39 @@ export default function Home() {
 
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const question = clinicalCase.questions[questionCounter];
-  const lengthClinicalCase=constants.clinicalCases.length;
-  const lengthQuestions=clinicalCase.questions.length;
-  const nowClinicalCaseCounter= clinicalCaseCounter +1 ;
-
-  console.log('casos ', nowClinicalCaseCounter);
+  const lengthClinicalCase = constants.clinicalCases.length;
+  const lengthQuestions = clinicalCase.questions.length;
+  const nowClinicalCaseCounter = clinicalCaseCounter + 1;
 
   const goNext = () => {
     const question = clinicalCase.questions[questionCounter + 1];
     if (question) setQuestionCounter(questionCounter + 1);
-    if (!question) setClinicalCaseCounter(clinicalCaseCounter + 1);
+    if (!question) {
+      setClinicalCaseCounter(clinicalCaseCounter + 1);
+      setQuestionCounter(0);
+    }
   };
 
   //TODO:Esta función se utiliza como manejador de eventos para manejar el clic en una respuesta.( para mostrar o ocultar la respuesta correcta.)
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
     toggleResultRevealed();
-    
+    setIsCounting(false);
   };
 
-
- //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico cuando se termina el tiempo del reloj.
- const timeFinished = () => {
-  setIsCounterHidden(false);
-  toggleResultRevealed();
-};
-
+  //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico cuando se termina el tiempo del reloj.
+  const handleQuestionTimeFinished = () => {
+    setIsCounterHidden(false);
+    toggleResultRevealed();
+    setIsCounting(false);
+  };
 
   //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico.
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     goNext();
+    setIsCounting(true);
   };
 
   return (
@@ -68,17 +68,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main >
-        <p className={advance.question}>{nowClinicalCaseCounter} de {lengthClinicalCase}</p>
-        <LinearProgress lengthClinicalCase={lengthClinicalCase} nowClinicalCaseCounter={nowClinicalCaseCounter}></LinearProgress>
-        <TimeIcon onTimeFinish={timeFinished}></TimeIcon>
-        <Question >{clinicalCase.label}</Question>
+      <main>
+        <p className={advance.question}>
+          {nowClinicalCaseCounter} de {lengthClinicalCase}
+        </p>
+        <LinearProgress
+          lengthClinicalCase={lengthClinicalCase}
+          nowClinicalCaseCounter={nowClinicalCaseCounter}
+        ></LinearProgress>
+        <TimeIcon
+          onTimeFinish={handleQuestionTimeFinished}
+          seconds={13}
+          isCounting={isCounting}
+        ></TimeIcon>
+        <Question>{clinicalCase.label}</Question>
         <p className={caso.pregunta}>{question.label}</p>
-
 
         {isFeedbackHidden && (
           <div className="container">
-
             <div className={styles.answersContainer}>
               <Answers
                 answers={question.answers}
@@ -98,12 +105,13 @@ export default function Home() {
             <Feedback text={clinicalCase.feedback.text} />
           </div>
         )}
-        <DotsMobileStepper lengthQuestions={lengthQuestions} ></DotsMobileStepper>
+        <DotsMobileStepper
+          lengthQuestions={lengthQuestions}
+        ></DotsMobileStepper>
       </main>
     </div>
   );
 }
-
 
 function Answers({ answers, onClick, isResultRevealed }) {
   const handleAnswerClick = (isCorrect, item) => {
@@ -112,19 +120,23 @@ function Answers({ answers, onClick, isResultRevealed }) {
 
   return (
     <div className={styles.answers}>
-      {
-        answers.map((answer) => (
-          <Answer
-            onClick={evento => handleAnswerClick(answer.isCorrect, evento.target)}
-            className={isResultRevealed && answer.isCorrect ? styles["is-correct"]
-              : isResultRevealed && !answer.isCorrect ? styles["is-error"] : ''
-            }
-          >
-            {answer.label}
-          </Answer>
-        ))
-      }
-    </div >
+      {answers.map((answer) => (
+        <Answer
+          onClick={(evento) =>
+            handleAnswerClick(answer.isCorrect, evento.target)
+          }
+          className={
+            isResultRevealed && answer.isCorrect
+              ? styles["is-correct"]
+              : isResultRevealed && !answer.isCorrect
+              ? styles["is-error"]
+              : ""
+          }
+        >
+          {answer.label}
+        </Answer>
+      ))}
+    </div>
   );
 }
 
@@ -133,16 +145,6 @@ function Answer({ children, className, ...props }) {
     <div {...props} className={`${styles.answer} ${className}`}>
       <span>{children}</span>
     </div>
-  );
-}
-
-
-
-function Button({ children, className, ...props }) {
-  return (
-    <button {...props} className={`${styles.button} ${className}`}>
-      {children}
-    </button>
   );
 }
 
