@@ -1,62 +1,50 @@
 import Link from "next/link"
-import styles from "./nabvar.module.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faBarsStaggered, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Icon, IconButton } from "@mui/material";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import MenuIcon from '@mui/icons-material/Menu';
-
-
+import { CustomIconButton, CustomNavLi, CustomNavUl, EnarmIcon, Header } from "./index.style";
 
 const links = [
-  {
-    label: 'Examenes',
-    route: '/',
-    icon: faHome
-  },
-  {
-    label: 'Estadisticas',
-    route: '/estadisticas',
-    icon: faBars
-  },
-  {
-    label: 'Ranking',
-    route: '/ranking',
-    icon: faBarsStaggered
-  },
-  {
-    label: "Nosotros",
-    route: "/nosotros",
-    icon: faUser
+    {
+      label: 'Examenes',
+      route: '/',
+      icon: <HomeIcon />
+    },
+    {
+      label: 'Estadisticas',
+      route: '/estadisticas',
+      icon: <TrendingUpIcon />
+    },
+    {
+      label: 'Ranking',
+      route: '/ranking',
+      icon: <BarChartIcon />
+    },
+    {
+      label: "Nosotros",
+      route: "/nosotros",
+      icon: <PersonIcon />
+    }
+];
 
-  }
-]
-
-export default function Navigation() {
-  return (
-    <header className={styles.header}>
-      <nav>
-        <ul className={styles.navigation}>
-          <a className={styles.p}> Maestro ENARM</a>
-          {links.map(({ label, route, icon }) => (
-            <li key={route}>
-              <span className={styles.icon}>
-                <FontAwesomeIcon icon={icon} />
-                <Icon Size={1} />
-              </span>
-              <Link href={route}>
-                {label}
-              </Link>
-            </li>))}
-            <IconButton className={styles.iconButton}>
-              <MenuIcon/>
-            </IconButton>
-        </ul>
-      </nav>
-    </header>)
+export default function Navbar() {
+    return (
+        <Header>
+            <nav>
+                <CustomNavUl>
+                    <EnarmIcon> Maestro ENARM</EnarmIcon>
+                    {links.map(({ label, route, icon }) => (
+                        <CustomNavLi  key={route}>
+                            {icon}
+                            <Link href={route}>{label}</Link>
+                        </CustomNavLi>))}
+                    <CustomIconButton>
+                        <MenuIcon />
+                    </CustomIconButton>
+                </CustomNavUl>
+            </nav>
+        </Header>
+    );
 }
-
-
-
-
-
-
