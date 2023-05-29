@@ -1,7 +1,8 @@
 import {ImageStyle, CardStyle, Button, FormStyle, EditProfile} from "../../src/styles/editprofile.style";
 import Avatar from "../components/Avatar";
-import CustomInput from "../components/CustomInput";
+import CustomInput1 from "../components/CustomInput1";
 import SelectStyle from "../components/Select";
+import CustomButton from "../components/CustomButton";
 
 const editProfile = () => {
 
@@ -12,9 +13,9 @@ const editProfile = () => {
             <Avatar/>
             <FormStyle>
                 <span>Usuario</span>
-                <CustomInput/>
+                <CustomInput1/>
                 <span>Nombre y Apellido</span>
-                <CustomInput/>
+                <CustomInput1/>
                 <span>Especialidad</span>
                 <SelectStyle
                 option={"Pediatría"}/>
@@ -25,6 +26,7 @@ const editProfile = () => {
                 <SelectStyle 
                 option={"Estudiante"}/>
             </FormStyle>
+           <CustomButton/>
         </CardStyle>
     </EditProfile>
     )

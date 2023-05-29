@@ -12,8 +12,8 @@ export const EditProfile = styled.div`
   }
 
 `;
-export const ImageStyle = styled.image`
-
+export const ImageStyle = styled.div`
+  background-image: url(../../public/editprofileimage.svg);
 
 `;
 export const CardStyle = styled.div`
@@ -25,12 +25,12 @@ export const CardStyle = styled.div`
     justify-content: center;
     margin: 30px;
     & span {
-        color: #00000090;
-        font-weight: 500;
-        padding: 5px;
-        letter-spacing: -0.01em;
-        font-feature-settings: "calt" off;
-  }
+      color: #00000090;
+      font-weight: 500;
+      padding: 5px;
+      letter-spacing: -0.01em;
+      font-feature-settings: "calt" off;
+    }
 `;
 export const FormStyle = styled.form`
   display: flex;
@@ -41,10 +41,4 @@ export const FormStyle = styled.form`
   & span {
     color: #000000;
   }
-`;
-export const SelectStyle = styled.select`
-
-`;
-export const Button = styled.button`
-  
 `;

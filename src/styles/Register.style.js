@@ -1,76 +1,82 @@
 import styled from "@emotion/styled";
+import { Box, Link, Button, Grid } from "@mui/material";
 
-//----------------nuevo-----------------
+
 export const RegisterContainer = styled.div`
-  background-color: #f4f4f4;
-  height: 100vh;
-  width: 100%;
-  padding: 8px;
+    height: 110vh;
+    width: ${(props) => (props.fullwidth ? "100%" : "auto")};
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 32px;
+    background-color: #f4f4f4;
+    @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    }
     & h1 {
-    font-size: 25px;
+    font-size: 32px;
     font-weight: 600;
     color: #052970;
-  }
+    }
+
 `;
-export const CardStyle = styled.div`
-  max-width: 500px;
-  height: 500px;
-  display: flex;
-  margin: 30px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  & span {
+export const FormContainer = styled.div`
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+`;
+export const CardStyled = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & span {
     color: #00000090;
     font-weight: 500;
-    padding: 5px;
+    padding: 8px 0 16px 0;
     letter-spacing: -0.01em;
     font-feature-settings: "calt" off;
-  }
-`;
-export const ImageStyle = styled.img`
-  background-image: url(./registerphoto2.svg);
-
+    @media (max-width: 400px) {
+      display: inline;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    }
 `;
 export const FormStyle = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 280px;
-  height: 60vh;
-  font-size: 14px;
-  & span {
-    color: #000000;
-  }
-`;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 400px) {
+    width: ${(props) => (props.fullwidth ? "100%" : "auto")};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
 
-export const Button = styled.button`
-  width: 285px;
-  height: 50px;
-  background-color: #052970;
-  border-radius: 15px;
-  font-size: 12px;
-  color: #ffffff;
-  font-family: "Poppins";
-  font-weight: 400;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  margin: 20px;
-  border: none;
-  &:hover {
-    background: #05297099;
-  }
 `;
-export const LoginContainer = styled.div`
-  padding: 5px;
-  & span {
-    display: inline;
-  }
+export const ImageStyle = styled.div`
+    background-image: url(../../public/registerphoto.svg);
+
 `;
-export const LinkLog = styled.div`
+export const QuestionStyle = styled.div`
+    padding: 16px 0 16px 0;
+    & span {
+        display: inline;
+    }
+    & span:first-child {
+        font-size: 14px;
+        color: #000000;
+    }
+
+`;
+export const LinkText = styled(Link)`
   padding-left: 16px;
   font-size: 14px;
   color: #052970;
   font-weight: 600;
   text-decoration: none;
   display: inline;
+  
+
 `;
