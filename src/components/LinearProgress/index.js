@@ -18,12 +18,18 @@ ProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function LinearWithValueLabel() {
-  const [progress, setProgress] = useState(10);
+export default function LinearWithValueLabel(lengthClinicalCase) {
+  const [progress, setProgress] = useState(0);
+  const clinicalCaseLength=lengthClinicalCase.lengthClinicalCase;
+  const clinicalCaseCounterNow=lengthClinicalCase.nowClinicalCaseCounter;
+  const progressLength= 100/clinicalCaseLength;
+  const progressNow=progressLength*clinicalCaseCounterNow;
+  console.log('lengthClinicalCase', clinicalCaseLength);
+  console.log('prueba ', progressLength*clinicalCaseCounterNow)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress=progressNow));
     }, 800);
     return () => {
       clearInterval(timer);
