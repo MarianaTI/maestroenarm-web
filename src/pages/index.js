@@ -26,6 +26,9 @@ export default function Home() {
 
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const question = clinicalCase.questions[questionCounter];
+  const lengthQuestions=clinicalCase.questions.length;
+
+  console.log('question', lengthQuestions)
 
   const goNext = () => {
     const question = clinicalCase.questions[questionCounter + 1];
@@ -39,6 +42,7 @@ export default function Home() {
     toggleResultRevealed();
     
   };
+
 
  //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico cuando se termina el tiempo del reloj.
  const timeFinished = () => {
@@ -92,7 +96,7 @@ export default function Home() {
             <Feedback text={clinicalCase.feedback.text} />
           </div>
         )}
-        <DotsMobileStepper ></DotsMobileStepper>
+        <DotsMobileStepper lengthQuestions={lengthQuestions} ></DotsMobileStepper>
       </main>
     </div>
   );

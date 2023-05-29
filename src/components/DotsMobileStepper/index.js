@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTheme, styled } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
-import { Container } from './Index.style'; //esta raro
+import { Container } from './Index.style'; 
 
 
 const CustomDot = styled(MobileStepper)(({ theme }) => ({
@@ -14,15 +14,15 @@ const CustomDot = styled(MobileStepper)(({ theme }) => ({
   },
 }));
 
-export default function DotsMobileStepper() {
+export default function DotsMobileStepper(lengthQuestions) {
+  const valorlengthQuestions=lengthQuestions.lengthQuestions;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-
+  
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      setActiveStep((prevActiveStep) => (prevActiveStep >= 5 ? 0 : prevActiveStep + 1));
-    }, 2000); // Cambiar el tiempo de transición a tu preferencia (en milisegundos)
-
+      setActiveStep((prevActiveStep) => (prevActiveStep >= (valorlengthQuestions-1) ? 0 : prevActiveStep + 1));
+    }, 13000); 
     return () => clearTimeout(timer);
   }, [activeStep]);
 
@@ -30,7 +30,7 @@ export default function DotsMobileStepper() {
     <Container>
       <CustomDot
         variant="dots"
-        steps={6}
+        steps={valorlengthQuestions}
         position="static"
         activeStep={activeStep}
         nextButton={null}
