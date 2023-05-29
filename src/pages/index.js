@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import advance from '../components/Question/Question.module.css';
+import TimeIcon from '../components/TimeIcon/index'
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -36,10 +37,14 @@ export default function Home() {
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
     toggleResultRevealed();
-    toggleResultRevealed();
+    
   };
 
-
+ //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico cuando se termina el tiempo del reloj.
+ const timeFinished = () => {
+  setIsCounterHidden(false);
+  toggleResultRevealed();
+};
 
 
   //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico.
@@ -60,6 +65,7 @@ export default function Home() {
       <main className={styles.main}>
         <p className={advance.question}>1 de 3</p>
         <LinearProgress></LinearProgress>
+        <TimeIcon onTimeFinish={timeFinished}></TimeIcon>
         <Question >{clinicalCase.label}</Question>
         <p className={caso.pregunta}>{question.label}</p>
 
@@ -92,15 +98,6 @@ export default function Home() {
   );
 }
 
-// isResultRevealed
-// ? !answer.isCorrect
-// ? ""
-// : answer.isCorrect && styles["is-selected"] 
-
-// : ""
-
-
-//  isResultReveled muestra las respuesta
 
 function Answers({ answers, onClick, isResultRevealed }) {
   const handleAnswerClick = (isCorrect, item) => {

@@ -7,7 +7,6 @@ import {
   Progress,
   ProgressLabel,
 } from './Index.style';
-import TimeIcon from '../TimeIcon/index.js';
 
 function ProgressWithLabel(props) {
   return (
@@ -39,7 +38,7 @@ export default function LinearWithValueLabel() {
           <ProgressLabel></ProgressLabel>
         </ProgressWrapper>
       </ProgressContainer>
-      <TimeIcon />
+      
     </Box>
   );
 }

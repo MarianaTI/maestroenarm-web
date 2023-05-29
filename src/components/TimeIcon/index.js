@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { TimeIconContainer, TimeText } from './TimeIcon.style';
 
-function TimeIcon() {
-  const [countdown, setCountdown] = useState(60);
+function TimeIcon({ onTimeFinish }) {
+  const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+     const timer = setInterval(() => {
       setCountdown((prevCountdown) => {
-        if (prevCountdown === 0) {
-          return 60;
+        if (prevCountdown === 1) {
+          
+          onTimeFinish(); 
+          return 13; 
         } else {
           return prevCountdown - 1;
         }
