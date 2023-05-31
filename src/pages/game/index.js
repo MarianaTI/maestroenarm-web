@@ -1,27 +1,26 @@
-import { useState } from "react";
+import { Button } from "@mui/material";
 import { GameField } from "../../components/GameField";
 import { GameSettingsModal } from "../../components/GameSettingsModal";
-import MainLayout from "../../layouts/MainLayout";
+import { openModal } from "../../store/slices/gameModalSlice";
 import { TitleGameContainer } from "../../styles/Game";
+import { useDispatch } from "react-redux";
 
 export default function Game() {
-    const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
     return <>
-        <MainLayout>
-            <TitleGameContainer>
-                <h1 style={{ fontWeight: '500' }}>MODO PRÁCTICA</h1>
-                <p>Feedback déspues de cada pregunta</p>
-            </TitleGameContainer>
-            <GameField label='Aleatorio' />
-            <GameField label='Por Categoría' />
-            <TitleGameContainer>
-                <h1 style={{ fontWeight: '500' }}>MODO MULTIJUGADOR</h1>
-                <p>Feedback al finalizar el exámen</p>
-                <p>AMISTOSO</p>
-            </TitleGameContainer>
-            <GameField label='Aleatorio' />
-            <GameField label='Por Categoría' onClick={() => setOpen(true)} />
-            <GameSettingsModal isOpen={open} />
-        </MainLayout>
+        <TitleGameContainer>
+            <h1 style={{ fontWeight: '500' }}>MODO PRÁCTICA</h1>
+            <p>Feedback déspues de cada pregunta</p>
+        </TitleGameContainer>
+        <GameField label='Aleatorio' />
+        <GameField label='Por Categoría' />
+        <TitleGameContainer>
+            <h1 style={{ fontWeight: '500' }}>MODO MULTIJUGADOR</h1>
+            <p>Feedback al finalizar el exámen</p>
+            <p>AMISTOSO</p>
+        </TitleGameContainer>
+        <GameField label='Aleatorio' />
+        <GameField onClick={() => dispatch(openModal())} label='Por Categoría' />
+        <GameSettingsModal/>
     </>
 }

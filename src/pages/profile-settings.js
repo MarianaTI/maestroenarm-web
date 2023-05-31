@@ -1,7 +1,6 @@
 import { Avatar } from '@mui/material';
 import { AvatarContainer, ButtonGroup, ProfileSettingsContainer } from '../styles/ProfileSettings';
 import { ProfileField } from '../components/ProfileField';
-import MainLayout from '../layouts/MainLayout';
 import { CustomButton } from '../components/CustomButtom';
 
 const profileFields = [
@@ -13,7 +12,7 @@ const profileFields = [
 
 export default function ProfileSettings() {
     return (
-        <MainLayout>
+        <>
             <AvatarContainer>
                 <Avatar sx={{ width: 132, height: 132 }} alt="Adrian Mis" src="" />
                 <p>Cuenta Básica</p>
@@ -33,6 +32,6 @@ export default function ProfileSettings() {
                     <h3>Eliminar cuenta</h3>
                 </CustomButton>
             </ButtonGroup>
-        </MainLayout >
+        </>
     );
 }
