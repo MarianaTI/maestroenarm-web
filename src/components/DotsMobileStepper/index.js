@@ -3,7 +3,6 @@ import { useTheme, styled } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import { Container } from './Index.style'; 
 
-
 const CustomDot = styled(MobileStepper)(({ theme }) => ({
   "& .MuiMobileStepper-dot": {
     width: 40,
@@ -15,16 +14,32 @@ const CustomDot = styled(MobileStepper)(({ theme }) => ({
 }));
 
 export default function DotsMobileStepper(lengthQuestions) {
-  const valorlengthQuestions=lengthQuestions.lengthQuestions;
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const valorlengthQuestions = lengthQuestions.lengthQuestions;
+  const questionsnow = lengthQuestions.nowquestionCounter;
+  const clinicalCaseCounterNow=lengthQuestions.nowClinicalCaseCounter;
+  const [activeStep, setActiveStep] = React.useState(-1);
+  const prevQuestionsNowRef = React.useRef();
   
   React.useEffect(() => {
+    prevQuestionsNowRef.current = questionsnow;
+  }, [questionsnow]);
+
+  React.useEffect(() => {
+    setActiveStep(-1);
+  }, [ clinicalCaseCounterNow]);
+
+  React.useEffect(() => {
     const timer = setTimeout(() => {
-      setActiveStep((prevActiveStep) => (prevActiveStep >= (valorlengthQuestions-1) ? 0 : prevActiveStep + 1));
-    }, 13000); 
+     
+        if (prevQuestionsNowRef.current === questionsnow) {
+          setActiveStep((prevActiveStep) => (prevActiveStep >= valorlengthQuestions ? 0 : prevActiveStep + 1));
+          prevQuestionsNowRef.current = questionsnow;
+        }
+
+    }, 500); 
+
     return () => clearTimeout(timer);
-  }, [activeStep]);
+  }, [questionsnow, clinicalCaseCounterNow]);
 
   return (
     <Container>
