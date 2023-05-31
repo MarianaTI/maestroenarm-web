@@ -5,7 +5,6 @@ import {
 import { rankingUsers } from "../constants";
 import RankingCard from "../components/RankingCard";
 import RankingList from "../components/RankingList";
-import Navigation from "../components/Nabvar";
 import Avatar from "../components/Avatar";
 import Layout from "./layout";
 
@@ -25,24 +24,29 @@ const RankingUser = () => {
           data={secondPlaceUser}
           position={2}
           variant="SecondPlace"
-          avatar={<Avatar/>}
+          avatar={<Avatar />}
         ></RankingCard>
         <RankingCard
           data={firstPlaceUser}
           position={1}
           variant="firstPlace"
-          avatar={<Avatar/>}
+          textStyle={{ color: "#000000", fontSize: "20px" }}
+          avatar={<Avatar />}
         ></RankingCard>
         <RankingCard
           data={thirdPlaceUser}
           position={3}
           variant="thirdPlace"
-          avatar={<Avatar/>}
+          avatar={<Avatar />}
         ></RankingCard>
       </RankingContainer>
 
       <RankingListContainer>
-        <RankingList data={remainingUsers} />
+        <RankingList
+          data={remainingUsers}
+          isDisplayFields={["name", "specialty", "point"]}
+          avatar={<Avatar />}
+        />
       </RankingListContainer>
     </Layout>
   );

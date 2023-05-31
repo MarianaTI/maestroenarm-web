@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
 
 export const MenuContainer = styled.div`
   height: 100vh;
   width: ${(props) => (props.fullwidth ? "100%" : "auto")};
   padding: 24px;
-
 `;
 
 export const StyledContainerContent = styled.div`

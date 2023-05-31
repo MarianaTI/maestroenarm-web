@@ -4,7 +4,14 @@ import { PositionSpan, StyledCard, TextContainer } from "./index.style";
 
 const DEFAULT_DISPLAY_FIELDS = ["name", "university", "specialty", "point"];
 
-const RankingCard = ({ data, position, variant, avatar, universityStyle ={},isDisplayFields = DEFAULT_DISPLAY_FIELDS }) => {
+const RankingCard = ({
+  data,
+  position,
+  variant,
+  avatar,
+  universityStyle = {},
+  isDisplayFields = DEFAULT_DISPLAY_FIELDS,
+}) => {
   return (
     <StyledCard variant={variant}>
       <div style={{ display: "flex" }}>
@@ -29,11 +36,15 @@ const RankingCard = ({ data, position, variant, avatar, universityStyle ={},isDi
       </div>
 
       <TextContainer universityStyle={universityStyle}>
-        {isDisplayFields.includes("name") && <span className="name">{data.name}</span>}
+        {isDisplayFields.includes("name") && (
+          <span className="name">{data.name}</span>
+        )}
         {isDisplayFields.includes("university") && data.university && (
           <span className="university">{data.university}</span>
         )}
-        {isDisplayFields.includes("specialty") && <span className="specialty">{data.specialty}</span>}
+        {isDisplayFields.includes("specialty") && (
+          <span className="specialty">{data.specialty}</span>
+        )}
         {isDisplayFields.includes("point") && data.point && (
           <span className="point">{data.point}</span>
         )}

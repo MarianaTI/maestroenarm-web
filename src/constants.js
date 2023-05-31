@@ -37,7 +37,7 @@ export const rankingUsers = [
   {
     name: "Juan Martinez",
     profilePicture: true,
-    university: "Universidad Autónoma Metropolitana",
+    university: "Universidad Tecnologico de Merida",
     specialty: "Ortopedia",
     point: 21.6497,
   },
@@ -47,6 +47,13 @@ export const rankingUsers = [
     university: "Universidad Iberoamericana",
     specialty: "Pediatría",
     point: 22.4568,
+  },
+  {
+    name: "Jesus Alberto Rodriguez",
+    profilePicture: true,
+    university: "Universidad de la Riviera Maya",
+    specialty: "Ortopedia",
+    point: 21.6498,
   },
 ];
 

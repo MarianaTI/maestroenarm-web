@@ -15,4 +15,5 @@ export const RankingListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: ${(props) => (props.fullwidth ? "100%" : "auto")};
 `;

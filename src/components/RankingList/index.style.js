@@ -10,12 +10,32 @@ export const StyledList = styled.ul`
   box-sizing: border-box;
 `;
 
-export const StyledTextContainer = styled.div`
+export const StyledPosition = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 28px;
-  padding: 8px;
+
+  .icon{
+    font-size: 33px;
+  }
+
+  & span {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 33px;
+    font-feature-settings: "calt" off;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000000;
+  }
+`;
+
+export const StyledTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px;
   & span {
     font-family: "Poppins";
     font-style: normal;
@@ -24,32 +44,23 @@ export const StyledTextContainer = styled.div`
     line-height: 150%;
     letter-spacing: -0.01em;
     color: #000000;
-    flex-basis: 200px;
+    flex-basis: 305px;
   }
-  & span:nth-of-type(1){
-    font-size: 33px;
-    margin-left: -20px;
-    margin-right: -160px;
-  }
-  & span:nth-of-type(2) {
+  & span.name {
     font-size: 20px;
-    margin-right: 120px;
+    color: #000000;
   }
-  & span:nth-of-type(3) {
+  & span.university {
+    font-size: ${(props) => props.styledText.fontSize || "16px"};
+    color: ${(props) => props.styledText.color || "rgba(0, 0, 0, 0.65)"};
+    margin-right: ${(props) => props.styledText.margin || "0px"};
+    white-space: nowrap;
+  }
+  & span.specialty {
     font-size: 16px;
-    text-align: center;
-    margin-right: 120px;
-    color: rgba(0, 0, 0, 0.38);
   }
-  & span:nth-of-type(4) {
+  & span.point {
     font-size: 33px;
-    text-align: center;
+    text-align: right;
   }
-`;
-
-const StyledSpan = styled.span`
-  color: black;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem; // Espacio entre elementos
 `;
