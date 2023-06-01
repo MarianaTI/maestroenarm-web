@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "../styles/GameByCategory.module.css"
 import NavbarStatics from '../components/NavbarStatistics/Index.js';
 import TimeResult from "../components/TimeResult/Index.js";
 import { StatisticChart } from '../components/StatisticsChart/index.js'
 import { StatisticsContainer } from "../styles/statistics.style.js";
-import { TextContainerResult, Container , ContainerResult, TextStatic, Buttom} from "../styles/Result.style.js";
+import { TextContainerResult, Container , ContainerResult, TextStatic} from "../styles/Result.style.js";
 
 const items = [
     { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: 25 },
@@ -35,10 +36,9 @@ export default function FinalStatistics() {
                     <span>Ginecologia1/1 -100%</span>
                     <span>Remautologia0/1 -0%</span>
                 </TextStatic>
-
-                <Buttom>
+                    <a href="/" className={styles.botonPageFinal}>
                     <span>Salir</span>
-                </Buttom>
+                    </a>
                
             </Container>
             

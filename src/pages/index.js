@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/demo.module.css";
+import styles from "../styles/Home.module.css";
 import Responsivo from '../styles/Result.style.js';
 import stylesContainer from "../styles/Home.module.css";
 import { Button } from "@mui/material";

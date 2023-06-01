@@ -117,7 +117,7 @@ export const ContainerResult = styled.div`
 
 
 export const TextStatic = styled.div`
-    margin-top: 112px;
+    margin-top: 12%;
     display: flex;
     width: 90%;
     max-width: 900px;
@@ -172,34 +172,5 @@ export const TextStatic = styled.div`
       font-size: 14px;
       margin-left: 68%;
     }
-  }
-`;
-
-export const Buttom = styled.div`
-display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 24px;
-  margin: 16px;
-  width: 90%;
-  max-width: 397px;
-  height: 46px;
-  background: #052970;
-  border-radius: 15px;
-
-    & span {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    letter-spacing: -0.01em;
-    font-feature-settings: 'calt' off;
-    color: #FFFFFF;
-  } 
-  @media (max-width: 768px) {
-    width: 80%;
   }
 `;
