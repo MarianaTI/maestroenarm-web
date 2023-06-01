@@ -9,6 +9,7 @@ import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
+import Feedback from "../components/Feedback/index"
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -40,21 +41,18 @@ export default function Home() {
     }
   };
 
-  //TODO:Esta función se utiliza como manejador de eventos para manejar el clic en una respuesta.( para mostrar o ocultar la respuesta correcta.)
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
   };
 
-  //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico cuando se termina el tiempo del reloj.
   const handleQuestionTimeFinished = () => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
   };
 
-  //TODO:Esto sirve para para pasar a la siguiente pregunta o caso clínico.
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
@@ -173,10 +171,3 @@ function Counter({ onCountFinish }) {
   );
 }
 
-function Feedback({ text }) {
-  return (
-    <div className="feedback">
-      <p>{text}</p>
-    </div>
-  );
-}
