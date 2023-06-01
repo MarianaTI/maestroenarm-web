@@ -13,7 +13,7 @@ export const ModalBody = styled(Box)`
     border: 2px solid #b9b9b9;
     box-shadow: 24px;
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 16px;  
 
     ${css`
         @media screen and (max-width: 1020px) {
@@ -28,9 +28,21 @@ export const ModalBody = styled(Box)`
     `}
 `;
 
-export const RangeContainer = styled.div`
+export const LinkSharingContainer = styled.div`
     margin-top: 16px;
     display: flex;
-    gap: 6px; 
     flex-direction: column
+`;
+
+export const LinkSharing = styled.div`
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;    
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #EDEDED;
+    overflow: hidden;
+    text-overflow: ellipsis;  
 `;

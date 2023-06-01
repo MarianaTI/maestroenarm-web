@@ -4,6 +4,7 @@ import { GameSettingsModal } from "../../components/GameSettingsModal";
 import { openModal } from "../../store/slices/gameModalSlice";
 import { TitleGameContainer } from "../../styles/Game";
 import { useDispatch } from "react-redux";
+import { GameLinkSharingModal } from "../../components/GameLinkSharingModal";
 
 export default function Game() {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function Game() {
         </TitleGameContainer>
         <GameField label='Aleatorio' />
         <GameField onClick={() => dispatch(openModal())} label='Por Categoría' />
-        <GameSettingsModal/>
+        <GameSettingsModal />
+        <GameLinkSharingModal />
     </>
 }
