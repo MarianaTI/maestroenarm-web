@@ -9,7 +9,10 @@ import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
-import Feedback from "../components/Feedback/index"
+import Feedback from "../components/Feedback/index";
+import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../utils/firebase";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -17,20 +20,40 @@ export default function Home() {
   const [isCounterHidden, setIsCounterHidden] = useState(true);
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
+  const [clinicalCases, setClinicalCases] = useState([]);
   const [isCounting, setIsCounting] = useState(true);
   const subcategories = useSelector((state) => state.game.subcategories);
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+  const { roomId } = router.query;
+
+  useEffect(() => {
+    const fetchRoomData = async () => {
+      if (roomId) {
+        const roomRef = doc(db, "rooms", roomId);
+        const snapshot = await getDoc(roomRef);
+        const { clinicCases } = snapshot.data();
+        const clinicCasesData = clinicCases.map(
+          (clinicCaseId) => constants.clinicalCases[clinicCaseId]
+        );
+        setClinicalCases(clinicCasesData);
+        setIsLoading(false);
+      }
+    };
+
+    fetchRoomData();
+  }, [roomId]);
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
   };
 
-  const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
-  const question = clinicalCase.questions[questionCounter];
-  const lengthClinicalCase = constants.clinicalCases.length;
-  const lengthQuestions = clinicalCase.questions.length;
+  const clinicalCase = clinicalCases[clinicalCaseCounter];
+  const question = clinicalCase?.questions[questionCounter];
+  const lengthClinicalCase = clinicalCases.length;
+  const lengthQuestions = clinicalCase?.questions.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
-  const nowquestionCounter=questionCounter + 1;
-  
+  const nowquestionCounter = questionCounter + 1;
 
   const goNext = () => {
     const question = clinicalCase.questions[questionCounter + 1];
@@ -60,6 +83,14 @@ export default function Home() {
     setIsCounting(true);
   };
 
+  if (isLoading) {
+    return (
+      <div>
+        <span>Loading...</span>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -81,14 +112,14 @@ export default function Home() {
           seconds={13}
           isCounting={isCounting}
         ></TimeIcon>
-        <Question>{clinicalCase.label}</Question>
-        <p className={caso.pregunta}>{question.label}</p>
+        <Question>{clinicalCase?.label}</Question>
+        <p className={caso?.pregunta}>{question?.label}</p>
 
         {isFeedbackHidden && (
           <div className="container">
             <div className={styles.answersContainer}>
               <Answers
-                answers={question.answers}
+                answers={question?.answers}
                 onClick={handleAnswerClick}
                 isResultRevealed={isResultRevealed}
               />
@@ -122,8 +153,9 @@ function Answers({ answers, onClick, isResultRevealed }) {
 
   return (
     <div className={styles.answers}>
-      {answers.map((answer) => (
+      {answers?.map((answer) => (
         <Answer
+          key={answer.label}
           onClick={(evento) =>
             handleAnswerClick(answer.isCorrect, evento.target)
           }
@@ -170,4 +202,3 @@ function Counter({ onCountFinish }) {
     </div>
   );
 }
-

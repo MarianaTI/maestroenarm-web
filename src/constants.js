@@ -14,8 +14,9 @@ export const userAccount = [
 ];
 
 export default {
-  clinicalCases: [
-    {
+  clinicalCases: {
+    jklasdh123asjklhd: {
+      id: "jklasdh123asjklhd",
       label:
         "CASO 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
       questions: [
@@ -83,12 +84,13 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
+        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es lógico que el blablabla es lo mejor",
       },
     },
-    {
+    asjklhd123asjkd214567kasd: {
+      id: "asjklhd123asjkd214567kasd",
       label:
         "CASO 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
       questions: [
@@ -177,12 +179,13 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
+        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es lógico que el blablabla es lo mejor",
       },
     },
-    {
+    wuieyqiwue123123qasuiyedqwe: {
+      id: "wuieyqiwue123123qasuiyedqwe",
       label:
         "CASO 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
       questions: [
@@ -292,12 +295,13 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
+        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es lógico que el blablabla es lo mejor",
       },
     },
-    {
+    "lkdfgkler8910!asl212": {
+      id: "lkdfgkler8910!asl212",
       label:
         "CASO 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
       questions: [
@@ -405,7 +409,8 @@ export default {
               isCorrect: false,
             },
           ],
-        },{
+        },
+        {
           label: "Pregunta seis",
           answers: [
             {
@@ -427,12 +432,13 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
+        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es lógico que el blablabla es lo mejor",
       },
     },
-    {
+    lsdfkqw91237dsnchj3: {
+      id: "lsdfkqw91237dsnchj3",
       label:
         "CASO 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
       questions: [
@@ -500,10 +506,10 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
+        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es lógico que el blablabla es lo mejor",
       },
     },
-  ],
+  },
 };
