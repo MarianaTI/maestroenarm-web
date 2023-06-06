@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import { useState } from "react";
 import styles from "../styles/GameByCategory.module.css";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
