@@ -30,7 +30,7 @@ const PageAudiobooks = () => {
             name={item.name}
             detail={item.detail}
             price={item.price}
-            showIcon={true}
+            showIcon
           />
         ))}
       </AudiobookContainer>
