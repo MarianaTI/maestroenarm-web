@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
 
-export const StatisticsContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-`;
-
-
+export const StatisticsContainer = styled.div({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    flexWrap: 'wrap',
+})
