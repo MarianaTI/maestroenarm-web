@@ -64,7 +64,6 @@ export default function FilterDrawer() {
                         label={label}
                         subspecialties={subspecialties} />)}
                 </List>
-                <Divider />
             </DrawerBody>
         </Drawer >
     );
