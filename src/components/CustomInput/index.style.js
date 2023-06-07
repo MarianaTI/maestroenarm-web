@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const InputStyled = styled.input`
   margin: 4px 0px 8px 0px;
-  width: ${props => props.fullwidth ? "100%" : "auto"};
+  width: ${(props) => (props.fullwidth ? "100%" : "auto")};
   background-color: #ebebeb;
   border-radius: 10px;
   height: 50px;

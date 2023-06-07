@@ -69,7 +69,8 @@ const Sesion = () => {
     }
   };
 
-  const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+  const toggleForgotPasswordModal = () =>
+    setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
   const togglePasswordVisibility = () => {
     setShowPassword(!isShowPassword);
   };
@@ -126,7 +127,7 @@ const Sesion = () => {
             <BackQuestionStyled>
               <span>
                 ¿Aún no tienes cuenta?
-                <LinkText href="#">Registrate</LinkText>
+                <LinkText href="/register">Registrate</LinkText>
               </span>
             </BackQuestionStyled>
           </FormStyled>

@@ -22,7 +22,7 @@ const categories = [
       { name: "Nefrologi 1" },
       { name: "Dermatologia 1" },
     ],
-  },
+  },  
   {
     name: "Medicina Interna 2",
     subcategories: [

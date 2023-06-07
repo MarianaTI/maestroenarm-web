@@ -7,6 +7,6 @@ const CustomButton = ({ buttonText, onClick, type }) => {
       {buttonText}
     </ButtonStyled>
   );
-};
+}; 
 
 export default CustomButton;
