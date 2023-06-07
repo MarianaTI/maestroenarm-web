@@ -9,10 +9,12 @@ const links = [
    
   ]
 
-  export default function AvatarComponent() {
+  export default function Avatar({size}) {
     return (
         <div style={{ display: "flex", alignItems: "center" }}>
-            <Avatar sx={{ width: 70, height: 70 }} />
+            <AvatarWrapper size={size}>
+                <StyledAvatar size={size}></StyledAvatar>
+            </AvatarWrapper>
             <div style={{ marginLeft: "10px" }}>
                 <p style={{ margin: "0", fontFamily: "Poppins" , fontWeight: "bold"}}>Usuario</p>
                 <span style={{ fontSize: "12px", fontFamily: "Poppins" }}>Agregar imagen</span>
@@ -20,3 +22,6 @@ const links = [
         </div>
     );
 }
+import { AvatarWrapper, StyledAvatar } from "./index.style"
+
+

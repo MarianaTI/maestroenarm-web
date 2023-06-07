@@ -77,6 +77,4 @@ export const LinkText = styled(Link)`
   font-weight: 600;
   text-decoration: none;
   display: inline;
-  
-
 `;

@@ -1,4 +1,4 @@
-import {SelectStyle} from "./index.styles"
+import {SelectStyle} from "../Select/index.style"
 import React from 'react';
 
 const Select = ({option}) => {
@@ -9,4 +9,4 @@ const Select = ({option}) => {
         </SelectStyle>
     );
 };
-export default Select;
+export default Select

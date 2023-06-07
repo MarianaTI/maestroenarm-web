@@ -1,4 +1,4 @@
- import React from "react";
+import React from "react";
 import { ButtonStyled } from "./index.style";
 
 const CustomButton = ({ buttonText, onClick, type }) => {
@@ -7,6 +7,6 @@ const CustomButton = ({ buttonText, onClick, type }) => {
       {buttonText}
     </ButtonStyled>
   );
-};
+}; 
 
 export default CustomButton;

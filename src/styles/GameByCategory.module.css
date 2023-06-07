@@ -1,18 +1,18 @@
-.gameByCategory{
-    padding:16px;
-    height:100vh;
+.gameByCategory {
+    padding: 16px;
+    height: 100vh;
     max-width: 800px;
-    margin:auto
+    margin: auto
 }
 
-.categories{
-    display:flex;
+.categories {
+    display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.category{
-    padding:32px 16px;
+.category {
+    padding: 32px 16px;
     box-shadow: 5px 5px 15px rgba(40, 138, 184, 0.5);
     border-radius: 8px;
     background-color: #ffffff;
@@ -22,3 +22,64 @@
 .category span{
     display:block;
 }
+
+.pregunta {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    /* identical to box height, or 28px */
+
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+    color: #052970;
+    padding-top: 16px;
+    
+}
+
+.tipoLetra{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 150%;
+    /* or 22px */
+    text-align: center;
+    letter-spacing: -0.01em;
+    font-feature-settings: 'calt' off;
+}
+
+.botonPageFinal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    margin: 4%;
+    margin-left: 27%;
+    max-width: 397px;
+    height: 46px;
+    background: #052970;
+    border-radius: 15px;
+  }
+  
+  .botonPageFinal span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.01em;
+    font-feature-settings: 'calt' off;
+    color: #FFFFFF;
+  }
+  
+  @media (max-width: 768px) {
+    .botonPageFinal {
+      width: 80%;
+    }
+  }
+  
