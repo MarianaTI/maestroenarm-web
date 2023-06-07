@@ -62,7 +62,7 @@ export default function FilterDrawer() {
                     {specialties.map(({ id, label, subspecialties }) => <ListFilterDrawer
                         key={id}
                         label={label}
-                        subspecificities={subspecialties} />)}
+                        subspecialties={subspecialties} />)}
                 </List>
                 <Divider />
             </DrawerBody>
