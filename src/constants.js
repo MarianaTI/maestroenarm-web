@@ -1,3 +1,69 @@
+export const audiobooks = [
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 1",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 2",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 3",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 4",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 5",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 6",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 7",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 8",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 9",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 10",
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+    price: 10.99
+  },
+]
+
+
+
+
 export default {
   clinicalCases: [
     {

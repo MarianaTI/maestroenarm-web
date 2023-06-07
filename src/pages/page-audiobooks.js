@@ -1,11 +1,13 @@
 import React from "react";
 import {
+  AudiobookContainer,
   BackgroundImage,
   Container,
   MainContainer,
   MainInformation,
 } from "../styles/PageAudiobooks.style";
 import CustomAudiobook from "../components/CustomAudiobook";
+import { audiobooks } from "../constants";
 
 const PageAudiobooks = () => {
   return (
@@ -20,11 +22,18 @@ const PageAudiobooks = () => {
         </MainInformation>
         <BackgroundImage />
       </MainContainer>
-      <CustomAudiobook
-        name="Nombre"
-        detail="Lorem ipsum dolor sit amet"
-        price="0.00"
-      />
+      <AudiobookContainer>
+        {audiobooks.map((item, index) => (
+          <CustomAudiobook
+            key={index}
+            img={item.img}
+            name={item.name}
+            detail={item.detail}
+            price={item.price}
+            showIcon={true}
+          />
+        ))}
+      </AudiobookContainer>
     </Container>
   );
 };

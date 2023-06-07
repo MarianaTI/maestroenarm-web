@@ -1,14 +1,20 @@
 import React from "react";
-import { Container, DetailsContainer, ImgStyled } from "./index.style";
+import {
+  Container,
+  DetailsContainer,
+  IconStyled,
+  ImgStyled,
+} from "./index.style";
 
-const CustomAudiobook = ({ img, name, detail, price }) => {
+const CustomAudiobook = ({ img, name, detail, price, showIcon }) => {
   return (
     <Container>
-      <ImgStyled src="./audiobook-example.png" />
+      <ImgStyled src={img} />
       <DetailsContainer>
-        <samp>{name}</samp>
-        <samp>{detail}</samp>
+        <span>{name}</span>
+        <span>{detail}</span>
         <span>$ {price}</span>
+        {showIcon && <IconStyled />}
       </DetailsContainer>
     </Container>
   );

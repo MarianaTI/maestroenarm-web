@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding: 8px;
+  padding: 24px;
 `;
 
 export const CardCategorie = styled.div`
-  width: 232px;
-  height: 253px;
+  width: 210px;
+  height: 233px;
   border-radius: 100px;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,7 @@ export const CardCategorie = styled.div`
   :hover {
     background: rgba(215, 213, 252, 0.5);
     cursor: pointer;
+    scale: 1.1;
   }
 `;
 

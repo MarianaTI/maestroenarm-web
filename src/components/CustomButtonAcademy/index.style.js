@@ -13,4 +13,7 @@ export const ButtonStyled = styled(Button)`
   font-family: "Poppins";
   font-weight: 700;
   text-transform: none;
+  &:hover {
+    background: #6E85B7;
+  }
 `;
