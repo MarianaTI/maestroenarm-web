@@ -31,7 +31,7 @@ export const FilterContainer = styled.div`
     align-items: center;
     gap: 48px;
 
-    & > :first-child {
+    & > :first-of-type {
         position: absolute;
         left: 130px;
     }
