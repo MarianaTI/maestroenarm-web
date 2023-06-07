@@ -1,10 +1,22 @@
 import React from "react";
 import { ButtonStyled } from "./index.style";
 
-const CustomButton = ({buttonText, width, height}) => {
+export const CustomButton = ({
+  text,
+  onClick,
+  type,
+  fullWidth,
+  theme,
+  children,
+}) => {
   return (
-      <ButtonStyled sx={{width: {width}}}>{buttonText}</ButtonStyled>
+    <ButtonStyled
+      fullWidth={fullWidth}
+      onClick={onClick}
+      type={type}
+      theme={theme}
+    >
+      {children || text}
+    </ButtonStyled>
   );
 };
-
-export default CustomButton;

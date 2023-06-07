@@ -1,37 +1,45 @@
-import { Avatar } from '@mui/material';
-import { AvatarContainer, Button, ButtonGroup, ProfileSettingsContainer } from '../styles/ProfileSettings';
-import { ProfileField } from '../components/ProfileField';
-import MainLayout from '../layouts/MainLayout';
+import { ScoreField } from "../components/ScoreField";
+import { StatisticChart } from "../components/StatisticChart";
+import MainLayout from "../layouts/MainLayout";
+import { StatisticsContainer } from "../styles/statistics";
 
-const profileFields = [
-    { label: 'Nombre de Usuario', text: 'ZeeN' },
-    { label: 'Nombre Y Apellido', text: 'Adrian Mis' },
-    { label: 'Correo', text: 'zeen.cr@gmail.com' },
-    { label: 'Contraseña', text: '********' }
+const items = [
+  {
+    label: "Correctos",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1",
+    score: 25,
+  },
+  {
+    label: "Incorrectos",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1",
+    score: 6,
+  },
+  {
+    label: "Presición",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1",
+    score: 40,
+  },
 ];
 
-const buttons = [
-    { text: 'Premium', bgColor: '#FFAA2B' },
-    { text: 'Cerrar sesión', bgColor: '#052970' },
-    { text: 'Eliminar cuenta', bgColor: '#052970' }
+const scoreFields = [
+  { label: "Casos resueltos", score: 0 },
+  { label: "Prom. Casos Resueltos al Día", score: 0 },
+  { label: "Tiempo Total de Estudio", score: 0 },
+  { label: "Prom.Duración de Sesión", score: 0 },
 ];
 
-export default function ProfileSettings() {
-    return (
-        <MainLayout>
-            <AvatarContainer>
-                <Avatar sx={{ width: 132, height: 132 }} alt="Adrian Mis" src="" />
-                <p>Cuenta Básica</p>
-            </AvatarContainer>
-            <ProfileSettingsContainer>
-                {profileFields.map(({ label, text }) => <ProfileField key={label} label={label} text={text}></ProfileField>)}
-            </ProfileSettingsContainer>
-            <ButtonGroup>
-                {buttons.map(button => <Button
-                    key={button.text}
-                    bg={button.bgColor}
-                    color="#F4F4F4">{button.text}</Button>)}
-            </ButtonGroup>
-        </MainLayout>
-    );
+export default function Stadistics() {
+  return (
+    <MainLayout>
+      <StatisticsContainer>
+        <StatisticChart items={items}></StatisticChart>
+        {scoreFields.map(({ label, score }) => (
+          <ScoreField key={label} label={label} score={score} />
+        ))}
+      </StatisticsContainer>
+    </MainLayout>
+  );
 }

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 export const ModalContent = styled.div`
   position: absolute;
@@ -9,8 +9,10 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   background-color: #f4f4f4;
   box-shadow: 24;
-  padding: 2%;
+  padding: 24px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   & h1 {
     font-size: 16px;
     color: #000000;
@@ -21,15 +23,20 @@ export const ModalContent = styled.div`
     color: rgba(0, 0, 0, 0.74);
     font-weight: 500;
     letter-spacing: -0.01em;
-    font-feature-settings: "calt" off;
+  }
+  @media (max-width: 768px) {
+    width: 400px;
+    padding: 24px;
   }
 `;
-
 
 export const ModalHead = styled.div`
   display: flex;
   align-items: center;
-`; 
+`;
+export const ModalMain = styled.div`
+  padding: 16px 0 16px 0;
+`;
 
 export const ModalCloseIcon = styled(CloseIcon)`
   cursor: pointer;
