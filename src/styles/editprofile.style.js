@@ -1,44 +1,62 @@
 import styled from "@emotion/styled";
 
-export const EditProfile = styled.div`
-  background-color: #f4f4f4;
-  height: 100vh;
-  width: 100%;
-  padding: 8px;
-  & h1 {
-    font-size: 35px;
-    font-weight: 600;
-    color: #052970;
-  }
-
-`;
-export const ImageStyle = styled.div`
-  background-image: url(../../public/editprofileimage.svg);
-
-`;
-export const CardStyle = styled.div`
-    max-width: 500px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 30px;
-    & span {
-      color: #00000090;
-      font-weight: 500;
-      padding: 5px;
-      letter-spacing: -0.01em;
-      font-feature-settings: "calt" off;
-    }
-`;
-export const FormStyle = styled.form`
+export const StyledContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 280px;
-  height: 60vh;
-  font-size: 14px;
-  & span {
-    color: #000000;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledAvatar = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-right: 40%;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
+`;
+
+export const StyledTextContainer = styled.div`
+  gap: 120px;
+  font-family: "Poppins";
+  font-size: 10px;
+  color: #000000;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  padding-top: 70px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+`;
+
+export const StyledSubmitButton = styled.input`
+  height: 50px;
+  width: 180px;
+  background-color: #052970;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Poppins";
+  font-weight: 500;
+  cursor: pointer;
+  left: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+`;
+
+export const StyledSubmitButtonContainer = styled.div`
+  margin-left: 400%;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    text-align: center;
   }
 `;

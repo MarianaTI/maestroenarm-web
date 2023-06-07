@@ -10,7 +10,7 @@ const editProfile = () => {
     <EditProfile>
         <CardStyle>
         <h1>Editar perfil</h1>
-            <Avatar/>
+            <Avatar size="70px"/>
             <FormStyle>
                 <span>Usuario</span>
                 <CustomInput1/>
