@@ -5,7 +5,7 @@ import { Collapse } from '@mui/material';
 import { useState } from 'react';
 import { Container } from './index.style';
 
-export default function ListFilterDrawer({ subspecificities, label, children }) {
+export default function ListFilterDrawer({ subspecialties, label, children }) {
     const [open, setOpen] = useState(false)
     return (
         <>
@@ -16,7 +16,7 @@ export default function ListFilterDrawer({ subspecificities, label, children }) 
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <Container>
-                    {subspecificities.map(({ id, label }) => <label key={id} style={{ marginLeft: 20 }}>
+                    {subspecialties.map(({ id, label }) => <label key={id} style={{ marginLeft: 20 }}>
                         <input type='checkbox' style={{ marginRight: 16 }} />
                         {label}
                     </label>)}

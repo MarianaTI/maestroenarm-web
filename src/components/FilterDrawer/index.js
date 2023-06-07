@@ -6,12 +6,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import ListFilterDrawer from '../ListFilterDrawer';
 import { closeDrawer } from '../../store/slices/filterDrawerSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { IconButton } from '@mui/material';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
 
-const specificities = [
+const specialties = [
     {
-        id: 1, label: 'Especialidad', subspecificities: [
+        id: 1, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad' },
             { id: 2, label: 'Sub - especialidad' },
             { id: 3, label: 'Sub - especialidad' },
@@ -19,7 +18,7 @@ const specificities = [
         ]
     },
     {
-        id: 2, label: 'Especialidad', subspecificities: [
+        id: 2, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad' },
             { id: 2, label: 'Sub - especialidad' },
             { id: 3, label: 'Sub - especialidad' },
@@ -27,7 +26,7 @@ const specificities = [
         ]
     },
     {
-        id: 3, label: 'Especialidad', subspecificities: [
+        id: 3, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad' },
             { id: 2, label: 'Sub - especialidad' },
             { id: 3, label: 'Sub - especialidad' },
@@ -35,7 +34,7 @@ const specificities = [
         ]
     },
     {
-        id: 4, label: 'Especialidad', subspecificities: [
+        id: 4, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad' },
             { id: 2, label: 'Sub - especialidad' },
             { id: 3, label: 'Sub - especialidad' },
@@ -60,10 +59,10 @@ export default function FilterDrawer() {
                     </IconButtonStyled>
                 </Container>
                 <List>
-                    {specificities.map(({ id, label, subspecificities }) => <ListFilterDrawer
+                    {specialties.map(({ id, label, subspecialties }) => <ListFilterDrawer
                         key={id}
                         label={label}
-                        subspecificities={subspecificities} />)}
+                        subspecificities={subspecialties} />)}
                 </List>
                 <Divider />
             </DrawerBody>
