@@ -69,7 +69,8 @@ const Sesion = () => {
     }
   };
 
-  const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+  const toggleForgotPasswordModal = () =>
+    setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
   const togglePasswordVisibility = () => {
     setShowPassword(!isShowPassword);
   };

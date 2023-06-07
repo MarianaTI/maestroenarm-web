@@ -1,3 +1,55 @@
+export const rankingUsers = [
+  {
+    name: "Angel Ricardez",
+    profilePicture: true,
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    point: 24.0008,
+  },
+  {
+    name: "Rodrigo Caraveo",
+    profilePicture: true,
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    point: 25.7188,
+  },
+  {
+    name: "Mariana Trujillo",
+    profilePicture: true,
+    university: "Universidad Tecnologica Metropolitana",
+    specialty: "Cirugia General",
+    point: 22.7305,
+  },
+  {
+    name: "Carlos Hernandez",
+    profilePicture: true,
+    university: "Universidad Nacional Autónoma de México",
+    specialty: "Cardiología",
+    point: 23.4956,
+  },
+  {
+    name: "Laura Gonzalez",
+    profilePicture: true,
+    university: "Instituto Politécnico Nacional",
+    specialty: "Neurología",
+    point: 24.9652,
+  },
+  {
+    name: "Juan Martinez",
+    profilePicture: true,
+    university: "Universidad Autónoma Metropolitana",
+    specialty: "Ortopedia",
+    point: 21.6497,
+  },
+  {
+    name: "Ana Lopez",
+    profilePicture: true,
+    university: "Universidad Iberoamericana",
+    specialty: "Pediatría",
+    point: 22.4568,
+  },
+];
+
 export const userAccount = [
   {
     email: "mariana@hotmail.com",
@@ -83,7 +135,7 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
         text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
       },
@@ -177,7 +229,7 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
         text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
       },
@@ -292,7 +344,7 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
         text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
       },
@@ -405,7 +457,8 @@ export default {
               isCorrect: false,
             },
           ],
-        },{
+        },
+        {
           label: "Pregunta seis",
           answers: [
             {
@@ -427,7 +480,7 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
         text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
       },
@@ -500,7 +553,7 @@ export default {
           ],
         },
       ],
-      
+
       feedback: {
         text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
       },

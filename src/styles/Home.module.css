@@ -21,11 +21,15 @@
   border-radius: 4px;
 }
 
-.answer {
-  border-radius: 4px;
-  color: rgba(255, 255, 255);
+.main{
+  margin: 100px;
+}
+
+.answer{
   padding: 8px 16px;
-  cursor: pointer;
+  border-radius: 4px;
+  color:rgba(255,255,255);
+  cursor:pointer;
   min-height: 100px;
   box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
   display: flex;

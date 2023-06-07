@@ -5,15 +5,14 @@ import {
   LabelStyled,
   InputWrapper,
   IconWrapper,
-  ErrorMessage
+  ErrorMessage,
 } from "./index.style";
 
-
-const CustomInput = ({ error, label, icon, control, name, type, ...props}) => {
+const CustomInput = ({ error, label, icon, control, name, type, ...props }) => {
   const {
     field,
     fieldState: { invalid, isTouched, isDirty },
-    formState: { touchedFields, dirtyFields }
+    formState: { touchedFields, dirtyFields },
   } = useController({
     name,
     control,

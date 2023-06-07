@@ -10,11 +10,12 @@ export const ButtonStyled = styled(Button)`
   font-weight: 500;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   margin-top: 16px;
-  ${props => (
-    {
-      background: props.theme === 'secondary' ? 'rgba(255, 170, 43, 1)' : '#052970',
-      ":hover": {
-        background: props.theme === 'secondary' ? 'rgba(255, 170, 43, .6)' : '#05297099'
-      }
+  ${(props) => ({
+    background:
+      props.theme === "secondary" ? "rgba(255, 170, 43, 1)" : "#052970",
+    ":hover": {
+      background:
+        props.theme === "secondary" ? "rgba(255, 170, 43, .6)" : "#05297099",
+    },
   })}
 `;
