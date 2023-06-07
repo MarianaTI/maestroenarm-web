@@ -10,6 +10,8 @@ import DotsMobileStepper from "../components/DotsMobileStepper";
 import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
 import Feedback from "../components/Feedback/index"
+import { useRouter } from "next/router";
+import { answerCount } from "./finalStatistics";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -18,7 +20,10 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
+  const [trueCount, setTrueCount] = useState(0);
+  const [falseCount, setFalseCount] = useState(0);
   const subcategories = useSelector((state) => state.game.subcategories);
+  const router = useRouter();
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -30,21 +35,36 @@ export default function Home() {
   const lengthQuestions = clinicalCase.questions.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter=questionCounter + 1;
-  
 
   const goNext = () => {
-    const question = clinicalCase.questions[questionCounter + 1];
-    if (question) setQuestionCounter(questionCounter + 1);
-    if (!question) {
-      setClinicalCaseCounter(clinicalCaseCounter + 1);
-      setQuestionCounter(0);
+    const question = clinicalCase.questions[nowquestionCounter];
+    if (question) {
+      setQuestionCounter(nowquestionCounter);
+    } else {
+      const nextClinicalCaseCounter = nowClinicalCaseCounter;
+      if (nextClinicalCaseCounter < constants.clinicalCases.length) {
+        setClinicalCaseCounter(nextClinicalCaseCounter);
+        setQuestionCounter(0);
+      } else {
+        router.push("/finalStatistics");
+      }
     }
   };
+
+  const handleAnswer=(isAnswerCorrect)=>{
+    if (isAnswerCorrect) {
+      setTrueCount(trueCount + 1);
+    } else {
+      setFalseCount(falseCount + 1);
+    }
+  }
+
 
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
+    handleAnswer(isAnswerCorrect);
   };
 
   const handleQuestionTimeFinished = () => {
@@ -58,6 +78,7 @@ export default function Home() {
     toggleResultRevealed();
     goNext();
     setIsCounting(true);
+    answerCount(trueCount, falseCount);
   };
 
   return (

@@ -10,7 +10,7 @@ const Bienvenido = () => {
         <span>Jugar Demo</span>
       </a>
       <p className={styles.saltarDemo}>
-        Desea saltar la DEMO? <a href="#">Saltar</a>{" "}
+        Desea saltar la DEMO? <a href="/sesion">Saltar</a>{" "}
       </p>
     </div>
   );

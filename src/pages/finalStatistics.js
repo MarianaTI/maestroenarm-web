@@ -6,14 +6,20 @@ import { StatisticChart } from '../components/StatisticsChart/index.js'
 import { StatisticsContainer } from "../styles/statistics.style.js";
 import { TextContainerResult, Container , ContainerResult, TextStatic} from "../styles/Result.style.js";
 
+export function answerCount(trueCount,falseCount){
 const items = [
-    { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: 25 },
-    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: 0 },
+    { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueCount },
+    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseCount },
     { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: 40 }
 ];
+console.log('trueCount: ',trueCount);
+console.log('falseCount: ',falseCount);
+return items;
+}
 
 
 export default function FinalStatistics() {
+    const items=answerCount();
     return (
         <div>
             <NavbarStatics></NavbarStatics>
