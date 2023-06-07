@@ -85,13 +85,12 @@ function Answers({ answers, onClick, isResultRevealed }) {
     <div className={styles.answers}>
       {answers.map((answer) => (
         <Answer
-          className={`${
-            isResultRevealed
-              ? !answer.isCorrect
-                ? styles["is-wrong-answer"]
-                : ""
+          className={`${isResultRevealed
+            ? !answer.isCorrect
+              ? styles["is-wrong-answer"]
               : ""
-          }`}
+            : ""
+            }`}
           onClick={() => handleAnswerClick(answer.isCorrect)}
         >
           {answer.label}

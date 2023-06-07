@@ -13,7 +13,8 @@ export const SearchInput = styled.input`
             boxShadow: "0px 4px 4px rgba(72, 74, 132, 0.2)",
             outline: "none",
             padding: "0 36px",
-            fontSize: 16
+            fontSize: 16,
+            fontFamily: 'Poppins',
         }
     }} 
 
