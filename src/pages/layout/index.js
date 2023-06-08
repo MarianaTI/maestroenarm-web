@@ -1,4 +1,4 @@
-import Navigation from "../../components/Nabvar";
+import Navigation from "../../components/Nab";
 
 const Layout = ({children}) => {
     return(

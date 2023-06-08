@@ -25,6 +25,7 @@ import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useRouter } from "next/router";
 
 const loginSchema = yup.object({
   email: yup.string().email().required(),
@@ -36,6 +37,7 @@ const Sesion = () => {
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
   const [isShowPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const authenticateUser = (email, password) => {
     const user = userAccount.find(
@@ -61,7 +63,7 @@ const Sesion = () => {
   const onSubmit = (values) => {
     try {
       authenticateUser(values.email, values.password);
-      console.log("Autenticación exitosa");
+      router.push("/game");
       setErrorLogin(false);
     } catch (error) {
       console.log(error.message);

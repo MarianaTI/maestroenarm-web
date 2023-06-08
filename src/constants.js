@@ -57,6 +57,22 @@ export const rankingUsers = [
   },
 ];
 
+export const userAccount = [
+  {
+    email: "mariana@hotmail.com",
+    password: "mariana123",
+  },
+  {
+    email: "angel@hotmail.com",
+    password: "angel123",
+  },
+  {
+    email: "cloe@hotmail.com",
+    password: "cloe123",
+  },
+];
+
+
 export default {
   clinicalCases: [
     {
