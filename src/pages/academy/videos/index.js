@@ -1,8 +1,7 @@
-import { Home } from "@mui/icons-material"
-import { CustomButton } from "../../../components/CustomButton"
 import VideoCard from "../../../components/VideoCard"
-import { SectionStyled, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
+import { VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import FilterDrawer from "../../../components/FilterDrawer"
+import Filter from "../../../components/Filter"
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -15,15 +14,8 @@ export default function Videos() {
     return (
         <>
             <VideoContainer>
-                <SectionStyled>
-                    <div>
-                        <h1 style={{ fontWeight: "bold", fontSize: 40 }}>Body Bold Extra Large. </h1>
-                        <p style={{ fontSize: 26 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </div>
-                    <div style={{ height: 300, width: 375, background: "#D9D9D9", justifySelf: "flex-end" }}>
-
-                    </div>
-                </SectionStyled>
+                <div style={{ height: 364, width: "85%", background: '#D9D9D9', marginTop: 48 }}></div>
+                <Filter></Filter>
                 <VideoCardContainer>
                     {videoCards.map(({ id, title, description, prize }) => <VideoCard
                         key={id}
@@ -32,8 +24,9 @@ export default function Videos() {
                         prize={prize}>
                     </VideoCard>)}
                 </VideoCardContainer>
-            </VideoContainer>
+            </VideoContainer >
             <FilterDrawer></FilterDrawer>
+            <FilterDrawer />
         </>
     )
 }

@@ -1,11 +1,9 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const SearchInput = styled.input`
     ${props => {
         if (props.type === "search") return {
-            position: "relative",
-            width: 800,
+            width: "100%",
             height: 54,
             borderRadius: 12,
             border: "none",
@@ -16,32 +14,35 @@ export const SearchInput = styled.input`
             fontSize: 16,
             fontFamily: 'Poppins',
         }
-    }} 
-
-    ${css`
-        @media screen {
-
-        }
-    `}
+    }}
 `;
 
-export const FilterContainer = styled.div`
-    margin: 10px 100px;
+export const FilterContainer = styled.div`  
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 16px;
+    width: 800px;
 
     & > svg {
         position: absolute;
-        left: 130px;
+        left: 28px;
     }
+
+    @media screen and (max-width: 1020px) {
+        width: 80%;
+    }   
 `;
 
 export const ButtonContent = styled.div`
+    font-size: 16px;
     display: flex;
     gap: 14px;
-    padding: 0 6px;
-    & > span {
-        font-size: 16px;
+    padding: 24px;
+    @media screen and (max-width: 640px) {
+        padding: 0px;
+        & > span {
+            display: none;
+        }
     }
 `;

@@ -21,7 +21,7 @@ export const ButtonStyled = styled(Button)`
             background: props.theme === 'secondary'
                 ? 'rgba(72, 74, 132, .9)'
                 : props.theme === 'warning'
-                    ? 'rgba(255, 170, 43, .7)' : '#05297099'
+                ? 'rgba(255, 170, 43, .7)' : '#05297099'
         }
     })}
 `;
