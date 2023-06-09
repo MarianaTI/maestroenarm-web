@@ -18,14 +18,16 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
   background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(189, 193, 200);
+  border-radius: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #e3e3e3;
+  background-color: transparent;
+  padding: 10px;
 }

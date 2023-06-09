@@ -1,39 +1,34 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled"
 
-export const Container = styled.div`
+const ContainerStyles = ({ isVertical }) => css`
+    flex-direction: ${isVertical ? 'column' : ''};
     display: flex;
-    flex-direction: column;
     gap: 16px;
     align-items: center;
-    height: 318px;
 
-    & > div {
-        height: 139px;
-        width: 245px; 
-        background: #D9D9D9;
-    }
-
-    & > * {
+    & > div > * {
         width: 245px; 
         margin: 0;
     }
 
-    & > :nth-child(2) {
-        font-weight: bold;
-        font-size: 24px;
+    & > video {
+        width: ${isVertical ? '245px' : '168px'};
+        height: ${isVertical ? '145px' : '94px'};;
+        background: #D9D9D9;
     }
 
-    @media screen and (max-width: 640px) {
-        height: 360px;
-        width: 360px;
-        margin-bottom: 0;
-        flex-direction: column;
-        align-items: start;
+    & > div > :nth-child(1) {
+        font-weight: bold;
+    }
+`
 
-        & > div {
-            height: 200px;
+export const Container = styled.div`
+    ${ContainerStyles}
+    @media screen and (max-width: 1020px) {
+        & > div > * {
             width: 100%; 
-            background: #D9D9D9
+            margin: 0;
         }
-    } 
+    }
 `;

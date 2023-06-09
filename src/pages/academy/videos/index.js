@@ -21,7 +21,9 @@ export default function Videos() {
                         key={id}
                         title={title}
                         description={description}
-                        prize={prize}>
+                        prize={prize}
+                        isVertical
+                    >
                     </VideoCard>)}
                 </VideoCardContainer>
             </VideoContainer >

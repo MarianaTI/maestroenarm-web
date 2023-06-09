@@ -1,17 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-    @media screen and (min-width: 1019px) {
+    @media screen and (min-width: 1020px) {
         display: flex;
     }
 `;
 
 export const Sidebar = styled.aside`
+    padding: 0 32px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-items: flex-start;
     gap: 16px;
-    @media screen and (min-width: 1019px) {
+    @media screen and (min-width: 1020px) {
         flex: 0 0 250px;
         padding: 32px 32px 32px 0;
         background-color: #f8f8f8;
