@@ -1,6 +1,6 @@
 import { CustomButton } from "../../../../components/CustomButton";
 import VideoCard from "../../../../components/VideoCard";
-import { FakeVideo, PreviewContainer, Sidebar } from "../../../../styles/Preview.style";
+import { PlayerVideo, VideoContainer, Container, MainContent, Sidebar } from "../../../../styles/Watch.style";
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -9,17 +9,15 @@ const videoCards = [
     { id: "card4", title: "Titulo4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" }
 ]
 
-export default function Preview() {
+export default function Watch() {
     return (
-        <PreviewContainer>
-            <main style={{ flex: 1 }}>
-                <FakeVideo></FakeVideo>
-                <h1 style={{ fontSize: 40 }}>Body Bold Extra Large</h1>
-                <span>Especialidad</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <span>$ 0.00</span>
-                <CustomButton theme="secondary">comprar ahora </CustomButton>
-            </main>
+        <Container>
+            <MainContent>
+                <VideoContainer>
+                    <PlayerVideo>
+                    </PlayerVideo>
+                </VideoContainer>
+            </MainContent>
             <Sidebar>
                 {videoCards.map(({ id, title, description, prize }) => <VideoCard
                     key={id}
@@ -28,6 +26,7 @@ export default function Preview() {
                     prize={prize}>
                 </VideoCard>)}
             </Sidebar>
-        </PreviewContainer>
+        </Container>
+
     )
 } 
