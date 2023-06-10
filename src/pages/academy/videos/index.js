@@ -14,7 +14,7 @@ export default function Videos() {
     return (
         <>
             <VideoContainer>
-                <div style={{ height: 364, width: "85%", background: '#D9D9D9', marginTop: 48 }}></div>
+                <div style={{ height: 364, width: "90%", background: '#D9D9D9', marginTop: 48 }}></div>
                 <Filter></Filter>
                 <VideoCardContainer>
                     {videoCards.map(({ id, title, description, prize }) => <VideoCard

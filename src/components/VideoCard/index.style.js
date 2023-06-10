@@ -13,22 +13,23 @@ const ContainerStyles = ({ isVertical }) => css`
     }
 
     & > video {
-        width: ${isVertical ? '245px' : '168px'};
-        height: ${isVertical ? '145px' : '94px'};;
+        width: ${isVertical ? '256px' : '168px'};
+        height: ${isVertical ? '144px' : '94.5px'};;
         background: #D9D9D9;
     }
 
     & > div > :nth-child(1) {
         font-weight: bold;
     }
-`
 
-export const Container = styled.div`
-    ${ContainerStyles}
-    @media screen and (max-width: 1020px) {
+    @media screen and (max-width: 1280px) {
         & > div > * {
-            width: 100%; 
+            width: ${isVertical ? '' : '100%'};
             margin: 0;
         }
     }
+`;
+
+export const Container = styled.div`
+    ${ContainerStyles}
 `;

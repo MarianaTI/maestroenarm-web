@@ -6,6 +6,8 @@ export const VideoContainer = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     gap: 64px;
+    max-width: 1440px;
+    margin: auto;
 `;
 
 export const SectionStyled = styled.div`
