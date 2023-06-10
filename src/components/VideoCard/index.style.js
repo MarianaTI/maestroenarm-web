@@ -5,7 +5,6 @@ const ContainerStyles = ({ isVertical }) => css`
     flex-direction: ${isVertical ? 'column' : ''};
     display: flex;
     gap: 16px;
-    align-items: center;
 
     & > div > * {
         width: 245px; 
@@ -14,7 +13,7 @@ const ContainerStyles = ({ isVertical }) => css`
 
     & > video {
         width: ${isVertical ? '256px' : '168px'};
-        height: ${isVertical ? '144px' : '94.5px'};;
+        height: ${isVertical ? '144px' : '94.5px'};
         background: #D9D9D9;
     }
 
@@ -28,6 +27,18 @@ const ContainerStyles = ({ isVertical }) => css`
             margin: 0;
         }
     }
+
+    @media screen and (max-width: 575px) {
+        flex-direction: column;
+        margin: auto;
+        width: 320px;
+        & > video {
+            margin: auto;
+            width: 320px;
+            height: 180px
+        }
+    }
+
 `;
 
 export const Container = styled.div`

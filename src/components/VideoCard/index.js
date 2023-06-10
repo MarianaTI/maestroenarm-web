@@ -2,9 +2,9 @@ import { Container } from "./index.style";
 
 
 
-export default function VideoCard({ title, description, prize, isVertical = false}) {
+export default function VideoCard({ title, description, prize, isVertical = false, isBidCard }) {
     return (
-        <Container isVertical={isVertical}>
+        <Container isVertical={isVertical} isBidCard={isBidCard}>
             {/* todo: replace to video tag html */}
             <video></video>
             <div>

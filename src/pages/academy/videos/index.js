@@ -23,6 +23,7 @@ export default function Videos() {
                         description={description}
                         prize={prize}
                         isVertical
+                        isBidCard={true}
                     >
                     </VideoCard>)}
                 </VideoCardContainer>

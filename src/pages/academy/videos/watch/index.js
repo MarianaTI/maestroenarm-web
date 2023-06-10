@@ -27,7 +27,9 @@ export default function Watch() {
                     key={id}
                     title={title}
                     description={description}
-                    prize={prize}>
+                    prize={prize}
+                    isBidCard={false}    
+                >
                 </VideoCard>)}
             </Sidebar>
         </Container>

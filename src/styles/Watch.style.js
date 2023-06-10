@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
     margin: auto;
     max-width: 1755px;
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1281px) {
         display: flex;
     }
 `;
@@ -15,9 +15,13 @@ export const Sidebar = styled.aside`
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 16px;
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1281px) {
         flex: 0 0 250px;
         padding: 32px 32px 32px 0;
+    }
+
+    @media screen and (max-width: 575px) {
+        padding: 0;
     }
 `;
 
