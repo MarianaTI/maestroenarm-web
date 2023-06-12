@@ -8,17 +8,19 @@ export const Options = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 48px;
-  width: 784px;
+  margin: 48px 80px;
+  width: 900px;
 `;
 
 export const BuyContainer = styled.div`
-  margin: 22px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: start;
   .DetailOptionStyled {
     color: #2d3648;
     font-weight: 700;
     font-size: 22px;
-    margin: 12px 32px 12px 0px;
+    margin: 0 32px 0 20px;
   }
 `;
 
@@ -29,9 +31,11 @@ export const BasicInformationContainer = styled.div`
 
 export const BasicInformation = styled.div`
   width: 500px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   margin-left: 24px;
+  white-space: normal;
   .NameStyled {
     color: #2d3648;
     font-weight: 700;
@@ -39,6 +43,7 @@ export const BasicInformation = styled.div`
     margin-bottom: 16px;
   }
   .DetailOptionStyled {
+    display: block;
     color: #2d3648;
     font-weight: 700;
     font-size: 16px;

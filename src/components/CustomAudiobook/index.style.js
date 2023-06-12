@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const Container = styled.div`
   width: 315px;
@@ -18,29 +17,41 @@ export const ImgStyled = styled.img`
 `;
 
 export const DetailsContainer = styled.div`
+  width: 180px;
+  height: 150px;
   display: flex;
   flex-direction: column;
-  align-items: start;
   margin: 8px;
-  & span {
-    font-size: 20px;
-    font-weight: 600;
+  position: relative;
+
+  & div {
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
   }
-  & span:nth-child(2) {
+
+  & div:nth-child(1) {
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    height: 40px;
+  }
+
+  & div:nth-child(2) {
     margin-top: 8px;
     font-size: 13px;
     font-weight: 500;
-    color: #2D3648;
-  }
-  & span:nth-child(3) {
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #2D3648;
+    color: #2d3648;
+    height: 100px;
   }
 `;
 
-export const IconStyled = styled(ArrowForwardIcon)`
-  margin-left: 155px;
+export const PriceIconContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3648;
   cursor: pointer;
 `;

@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AudiobookContainer,
+  AudiobookGridContainer,
   BackgroundImage,
   Container,
+  EmptyStateContainer,
   MainContainer,
   MainInformation,
 } from "../styles/PageAudiobooks.style";
@@ -23,16 +25,26 @@ const PageAudiobooks = () => {
         <BackgroundImage />
       </MainContainer>
       <AudiobookContainer>
-        {audiobooks.map((item, index) => (
-          <CustomAudiobook
-            key={index}
-            img={item.img}
-            name={item.name}
-            detail={item.detail}
-            price={item.price}
-            showIcon
-          />
-        ))}
+        {audiobooks.length > 0 ? (
+          <AudiobookGridContainer>
+            {audiobooks.map((item, index) => (
+              <CustomAudiobook
+                key={index}
+                img={item.img}
+                name={item.name}
+                detail={item.topics}
+                price={item.price}
+                showIcon
+              />
+            ))}
+          </AudiobookGridContainer>
+        ) : (
+          <EmptyStateContainer>
+            <span>No result found</span>
+          </EmptyStateContainer>
+         
+        
+        )}
       </AudiobookContainer>
     </Container>
   );

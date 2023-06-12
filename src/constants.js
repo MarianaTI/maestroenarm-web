@@ -2,62 +2,56 @@ export const audiobooks = [
   {
     img: "./audiobook-example.png",
     name: "Audiolibro 1",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 2",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 3",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 4",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
   },
   {
     img: "./audiobook-example.png",
     name: "Audiolibro 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
+  },
+  
+];
+
+export const audiobooksInterest = [
+  {
+    img: "./audiobook-example.png",
+    name: "Audiolibro 1",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+  price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
     img: "./audiobook-example.png",
-    name: "Audiolibro 6",
+    name: "Audiolibro 2",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 500.99,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
   },
   {
     img: "./audiobook-example.png",
-    name: "Audiolibro 7",
+    name: "Audiolibro 3",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Pediatria, Cirugia",
+    price: 500.99,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 8",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 9",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
-  },
-  {
-    img: "./audiobook-example.png",
-    name: "Audiolibro 10",
-    detail: "Detalles del audiolibro mas detalles del audiolibro",
-    price: 10.99
   },
 ]
 

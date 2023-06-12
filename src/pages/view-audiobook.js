@@ -1,9 +1,9 @@
 import React from "react";
 import CustomIndividualAudiobook from "../components/CustomIndividualAudiobook";
 
-const PageAudiobooks = () => {
+const ViewAudiobook = () => {
   return (
-    <div style={{display: "flex"}}>
+    <div>
       <CustomIndividualAudiobook
         name="Nombre del audiolibro"
         author="Lorem ipsum dolor sit amet."
@@ -11,12 +11,10 @@ const PageAudiobooks = () => {
         duration="Lorem ipsum dolor sit amet."
         gender="Lorem ipsum dolor sit amet."
         topics="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        price="0.00"
         details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
       />
-      Componente de interesado
     </div>
   );
 };
 
-export default PageAudiobooks;
+export default ViewAudiobook;

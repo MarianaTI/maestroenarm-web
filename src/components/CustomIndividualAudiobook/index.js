@@ -4,7 +4,6 @@ import {
   BasicInformationContainer,
   BuyContainer,
   Container,
-  DetailsContainer,
   MoreDetail,
   Options,
 } from "./index.style";
@@ -22,6 +21,7 @@ const CustomIndividualAudiobook = ({
   price,
   details,
 }) => {
+
   return (
     <Container>
       <BasicInformationContainer>
@@ -31,33 +31,38 @@ const CustomIndividualAudiobook = ({
         </div>
         <div>
           <BasicInformation>
-            <span className="NameStyled">{name}</span>
-            <span className="DetailOptionStyled">
+            <div className="NameStyled">{name}</div>
+            <div className="DetailOptionStyled">
               Autor: <span className="DetailStyled">{author}</span>
-            </span>
-            <span className="DetailOptionStyled">
+            </div>
+            <div className="DetailOptionStyled">
               Narrador: <span className="DetailStyled"> {storyteller}</span>
-            </span>
-            <span className="DetailOptionStyled">
+            </div>
+            <div className="DetailOptionStyled">
               Duración: <span className="DetailStyled">{duration}</span>
-            </span>
-            <span className="DetailOptionStyled">
-              Género: <span className="DetailStyled">{gender}</span>
-            </span>
-            <span className="DetailOptionStyled">
+            </div>
+            <div className="DetailOptionStyled">
               Temas: <span className="DetailStyled">{topics}</span>
-            </span>
+            </div>
           </BasicInformation>
-          <BuyContainer>
-            <span className="DetailOptionStyled">$ {price}</span>
-            <CustomButton buttonText="Comprar ahora" />
-          </BuyContainer>
+          {price > 0.00 ? (
+            <BuyContainer>
+              <span className="DetailOptionStyled">$ {price}</span>
+              <CustomButton buttonText="Comprar ahora" type="button"/>
+            </BuyContainer>
+          ) : (
+            <BuyContainer>
+              <span className="DetailOptionStyled">$ {price}</span>
+              <CustomButton showIcon/>
+            </BuyContainer>
+          )}
         </div>
       </BasicInformationContainer>
       <MoreDetail>
-        <span className="DetailOptionStyled">
-          Más detalles del libro: <span className="DetailStyled">{details}</span>
-        </span>
+        <div className="DetailOptionStyled">
+          Más detalles del libro:{" "}
+          <span className="DetailStyled">{details}</span>
+        </div>
       </MoreDetail>
     </Container>
   );
