@@ -1,17 +1,17 @@
 import React from "react";
 import {
-  AudiobookContainer,
-  AudiobookGridContainer,
   BackgroundImage,
+  BookContainer,
+  BookGridContainer,
   Container,
   EmptyStateContainer,
   MainContainer,
   MainInformation,
-} from "../styles/PageAudiobooks.style";
-import CustomAudiobook from "../components/CustomAudiobook";
-import { audiobooks } from "../constants";
+} from "../styles/PageBooks.style";
+import CustomBook from "../components/CustomBook/index";
+import { books } from "../constants";
 
-const PageAudiobooks = () => {
+const PageBooks = () => {
   return (
     <Container>
       <MainContainer>
@@ -24,28 +24,28 @@ const PageAudiobooks = () => {
         </MainInformation>
         <BackgroundImage />
       </MainContainer>
-      <AudiobookContainer>
-        {audiobooks.length > 0 ? (
-          <AudiobookGridContainer>
-            {audiobooks.map((item, index) => (
-              <CustomAudiobook
+      <BookContainer>
+        {books.length > 0 ? (
+          <BookGridContainer>
+            {books.map((item, index) => (
+              <CustomBook
                 key={index}
                 img={item.img}
                 name={item.name}
-                detail={item.topics}
+                topics={item.topics}
                 price={item.price}
                 showIcon
               />
             ))}
-          </AudiobookGridContainer>
+          </BookGridContainer>
         ) : (
           <EmptyStateContainer>
             <span>No result found</span>
           </EmptyStateContainer>
         )}
-      </AudiobookContainer>
+      </BookContainer>
     </Container>
   );
 };
 
-export default PageAudiobooks;
+export default PageBooks;

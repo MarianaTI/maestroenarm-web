@@ -1,6 +1,6 @@
 export const audiobooks = [
   {
-    img: "./audiobook-example.png",
+    img: "./example.png",
     name: "Audiolibro 1",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -10,7 +10,7 @@ export const audiobooks = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./audiobook-example.png",
+    img: "./example.png",
     name: "Audiolibro 5",
     author: "Rodrigo Moreno",
     storyteller: "Cloe Trujillo",
@@ -19,12 +19,63 @@ export const audiobooks = [
     price: 0.00,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
-  
+];
+
+export const books = [
+  {
+    img: "./example.png",
+    name: "Libro de medicina 1",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+];
+
+export const booksInterest = [
+  {
+    img: "./example.png",
+    name: "Libro de medicina 1",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
 ];
 
 export const audiobooksInterest = [
   {
-    img: "./audiobook-example.png",
+    img: "./example.png",
     name: "Audiolibro 1",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -34,7 +85,7 @@ export const audiobooksInterest = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./audiobook-example.png",
+    img: "./example.png",
     name: "Audiolibro 2",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -44,7 +95,7 @@ export const audiobooksInterest = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./audiobook-example.png",
+    img: "./example.png",
     name: "Audiolibro 3",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",

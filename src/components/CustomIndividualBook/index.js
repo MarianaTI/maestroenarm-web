@@ -1,32 +1,37 @@
 import React from "react";
+import CustomButton from "../CustomButtonAcademy";
 import {
   BasicInformation,
   BasicInformationContainer,
   BuyContainer,
   Container,
   MoreDetail,
-  Options,
 } from "./index.style";
-import CustomButton from "../CustomButtonAcademy";
 
-const CustomIndividualAudiobook = ({
+const CustomIndividualBook = ({
   img,
-  option,
   name,
   author,
-  storyteller,
-  duration,
   topics,
   price,
   details,
 }) => {
-
   return (
     <Container>
       <BasicInformationContainer>
         <div>
           <img src="./indivualaudiobook.png" />
-          <Options />
+          {price > 0.00 ? (
+            <BuyContainer>
+              <span>$ {price}</span>
+              <CustomButton buttonText="Comprar ahora" type="button" />
+            </BuyContainer>
+          ) : (
+            <BuyContainer>
+              <span>$ {price}</span>
+              <CustomButton showIcon />
+            </BuyContainer>
+          )}
         </div>
         <div>
           <BasicInformation>
@@ -35,31 +40,14 @@ const CustomIndividualAudiobook = ({
               Autor: <span className="DetailStyled">{author}</span>
             </div>
             <div className="DetailOptionStyled">
-              Narrador: <span className="DetailStyled"> {storyteller}</span>
-            </div>
-            <div className="DetailOptionStyled">
-              Duración: <span className="DetailStyled">{duration}</span>
-            </div>
-            <div className="DetailOptionStyled">
               Temas: <span className="DetailStyled">{topics}</span>
             </div>
           </BasicInformation>
-          {price > 0.00 ? (
-            <BuyContainer>
-              <span className="DetailOptionStyled">$ {price}</span>
-              <CustomButton buttonText="Comprar ahora" type="button"/>
-            </BuyContainer>
-          ) : (
-            <BuyContainer>
-              <span className="DetailOptionStyled">$ {price}</span>
-              <CustomButton showIcon/>
-            </BuyContainer>
-          )}
         </div>
       </BasicInformationContainer>
       <MoreDetail>
         <div className="DetailOptionStyled">
-          Más detalles del libro:{" "}
+          Más detalles del libro:
           <span className="DetailStyled">{details}</span>
         </div>
       </MoreDetail>
@@ -67,4 +55,4 @@ const CustomIndividualAudiobook = ({
   );
 };
 
-export default CustomIndividualAudiobook;
+export default CustomIndividualBook;
