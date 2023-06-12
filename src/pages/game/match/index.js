@@ -1,10 +1,10 @@
 import { MatchCard } from "../../../components/MatchCard";
-import MainLayout from "../../../layouts/MainLayout";
+import Layout from "../layout/index";
 import { FlexLeftWrapper, FlexRightWrapper, MatchCardContainer } from "../../../styles/Game";
 
 export default function Game() {
     return (
-        <MainLayout>
+        <Layout>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ margin: '64px 0px 16px 82px' }}>Modo Multijugador amistoso</span>
                 <span style={{ margin: '0px auto 64px auto' }}>TE HAS UNIDO A LA PARTIDA</span>
@@ -17,6 +17,6 @@ export default function Game() {
                     </FlexLeftWrapper>
                 </MatchCardContainer>
             </div>
-        </MainLayout>
+        </Layout>
     );
 }

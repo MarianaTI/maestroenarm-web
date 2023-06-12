@@ -18,13 +18,30 @@ import GroupIcon from "@mui/icons-material/Group";
 const links = [
   {
     label: "Examenes",
-    route: "/",
+    route: "/game",
     icon: <HomeIcon />,
   },
   {
     label: "Estadisticas",
     route: "/estadisticas",
     icon: <TrendingUpIcon />,
+    suboptions: [
+      {
+        label: "Desempeño",
+        route: "/estadisticas/universidades",
+        icon: <SchoolIcon />,
+      },
+      {
+        label: "Uso del app",
+        route: "/estadisticas/usuarios",
+        icon: <GroupIcon />,
+      },
+    ],
+  },
+  {
+    label: "Ranking",
+    route: "/ranking",
+    icon: <BarChartIcon />,
     suboptions: [
       {
         label: "Universidades",
@@ -39,11 +56,6 @@ const links = [
     ],
   },
   {
-    label: "Ranking",
-    route: "/ranking",
-    icon: <BarChartIcon />,
-  },
-  {
     label: "Nosotros",
     route: "/nosotros",
     icon: <PersonIcon />,
@@ -55,16 +67,29 @@ export default function Navbar() {
 
   const handleMouseEnter = (event) => {
     const { label } = event.currentTarget.dataset;
-    if (label === "Estadisticas") {
+    if (label === "Estadisticas" || label === "Ranking") {
       setAnchorEl(event.currentTarget);
     }
   };
+  
 
   const handleMouseLeave = () => {
     setAnchorEl(null);
   };
 
   const open = Boolean(anchorEl);
+  const [rankingAnchorEl, setRankingAnchorEl] = useState(null);
+
+  const handleRankingMouseEnter = (event) => {
+    setRankingAnchorEl(event.currentTarget);
+  };
+
+  const handleRankingMouseLeave = () => {
+    setRankingAnchorEl(null);
+  };
+
+  const rankingOpen = Boolean(rankingAnchorEl);
+
 
   return (
     <Header>
@@ -75,25 +100,25 @@ export default function Navbar() {
             <CustomNavLi
               key={route}
               data-label={label}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={label === "Estadisticas" ? handleMouseEnter : label === "Ranking"? handleRankingMouseEnter : null}
+              onMouseLeave={label === "Estadisticas" ? handleMouseLeave : label === "Ranking"? handleRankingMouseLeave : null}
             >
               {icon}
               <Link href={route}>{label}</Link>
-              {label === "Estadisticas" && suboptions && (
+              {(label === "Estadisticas" || label === "Ranking") && suboptions && (
                 <Popover
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleMouseLeave}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
+                open={label === "Estadisticas" ? open : rankingOpen}
+                anchorEl={label === "Estadisticas" ? anchorEl : rankingAnchorEl}
+                onClose={handleRankingMouseLeave}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
                   <List>
                     {suboptions.map(({ label, route, icon }) => (
                       <ListItem button key={route} component={Link} href={route}>

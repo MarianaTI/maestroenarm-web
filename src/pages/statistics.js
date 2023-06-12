@@ -1,6 +1,6 @@
 import { ScoreField } from "../components/ScoreField";
 import { StatisticChart } from "../components/StatisticChart";
-import MainLayout from "../layouts/MainLayout";
+import Layout from "../layout/index";
 import { StatisticsContainer } from "../styles/statistics";
 
 const items = [
@@ -33,13 +33,13 @@ const scoreFields = [
 
 export default function Stadistics() {
   return (
-    <MainLayout>
+    <Layout>
       <StatisticsContainer>
         <StatisticChart items={items}></StatisticChart>
         {scoreFields.map(({ label, score }) => (
           <ScoreField key={label} label={label} score={score} />
         ))}
       </StatisticsContainer>
-    </MainLayout>
+    </Layout>
   );
 }

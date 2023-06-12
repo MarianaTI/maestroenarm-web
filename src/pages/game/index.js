@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { GameField } from "../../components/GameField";
 import { GameSettingsModal } from "../../components/GameSettingsModal";
-import MainLayout from "../../layouts/MainLayout";
+import Layout from "../layout/index";
 import { TitleGameContainer } from "../../styles/Game";
 
 export default function Game() {
     const [open, setOpen] = useState(false);
     return <>
-        <MainLayout>
+        <Layout>
             <TitleGameContainer>
                 <h1 style={{ fontWeight: '500' }}>MODO PRÁCTICA</h1>
                 <p>Feedback déspues de cada pregunta</p>
@@ -22,6 +22,6 @@ export default function Game() {
             <GameField label='Aleatorio' />
             <GameField label='Por Categoría' onClick={() => setOpen(true)} />
             <GameSettingsModal isOpen={open} />
-        </MainLayout>
+        </Layout>
     </>
 }
