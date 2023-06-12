@@ -5,7 +5,7 @@ import {
   ProfileSettingsContainer,
 } from "../styles/ProfileSettings";
 import { ProfileField } from "../components/ProfileField";
-import Layout from "../layout/index";
+import Layout from "../pages/layout/index";
 import { CustomButton } from "../components/CustomButtom";
 
 const profileFields = [

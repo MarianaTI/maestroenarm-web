@@ -24,6 +24,11 @@ const MenuOption = () => {
         handleMenuClose();
     };
 
+    const handleSettingsClickAjust = () => {
+        router.push("/profile-settings"); 
+        handleMenuClose();
+    };
+
     const handleSettingsClickClosed = () => {
         router.push("/sesion"); 
         handleMenuClose();
@@ -63,10 +68,10 @@ const MenuOption = () => {
                         Mejora tu plan
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleMenuClose} style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins" }}>
                     angel.ricardez@buencodigo.dev
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
                         <SettingsIcon />
                     </ListItemIcon>
