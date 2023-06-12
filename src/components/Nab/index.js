@@ -28,12 +28,12 @@ const links = [
     suboptions: [
       {
         label: "Desempeño",
-        route: "/estadisticas/universidades",
+        route: "/case-statistics",
         icon: <SchoolIcon />,
       },
       {
         label: "Uso del app",
-        route: "/estadisticas/usuarios",
+        route: "/statistics",
         icon: <GroupIcon />,
       },
     ],
@@ -45,12 +45,12 @@ const links = [
     suboptions: [
       {
         label: "Universidades",
-        route: "/estadisticas/universidades",
+        route: "/ranking-university",
         icon: <SchoolIcon />,
       },
       {
         label: "Usuarios",
-        route: "/estadisticas/usuarios",
+        route: "/ranking-user",
         icon: <GroupIcon />,
       },
     ],

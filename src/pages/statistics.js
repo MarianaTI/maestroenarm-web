@@ -1,6 +1,6 @@
 import { ScoreField } from "../components/ScoreField";
 import { StatisticChart } from "../components/StatisticChart";
-import Layout from "../layout/index";
+import Layout from "../pages/layout/index";
 import { StatisticsContainer } from "../styles/statistics";
 
 const items = [

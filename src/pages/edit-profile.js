@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Navbar from "../components/Nabvar";
+import Navbar from "../components/Nab";
 import CustomEditField from "../components/EditCustomInput";
 import { StyledAvatar, StyledSubmitButton, StyledSubmitButtonContainer, StyledTextContainer } from "../styles/EditProfile.style";
 import AvatarComponent from "../components/AvatarEdit";

@@ -1,5 +1,5 @@
 import ButtomAlertModal from "../components/AlertButtom/Index";
-import Navigation from "../components/Nabvar"
+import Navigation from "../components/Nab"
 import ProgressBar from "../components/ProgressBar";
 import { StyledTextContainer } from "../styles/CaseStatistics.style";
 import { StyleText, StyledCardCategory, StyledCards, StyledContainer, StyledLine, StyledRow, } from "../styles/CaseStatistics.style";

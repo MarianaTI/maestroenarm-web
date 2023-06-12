@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { StyledButton, StyledMenuItem } from "./index.style";
 import MenuIcon from "@material-ui/icons/Menu";
 import SettingsIcon from "@material-ui/icons/Settings";
@@ -8,6 +9,7 @@ import { ListItemIcon } from "@material-ui/core";
 
 const MenuOption = () => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const router = useRouter();
 
     const handleButtonClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -15,6 +17,16 @@ const MenuOption = () => {
 
     const handleMenuClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleSettingsClick = () => {
+        router.push("/edit-profile"); 
+        handleMenuClose();
+    };
+
+    const handleSettingsClickClosed = () => {
+        router.push("/sesion"); 
+        handleMenuClose();
     };
 
     return (
@@ -54,13 +66,13 @@ const MenuOption = () => {
                 <StyledMenuItem onClick={handleMenuClose} style={{ fontFamily: "Poppins" }}>
                     angel.ricardez@buencodigo.dev
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleMenuClose} style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
                         <SettingsIcon />
                     </ListItemIcon>
                     Ajustes
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleMenuClose} style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem onClick={handleSettingsClickClosed} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
                         <ExitToAppIcon />
                     </ListItemIcon>
