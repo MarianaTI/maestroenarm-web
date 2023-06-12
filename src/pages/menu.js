@@ -1,6 +1,6 @@
 import { Typography, Button } from "@mui/material";
 import { MenuContainer, StyledButton } from "../styles/Menu.style";
-import Navigation from "../components/Nabvar";
+import Navigation from "../components/Nab";
 
 const Menu = () => {
   return (
