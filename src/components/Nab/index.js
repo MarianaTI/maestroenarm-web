@@ -90,6 +90,15 @@ export default function Navbar() {
 
   const rankingOpen = Boolean(rankingAnchorEl);
 
+  //-----------------------------------------------------
+
+ /*  const [ setEstadisticAnchorEl] = useState(null);
+
+  const handleEstadisticMouseEnter = (event) => {
+    setEstadisticAnchorEl(event.currentTarget);
+  }; */
+
+ 
 
   return (
     <Header>
@@ -100,8 +109,8 @@ export default function Navbar() {
             <CustomNavLi
               key={route}
               data-label={label}
-              onMouseEnter={label === "Estadisticas" ? handleMouseEnter : label === "Ranking"? handleRankingMouseEnter : null}
-              onMouseLeave={label === "Estadisticas" ? handleMouseLeave : label === "Ranking"? handleRankingMouseLeave : null}
+              onMouseEnter={label === "Estadisticas"? handleMouseEnter : label === "Ranking"? handleRankingMouseEnter : null}
+              onMouseLeave={label === "Estadisticas"? handleMouseLeave : label === "Ranking"? handleRankingMouseLeave : null}
             >
               {icon}
               <Link href={route}>{label}</Link>
@@ -109,7 +118,7 @@ export default function Navbar() {
                 <Popover
                 open={label === "Estadisticas" ? open : rankingOpen}
                 anchorEl={label === "Estadisticas" ? anchorEl : rankingAnchorEl}
-                onClose={handleRankingMouseLeave}
+                onClose={label === "Estadisticas" ? handleMouseLeave : handleRankingMouseLeave}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "left",
