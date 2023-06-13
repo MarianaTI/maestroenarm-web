@@ -45,3 +45,14 @@ input[type="range"]::-moz-range-thumb {
   background: #052970;
   cursor: pointer;
 }
+
+button{
+  cursor: pointer;
+
+}
+
+h1,p,button{
+  padding:0px;
+  margin:0px;
+}
+

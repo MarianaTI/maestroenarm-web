@@ -1,10 +1,10 @@
 import { FieldDecoration, Label, FieldWrapper } from "./index.style";
 
-export const GameField = ({ label, onClick }) => {
-    return (
-        <FieldWrapper onClick={onClick} >
-            <FieldDecoration />
-            <Label>{label}</Label>
-        </FieldWrapper>
-    );
-}
+export const GameField = ({ label, onClick, disabled }) => {
+  return (
+    <FieldWrapper onClick={onClick} disabled={disabled}>
+      <FieldDecoration />
+      <Label>{label}</Label>
+    </FieldWrapper>
+  );
+};
