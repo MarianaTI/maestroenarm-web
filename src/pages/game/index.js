@@ -12,8 +12,8 @@ export default function Game() {
                 <h1 style={{ fontWeight: '500' }}>MODO PRÁCTICA</h1>
                 <p>Feedback déspues de cada pregunta</p>
             </TitleGameContainer>
-            <GameField label='Aleatorio' />
-            <GameField label='Por Categoría' />
+            <GameField  label='Aleatorio' />
+            <GameField label='Por Categoría' disabled/>
             <TitleGameContainer>
                 <h1 style={{ fontWeight: '500' }}>MODO MULTIJUGADOR</h1>
                 <p>Feedback al finalizar el exámen</p>
