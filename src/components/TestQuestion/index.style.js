@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 export const FieldWrapper = styled.div`
     width: 100%;
@@ -32,4 +34,20 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+`;
+
+export const CorrectIcon = styled(CheckIcon)`
+    margin: 0 24px 0 auto; 
+    background: #EBFFF1;
+    border-radius: 100px;
+    padding: 2px;
+    color: #95BDA0
+`;
+
+export const IncorrectIcon = styled(ClearIcon)`
+    margin: 0 24px 0 auto; 
+    background: #FFE3E3;
+    border-radius: 100px;
+    padding: 2px;
+    color: #FA9E9E
 `;
