@@ -34,7 +34,7 @@ export const DetailsContainer = styled.div`
     font-size: 16px;
     font-weight: 600;
     text-overflow: ellipsis;
-    height: 40px;
+    height: 70px;
   }
 
   & div:nth-child(2) {

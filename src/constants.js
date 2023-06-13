@@ -106,7 +106,9 @@ export const audiobooksInterest = [
   },
 ]
 
+export const videosInterest = [
 
+]
 
 
 export default {
