@@ -13,6 +13,9 @@ export const MainContainer = styled.div`
   grid-gap: 300px;
   align-items: center;
   justify-content: center;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const MainInformation = styled.div`
@@ -33,6 +36,9 @@ export const AudiobookContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 40px;
+  @media (max-width: 800px) {
+    padding: 40px;
+  }
 `;
 export const BackgroundImage = styled.div`
   background-image: url(./podcast.png);
@@ -42,6 +48,9 @@ export const BackgroundImage = styled.div`
   background-size: 300px;
   width: 350px;
   height: 300px;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 export const EmptyStateContainer = styled.div`
   display: flex;
@@ -68,4 +77,10 @@ export const AudiobookGridContainer = styled.div`
   gap: 16px;
   grid-row-gap: 60px;
   grid-column-gap: 22px;
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 300px);
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 `;
