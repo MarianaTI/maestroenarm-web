@@ -6,6 +6,7 @@ import { closeDrawer } from '../../store/slices/filterDrawerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
 
+
 export default function FilterDrawer() {
     const dispatch = useDispatch();
     const { isOpen, drawerItems } = useSelector(state => state.filterDrawer);

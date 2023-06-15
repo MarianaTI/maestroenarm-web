@@ -1,10 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-    max-width: 1800px;
-    margin: auto;
-`;
-
 export const TestHeader = styled.div`
     height: 106px;
     background: rgba(216, 216, 241, 0.5);

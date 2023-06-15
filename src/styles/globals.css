@@ -31,3 +31,14 @@ a {
   background-color: transparent;
   padding: 10px;
 }
+
+button{
+  cursor: pointer;
+
+}
+
+h1,p,button{
+  padding:0px;
+  margin:0px;
+}
+

@@ -1,7 +1,10 @@
+import { Cloudinary } from "@cloudinary/url-gen";
 import { CustomButton } from "../../../../components/CustomButton";
-import VideoEditor from "../../../../components/Video";
 import VideoCard from "../../../../components/VideoCard";
-import { PlayerVideo, VideoContainer, Container, MainContent, Sidebar } from "../../../../styles/Watch.style";
+import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
+import { AdvancedVideo } from "@cloudinary/react";
+import { scale } from "@cloudinary/url-gen/actions/resize";
+import { useEffect } from "react";
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -15,16 +18,26 @@ const videoCards = [
 ]
 
 export default function Watch() {
+    const cloudinary = new Cloudinary({
+        cloud: {
+            cloudName: 'db0l9t7fr',
+            apiSecret: 'Sq6knO4gcBE7d9sbXdf8OxD6yTs',
+            apiKey: '631147659653346'
+        }
+    })
+
+    const myVideo = cloudinary.video('v1686780756/samples/sea-turtle')
+    myVideo.resize(scale().width(800))
+
     return (
-        <Container>
+        <WatchContainer>
             <MainContent>
                 <VideoContainer>
-                    <PlayerVideo>
-                    </PlayerVideo>
+                    <PlayerVideo cldVid={myVideo} controls />
                 </VideoContainer>
                 <div>
-                    <h2 style={{marginBottom: 0}}>Body Bold Extra Large. </h2>
-                    <p style={{margin: "6px 0"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <h2 style={{ marginBottom: 0 }}>Body Bold Extra Large. </h2>
+                    <p style={{ margin: "6px 0" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     <CustomButton theme="secondary" >
                         <span style={{ fontSize: 16 }}>comprar ahora</span>
                     </CustomButton>
@@ -41,7 +54,6 @@ export default function Watch() {
                 >
                 </VideoCard>)}
             </Sidebar>
-        </Container>
-
+        </WatchContainer>
     )
 } 

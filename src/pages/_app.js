@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { store } from "../store";
 import "../styles/globals.css";
-import RootLayout from "@/layouts/RootLayout";
+import RootLayout from "../layouts/index.";
 
 function MyApp({ Component, pageProps }) {
   return (

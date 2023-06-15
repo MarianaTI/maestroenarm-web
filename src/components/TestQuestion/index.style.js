@@ -6,7 +6,7 @@ export const FieldWrapper = styled.div`
     width: 100%;
     border: 2px solid rgba(72, 74, 132, 1);
     border-radius: 16px;
-    min-height: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     gap: 16px;

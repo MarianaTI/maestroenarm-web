@@ -1,7 +1,9 @@
 import VideoCard from "../../../components/VideoCard"
-import { VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
+import { VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
+import { Cloudinary } from "@cloudinary/url-gen"
+import { AdvancedImage, AdvancedVideo } from "@cloudinary/react"
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -14,7 +16,8 @@ export default function Videos() {
     return (
         <>
             <VideoContainer>
-                <div style={{ height: 364, width: "90%", background: '#D9D9D9', marginTop: 48 }}></div>
+                <div style={{ height: 364, width: "90%", background: '#D9D9D9', marginTop: 48 }}>
+                </div>
                 <Filter></Filter>
                 <VideoCardContainer>
                     {videoCards.map(({ id, title, description, prize }) => <VideoCard

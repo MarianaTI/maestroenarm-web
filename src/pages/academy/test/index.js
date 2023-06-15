@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CustomButton } from "../../../components/CustomButton";
 import TestQuestion from "../../../components/TestQuestion";
-import { ButtonWrapper, Container, QuestionContainer, TestHeader } from "../../../styles/Test.styles";
+import { ButtonWrapper, QuestionContainer, TestHeader } from "../../../styles/Test.styles";
 
 const testQuestions = [
     {
@@ -37,7 +37,7 @@ const testQuestions = [
 export default function Test() {
     const [checkTest, setCheckTest] = useState(false)
     return (
-        <Container>
+        <>
             <TestHeader>
                 <h1>Test</h1>
             </TestHeader>
@@ -49,6 +49,6 @@ export default function Test() {
                     </CustomButton>
                 </ButtonWrapper>
             </QuestionContainer>
-        </Container >
+        </>
     )
 }

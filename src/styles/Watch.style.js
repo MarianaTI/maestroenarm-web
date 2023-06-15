@@ -1,8 +1,7 @@
+import { AdvancedVideo } from "@cloudinary/react";
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-    margin: auto;
-    max-width: 1755px;
+export const WatchContainer = styled.div`
     @media screen and (min-width: 1281px) {
         display: flex;
     }
@@ -37,7 +36,7 @@ export const VideoContainer = styled.div`
     background-color: #000
 `;
 
-export const PlayerVideo = styled.div`
+export const PlayerVideo = styled(AdvancedVideo)`
     position: absolute;
     top: 0;
     left: 0;
