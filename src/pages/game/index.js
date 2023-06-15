@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GameField } from "../../components/GameField";
 import { GameSettingsModal } from "../../components/GameSettingsModal";
-import Layout from "../layout/index";
+import Layout from "/layout/index";
 import { TitleGameContainer } from "../../styles/Game";
 
 export default function Game() {

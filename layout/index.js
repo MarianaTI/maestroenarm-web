@@ -1,4 +1,4 @@
-import Navigation from "../../components/Nab";
+import Navigation from "../src/components/Nab";
 import { Container } from "./index.style";
 
 const Layout = ({ children }) => {
