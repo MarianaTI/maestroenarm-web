@@ -5,6 +5,7 @@ import {
   StyledTabs,
   TabContainer,
   TabInformation,
+  TabInformationBook,
 } from "../styles/ShoppingBag.style";
 import { Tab } from "@mui/material";
 import {
@@ -77,7 +78,7 @@ const ShoppingBag = () => {
           </TabInformation>
         )}
         {value === 2 && (
-          <TabInformation>
+          <TabInformationBook>
             {booksInterest.length > 0 ? (
               booksInterest.map((item, index) => (
                 <CustomBook
@@ -93,7 +94,7 @@ const ShoppingBag = () => {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
-          </TabInformation>
+          </TabInformationBook>
         )}
       </TabContainer>
     </div>

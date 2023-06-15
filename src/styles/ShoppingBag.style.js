@@ -77,7 +77,12 @@ export const TabInformation = styled.div`
   }
   @media (max-width: 400px)  {
     grid-template-columns: 1fr;
-  }
+  }  
+`;
+
+export const TabInformationBook = styled(TabInformation)`
+  grid-template-columns: repeat(6, 210px);
+  grid-row-gap: 52px;
 `;
 
 export const EmptyStateContainer = styled.div`
