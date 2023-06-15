@@ -72,6 +72,118 @@ export const userAccount = [
   },
 ];
 
+export const audiobooks = [
+  {
+    img: "./example.png",
+    name: "Audiolibro 1",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Audiolibro 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+];
+
+export const books = [
+  {
+    img: "./example.png",
+    name: "Libro de medicina 1",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+];
+
+export const booksInterest = [
+  {
+    img: "./example.png",
+    name: "Libro de medicina 1",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+];
+
+export const audiobooksInterest = [
+  {
+    img: "./example.png",
+    name: "Audiolibro 1",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+  price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Audiolibro 2",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    img: "./example.png",
+    name: "Audiolibro 3",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Pediatria, Cirugia",
+    price: 500.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+]
+
+export const videosInterest = [
+
+]
+
 
 export default {
   clinicalCases: [
