@@ -45,6 +45,19 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: #052970;
   cursor: pointer;
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 193, 200);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  padding: 10px;
 }
 
 button{
@@ -56,4 +69,4 @@ h1,p,button{
   padding:0px;
   margin:0px;
 }
-
+}
