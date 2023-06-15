@@ -66,9 +66,10 @@ const MenuOption = () => {
                         }}
                     >
                         Mejora tu plan
+                        
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem  style={{ fontFamily: "Poppins" }}>
                     angel.ricardez@buencodigo.dev
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>

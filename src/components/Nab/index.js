@@ -57,7 +57,7 @@ const links = [
   },
   {
     label: "Nosotros",
-    route: "/nosotros",
+    route: "/about-us",
     icon: <PersonIcon />,
   },
 ];
@@ -90,15 +90,6 @@ export default function Navbar() {
 
   const rankingOpen = Boolean(rankingAnchorEl);
 
-  //-----------------------------------------------------
-
- /*  const [ setEstadisticAnchorEl] = useState(null);
-
-  const handleEstadisticMouseEnter = (event) => {
-    setEstadisticAnchorEl(event.currentTarget);
-  }; */
-
- 
 
   return (
     <Header>
