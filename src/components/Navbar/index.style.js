@@ -34,11 +34,10 @@ export const CustomNavLi = styled.li`
     display: flex;
     gap: 4px;
     align-items: center;
-    ${css`
-        @media screen and (max-width: 900px) {
-            display: none
-        },
-    `}
+
+    @media screen and (max-width: 900px) {
+        display: none
+    }
 `;
 
 export const CustomIconButton = styled(IconButton)`
@@ -47,9 +46,4 @@ export const CustomIconButton = styled(IconButton)`
     margin: 0px 16px 0px auto;
     padding: 0px;
     border-bottom-color: rgb(16, 10, 95);
-    ${css`
-        @media screen and (max-width: 900px) {
-            display: initial
-        },
-    `}
 `;
