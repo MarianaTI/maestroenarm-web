@@ -60,6 +60,11 @@ const links = [
     route: "/about-us",
     icon: <PersonIcon />,
   },
+  {
+    label: "Academy",
+    route: "/principal-page",
+    icon: <SchoolIcon />,
+  }
 ];
 
 export default function Navbar() {
