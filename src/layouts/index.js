@@ -5,7 +5,7 @@ import { Container } from './index.style'
 export default function Layout({ children }) {
     const route = useRouter()
     return <>
-        {route.pathname.match(/session|register|demo/g) || <Navbar />}
+        {!route.pathname.match(/sesion|register|demo|test/g) && <Navbar />}
         <Container>
             {children}
         </Container>
