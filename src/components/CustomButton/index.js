@@ -8,5 +8,5 @@ const CustomButton = ({ buttonText, onClick, type }) => {
     </ButtonStyled>
   );
 }; 
-
+ 
 export default CustomButton;
