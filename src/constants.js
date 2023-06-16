@@ -186,497 +186,398 @@ export const videosInterest = [
 
 
 export default {
-  clinicalCases: [
+  "clinicalCases": [
     {
-      label:
-        "CASO 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
-      questions: [
+      "id": 1,
+      "case": "Caso clínico 1",
+      "specialty": "Cirugía General",
+      "question": [
         {
-          label: "Pregunta uno",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el tratamiento más adecuado para una fractura de hueso?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Antibióticos",
+              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: true,
+              "id": 2,
+              "option": "B",
+              "text": "Fisioterapia",
+              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Inmovilización",
+              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
         },
         {
-          label: "Pregunta dos",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: true,
+              "id": 1,
+              "option": "A",
+              "text": "Antibióticos",
+              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Fisioterapia",
+              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Inmovilización",
+              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta tres",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: true,
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
+        }
       ],
-
-      feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
-      },
+      "feedbackGeneral": "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla."
     },
     {
-      label:
-        "CASO 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
-      questions: [
+      "id": 2,
+      "case": "Caso clínico 2",
+      "specialty": "Cardiología",
+      "question": [
         {
-          label: "Pregunta uno",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el diagnóstico más probable para un paciente con dolor en el pecho, opresión y dificultad para respirar?",
+          "correctAnswer": 1,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Infarto de miocardio",
+              "answer": "Respuesta correcta. Los síntomas descritos son comunes en un infarto de miocardio, una condición grave que requiere atención médica urgente."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: true,
+              "id": 2,
+              "option": "B",
+              "text": "Neumonía",
+              "answer": "Respuesta incorrecta. Aunque la neumonía puede causar dolor en el pecho y dificultad para respirar, no suele presentarse como opresión."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Ataque de ansiedad",
+              "answer": "Respuesta incorrecta. Si bien la ansiedad puede provocar síntomas similares, el dolor en el pecho y la opresión deben ser evaluados adecuadamente para descartar otras causas más graves."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
         },
         {
-          label: "Pregunta dos",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 1,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: true,
+              "id": 1,
+              "option": "A",
+              "text": "Infarto de miocardio",
+              "answer": "Respuesta correcta. Los síntomas descritos son comunes en un infarto de miocardio, una condición grave que requiere atención médica urgente."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Neumonía",
+              "answer": "Respuesta incorrecta. Aunque la neumonía puede causar dolor en el pecho y dificultad para respirar, no suele presentarse como opresión."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Ataque de ansiedad",
+              "answer": "Respuesta incorrecta. Si bien la ansiedad puede provocar síntomas similares, el dolor en el pecho y la opresión deben ser evaluados adecuadamente para descartar otras causas más graves."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta tres",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: true,
-            },
-          ],
-        },
-        {
-          label: "Pregunta cuatro",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
+        }
       ],
-
-      feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
-      },
+      "feedbackGeneral": "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla."
     },
     {
-      label:
-        "CASO 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
-      questions: [
+      "id": 3,
+      "case": "Caso clínico 3",
+      "specialty": "Oncología",
+      "question": [
         {
-          label: "Pregunta uno",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el tratamiento más apropiado?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción C: Quimioterapia. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas, ayudando a combatir las células cancerosas y controlar la progresión de la enfermedad.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Radioterapia",
+              "respuesta": "Respuesta incorrecta. La radioterapia no es el tratamiento principal para esta afección."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: true,
+              "id": 2,
+              "option": "B",
+              "text": "Cirugía",
+              "respuesta": "Respuesta incorrecta. La cirugía puede no ser necesaria o apropiada en este caso."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Quimioterapia",
+              "respuesta": "Respuesta correcta. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "respuesta": "Respuesta incorrecta. Son mitos."
+            }
+          ]
         },
         {
-          label: "Pregunta dos",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción C: Quimioterapia. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas, ayudando a combatir las células cancerosas y controlar la progresión de la enfermedad.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: true,
+              "id": 1,
+              "option": "A",
+              "text": "Radioterapia",
+              "answer": "Respuesta incorrecta. La radioterapia no es el tratamiento principal para esta afección."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Cirugía",
+              "answer": "Respuesta incorrecta. La cirugía puede no ser necesaria o apropiada en este caso."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Quimioterapia",
+              "answer": "Respuesta correcta. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta tres",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: true,
-            },
-          ],
-        },
-        {
-          label: "Pregunta cuatro",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta cinco",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
+        }
       ],
-
-      feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
-      },
+      "feedbackGeneral": "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla."
     },
     {
-      label:
-        "CASO 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
-      questions: [
+      "id": 4,
+      "case": "Caso clínico 4",
+      "specialty": "Endocrinología",
+      "question": [
         {
-          label: "Pregunta uno",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el diagnóstico más probable?",
+          "correctAnswer": 2,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción B: Diabetes tipo 2. Los síntomas descritos son más consistentes con la diabetes tipo 2, una condición crónica que se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Hipotiroidismo",
+              "answer": "Respuesta incorrecta. El hipotiroidismo se caracteriza por síntomas como fatiga, aumento de peso y sensibilidad al frío."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: true,
+              "id": 2,
+              "option": "B",
+              "text": "Diabetes tipo 2",
+              "answer": "Respuesta correcta. La diabetes tipo 2 se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Hipertiroidismo",
+              "answer": "Respuesta incorrecta. El hipertiroidismo se caracteriza por síntomas como pérdida de peso, nerviosismo e intolerancia al calor."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
         },
         {
-          label: "Pregunta dos",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 2,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción B: Diabetes tipo 2. Los síntomas descritos son más consistentes con la diabetes tipo 2, una condición crónica que se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: true,
+              "id": 1,
+              "option": "A",
+              "text": "Hipotiroidismo",
+              "answer": "Respuesta incorrecta. El hipotiroidismo se caracteriza por síntomas como fatiga, aumento de peso y sensibilidad al frío."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Diabetes tipo 2",
+              "answer": "Respuesta correcta. La diabetes tipo 2 se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Hipertiroidismo",
+              "answer": "Respuesta incorrecta. El hipertiroidismo se caracteriza por síntomas como pérdida de peso, nerviosismo e intolerancia al calor."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta tres",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: true,
-            },
-          ],
-        },
-        {
-          label: "Pregunta cuatro",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta cinco",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
-        {
-          label: "Pregunta seis",
-          answers: [
-            {
-              label: "Respuesta uno",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta dos",
-              isCorrect: true,
-            },
-            {
-              label: "Respuesta tres",
-              isCorrect: false,
-            },
-            {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
+        }
       ],
-
-      feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
-      },
+      "feedbackGeneral": "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla."
     },
     {
-      label:
-        "CASO 5: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar sem in rhoncus euismod. In quis porta ex, vitae dapibus lacus. Duis cursus orci in mauris pretium volutpat. Curabitur congue lacus et fringilla dignissim. Pellentesque ullamcorper mollis purus vel fermentum. Aenean et eros finibus, convallis est eget, convallis arcu. ",
-      questions: [
+      "id": 5,
+      "case": "Caso clínico 5",
+      "specialty": "Psiquiatría",
+      "question": [
         {
-          label: "Pregunta uno",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el tratamiento más adecuado para un paciente con depresión mayor?",
+          "correctAnswer": 4,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Ansiolíticos",
+              "answer": "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: true,
+              "id": 2,
+              "option": "B",
+              "text": "Antidepresivos tricíclicos",
+              "answer": "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Terapia de electroconvulsiva (TEC)",
+              "answer": "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
+              "answer": "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves."
+            }
+          ]
         },
         {
-          label: "Pregunta dos",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 4,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: true,
+              "id": 1,
+              "option": "A",
+              "text": "Ansiolíticos",
+              "answer": "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Antidepresivos tricíclicos",
+              "answer": "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Terapia de electroconvulsiva (TEC)",
+              "answer": "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: false,
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
+              "answer": "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves."
+            }
+          ]
         },
         {
-          label: "Pregunta tres",
-          answers: [
+          "id": 3,
+          "text": "¿SOY LA PREGUNTA TRES?",
+          "correctAnswer": 4,
+          "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
+          "answers": [
             {
-              label: "Respuesta uno",
-              isCorrect: false,
+              "id": 1,
+              "option": "A",
+              "text": "Ansiolíticos",
+              "answer": "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor."
             },
             {
-              label: "Respuesta dos",
-              isCorrect: false,
+              "id": 2,
+              "option": "B",
+              "text": "Antidepresivos tricíclicos",
+              "answer": "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios."
             },
             {
-              label: "Respuesta tres",
-              isCorrect: false,
+              "id": 3,
+              "option": "C",
+              "text": "Terapia de electroconvulsiva (TEC)",
+              "answer": "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial."
             },
             {
-              label: "Respuesta cuatro",
-              isCorrect: true,
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
+              "answer": "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves."
+            }
+          ]
+        }
       ],
-
-      feedback: {
-        text: "Esto es un feedback, te estoy explicando que la respuesta correcta era blablabla porque es logico que el blablabla es lo mejor",
-      },
-    },
-  ],
+      "feedbackGeneral": "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla."
+    }
+  ]
 };

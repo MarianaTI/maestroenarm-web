@@ -30,14 +30,16 @@ export default function Home() {
   };
 
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
-  const question = clinicalCase.questions[questionCounter];
+  const clinicalCaseName = clinicalCase.case;
+  const question =  clinicalCase.question[questionCounter];
+  const questionText =  question.text;
   const lengthClinicalCase = constants.clinicalCases.length;
-  const lengthQuestions = clinicalCase.questions.length;
+  const lengthQuestions = clinicalCase.question.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter=questionCounter + 1;
 
   const goNext = () => {
-    const question = clinicalCase.questions[nowquestionCounter];
+    const question = clinicalCase.question[nowquestionCounter];
     if (question) {
       setQuestionCounter(nowquestionCounter);
     } else {
@@ -52,7 +54,7 @@ export default function Home() {
   };
 
   const handleAnswer=(isAnswerCorrect)=>{
-    if (isAnswerCorrect) {
+    if (isAnswerCorrect == question.correctAnswer) {
       setTrueCount(trueCount + 1);
     } else {
       setFalseCount(falseCount + 1);
@@ -71,6 +73,7 @@ export default function Home() {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
+    setFalseCount(falseCount + 1);
   };
 
   const handleCountFinish = () => {
@@ -102,8 +105,8 @@ export default function Home() {
           seconds={13}
           isCounting={isCounting}
         ></TimeIcon>
-        <Question>{clinicalCase.label}</Question>
-        <p className={caso.pregunta}>{question.label}</p>
+        <Question>{clinicalCaseName}</Question>
+        <p className={caso.pregunta}>{questionText}</p>
 
         {isFeedbackHidden && (
           <div className="container">
@@ -112,6 +115,7 @@ export default function Home() {
                 answers={question.answers}
                 onClick={handleAnswerClick}
                 isResultRevealed={isResultRevealed}
+                correctAnswer={question.correctAnswer}
               />
               {!isCounterHidden && (
                 <div className={styles.counterContainer}>
@@ -136,9 +140,9 @@ export default function Home() {
   );
 }
 
-function Answers({ answers, onClick, isResultRevealed }) {
-  const handleAnswerClick = (isCorrect, item) => {
-    onClick(isCorrect);
+function Answers({ answers, onClick, isResultRevealed , correctAnswer}) {
+  const handleAnswerClick = (id, item) => {
+    onClick(id);
   };
 
   return (
@@ -146,17 +150,17 @@ function Answers({ answers, onClick, isResultRevealed }) {
       {answers.map((answer) => (
         <Answer
           onClick={(evento) =>
-            handleAnswerClick(answer.isCorrect, evento.target)
+            handleAnswerClick(answer.id, evento.target)
           }
           className={
-            isResultRevealed && answer.isCorrect
+            isResultRevealed && answer.id ==correctAnswer
               ? styles["is-correct"]
-              : isResultRevealed && !answer.isCorrect
+              : isResultRevealed && answer.id != correctAnswer
               ? styles["is-error"]
               : ""
           }
         >
-          {answer.label}
+          {answer.text}
         </Answer>
       ))}
     </div>

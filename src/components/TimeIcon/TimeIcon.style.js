@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
-  export const TimeIconContainer = styled.div`
-    margin-left: 1050px;
-    margin-top: 12px;
+export const TimeIconContainer = styled.div`
+    position: absolute;
+    top: 55px;
+    right: 70px;
     color: #052970;
   `;
 
-  export const TimeText = styled.span`
+export const TimeText = styled.span`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
