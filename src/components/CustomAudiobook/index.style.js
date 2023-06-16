@@ -23,7 +23,6 @@ export const DetailsContainer = styled.div`
   flex-direction: column;
   margin: 8px;
   position: relative;
-
   & div {
     height: 50px;
     width: 100%;
@@ -44,6 +43,8 @@ export const DetailsContainer = styled.div`
     color: #2d3648;
     height: 100px;
   }
+
+
 `;
 
 export const PriceIconContainer = styled.div`

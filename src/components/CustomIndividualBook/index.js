@@ -5,6 +5,7 @@ import {
   BasicInformationContainer,
   BuyContainer,
   Container,
+  IncludeContainer,
   MoreDetail,
 } from "./index.style";
 
@@ -28,7 +29,7 @@ const CustomIndividualBook = ({
             </BuyContainer>
           ) : (
             <BuyContainer>
-              <span>$ {price}</span>
+              <IncludeContainer><span className="DetailOptionStyled">Incluido en la suscripción</span></IncludeContainer>
               <CustomButton showIcon />
             </BuyContainer>
           )}

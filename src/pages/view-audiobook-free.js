@@ -2,7 +2,10 @@ import React from "react";
 import CustomIndividualAudiobook from "../components/CustomIndividualAudiobook";
 import { audiobooks } from "../constants";
 import { audiobooksInterest } from "../constants";
-import { InterestContainer, ViewContainer } from "../styles/ViewAudiobookFree.style";
+import {
+  InterestContainer,
+  ViewContainer,
+} from "../styles/ViewAudiobooks.style";
 import CustomAudiobook from "../components/CustomAudiobook";
 
 const ViewAudiobookFree = () => {
@@ -23,7 +26,7 @@ const ViewAudiobookFree = () => {
           />
         ))}
       <InterestContainer>
-        <span className="InterestTitle">Tambien te puede interesar:</span>
+        <span className="InterestTitle">También te puede interesar:</span>
         {audiobooksInterest.map((item, index) => (
           <CustomAudiobook
             key={index}

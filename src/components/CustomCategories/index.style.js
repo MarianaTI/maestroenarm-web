@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 24px;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    padding: 16px 0px;
+  }
 `;
 
 export const CardCategorie = styled.div`
@@ -23,6 +27,9 @@ export const CardCategorie = styled.div`
     background: rgba(215, 213, 252, 0.5);
     cursor: pointer;
     scale: 1.1;
+  }
+  @media (max-width: 400px) {
+    padding: 32px 0px;
   }
 `;
 
