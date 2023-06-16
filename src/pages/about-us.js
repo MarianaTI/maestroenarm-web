@@ -1,10 +1,9 @@
 import {AboutContainer, Container, ImageStyle, AvatarsContainer, AboutCard} from "../styles/about-us.style"
 import Avatar from "../components/Avatar";
-import Layout from "../pages/layout"
+
 const aboutUs = () => {
     return(
           <Container>
-            <Layout/>
             <h1>Sobre nosotros</h1>
             <AboutContainer>
                 <p>"Lorem ipsum dolor sit amet, 
