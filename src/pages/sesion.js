@@ -21,18 +21,18 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
-import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
+import { CustomButton } from "../components/CustomButton";
 
 const loginSchema = yup.object({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
-const Sesion = () => {
+  const Sesion = () => {
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
@@ -120,7 +120,7 @@ const Sesion = () => {
                 Recuperar
               </OpenModalButton>
             </QuestionStyled>
-            <CustomButton buttonText="Iniciar" type="submit" />
+            <CustomButton text="Iniciar" type="submit" />
             <BoxOptions>
               <CustomOptionsLogin icon="./google.svg" />
               <CustomOptionsLogin icon="./microsoft.svg" />
@@ -148,7 +148,7 @@ const Sesion = () => {
           name="confirmemail"
           control={control}
         />
-        <CustomButton buttonText="Enviar" onClick={handleOpenChangePassword} />
+        <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
         <BackLoginContainer>
           <BackLoginIcon />
           <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
