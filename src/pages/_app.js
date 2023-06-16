@@ -1,15 +1,13 @@
 import { Provider } from "react-redux";
 import { store } from "../store";
 import "../styles/globals.css";
-import RootLayout from "../layouts/index.";
+import React, { StrictMode } from "react";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <RootLayout>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </RootLayout>
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider >
   );
 }
 

@@ -10,6 +10,9 @@ import {
 import styles from "../styles/GameByCategory.module.css";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import { useDispatch } from "react-redux";
+import { setCasesQuantity, setSubcategories } from "../store/slices/gameSlice";
+import { useRouter } from "next/router";
 
 const categories = [
   {
@@ -19,7 +22,7 @@ const categories = [
       { name: "Nefrologi 1" },
       { name: "Dermatologia 1" },
     ],
-  },
+  },  
   {
     name: "Medicina Interna 2",
     subcategories: [
@@ -42,6 +45,9 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const GameByCategory = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const categoriesMap = categories.flatMap((category) =>
     category.subcategories.map((subcategory) => ({
       category: category.name,
@@ -49,10 +55,24 @@ const GameByCategory = () => {
     }))
   );
 
+  const handleCategoriesChange = (_, options) => {
+    const subcategories = options.map((option) => option.subcategory);
+    dispatch(setSubcategories(subcategories));
+  };
+
+  const handleSliderChange = (_, value) => {
+    dispatch(setCasesQuantity(value));
+  };
+
+  const handlePlay = () => {
+    router.push("/");
+  };
+
   return (
     <section className={styles.gameByCategory}>
       <Stack direction="column" spacing={2}>
         <Autocomplete
+          onChange={handleCategoriesChange}
           multiple
           disableCloseOnSelect
           options={categoriesMap}
@@ -72,8 +92,13 @@ const GameByCategory = () => {
           renderInput={(params) => <TextField {...params} label="Categorias" />}
         />
         <Typography gutterBottom>Numero de casos clinicos</Typography>
-        <Slider valueLabelDisplay="auto" defaultValue={30} max={50} />
-        <Button>Jugar</Button>
+        <Slider
+          valueLabelDisplay="auto"
+          defaultValue={30}
+          max={50}
+          onChangeCommitted={handleSliderChange}
+        />
+        <Button onClick={handlePlay}>Jugar</Button>
       </Stack>
     </section>
   );
