@@ -10,6 +10,7 @@ export const Header = styled.header`
     border-bottom-color: rgb(16, 10, 95);
     margin: none;
     padding: auto;
+    position: sticky;
 `;
 
 export const CustomNavUl = styled.ul`
@@ -34,6 +35,9 @@ export const CustomNavLi = styled.li`
     display: flex;
     gap: 16px;
     align-items: center;
+    @media screen and (max-width: 900px){
+        display: none;
+    }
 `;
 
 export const CustomIconButton = styled(IconButton)`

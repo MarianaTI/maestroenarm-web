@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { StyledButton, StyledMenuItem } from "./index.style";
-import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
+import { AccountCircle } from "@mui/icons-material";
 
 const MenuOption = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -40,7 +41,7 @@ const MenuOption = () => {
                 aria-controls="options-menu"
                 aria-haspopup="true"
                 onClick={handleButtonClick}
-                startIcon={<MenuIcon />}
+                startIcon={<AccountCircleIcon />}
                 variant="contained"
                 color="primary"
             />

@@ -1,7 +1,7 @@
-import Navbar from '../components/Navbar/index'
+import Navbar from '../components/Nab';
 import { Container } from './index.style'
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
     return <>
         <Navbar />
         <Container>
