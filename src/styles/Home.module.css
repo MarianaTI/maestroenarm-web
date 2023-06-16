@@ -11,8 +11,6 @@
 
 }
 
-
-
 .button {
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -46,7 +44,6 @@
   background: rgba(5, 41, 112, 0.5);
 }
 
-
 .is-wrong-answer {
   opacity: 0.3;
 }
@@ -70,7 +67,6 @@
 .answer:hover {
   background: rgba(5, 41, 112, 0.8);
 }
-
 
 .counter {
   background-color: #222;
@@ -99,7 +95,6 @@
   right: 0;
 }
 
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -123,12 +118,9 @@
   }
 }
 
-
 .centeredStepper {
   margin-left: 50%;
 }
-
-
 
 .bienvenido{
   font-family: 'Poppins';

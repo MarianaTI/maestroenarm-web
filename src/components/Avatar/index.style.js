@@ -12,3 +12,4 @@ export const StyledAvatar = styled(Avatar)`
   width: ${(props) => props.size || "88px"};
   height: ${(props) => props.size || "88px"};
 `;
+

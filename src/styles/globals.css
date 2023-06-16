@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html,
 body {
   padding: 0;
@@ -45,6 +46,19 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: #052970;
   cursor: pointer;
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 193, 200);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  padding: 10px;
 }
 
 button{
@@ -56,4 +70,4 @@ h1,p,button{
   padding:0px;
   margin:0px;
 }
-
+}
