@@ -41,7 +41,7 @@ export default function Navbar() {
                             <Link href={route}>{label}</Link>
                         </CustomNavLi>))}
                     <CustomIconButton>
-                        <MenuIcon/>
+                        <MenuIcon />
                     </CustomIconButton>
                 </CustomNavUl>
             </nav>
