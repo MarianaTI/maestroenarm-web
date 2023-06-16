@@ -158,16 +158,3 @@ const Sesion = () => {
   );
 };
 export default Sesion;
-
-{
-  /* <CustomModal
-  open={openChangePassword}
-  onClose={handleCloseChangePassword}
-  title="Ingresa tu nueva contraseña"
-  message="Ingresa mínimo 8 caracteres"
->
-  <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon />} />
-  <CustomInput label="Confirma la contraseña" icon={<VisibilityOffIcon />} />
-  <CustomButton buttonText="Confirmar" fullWidth />
-</CustomModal>; */
-}
