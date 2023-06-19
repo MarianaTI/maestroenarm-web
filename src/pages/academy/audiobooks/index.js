@@ -44,7 +44,7 @@ export default function AudioBooks() {
                   key={index}
                   img={item.img}
                   name={item.name}
-                  detail={item.topics}
+                  topics={item.topics}
                   price={item.price}
                   showIcon
                 />

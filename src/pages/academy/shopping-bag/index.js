@@ -45,7 +45,7 @@ export default function ShoppingBag() {
                                     key={index}
                                     img={item.img}
                                     name={item.name}
-                                    detail={item.topics}
+                                    topics={item.topics}
                                     price={item.price}
                                 />
                             ))
@@ -65,7 +65,7 @@ export default function ShoppingBag() {
                                     key={index}
                                     img={item.img}
                                     name={item.name}
-                                    detail={item.topics}
+                                    topics={item.topics}
                                     price={item.price}
                                 />
                             ))

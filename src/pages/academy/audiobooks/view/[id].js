@@ -25,13 +25,12 @@ export default function View() {
       details={audiobook.detail}
     />
     <InterestContainer>
-        <span className="InterestTitle">Tambien te puede interesar:</span>
         {audiobooksInterest.map((item, index) => (
           <CustomAudiobook
             key={index}
             img={item.img}
             name={item.name}
-            detail={item.topics}
+            topics={item.topics}
             price={item.price}
           />
         ))}

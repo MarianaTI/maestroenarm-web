@@ -4,7 +4,6 @@ import Image from "next/image";
 export const Container = styled.div`
   height: auto;
   width: 100%;
-  padding: 16px;
 `;
 
 export const MainContainer = styled.div`
@@ -20,7 +19,7 @@ export const MainContainer = styled.div`
 `;
 
 export const MainInformation = styled.div`
-  padding: 18px;
+  padding: 16px;
   & h1 {
     font-size: 30px;
     font-weight: 700;
@@ -36,7 +35,7 @@ export const AudiobookContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 48px;
   @media (max-width: 800px) {
     padding: 40px;
   }
@@ -79,4 +78,5 @@ export const FilterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
 `;
