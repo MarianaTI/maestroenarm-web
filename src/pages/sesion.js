@@ -25,7 +25,7 @@ import CustomOptionsLogin from "../components/CustomOptionsLogin";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
-import { CustomButton } from "../components/CustomButton";
+import CustomButton from "../components/CustomButton";
 
 const loginSchema = yup.object({
   email: yup.string().email().required(),

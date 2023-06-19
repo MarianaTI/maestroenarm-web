@@ -1,4 +1,4 @@
-export const rankingUsers = [
+ export const rankingUsers = [
   {
     name: "Angel Ricardez",
     profilePicture: true,
