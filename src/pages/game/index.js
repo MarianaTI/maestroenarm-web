@@ -8,26 +8,24 @@ export default function Game() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Layout>
-        <TitleGameContainer>
-          <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
-          <p>Feedback déspues de cada pregunta</p>
-        </TitleGameContainer>
-        <GameField label="Aleatorio" />
-        <GameField label="Por Categoría" disabled />
-        <TitleGameContainer>
-          <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
-          <p>Feedback al finalizar el exámen</p>
-          <p>AMISTOSO</p>
-        </TitleGameContainer>
-        <GameField label="Aleatorio" />
-        <GameField
-          label="Por Categoría"
-          disabled
-          onClick={() => setOpen(true)}
-        />
-        <GameSettingsModal isOpen={open} />
-      </Layout>
+      <TitleGameContainer>
+        <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
+        <p>Feedback déspues de cada pregunta</p>
+      </TitleGameContainer>
+      <GameField label="Aleatorio" />
+      <GameField label="Por Categoría" disabled />
+      <TitleGameContainer>
+        <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
+        <p>Feedback al finalizar el exámen</p>
+        <p>AMISTOSO</p>
+      </TitleGameContainer>
+      <GameField label="Aleatorio" />
+      <GameField
+        label="Por Categoría"
+        disabled
+        onClick={() => setOpen(true)}
+      />
+      <GameSettingsModal isOpen={open} />
     </>
   );
 }

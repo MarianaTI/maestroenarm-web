@@ -1,7 +1,7 @@
 import Link from "next/link"
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MenuIcon from '@mui/icons-material/Menu';
 import { CustomIconButton, CustomNavLi, CustomNavUl, EnarmIcon, Header } from "./index.style";
@@ -25,7 +25,7 @@ const links = [
     {
         label: "Nosotros",
         route: "/nosotros",
-        icon: <PersonIcon />
+        icon: <PeopleAltIcon />
     }
 ];
 
