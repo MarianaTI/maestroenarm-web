@@ -2,9 +2,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { CustomButton } from "../../../../components/CustomButton";
 import VideoCard from "../../../../components/VideoCard";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
-import { AdvancedVideo } from "@cloudinary/react";
 import { scale } from "@cloudinary/url-gen/actions/resize";
-import { useEffect } from "react";
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
