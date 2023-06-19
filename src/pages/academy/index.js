@@ -32,7 +32,7 @@ export default function Academy() {
             </ButtonContainer>
           </StyledCard>
         </GridForm>
-        <GridImage />
+        <GridImage src="./medicine.svg" width={600} height={400}/>
       </PrincipalContainer>
       <CategoriesContainer>
         <span>Most fonts have a particular weight which corresponds.</span>

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 export const Container = styled.div`
   height: auto;
@@ -27,7 +28,7 @@ export const MainInformation = styled.div`
   & span {
     font-size: 18px;
     font-weight: 500;
-    color: #2D3648;
+    color: #2d3648;
   }
 `;
 
@@ -40,29 +41,17 @@ export const AudiobookContainer = styled.div`
     padding: 40px;
   }
 `;
-export const BackgroundImage = styled.div`
-  background-image: url(./podcast.png);
-  background-position: center;
+export const GridImage = styled(Image)`
   position: center;
-  background-repeat: no-repeat;
-  background-size: 300px;
-  width: 350px;
-  height: 300px;
   @media (max-width: 800px) {
     display: none;
   }
 `;
-export const EmptyStateContainer = styled.div`
+export const EmptyStateContainer = styled(Image)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(./search_not_found.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 300px;
-  width: 300px;
   & span {
     position: relative;
     top: 150px;
@@ -70,6 +59,7 @@ export const EmptyStateContainer = styled.div`
     color: #2D3648;
   }
 `;
+
 
 export const AudiobookGridContainer = styled.div`
   display: grid;
@@ -83,4 +73,10 @@ export const AudiobookGridContainer = styled.div`
   @media (max-width: 400px) {
     grid-template-columns: 1fr;
   }
+`;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

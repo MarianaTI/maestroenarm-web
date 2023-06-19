@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 export const Container = styled.div`
   height: auto;
@@ -60,13 +61,8 @@ export const CategoriesContainer = styled.div`
    }  
 `;
 
-export const GridImage = styled.div`
-  background-image: url(./principal-page-medicine.png);
-  background-position: center;
+export const GridImage = styled(Image)`
   position: center;
-  background-repeat: no-repeat;
-  width: 632px;
-  height: 463px;
   @media (max-width: 768px) {
     display: none;
   }

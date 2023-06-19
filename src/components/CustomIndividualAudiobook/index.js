@@ -26,7 +26,7 @@ const CustomIndividualAudiobook = ({
     <Container>
       <BasicInformationContainer>
         <div>
-          <img src="./indivualaudiobook.png" />
+          <img src="../../../indivualaudiobook.png" />
           <Options />
         </div>
         <div>

@@ -5,9 +5,10 @@ import { audiobooks } from "../../../constants";
 import {
   AudiobookContainer,
   AudiobookGridContainer,
-  BackgroundImage,
   Container,
   EmptyStateContainer,
+  FilterContainer,
+  GridImage,
   MainContainer,
   MainInformation,
 } from "../../../styles/PageAudiobooks.style";
@@ -24,13 +25,21 @@ export default function AudioBooks() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
         </MainInformation>
-        <BackgroundImage />
+        <GridImage src="../podcast.svg" width={350} height={300} />
       </MainContainer>
+      <FilterContainer>
+        <Filter />
+        <FilterDrawer></FilterDrawer>
+      </FilterContainer>
       <AudiobookContainer>
         <AudiobookGridContainer>
           {audiobooks.map((item, index) => (
-            <Link key={index} href={"/view/${item.id}"}>
-              <a>
+            <Link
+              href="/academy/audiobooks/view/[id]"
+              as={`/academy/audiobooks/view/${item.id}`}
+              key={item.id}
+            >
+              <div>
                 <CustomAudiobook
                   key={index}
                   img={item.img}
@@ -39,14 +48,14 @@ export default function AudioBooks() {
                   price={item.price}
                   showIcon
                 />
-              </a>
+              </div>
             </Link>
           ))}
         </AudiobookGridContainer>
         {/* {audiobooks.length > 0 ? (
          
         ) : (
-          <EmptyStateContainer>
+          <EmptyStateContainer src="./search.svg" width={300} height={300}>
             <span>No result found</span>
           </EmptyStateContainer>
         )} */}

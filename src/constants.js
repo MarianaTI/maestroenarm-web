@@ -74,6 +74,7 @@ export const userAccount = [
 
 export const audiobooks = [
   {
+    id: 1,
     img: "../example.png",
     name: "Audiolibro 1",
     author: "Mariana Trujillo",
@@ -84,8 +85,53 @@ export const audiobooks = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
+    id: 2,
+    img: "../example.png",
+    name: "Audiolibro 2",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 3,
+    img: "../example.png",
+    name: "Audiolibro 3",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 1200.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 4,
+    img: "../example.png",
+    name: "Audiolibro 4",
+    author: "Rodrigo Moreno",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 89.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 5,
     img: "../example.png",
     name: "Audiolibro 5",
+    author: "Mariana Trujillo",
+    storyteller: "Cloe Trujillo",
+    duration: "1 hr",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 570.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 6,
+    img: "../example.png",
+    name: "Audiolibro 6",
     author: "Rodrigo Moreno",
     storyteller: "Cloe Trujillo",
     duration: "1 hr",
@@ -97,6 +143,7 @@ export const audiobooks = [
 
 export const books = [
   {
+    id: 1,
     img: "./example.png",
     name: "Libro de medicina 1",
     author: "Mariana Trujillo",
@@ -105,16 +152,68 @@ export const books = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
+    id: 2,
     img: "./example.png",
-    name: "Libro de medicina 5",
+    name: "Libro de medicina 2",
     author: "Rodrigo Moreno",
-    storyteller: "Cloe Trujillo",
-    duration: "1 hr",
     topics: "Infecciones, lesiones y heridas.",
     price: 0.00,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
-  
+  {
+    id: 3,
+    img: "./example.png",
+    name: "Libro de medicina 3",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 4520.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 4,
+    img: "./example.png",
+    name: "Libro de medicina 4",
+    author: "Rodrigo Moreno",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 0.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 5,
+    img: "./example.png",
+    name: "Libro de medicina 5",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 807.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 6,
+    img: "./example.png",
+    name: "Libro de medicina 6",
+    author: "Rodrigo Moreno",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 745.50,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 7,
+    img: "./example.png",
+    name: "Libro de medicina 7",
+    author: "Mariana Trujillo",
+    topics: "Abuso de sustancias adictivas,cánceres, diabetes mellitus, embarazo y reproducción.",
+    price: 5078.99,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
+  {
+    id: 8,
+    img: "./example.png",
+    name: "Libro de medicina 8",
+    author: "Rodrigo Moreno",
+    topics: "Infecciones, lesiones y heridas.",
+    price: 745.00,
+    detail: "Detalles del audiolibro mas detalles del audiolibro",
+  },
 ];
 
 export const booksInterest = [
@@ -150,7 +249,7 @@ export const booksInterest = [
 
 export const audiobooksInterest = [
   {
-    img: "./example.png",
+    img: "../../../example.png",
     name: "Audiolibro 1",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -160,7 +259,7 @@ export const audiobooksInterest = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./example.png",
+    img: "../../../example.png",
     name: "Audiolibro 2",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -170,7 +269,7 @@ export const audiobooksInterest = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./example.png",
+    img: "../../../example.png",
     name: "Audiolibro 3",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",

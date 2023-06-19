@@ -90,7 +90,7 @@ export const EmptyStateContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(./havent_bought.png);
+  background-image: url(../shop.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -108,3 +108,21 @@ export const EmptyStateContainer = styled.div`
     display: flex;
   }
 `;
+
+// export const EmptyStateContainer = styled(Image)`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   grid-column: span 4;
+//   & span {
+//     position: relative;
+//     top: 150px;
+//     font-size: 16px;
+//     color: #2D3648;
+//     width: 300px;
+//     justify-content: center;
+//     align-items: center;
+//     display: flex;
+//   }
+// `;
