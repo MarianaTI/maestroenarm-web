@@ -23,7 +23,7 @@ export default function FinalStatistics() {
     return (
         <div>
             <NavbarStatics></NavbarStatics>
-
+            
             <StatisticsContainer>
                 <TimeResult></TimeResult>
                 <StatisticChart items={items}></StatisticChart>
