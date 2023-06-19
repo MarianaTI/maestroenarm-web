@@ -1,5 +1,6 @@
 export default function Books() {
     return <>
-        books
-    </>
+    <Filter />
+    <FilterDrawer></FilterDrawer>
+</>
 }

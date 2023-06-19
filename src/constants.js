@@ -74,7 +74,7 @@ export const userAccount = [
 
 export const audiobooks = [
   {
-    img: "./example.png",
+    img: "../example.png",
     name: "Audiolibro 1",
     author: "Mariana Trujillo",
     storyteller: "Cloe Trujillo",
@@ -84,7 +84,7 @@ export const audiobooks = [
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
   {
-    img: "./example.png",
+    img: "../example.png",
     name: "Audiolibro 5",
     author: "Rodrigo Moreno",
     storyteller: "Cloe Trujillo",
