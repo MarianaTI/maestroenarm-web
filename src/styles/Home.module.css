@@ -4,7 +4,6 @@
   max-width: 1200px;
   margin: auto;
   padding-top: 16px;
-
   @media (max-width: 767px) {
     padding: 10px;
   }
@@ -138,7 +137,6 @@
 
 
 .boton {
-  margin:auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -196,22 +194,11 @@
 }
 
 .contenedorCentrado {
-    padding: 16px;
-    max-width: 700px;
-    margin:auto;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    transform: translate(-0%, 10%);
-}
-/* Estilos para pantallas más grandes */
-@media (min-width: 1500px) {
-  .contenedorCentrado {
-  left: 50%;
-  transform: translate(-100%, 50%);
-  }
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {

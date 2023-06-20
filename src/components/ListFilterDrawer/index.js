@@ -1,7 +1,6 @@
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { Collapse } from '@mui/material';
+
 import { useState } from 'react';
 import { Container } from './index.style';
 
