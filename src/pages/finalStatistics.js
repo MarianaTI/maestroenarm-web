@@ -41,8 +41,6 @@ export default function FinalStatistics() {
   const items = answerCount();
   return (
     <Container>
-      <NavbarStatics></NavbarStatics>
-
       <StatisticsContainer>
         <TimeResult />
         <StatisticChart items={items}></StatisticChart>
