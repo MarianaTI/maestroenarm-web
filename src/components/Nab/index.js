@@ -11,13 +11,16 @@ import {
   CustomNavUl,
   EnarmIcon,
   Header,
+  IconWrapper,
 } from "./index.style";
 import MenuOption from "../MenuIcon";
-import { Popover, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Popover, List, ListItem, ListItemIcon, ListItemText, IconButton } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import GroupIcon from "@mui/icons-material/Group";
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
-
+import MenuIcon from '@mui/icons-material/Menu';
+import { useDispatch } from "react-redux";
+import { openNavDrawer } from "../../store/slices/navDrawerSlice";
 
 const links = [
   {
@@ -127,11 +130,17 @@ export default function Navbar() {
   };
 
   const academyOpen = Boolean(academyAnchorEl);
+  const dispatch = useDispatch();
 
   return (
     <Header>
       <nav>
         <CustomNavUl>
+          <IconWrapper>
+            <IconButton onClick={() => dispatch(openNavDrawer())}>
+              <MenuIcon />
+            </IconButton>
+          </IconWrapper>
           <EnarmIcon>Maestro ENARM</EnarmIcon>
           {links.map(({ label, route, icon, suboptions }) => (
             <CustomNavLi
