@@ -17,7 +17,6 @@ console.log('falseCount: ',falseCount);
 return items;
 }
 
-
 export default function FinalStatistics() {
     const items=answerCount();
     return (
