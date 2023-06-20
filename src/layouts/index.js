@@ -5,9 +5,11 @@ import NavDrawer from "../components/NavDrawer";
 
 export default function Layout({ children }) {
   const route = useRouter();
-  const hasNavbar =
-    route.pathname === "/" ||
-    !route.pathname.match(/sesion|register|demo|test/g);
+
+  const hasNavbar = !(
+    route.pathname === "/" || route.pathname.match(/sesion|register|demo|test/g)
+  );
+
   return (
     <>
       {hasNavbar && (
@@ -16,7 +18,7 @@ export default function Layout({ children }) {
           <NavDrawer />
         </>
       )}
-      <Container>{children}</Container>
+      <Container hasNavbar={hasNavbar}>{children}</Container>
     </>
   );
 }
