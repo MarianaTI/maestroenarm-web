@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Link, Button, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import NextImage from "next/image";
 
 export const Container = styled.div`

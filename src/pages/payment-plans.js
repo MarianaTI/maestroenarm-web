@@ -2,12 +2,14 @@ import {Container, CardPlans, Cards, Button, OpenModalButton} from "../styles/pa
 import CustomModal from "../components/CustomModal";
 import React, { useState } from "react";
 
-const [isOpenConditions, setOpenConditions] = React.useState(false);
-
-const toggleTermsandConditionsModal = () =>
-    setOpenConditions((isOpenConditions) => !isOpenConditions);
 
 const paymentPlans = () => {
+
+    const [isOpenConditions, setOpenConditions] = useState(false);
+
+    const toggleTermsandConditionsModal = () =>
+    setOpenConditions((isOpenConditions) => !isOpenConditions);
+
     return (
         <Container>
             <h1>Planes de pago</h1>
@@ -50,7 +52,7 @@ const paymentPlans = () => {
                 open={isOpenConditions}
                 onClose={toggleTermsandConditionsModal}
                 title={"Terminos y condiciones"}
-                message={"LIKCFDHVDVGDUJVGUJGVJJWGVKJVJVKJGBVKKJVKJD"}
+                message={""}
                 />
         </Container>
     )

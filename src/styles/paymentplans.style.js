@@ -39,10 +39,8 @@ export const Button = styled.button`
    color: #fff;
 `;
 export const OpenModalButton = styled.button`
-  padding-left: 16px;
-  font-size: 14px;
+  font-size: 10px;
   font-family: "Poppins";
-  color: #052970;
   font-weight: 600;
   display: inline;
   background: none;
