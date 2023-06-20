@@ -38,13 +38,30 @@ export const TextContainerResult = styled.div`
 `;
 
 export const Container = styled.div`
+     padding-top: 100px;
+    @media (max-width: 768px) {
+        margin-left: 5%;
+    }
+`;
+
+export const ContainerSpecialty = styled.div`
      margin-left: 10%;
     @media (max-width: 768px) {
         margin-left: 5%;
     }
 `;
 
-export const ContainerResult = styled.div`
+
+export const StatisticsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position:relative;
+`;
+
+export const ContainerRetroAlim = styled.div`
     box-sizing: border-box;
     position: absolute;
     width: 90%;
