@@ -6,7 +6,6 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
-import { AccountCircle } from "@mui/icons-material";
 
 const MenuOption = () => {
     const [anchorEl, setAnchorEl] = useState(null);

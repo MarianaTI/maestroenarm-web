@@ -10,7 +10,6 @@ export const StyledButton = styled(Button)`
     &:hover {
       color: #000;
     }
-    margin-left: auto;
   }
 `;
 
@@ -20,8 +19,7 @@ export const StyledMenuItem = styled(MenuItem)`
     &:hover {
       background-color: #f5f5f5;
     }
-    width: 367px;
-    padding: 8px 16px;
+    width: 300px;
     font-size: 14px;
     &:nth-of-type(4) {
       border-top: 1px solid #000;
