@@ -11,8 +11,8 @@ export const Container = styled.div`
 export const PrincipalContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 32px;
-  padding: 16px;
+  grid-gap: 20px;
+  padding: 8px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }

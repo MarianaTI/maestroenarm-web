@@ -5,6 +5,7 @@ import {
   StyledTabs,
   TabContainer,
   TabInformation,
+  TabInformationBook,
 } from "../styles/ShoppingBag.style";
 import { Tab } from "@mui/material";
 import {
@@ -13,6 +14,7 @@ import {
   videosInterest,
 } from "../constants";
 import CustomAudiobook from "../components/CustomAudiobook";
+import CustomBook from "../components/CustomBook";
 
 const ShoppingBag = () => {
   const [value, setValue] = React.useState(0);
@@ -50,36 +52,49 @@ const ShoppingBag = () => {
               ))
             ) : (
               <EmptyStateContainer>
-                <span>No hay libros disponibles</span>
+                <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
+           
           </TabInformation>
         )}
         {value === 1 && (
           <TabInformation>
-            {audiobooksInterest.map((item, index) => (
-              <CustomAudiobook
-                key={index}
-                img={item.img}
-                name={item.name}
-                detail={item.topics}
-                price={item.price}
-              />
-            ))}
+            {audiobooksInterest.length > 0 ? (
+              audiobooksInterest.map((item, index) => (
+                <CustomAudiobook
+                  key={index}
+                  img={item.img}
+                  name={item.name}
+                  detail={item.topics}
+                  price={item.price}
+                />
+              ))
+            ) : (
+              <EmptyStateContainer>
+                <span>Aún no hay compras disponibles</span>
+              </EmptyStateContainer>
+            )}
           </TabInformation>
         )}
         {value === 2 && (
-          <TabInformation>
-            {booksInterest.map((item, index) => (
-              <CustomAudiobook
+          <TabInformationBook>
+            {booksInterest.length > 0 ? (
+              booksInterest.map((item, index) => (
+                <CustomBook
                 key={index}
                 img={item.img}
                 name={item.name}
-                detail={item.topics}
+                topics={item.topics}
                 price={item.price}
               />
-            ))}
-          </TabInformation>
+              ))
+            ) : (
+              <EmptyStateContainer>
+                <span>Aún no hay compras disponibles</span>
+              </EmptyStateContainer>
+            )}
+          </TabInformationBook>
         )}
       </TabContainer>
     </div>

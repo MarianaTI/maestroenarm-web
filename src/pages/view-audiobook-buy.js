@@ -5,7 +5,7 @@ import { audiobooksInterest } from "../constants";
 import {
   InterestContainer,
   ViewContainer,
-} from "../styles/ViewAudiobookBuy.style";
+} from "../styles/ViewAudiobooks.style";
 import { audiobooks } from "../constants";
 
 const ViewAudiobookBuy = () => {

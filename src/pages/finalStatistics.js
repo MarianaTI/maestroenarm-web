@@ -16,7 +16,7 @@ return items;
 
 
 export default function FinalStatistics() {
-    const items=answerCount();
+    const items = answerCount();
     return (
         <Container>
             <StatisticsContainer>
@@ -36,10 +36,10 @@ export default function FinalStatistics() {
                     <span>Ginecologia1/1 -100%</span>
                     <span>Remautologia0/1 -0%</span>
                 </TextStatic>
-                    <a href="/" className={styles.botonPageFinal}>
+                <a href="/" className={styles.botonPageFinal}>
                     <span>Salir</span>
-                    </a>
-               
+                </a>
+
             </ContainerSpecialty>
         </Container>
     );

@@ -114,6 +114,7 @@ export const books = [
     price: 0.00,
     detail: "Detalles del audiolibro mas detalles del audiolibro",
   },
+  
 ];
 
 export const booksInterest = [

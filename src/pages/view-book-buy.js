@@ -1,7 +1,7 @@
 import React from "react";
 import CustomIndividualBook from "../components/CustomIndividualBook";
 import { books, booksInterest } from "../constants";
-import { InterestContainer, ViewContainer } from "../styles/ViewBookBuy.style";
+import { InterestContainer, ViewContainer } from "../styles/ViewBooks.style";
 import CustomAudiobook from "../components/CustomAudiobook";
 
 

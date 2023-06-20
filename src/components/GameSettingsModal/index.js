@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { CustomButton } from '../CustomButtom';
+import { CustomButton } from '../CustomButton';
 import { ModalBody, RangeContainer } from './index.style';
 
 export const GameSettingsModal = ({ isOpen }) => {

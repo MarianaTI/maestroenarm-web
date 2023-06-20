@@ -191,3 +191,5 @@ export const TextStatic = styled.div`
     }
   }
 `;
+
+

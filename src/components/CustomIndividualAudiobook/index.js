@@ -4,6 +4,7 @@ import {
   BasicInformationContainer,
   BuyContainer,
   Container,
+  IncludeContainer,
   MoreDetail,
   Options,
 } from "./index.style";
@@ -51,7 +52,7 @@ const CustomIndividualAudiobook = ({
             </BuyContainer>
           ) : (
             <BuyContainer>
-              <span className="DetailOptionStyled">$ {price}</span>
+              <IncludeContainer><span className="DetailOptionStyled">Incluido en la suscripción</span></IncludeContainer>
               <CustomButton showIcon/>
             </BuyContainer>
           )}
