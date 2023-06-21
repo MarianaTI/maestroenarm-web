@@ -1,4 +1,4 @@
-export const rankingUsers = [
+ export const rankingUsers = [
   {
     name: "Angel Ricardez",
     profilePicture: true,
@@ -71,6 +71,16 @@ export const userAccount = [
     password: "cloe123",
   },
 ];
+
+export const userRegister = [
+  {
+    namee: "Sugey",
+    lastname: "Rosado",
+    email: "syra478xd@gmail.com",
+    password: "123sugey",
+    confirmpassword: "123sugey"
+  }
+]
 
 export const audiobooks = [
   {

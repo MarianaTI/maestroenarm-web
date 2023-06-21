@@ -87,3 +87,9 @@ export const LinkText = styled(Link)`
   text-decoration: none;
   display: inline;
 `;
+
+export const ErrorMessage = styled.p`
+  font-size: 12px;
+  padding-left: 16px;
+  color: red;
+`;
