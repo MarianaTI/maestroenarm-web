@@ -1,10 +1,8 @@
-import {Container, CardPlans, Cards, OpenModalButton, ButtonContainer} from "../styles/paymentplans.style";
+import {Container, CardPlans, Cards, OpenModalButton, ButtonContainer, ReturnButtonContainer} from "../styles/paymentplans.style";
 import CustomModal from "../components/CustomModal";
 import  { CustomButton } from "../components/CustomButton";
 import React, { useState } from "react";
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-
-
+import CheckIcon from '@mui/icons-material/Check';
 
 const paymentPlans = () => {
 
@@ -20,14 +18,14 @@ const paymentPlans = () => {
                 <Cards>
                     <h1>Mensual</h1>
                     <hr/>
-                    <h5><CheckCircleOutlineIcon />Modo práctica aleatorio</h5>
+                    <h5><CheckIcon />Modo práctica aleatorio</h5>
                     <span>Por tiempo o número de casos</span>
-                    <h5><CheckCircleOutlineIcon />+2400 preguntas</h5>
-                    <h5><CheckCircleOutlineIcon />Estudiar por categoria</h5>
+                    <h5><CheckIcon />+2400 preguntas</h5>
+                    <h5><CheckIcon />Estudiar por categoria</h5>
                     <span>Competidor o individual</span>
-                    <h5><CheckCircleOutlineIcon />Modo estudio controlado</h5>
+                    <h5><CheckIcon />Modo estudio controlado</h5>
                     <span>Elige la sub especialidad</span>
-                    <h5><CheckCircleOutlineIcon />Material de estudio</h5>
+                    <h5><CheckIcon />Material de estudio</h5>
                     <ButtonContainer>
                         <CustomButton text="ENARM 1 mes $200.00" type="submit"/>
                         <OpenModalButton onClick={toggleTermsandConditionsModal}>
@@ -38,15 +36,15 @@ const paymentPlans = () => {
                 <Cards>
                     <h1>Anual</h1>
                     <hr/>
-                    <h5><CheckCircleOutlineIcon />Modo práctica aleatorio</h5>
+                    <h5><CheckIcon />Modo práctica aleatorio</h5>
                     <span>Por tiempo o número de casos</span>
-                    <h5><CheckCircleOutlineIcon />+2400 preguntas</h5>
-                    <h5>Estudiar por categoria</h5>
+                    <h5><CheckIcon />+2400 preguntas</h5>
+                    <h5><CheckIcon />Estudiar por categoria</h5>
                     <span>Competidor o individual</span>
-                    <h5><CheckCircleOutlineIcon />Modo estudio controlado</h5>
+                    <h5><CheckIcon />Modo estudio controlado</h5>
                     <span>Elige la sub especialidad</span>
-                    <h5><CheckCircleOutlineIcon />Material de estudio</h5>
-                    <h5><CheckCircleOutlineIcon />Un mes de regalo</h5>
+                    <h5><CheckIcon />Material de estudio</h5>
+                    <h5><CheckIcon />Un mes de regalo</h5>
                     <ButtonContainer>
                        <CustomButton text="ENARM 1 año $2200.00" type="submit"/>
                         <OpenModalButton onClick={toggleTermsandConditionsModal}>
@@ -55,8 +53,11 @@ const paymentPlans = () => {
                     </ButtonContainer>
                 </Cards>
             </CardPlans>
-            <CustomButton text="Regresar" type="submit"/>
-
+            <ReturnButtonContainer>
+                <a href="/game">
+                    <CustomButton text="Regresar" type="submit"/> 
+                </a>
+            </ReturnButtonContainer>
                 <CustomModal
                 open={isOpenConditions}
                 onClose={toggleTermsandConditionsModal}
