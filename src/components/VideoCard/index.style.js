@@ -11,7 +11,7 @@ const ContainerStyles = ({ isVertical }) => css`
         margin: 0;
     }
 
-    & > video {
+    & > :first-child {
         width: ${isVertical ? '256px' : '168px'};
         height: ${isVertical ? '144px' : '94.5px'};
         background: #D9D9D9;

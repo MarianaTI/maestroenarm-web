@@ -1,5 +1,5 @@
 import { MatchCard } from "../../../components/MatchCard";
-import Layout from "/layout";
+import Layout from "../../../layouts/index";
 import { FlexLeftWrapper, FlexRightWrapper, MatchCardContainer } from "../../../styles/Game";
 
 export default function Game() {

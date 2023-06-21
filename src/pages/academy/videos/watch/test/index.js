@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { CustomButton } from "../../../components/CustomButton";
-import TestQuestion from "../../../components/TestQuestion";
-import { ButtonWrapper, QuestionContainer, TestHeader } from "../../../styles/Test.styles";
+import { CustomButton } from "../../../../../components/CustomButton";
+import TestQuestion from "../../../../../components/TestQuestion";
+import { ButtonWrapper, QuestionContainer, TestHeader } from "../../../../../styles/Test.styles";
 
 const testQuestions = [
     {
