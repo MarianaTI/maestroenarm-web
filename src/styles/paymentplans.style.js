@@ -7,9 +7,6 @@ export const Container = styled.div`
     color: #052970;
     margin: 10px;
    }
-   button {
-    justify-content: center;
-   }
 `;
 export const CardPlans = styled.div`
    display: flex;
@@ -23,34 +20,48 @@ export const Cards = styled.div`
    padding: 50px;
    border-radius: 20px;
    box-shadow: 2px 1px 4px 3px  rgba(0, 0, 0, 0.3);
+   flex-direction: column;
    hr {
     
    }
    h5 {
-      font-size: 15px ;
-      margin: 0px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    margin: 0;
+    white-space: nowrap;
    }
    span {
-      font-size: 13px;
-      text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+
    }
    h1 {
       margin: 0px;
    }
 `;
-export const Button = styled.button`
-   width: 200px;
-   background-color: #052970;
-   color: #fff;
-`;
+
 export const OpenModalButton = styled.button`
-  font-size: 10px;
+  font-size: 13px;
   font-family: "Poppins";
+  justify-content: center;
+  padding: 10px;
   font-weight: 600;
   display: inline;
   background: none;
   border: none;
   cursor: pointer;
+`;
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 `;
 
 
