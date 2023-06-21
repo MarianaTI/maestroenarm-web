@@ -3,9 +3,11 @@ import Image from "next/image";
 
 export const Container = styled.div`
   height: auto;
+  padding: 16px;
   width: 100%;
 `;
 export const PrincipalContainer = styled.div`
+  padding: 16px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 8px;
@@ -41,21 +43,44 @@ export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 52px;
 `;
 
 export const CategoriesContainer = styled.div`
-   margin: 20px;
-   & span {
+  padding: 32px;
+  & span {
     display: flex;
     justify-content: center;
     font-weight: 600;
     font-size: 22px;
-   }  
+  }
 `;
 
-export const GridImage = styled(Image)`
-  position: center;
+export const ImageStyled = styled(Image)`
+  padding: 16px;
+  :hover {
+    animation: float 2s linear infinite;
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0rem);
+      }
+      50% {
+        transform: translateY(-1.5rem);
+      }
+    }
+  }
+  :not(:hover) {
+    animation: fall 0.5s linear forwards;
+    @keyframes fall {
+    from {
+      transform: translateY(-1.5rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+  }
   @media (max-width: 768px) {
     display: none;
   }

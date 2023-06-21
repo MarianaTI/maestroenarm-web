@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const Container = styled.div`
   }
 `;
 
-export const CardCategorie = styled.div`
+export const CardCategorie = styled.button`
   width: 210px;
   height: 233px;
   display: flex;
@@ -18,6 +19,9 @@ export const CardCategorie = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
   & p {
     font-weight: 600;
     font-size: 20px;
@@ -28,3 +32,8 @@ export const CardCategorie = styled.div`
   }
 `;
 
+export const ImageStyled = styled(Image)`
+  :hover{
+    scale: 1.1;
+  }
+`;

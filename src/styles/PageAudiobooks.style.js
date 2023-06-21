@@ -40,22 +40,49 @@ export const AudiobookContainer = styled.div`
     padding: 40px;
   }
 `;
-export const GridImage = styled(Image)`
-  position: center;
+export const ImageStyled = styled(Image)`
+  :hover {
+    animation: float 2s linear infinite;
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0rem);
+      }
+      50% {
+        transform: translateY(-1.5rem);
+      }
+    }
+  }
+  :not(:hover) {
+    animation: fall 0.5s linear forwards;
+    @keyframes fall {
+    from {
+      transform: translateY(-1.5rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+  }
   @media (max-width: 800px) {
     display: none;
   }
 `;
-export const EmptyStateContainer = styled(Image)`
+
+export const EmptyStateContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  grid-column: span 4;
   & span {
     position: relative;
-    top: 150px;
     font-size: 16px;
     color: #2D3648;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 `;
 

@@ -9,17 +9,17 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const CustomAudiobook = ({ img, name, topics, price, showIcon }) => {
   const getFontSizeForName = (string) => {
-    if (string.length > 50) return "10px";
-    if (string.length > 30) return "12px";
-    if (string.length > 15) return "14px";
-    return "16px";
+    if (string.length > 50) return "9px";
+    if (string.length > 40) return "10px";
+    if (string.length > 30) return "14px";
+    return "12px";
   };
   
   const getFontSizeForTopics = (string) => {
-    if (string.length > 40) return "7px";
-    if (string.length > 30) return "10px";
-    if (string.length > 20) return "12px";
-    return "14px";
+    if (string.length > 80) return "8px";
+    if (string.length > 70) return "9px";
+    if (string.length > 60) return "10px";
+    return "8px";
   };
   return (
     <Container>

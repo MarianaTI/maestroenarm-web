@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CustomAudiobook from "../../../components/CustomAudiobook";
 import Filter from "../../../components/Filter";
 import FilterDrawer from "../../../components/FilterDrawer";
@@ -8,7 +9,7 @@ import {
   Container,
   EmptyStateContainer,
   FilterContainer,
-  GridImage,
+  ImageStyled,
   MainContainer,
   MainInformation,
 } from "../../../styles/PageAudiobooks.style";
@@ -25,40 +26,40 @@ export default function AudioBooks() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
         </MainInformation>
-        <GridImage src="../podcast.svg" width={350} height={300} />
+        <ImageStyled src="/img/podcast.svg" width={350} height={300} />
       </MainContainer>
       <FilterContainer>
         <Filter />
         <FilterDrawer></FilterDrawer>
       </FilterContainer>
       <AudiobookContainer>
-        <AudiobookGridContainer>
-          {audiobooks.map((item, index) => (
-            <Link
-              href="/academy/audiobooks/view/[id]"
-              as={`/academy/audiobooks/view/${item.id}`}
-              key={item.id}
-            >
-              <div>
-                <CustomAudiobook
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  topics={item.topics}
-                  price={item.price}
-                  showIcon
-                />
-              </div>
-            </Link>
-          ))}
-        </AudiobookGridContainer>
-        {/* {audiobooks.length > 0 ? (
-         
+        {audiobooks.length > 0 ? (
+          <AudiobookGridContainer>
+            {audiobooks.map((item, index) => (
+              <Link
+                href="/academy/audiobooks/view/[id]"
+                as={`/academy/audiobooks/view/${item.id}`}
+                key={item.id}
+              >
+                <div>
+                  <CustomAudiobook
+                    key={index}
+                    img={item.img}
+                    name={item.name}
+                    topics={item.topics}
+                    price={item.price}
+                    showIcon
+                  />
+                </div>
+              </Link>
+            ))}
+          </AudiobookGridContainer>
         ) : (
-          <EmptyStateContainer src="./search.svg" width={300} height={300}>
-            <span>No result found</span>
+          <EmptyStateContainer>
+            <Image src="/img/search.svg" width={150} height={150} />
+            <span>Aún no hay compras disponibles</span>
           </EmptyStateContainer>
-        )} */}
+        )}
       </AudiobookContainer>
     </Container>
   );

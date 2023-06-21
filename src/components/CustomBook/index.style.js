@@ -15,6 +15,9 @@ export const ImgStyled = styled.img`
   width: 120px;
   height: 170px;
   border-radius: 15px;
+  :hover {
+    scale: 1.1;
+  }
 `;
 
 export const DetailsContainer = styled.div`

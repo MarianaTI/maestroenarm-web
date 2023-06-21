@@ -23,7 +23,7 @@ const CustomBook = ({img, name, topics, price, showIcon }) => {
   };
   return (
     <Container>
-      <ImgStyled src="./example.png" />
+      <ImgStyled src={img}/>
       <DetailsContainer>
         <div style={{fontSize: getFontSizeForName(name)}}>{name}</div>
         <div style={{fontSize: getFontSizeForTopics(topics)}}>
