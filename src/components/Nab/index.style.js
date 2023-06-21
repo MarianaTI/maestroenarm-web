@@ -37,13 +37,16 @@ export const EnarmIcon = styled.span`
     @media screen and (max-width: 1220px) {
         margin: auto;
     }
+
+    @media screen and (max-width: 578px) {
+        display: none;
+    }
 `;
 
 export const IconWrapper = styled.div`
     display: none;
     @media screen and (max-width: 1220px) {
         display: initial;
-        justify-self: end;
     }
 `
 
