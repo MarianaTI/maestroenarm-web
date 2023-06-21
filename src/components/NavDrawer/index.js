@@ -23,7 +23,6 @@ import GroupIcon from "@mui/icons-material/Group";
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
 import Link from 'next/link';
 import { useState } from 'react';
-import { ico } from '@cloudinary/url-gen/qualifiers/format';
 
 const links = [
     {
@@ -76,6 +75,11 @@ const links = [
         icon: <SchoolIcon />,
         subOptions: [
             {
+                label: "home",
+                route: "/academy",
+                icon: <HomeIcon />,
+            },
+            {
                 label: "books",
                 route: "/academy/books",
                 icon: <MenuBookOutlinedIcon />,
@@ -113,7 +117,7 @@ function ExpandedOption({ subOptions, isOpen }) {
     )
 }
 
-function NavDrawerItem({ label, route, icon, subOptions }) {
+function NavDrawerItem({ label, icon, subOptions }) {
     const [open, setOpen] = useState(false)
     return (
         <>
