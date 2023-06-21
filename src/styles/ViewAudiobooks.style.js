@@ -9,12 +9,12 @@ export const ViewContainer = styled.div`
 
 export const InterestContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   margin: 48px;
   .InterestTitle {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 24px;
   }
   .CurouselStyled {

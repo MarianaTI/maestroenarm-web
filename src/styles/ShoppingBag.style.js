@@ -90,16 +90,9 @@ export const EmptyStateContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(./havent_bought.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 150px;
-  width: 150px;
   grid-column: span 4;
   & span {
     position: relative;
-    top: 150px;
     font-size: 16px;
     color: #2D3648;
     width: 300px;
@@ -107,4 +100,8 @@ export const EmptyStateContainer = styled.div`
     align-items: center;
     display: flex;
   }
+`;
+
+export const EmptyStateContainerBook = styled(EmptyStateContainer)`
+  grid-column: span 6;
 `;

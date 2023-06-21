@@ -4,15 +4,17 @@ import {
   BasicInformationContainer,
   BuyContainer,
   Container,
+  HoverImage,
+  ImageContainer,
+  ImageStyled,
   IncludeContainer,
   MoreDetail,
-  Options,
 } from "./index.style";
 import CustomButton from "../CustomButtonAcademy";
 
 const CustomIndividualAudiobook = ({
-  img,
-  option,
+  imgFront,
+  imgBack,
   name,
   author,
   storyteller,
@@ -21,13 +23,15 @@ const CustomIndividualAudiobook = ({
   price,
   details,
 }) => {
-
   return (
     <Container>
       <BasicInformationContainer>
         <div>
-          <img src="./indivualaudiobook.png" />
-          <Options />
+          <ImageContainer>
+            <ImageStyled src={imgFront}></ImageStyled>
+            <HoverImage src={imgBack}></HoverImage>
+          </ImageContainer>
+          <img src="/img/repro.jpg" width={260}/>
         </div>
         <div>
           <BasicInformation>
@@ -45,15 +49,19 @@ const CustomIndividualAudiobook = ({
               Temas: <span className="DetailStyled">{topics}</span>
             </div>
           </BasicInformation>
-          {price > 0.00 ? (
+          {price > 0.0 ? (
             <BuyContainer>
               <span className="DetailOptionStyled">$ {price}</span>
-              <CustomButton buttonText="Comprar ahora" type="button"/>
+              <CustomButton buttonText="Comprar ahora" type="button" />
             </BuyContainer>
           ) : (
             <BuyContainer>
-              <IncludeContainer><span className="DetailOptionStyled">Incluido en la suscripción</span></IncludeContainer>
-              <CustomButton showIcon/>
+              <IncludeContainer>
+                <span className="DetailOptionStyled">
+                  Incluido en la suscripción
+                </span>
+              </IncludeContainer>
+              <CustomButton showIcon />
             </BuyContainer>
           )}
         </div>
