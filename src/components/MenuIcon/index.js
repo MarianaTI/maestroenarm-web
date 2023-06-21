@@ -6,6 +6,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
+import { IconButton } from "@mui/material";
 
 const MenuOption = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -20,30 +21,29 @@ const MenuOption = () => {
     };
 
     const handleSettingsClick = () => {
-        router.push("/edit-profile"); 
+        router.push("/edit-profile");
         handleMenuClose();
     };
 
     const handleSettingsClickAjust = () => {
-        router.push("/profile-settings"); 
+        router.push("/profile-settings");
         handleMenuClose();
     };
 
     const handleSettingsClickClosed = () => {
-        router.push("/sesion"); 
+        router.push("/sesion");
         handleMenuClose();
     };
 
     return (
         <>
-            <StyledButton
-                aria-controls="options-menu"
-                aria-haspopup="true"
+            <IconButton
                 onClick={handleButtonClick}
-                startIcon={<AccountCircleIcon />}
-                variant="contained"
-                color="primary"
-            />
+                color="inherit"
+                style={{ marginLeft: "auto", marginRight: 28 }}
+            >
+                <AccountCircleIcon />
+            </IconButton>
             <Menu
                 id="options-menu"
                 anchorEl={anchorEl}
@@ -66,10 +66,10 @@ const MenuOption = () => {
                         }}
                     >
                         Mejora tu plan
-                        
+
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem  style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem style={{ fontFamily: "Poppins" }}>
                     angel.ricardez@buencodigo.dev
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>
