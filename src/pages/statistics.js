@@ -1,5 +1,5 @@
 import { ScoreField } from "../components/ScoreField";
-import { StatisticChart } from "../components/StatisticChart";
+import { StatisticChart } from "../components/StatisticsChart";
 import Layout from "../layouts/index";
 import { StatisticsContainer } from "../styles/Result.style";
 
