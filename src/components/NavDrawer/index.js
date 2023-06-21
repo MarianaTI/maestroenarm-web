@@ -8,7 +8,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container } from './index.style';
+import { Container, EnarmIcon } from './index.style';
 import { IconButton } from '@mui/material';
 import { closeNavDrawer } from '../../store/slices/navDrawerSlice';
 
@@ -20,6 +20,8 @@ import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import SchoolIcon from "@mui/icons-material/School";
 import GroupIcon from "@mui/icons-material/Group";
+import HistoryIcon from '@mui/icons-material/History';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -94,6 +96,16 @@ const links = [
                 route: "/academy/videos",
                 icon: <PlayCircleOutlinedIcon />,
             },
+            {
+                label: "compras",
+                route: "/academy/shopping-bag",
+                icon: <ShoppingBagIcon />,
+            },
+            {
+                label: "historial",
+                route: "/academy/shopping-bag/history",
+                icon: <HistoryIcon />,
+            },
         ],
     },
 ];
@@ -102,35 +114,43 @@ function ExpandedOption({ subOptions, isOpen }) {
     return (
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
             <List style={{ padding: "0 16px" }}>
-                {subOptions.map(({ label, route, icon }) => <Link href={route}>
-                    <Link href={route}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {icon}
-                            </ListItemIcon>
-                            <ListItemText primary={label} />
-                        </ListItemButton>
-                    </Link>
+                {subOptions.map(({ label, route, icon }) => <Link key={label} href={route}>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            {icon}
+                        </ListItemIcon>
+                        <ListItemText primary={label} />
+                    </ListItemButton>
                 </Link>)}
             </List>
         </Collapse>
     )
 }
 
-function NavDrawerItem({ label, icon, subOptions }) {
+function NavDrawerItem({ label, icon, subOptions, route }) {
     const [open, setOpen] = useState(false)
     return (
         <>
-            <ListItem key={label} disablePadding>
-                <ListItemButton onClick={() => setOpen(!open)}>
-                    <ListItemIcon>
-                        {icon}
-                    </ListItemIcon>
-                    <ListItemText primary={label} />
-                    {subOptions && (open ? <ExpandLess /> : <ExpandMore />)}
-                </ListItemButton>
-            </ListItem>
-            {subOptions && <ExpandedOption subOptions={subOptions} isOpen={open} />}
+            {subOptions ? <>
+                <ListItem key={label} disablePadding>
+                    <ListItemButton onClick={() => setOpen(!open)}>
+                        <ListItemIcon>
+                            {icon}
+                        </ListItemIcon>
+                        <ListItemText primary={label} />
+                        {subOptions && (open ? <ExpandLess /> : <ExpandMore />)}
+                    </ListItemButton>
+                </ListItem> <ExpandedOption subOptions={subOptions} isOpen={open} />
+            </> : <ListItem key={label} disablePadding>
+                <Link style={{ width: "100%" }} href={route}>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            {icon}
+                        </ListItemIcon>
+                        <ListItemText primary={label} />
+                    </ListItemButton>
+                </Link>
+            </ListItem>}
         </>
     )
 }
@@ -149,13 +169,14 @@ export default function NavDrawer() {
                     role="presentation"
                 >
                     <Container>
-                        <span>Options</span>
+                        <EnarmIcon>Maestro ENARM</EnarmIcon>
                         <IconButton onClick={() => dispatch(closeNavDrawer())}>
                             <CloseIcon />
                         </IconButton>
                     </Container>
                     <List>
                         {links.map(({ label, route, icon, subOptions = null }) => <NavDrawerItem
+                            key={label}
                             icon={icon}
                             label={label}
                             route={route}
