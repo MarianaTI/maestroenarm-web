@@ -8,7 +8,6 @@ export const LoginGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 32px;
-  background-color: #f4f4f4;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }

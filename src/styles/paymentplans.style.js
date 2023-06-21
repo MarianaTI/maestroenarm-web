@@ -34,6 +34,7 @@ export const Cards = styled.div`
    }
    span {
     display: flex;
+    text-align: justify;
     align-items: center;
     gap: 5px;
     font-size: 14px;
@@ -44,7 +45,6 @@ export const Cards = styled.div`
       margin: 0px;
    }
 `;
-
 export const OpenModalButton = styled.button`
   font-size: 13px;
   font-family: "Poppins";
@@ -63,6 +63,10 @@ export const ButtonContainer = styled.div`
   gap: 10px;
   margin-top: 20px;
 `;
-
+export const ReturnButtonContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   padding: 10px;
+`;
 
 
