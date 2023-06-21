@@ -21,6 +21,36 @@ export const BasicInformationContainer = styled.div`
   }
 `;
 
+export const ImageContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 300px;
+  margin-bottom: 4px;
+  border-radius: 15px;
+`;
+
+export const ImageStyled = styled.img`
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+`;
+
+export const HoverImage = styled.img`
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+
 export const BuyContainer = styled.div`
   display: flex;
   align-items: center;
@@ -86,6 +116,7 @@ export const BasicInformation = styled.div`
     height: 200px;
     margin-left: 32px;
     margin-bottom: 0px;
+    margin-top: 32px;
   }
 `;
 
@@ -107,6 +138,6 @@ export const  MoreDetail = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-    padding: 24px;
+    padding: 16px;
   }
 `;

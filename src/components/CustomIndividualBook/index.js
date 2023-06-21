@@ -5,12 +5,16 @@ import {
   BasicInformationContainer,
   BuyContainer,
   Container,
+  HoverImage,
+  ImageContainer,
+  ImageStyled,
   IncludeContainer,
   MoreDetail,
 } from "./index.style";
 
 const CustomIndividualBook = ({
-  img,
+  imgFront,
+  imgBack,
   name,
   author,
   topics,
@@ -21,7 +25,10 @@ const CustomIndividualBook = ({
     <Container>
       <BasicInformationContainer>
         <div>
-          <img src="./indivualaudiobook.png" />
+        <ImageContainer>
+            <ImageStyled src={imgFront}></ImageStyled>
+            <HoverImage src={imgBack}></HoverImage>
+          </ImageContainer>
           {price > 0.00 ? (
             <BuyContainer>
               <span>$ {price}</span>
