@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userAccount } from "../constants";
+import { userRegister } from "../constants";
 import * as yup from "yup";
 import {
     RegisterContainer, 
@@ -9,12 +9,12 @@ import {
     ImageStyle, 
     FormStyle,
     QuestionStyle,
-    LinkText
+    LinkText,
+    ErrorMessage
 } from "../styles/register.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
-import { ErrorMessage } from "../components/CustomInput/index.style";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
@@ -34,7 +34,7 @@ const register = () => {
     const [isShowPassword, setShowPassword] = useState(false);
 
     const authenticateUser = (email, password, confirmpassword, namee, lastname) => {
-        const user = userAccount.find(
+        const user = userRegister.find(
           (account) => account.name === namee && account.lastname === lastname &&
           account.email === email && account.password === password && 
           account.confirmpassword === confirmpassword
@@ -63,10 +63,10 @@ const register = () => {
         try {
           authenticateUser(values.namee, values.lastname, values.email, values.password, values.confirmpassword);
           console.log("Registro exitoso");
-          setErrorLogin(false);
+          setErrorRegister(false);
         } catch (error) {
           console.log(error.message);
-          setErrorLogin(true);
+          setErrorRegister(true);
         }
       };
       const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
@@ -133,7 +133,7 @@ const register = () => {
                             )
                         }
                         />
-                        <CustomButton buttonText="Iniciar" type="submit"/>
+                        <CustomButton text="Iniciar" type="submit"/>
                         <QuestionStyle>
                             <span>¿Ya tienes cuenta?
                                 <LinkText href="#">Iniciar sesión</LinkText>

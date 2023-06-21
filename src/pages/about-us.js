@@ -37,57 +37,51 @@ const aboutUs = () => {
                     Excepteur sint occaecat cupidatat non proident, 
                     sunt in culpa qui officia deserunt mollit anim id est laborum."
                 </p>
-                <ImageStyle src="./sobrenosotros2.svg" width={500} height={500}/>
+                <ImageStyle src="./aboutus.svg" width={500} height={500}/>
             </AboutContainer>    
             <h1>Sobre nuestro equipo</h1>
             <AvatarsContainer>
                 <AboutCard>
-                       <Avatar/>
+                        <Avatar/>
                         <h3>Ing. Sugey Rosado</h3>
                         <p>Lorem ipsum dolor sit amet, 
-                            consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt ut labore et
+                        consectetur adipiscing elit.
                         </p> 
                 </AboutCard>
                 <AboutCard>
-                    <Avatar/>
-                    <h3>Ing. Cynthia Verde</h3>
-                    <p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et
-                    </p>
+                        <Avatar/>
+                        <h3>Ing. Cynthia Verde</h3>
+                        <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit.
+                        </p>
                 </AboutCard>
                 <AboutCard>
-                    <Avatar/>
-                    <h3>Ing. Mariana Trujillo</h3>
-                    <p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et
-                    </p>
+                        <Avatar/>
+                        <h3>Ing. Mariana Trujillo</h3>
+                        <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit.
+                        </p>
                 </AboutCard>
                 <AboutCard>
-                    <Avatar/>
-                    <h3>Ing. Rodrigo Moreno</h3>
-                    <p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et
-                    </p>
+                        <Avatar/>
+                        <h3>Ing. Rodrigo Moreno</h3>
+                        <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit.
+                        </p>
                 </AboutCard>
                 <AboutCard>
-                    <Avatar/>
-                    <h3>Ing. Jeremi Medina</h3>
-                    <p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et
-                    </p>
+                        <Avatar/>
+                        <h3>Ing. Jeremi Medina</h3>
+                        <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit.
+                        </p>
                 </AboutCard>
                 <AboutCard>
-                    <Avatar/>
-                    <h3>Ing. Adrian Mis</h3>
-                    <p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et
-                    </p>
+                        <Avatar/>
+                        <h3>Ing. Adrian Mis</h3>
+                        <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit.
+                        </p>
                 </AboutCard>
             </AvatarsContainer>
         </Container>  

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { StyledButton, StyledMenuItem } from "./index.style";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from "@material-ui/icons/Settings";
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
@@ -20,10 +21,24 @@ const MenuOption = () => {
         setAnchorEl(null);
     };
 
+    const handleSettingsClickShopingBag = () => {
+        router.push("/academy/shopping-bag"); 
+        handleMenuClose();
+    };
+    const handleSettingsClickHistory = () => {
+        router.push("/academy/shopping-bag/history"); 
+        handleMenuClose();
+    };
+
     const handleSettingsClick = () => {
         router.push("/edit-profile");
         handleMenuClose();
     };
+    const handleSettingsClickPaymentPlans = () => {
+        router.push("/payment-plans"); 
+        handleMenuClose();
+    };
+
 
     const handleSettingsClickAjust = () => {
         router.push("/profile-settings");
@@ -50,10 +65,10 @@ const MenuOption = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
             >
-                <StyledMenuItem onClick={handleMenuClose} style={{ fontFamily: "Poppins", fontWeight: "bold" }}>
+                <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins", fontWeight: "bold" }}>
                     angelricardez002
                 </StyledMenuItem>
-                <StyledMenuItem style={{ marginRight: "auto" }} onClick={handleMenuClose}>
+                <StyledMenuItem style={{ marginRight: "auto" }} onClick={handleSettingsClickPaymentPlans}>
                     <StyledButton
                         variant="contained"
                         color="warning"
@@ -69,7 +84,7 @@ const MenuOption = () => {
 
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem style={{ fontFamily: "Poppins" }}>
+                <StyledMenuItem onClick={handleSettingsClickShopingBag}  style={{ fontFamily: "Poppins" }}>
                     angel.ricardez@buencodigo.dev
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>
@@ -77,6 +92,12 @@ const MenuOption = () => {
                         <SettingsIcon />
                     </ListItemIcon>
                     Ajustes
+                </StyledMenuItem>
+                <StyledMenuItem onClick={handleSettingsClickHistory} style={{ fontFamily: "Poppins" }}>
+                    <ListItemIcon>
+                        <ShoppingBagIcon />
+                    </ListItemIcon>
+                    Historial
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickClosed} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
