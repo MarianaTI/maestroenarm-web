@@ -4,6 +4,7 @@ import Filter from "../../../components/Filter"
 import { VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { AdvancedImage, AdvancedVideo } from "@cloudinary/react"
+import { useRouter } from "next/router"
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -13,6 +14,8 @@ const videoCards = [
 ]
 
 export default function Videos() {
+    const route = useRouter()
+    console.log(route.query)
     return (
         <>
             <VideoContainer>

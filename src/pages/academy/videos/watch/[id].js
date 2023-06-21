@@ -3,6 +3,7 @@ import { CustomButton } from "../../../../components/CustomButton";
 import VideoCard from "../../../../components/VideoCard";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
 import { scale } from "@cloudinary/url-gen/actions/resize";
+import { useRouter } from "next/router";
 
 const videoCards = [
     { id: "card1", title: "Titulo1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00" },
@@ -16,6 +17,8 @@ const videoCards = [
 ]
 
 export default function Watch() {
+    const route = useRouter()
+    console.log(route.query.id)
     const cloudinary = new Cloudinary({
         cloud: {
             cloudName: 'db0l9t7fr',

@@ -1,11 +1,12 @@
 import { styled } from "@mui/system";
-import { Button, MenuItem, Menu } from "@mui/material";
+import { MenuItem, Menu, IconButton } from "@mui/material";
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(IconButton)`
   && {
-    background-color: transparent;
+    margin-left: auto;
     color: #000;
     box-shadow: none;
+    font-size: medium;
     cursor: pointer;
     &:hover {
       color: #000;
