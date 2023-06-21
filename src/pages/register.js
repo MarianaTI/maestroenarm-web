@@ -14,11 +14,9 @@ import {
 } from "../styles/register.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
-import CustomButton from "../components/CustomButton";
+import { CustomButton } from "../components/CustomButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
-
 
 const registerSchema = yup.object({
     namee: yup.string().required(),
@@ -27,7 +25,6 @@ const registerSchema = yup.object({
     password: yup.string().required(),
     confirmpassword: yup.string().required(),
 });
-
 
 const register = () => {
     const [isErrorRegister, setErrorRegister] = useState(false);

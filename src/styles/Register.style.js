@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Link, Button, Grid } from "@mui/material";
+import { Box, Link} from "@mui/material";
 
 
 export const RegisterContainer = styled.div`
@@ -8,14 +8,13 @@ export const RegisterContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 32px;
-    background-color: #f4f4f4;
     @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
     & h1 {
-    font-size: 32px;
-    font-weight: 600;
-    color: #052970;
+        font-size: 32px;
+        font-weight: 600;
+        color: #052970;
     }
 
 `;
@@ -48,10 +47,10 @@ export const FormStyle = styled.form`
     display: flex;
     flex-direction: column;
     @media (max-width: 400px) {
-    width: ${(props) => (props.fullwidth ? "100%" : "auto")};
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        width: ${(props) => (props.fullwidth ? "100%" : "auto")};
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 `;
