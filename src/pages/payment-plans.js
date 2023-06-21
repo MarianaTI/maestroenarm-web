@@ -62,7 +62,7 @@ const paymentPlans = () => {
                 open={isOpenConditions}
                 onClose={toggleTermsandConditionsModal}
                 title={"Terminos y condiciones"}
-                message={""}
+                message={"Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "}
                 />
         </Container>
     )
