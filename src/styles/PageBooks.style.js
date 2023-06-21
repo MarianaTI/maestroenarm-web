@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 export const Container = styled.div`
   height: auto;
   width: 100%;
-  padding: 16px;
 `;
 
 export const MainContainer = styled.div`
@@ -19,7 +19,7 @@ export const MainContainer = styled.div`
 `;
 
 export const MainInformation = styled.div`
-  padding: 18px;
+  padding: 16px;
   & h1 {
     font-size: 30px;
     font-weight: 700;
@@ -31,14 +31,30 @@ export const MainInformation = styled.div`
   }
 `;
 
-export const BackgroundImage = styled.div`
-  background-image: url(./reading.png);
-  background-position: center;
-  position: center;
-  background-repeat: no-repeat;
-  background-size: 300px;
-  width: 350px;
-  height: 300px;
+export const ImageStyled = styled(Image)`
+  :hover {
+    animation: float 2s linear infinite;
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0rem);
+      }
+      50% {
+        transform: translateY(-1.5rem);
+      }
+    }
+  }
+  :not(:hover) {
+    animation: fall 0.5s linear forwards;
+    @keyframes fall {
+    from {
+      transform: translateY(-1.5rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+  }
   @media (max-width: 800px) {
     display: none;
   }
@@ -58,17 +74,15 @@ export const EmptyStateContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(./search_not_found.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 300px;
-  width: 300px;
+  grid-column: span 4;
   & span {
     position: relative;
-    top: 150px;
     font-size: 16px;
     color: #2D3648;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 `;
 
@@ -85,3 +99,10 @@ export const BookGridContainer = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+export const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+`;
+

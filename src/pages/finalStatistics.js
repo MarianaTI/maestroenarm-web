@@ -1,8 +1,15 @@
 import React from "react";
-import styles from "../styles/GameByCategory.module.css"
+import styles from "../styles/GameByCategory.module.css";
 import TimeResult from "../components/TimeResult/Index.js";
-import { StatisticChart } from '../components/StatisticsChart/index.js'
-import { TextContainerResult, Container, ContainerRetroAlim, TextStatic, StatisticsContainer, ContainerSpecialty } from "../styles/Result.style.js";
+import { StatisticChart } from "../components/StatisticsChart/index.js";
+import {
+  TextContainerResult,
+  Container,
+  ContainerRetroAlim,
+  TextStatic,
+  StatisticsContainer,
+  ContainerSpecialty,
+} from "../styles/Result.style.js";
 
 export function answerCount(trueCount,falseCount){
 const items = [
@@ -14,33 +21,31 @@ const items = [
 return items;
 }
 
-
 export default function FinalStatistics() {
-    const items = answerCount();
-    return (
-        <Container>
-            <StatisticsContainer>
-                <TimeResult />
-                <StatisticChart items={items}></StatisticChart>
-            </StatisticsContainer>
-            <ContainerSpecialty>
-                <TextContainerResult>
-                    <span>Resultados por categoria</span>
-                </TextContainerResult>
-                <ContainerRetroAlim>
-                    <span>ENARM</span>
-                    <span>2/5-40%</span>
-                    <span>Ver más...</span>
-                </ContainerRetroAlim>
-                <TextStatic>
-                    <span>Ginecologia1/1 -100%</span>
-                    <span>Remautologia0/1 -0%</span>
-                </TextStatic>
-                <a href="/" className={styles.botonPageFinal}>
-                    <span>Salir</span>
-                </a>
-
-            </ContainerSpecialty>
-        </Container>
-    );
+  const items = answerCount();
+  return (
+    <Container>
+      <StatisticsContainer>
+        <TimeResult />
+        <StatisticChart items={items}></StatisticChart>
+      </StatisticsContainer>
+      <ContainerSpecialty>
+        <TextContainerResult>
+          <span>Resultados por categoria</span>
+        </TextContainerResult>
+        <ContainerRetroAlim>
+          <span>ENARM</span>
+          <span>2/5-40%</span>
+          <span>Ver más...</span>
+        </ContainerRetroAlim>
+        <TextStatic>
+          <span>Ginecologia1/1 -100%</span>
+          <span>Remautologia0/1 -0%</span>
+        </TextStatic>
+        <a href="/" className={styles.botonPageFinal}>
+          <span>Salir</span>
+        </a>
+      </ContainerSpecialty>
+    </Container>
+  );
 }
