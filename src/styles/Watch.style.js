@@ -2,6 +2,7 @@ import { AdvancedVideo } from "@cloudinary/react";
 import styled from "@emotion/styled";
 
 export const WatchContainer = styled.div`
+    margin-top: 16px;
     @media screen and (min-width: 1281px) {
         display: flex;
     }
