@@ -127,28 +127,16 @@
   font-weight: 700;
   font-size: 56px;
   line-height: 120%;
-  /* or 67px */
-
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.01em;
-
   color: #052970;
 }
 
-.imagenDoctor {
-  width: 204px;
-  height: 222px;
-  margin:auto;
-  margin-block-end: 37.52px;
-  background: url(../../public/doctor.png);
-  background-blend-mode: darken;
-  background-size: cover;
-}
+
 
 .boton {
-  margin:auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -196,8 +184,9 @@
   align-items: flex-end;
   letter-spacing: -0.01em;
   font-feature-settings: 'calt' off;
-  margin-inline-start: 410px;
+  margin-inline-start: 350px;
   color: #000000;
+  margin-top: 10px;
 }
 .saltarDemo a {
   color: #052970;
@@ -205,17 +194,12 @@
 }
 
 .contenedorCentrado {
-    padding: 16px;
-    max-width: 700px;
-    margin:auto;
-    position: relative;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
-
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
   .imagenDoctor {
