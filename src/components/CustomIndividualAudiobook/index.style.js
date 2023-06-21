@@ -1,12 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Options = styled.div`
-  width: 260px;
-  height: 50px;
-  background: #d9d9d9;
-  border-radius: 15px;
-`;
-
 export const Container = styled.div`
   margin: 48px 80px;
   width: 800px;
@@ -17,6 +10,36 @@ export const Container = styled.div`
   @media (max-width: 400px) {
     margin: 28px 20px;
     width: 300px;
+  }
+`;
+
+
+export const ImageContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 300px;
+  margin-bottom: 4px;
+  border-radius: 15px;
+`;
+
+export const ImageStyled = styled.img`
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+`;
+
+export const HoverImage = styled.img`
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
   }
 `;
 
@@ -38,7 +61,7 @@ export const BuyContainer = styled.div`
 
 export const IncludeContainer = styled.div`
   margin: 16px;
-  border: 2px solid #484A84;
+  border: 2px solid #484a84;
   border-radius: 15px;
   padding: 8px;
   .DetailOptionStyled {

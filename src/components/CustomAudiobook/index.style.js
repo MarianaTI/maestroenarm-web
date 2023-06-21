@@ -11,9 +11,12 @@ export const Container = styled.div`
 `;
 
 export const ImgStyled = styled.img`
-  width: 115px;
+  width: 150px;
   height: 150px;
   border-radius: 15px;
+  :hover{
+    scale: 1.1;
+  }
 `;
 
 export const DetailsContainer = styled.div`
