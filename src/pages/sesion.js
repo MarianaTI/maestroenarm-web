@@ -21,21 +21,23 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
-import CustomButton from "../components/CustomButton";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useRouter } from "next/router";
+import { CustomButton } from "../components/CustomButton";
 
 const loginSchema = yup.object({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
-const Sesion = () => {
+  const Sesion = () => {
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
   const [isShowPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const authenticateUser = (email, password) => {
     const user = userAccount.find(
@@ -61,7 +63,7 @@ const Sesion = () => {
   const onSubmit = (values) => {
     try {
       authenticateUser(values.email, values.password);
-      console.log("Autenticación exitosa");
+      router.push("/game");
       setErrorLogin(false);
     } catch (error) {
       console.log(error.message);
@@ -69,7 +71,8 @@ const Sesion = () => {
     }
   };
 
-  const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+  const toggleForgotPasswordModal = () =>
+    setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
   const togglePasswordVisibility = () => {
     setShowPassword(!isShowPassword);
   };
@@ -117,7 +120,7 @@ const Sesion = () => {
                 Recuperar
               </OpenModalButton>
             </QuestionStyled>
-            <CustomButton buttonText="Iniciar" type="submit" />
+            <CustomButton text="Iniciar" type="submit" />
             <BoxOptions>
               <CustomOptionsLogin icon="./google.svg" />
               <CustomOptionsLogin icon="./microsoft.svg" />
@@ -126,7 +129,7 @@ const Sesion = () => {
             <BackQuestionStyled>
               <span>
                 ¿Aún no tienes cuenta?
-                <LinkText href="#">Registrate</LinkText>
+                <LinkText href="/register">Registrate</LinkText>
               </span>
             </BackQuestionStyled>
           </FormStyled>
@@ -145,7 +148,7 @@ const Sesion = () => {
           name="confirmemail"
           control={control}
         />
-        <CustomButton buttonText="Enviar" onClick={handleOpenChangePassword} />
+        <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
         <BackLoginContainer>
           <BackLoginIcon />
           <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
@@ -155,16 +158,3 @@ const Sesion = () => {
   );
 };
 export default Sesion;
-
-{
-  /* <CustomModal
-  open={openChangePassword}
-  onClose={handleCloseChangePassword}
-  title="Ingresa tu nueva contraseña"
-  message="Ingresa mínimo 8 caracteres"
->
-  <CustomInput label="Contraseña nueva" icon={<VisibilityOffIcon />} />
-  <CustomInput label="Confirma la contraseña" icon={<VisibilityOffIcon />} />
-  <CustomButton buttonText="Confirmar" fullWidth />
-</CustomModal>; */
-}

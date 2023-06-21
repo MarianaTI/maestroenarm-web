@@ -4,14 +4,11 @@
   max-width: 1200px;
   margin: auto;
   padding-top: 16px;
-
   @media (max-width: 767px) {
     padding: 10px;
   }
 
 }
-
-
 
 .button {
   background: none;
@@ -21,11 +18,15 @@
   border-radius: 4px;
 }
 
-.answer {
-  border-radius: 4px;
-  color: rgba(255, 255, 255);
+.main{
+  margin: 100px;
+}
+
+.answer{
   padding: 8px 16px;
-  cursor: pointer;
+  border-radius: 4px;
+  color:rgba(255,255,255);
+  cursor:pointer;
   min-height: 100px;
   box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
   display: flex;
@@ -41,7 +42,6 @@
 .answer {
   background: rgba(5, 41, 112, 0.5);
 }
-
 
 .is-wrong-answer {
   opacity: 0.3;
@@ -66,7 +66,6 @@
 .answer:hover {
   background: rgba(5, 41, 112, 0.8);
 }
-
 
 .counter {
   background-color: #222;
@@ -95,7 +94,6 @@
   right: 0;
 }
 
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -119,12 +117,9 @@
   }
 }
 
-
 .centeredStepper {
   margin-left: 50%;
 }
-
-
 
 .bienvenido{
   font-family: 'Poppins';
@@ -132,28 +127,16 @@
   font-weight: 700;
   font-size: 56px;
   line-height: 120%;
-  /* or 67px */
-
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.01em;
-
   color: #052970;
 }
 
-.imagenDoctor {
-  width: 204px;
-  height: 222px;
-  margin:auto;
-  margin-block-end: 37.52px;
-  background: url(../public/images/doctor.jpeg);
-  background-blend-mode: darken;
-  background-size: cover;
-}
+
 
 .boton {
-  margin:auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -162,9 +145,6 @@
   gap: 8px;
   width: 643px;
   height: 90px;
-  left: 432px;
-  top: 650px;
-
   background: #052970;
   border-radius: 15px;
 }
@@ -194,22 +174,19 @@
 }
 
 .saltarDemo {
-  width: 269px;
-  height: 24px;
-
+  position: relative;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height, or 133% */
-
   display: flex;
   align-items: flex-end;
   letter-spacing: -0.01em;
   font-feature-settings: 'calt' off;
-  margin-inline-start: 410px;
+  margin-inline-start: 350px;
   color: #000000;
+  margin-top: 10px;
 }
 .saltarDemo a {
   color: #052970;
@@ -217,10 +194,12 @@
 }
 
 .contenedorCentrado {
-    max-width: 700px;
-    margin:auto
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
-
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
   .imagenDoctor {

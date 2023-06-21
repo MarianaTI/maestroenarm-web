@@ -10,6 +10,8 @@ import DotsMobileStepper from "../components/DotsMobileStepper";
 import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
 import Feedback from "../components/Feedback/index"
+import { useRouter } from "next/router";
+import { answerCount } from "./finalStatistics";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -18,39 +20,60 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
+  const [trueCount, setTrueCount] = useState(0);
+  const [falseCount, setFalseCount] = useState(0);
   const subcategories = useSelector((state) => state.game.subcategories);
+  const router = useRouter();
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
   };
 
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
-  const question = clinicalCase.questions[questionCounter];
+  const clinicalCaseName = clinicalCase.case;
+  const question =  clinicalCase.question[questionCounter];
+  const questionText =  question.text;
   const lengthClinicalCase = constants.clinicalCases.length;
-  const lengthQuestions = clinicalCase.questions.length;
+  const lengthQuestions = clinicalCase.question.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter=questionCounter + 1;
-  
 
   const goNext = () => {
-    const question = clinicalCase.questions[questionCounter + 1];
-    if (question) setQuestionCounter(questionCounter + 1);
-    if (!question) {
-      setClinicalCaseCounter(clinicalCaseCounter + 1);
-      setQuestionCounter(0);
+    const question = clinicalCase.question[nowquestionCounter];
+    if (question) {
+      setQuestionCounter(nowquestionCounter);
+    } else {
+      const nextClinicalCaseCounter = nowClinicalCaseCounter;
+      if (nextClinicalCaseCounter < constants.clinicalCases.length) {
+        setClinicalCaseCounter(nextClinicalCaseCounter);
+        setQuestionCounter(0);
+      } else {
+        router.push("/finalStatistics");
+      }
     }
   };
+
+  const handleAnswer=(isAnswerCorrect)=>{
+    if (isAnswerCorrect == question.correctAnswer) {
+      setTrueCount(trueCount + 1);
+    } else {
+      setFalseCount(falseCount + 1);
+    }
+  }
+
 
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
+    handleAnswer(isAnswerCorrect);
   };
 
   const handleQuestionTimeFinished = () => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
+    setFalseCount(falseCount + 1);
   };
 
   const handleCountFinish = () => {
@@ -58,6 +81,7 @@ export default function Home() {
     toggleResultRevealed();
     goNext();
     setIsCounting(true);
+    answerCount(trueCount, falseCount);
   };
 
   return (
@@ -81,8 +105,8 @@ export default function Home() {
           seconds={13}
           isCounting={isCounting}
         ></TimeIcon>
-        <Question>{clinicalCase.label}</Question>
-        <p className={caso.pregunta}>{question.label}</p>
+        <Question>{clinicalCaseName}</Question>
+        <p className={caso.pregunta}>{questionText}</p>
 
         {isFeedbackHidden && (
           <div className="container">
@@ -91,6 +115,7 @@ export default function Home() {
                 answers={question.answers}
                 onClick={handleAnswerClick}
                 isResultRevealed={isResultRevealed}
+                correctAnswer={question.correctAnswer}
               />
               {!isCounterHidden && (
                 <div className={styles.counterContainer}>
@@ -115,9 +140,9 @@ export default function Home() {
   );
 }
 
-function Answers({ answers, onClick, isResultRevealed }) {
-  const handleAnswerClick = (isCorrect, item) => {
-    onClick(isCorrect);
+function Answers({ answers, onClick, isResultRevealed , correctAnswer}) {
+  const handleAnswerClick = (id, item) => {
+    onClick(id);
   };
 
   return (
@@ -125,17 +150,17 @@ function Answers({ answers, onClick, isResultRevealed }) {
       {answers.map((answer) => (
         <Answer
           onClick={(evento) =>
-            handleAnswerClick(answer.isCorrect, evento.target)
+            handleAnswerClick(answer.id, evento.target)
           }
           className={
-            isResultRevealed && answer.isCorrect
+            isResultRevealed && answer.id ==correctAnswer
               ? styles["is-correct"]
-              : isResultRevealed && !answer.isCorrect
+              : isResultRevealed && answer.id != correctAnswer
               ? styles["is-error"]
               : ""
           }
         >
-          {answer.label}
+          {answer.text}
         </Answer>
       ))}
     </div>
