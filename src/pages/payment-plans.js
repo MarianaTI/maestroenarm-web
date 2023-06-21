@@ -1,5 +1,6 @@
 import {Container, CardPlans, Cards, Button, OpenModalButton} from "../styles/paymentplans.style";
 import CustomModal from "../components/CustomModal";
+import CustomBotton from "../components/CustomButton";
 import React, { useState } from "react";
 
 
@@ -43,7 +44,9 @@ const paymentPlans = () => {
                     <h5>Material de estudio</h5>
                     <h5>Un mes de regalo</h5>
                     <Button>ENARM 1 año $2200.00</Button>
-                    <span>Terminos y condiciones</span>
+                    <OpenModalButton onClick={toggleTermsandConditionsModal}>
+                        Terminos y condiciones
+                    </OpenModalButton>
                 </Cards>
             </CardPlans>
                 <Button>Regresar</Button>

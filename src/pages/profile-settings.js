@@ -5,8 +5,8 @@ import {
   ProfileSettingsContainer,
 } from "../styles/ProfileSettings";
 import { ProfileField } from "../components/ProfileField";
-import Layout from "/layout/index.js";
-import { CustomButton } from "../components/CustomButtom";
+import Layout from "../layouts/index";
+import { CustomButton } from "../components/CustomButton/index";
 
 const profileFields = [
   { label: "Nombre de Usuario", text: "ZeeN" },

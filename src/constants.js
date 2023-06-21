@@ -72,6 +72,16 @@ export const userAccount = [
   },
 ];
 
+export const userRegister = [
+  {
+    namee: "Sugey",
+    lastname: "Rosado",
+    email: "syra478xd@gmail.com",
+    password: "123sugey",
+    confirmpassword: "123sugey"
+  }
+]
+
 export const audiobooks = [
   {
     img: "./example.png",

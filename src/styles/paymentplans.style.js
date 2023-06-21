@@ -2,10 +2,10 @@ import styled from "@emotion/styled"
 
 export const Container = styled.div`
    max-width: 100%;
-   padding: 88px;
    h1 {
     text-align: center;
     color: #052970;
+    margin: 10px;
    }
    button {
     justify-content: center;
@@ -18,7 +18,7 @@ export const CardPlans = styled.div`
 
 export const Cards = styled.div`
    background-color: #f4f4f4;
-   margin: 40px;
+   margin: 30px;
    width: 350px;
    padding: 50px;
    border-radius: 20px;
@@ -28,9 +28,14 @@ export const Cards = styled.div`
    }
    h5 {
       font-size: 15px ;
+      margin: 0px;
    }
    span {
-      font-size: 10px;
+      font-size: 13px;
+      text-align: center;
+   }
+   h1 {
+      margin: 0px;
    }
 `;
 export const Button = styled.button`

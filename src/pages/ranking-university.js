@@ -5,7 +5,7 @@ import {
   RankingContainer,
   RankingListContainer,
 } from "../styles/Ranking-user.style";
-import Layout from "/layout";
+import Layout from "../layouts/index";
 
 const getAllRankingUniversities = () => {
   const universityScores = {};

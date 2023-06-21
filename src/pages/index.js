@@ -7,7 +7,7 @@ const Bienvenido = () => {
     <div className={styles.contenedorCentrado}>
       <h1 className={styles.bienvenido}>Bienvenido a Maestro ENARM</h1>
       <ImagenDoctor src="./doctor.svg" width={222} height={222}/>
-            <a className={styles.boton} href="/demo">
+      <a className={styles.boton} href="/demo">
         <span>Jugar Demo</span>
       </a>
       <p className={styles.saltarDemo}>
