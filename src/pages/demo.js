@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
-import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
@@ -105,7 +104,7 @@ export default function Home() {
           isCounting={isCounting}
         ></TimeIcon>
         <Question>{clinicalCaseName}</Question>
-        <p className={caso.pregunta}>{questionText}</p>
+        <p className={styles.pregunta}>{questionText}</p>
 
         {isFeedbackHidden && (
           <div className="container">
