@@ -1,4 +1,11 @@
-import {Container, CardPlans, Cards, OpenModalButton, ButtonContainer, ReturnButtonContainer} from "../styles/paymentplans.style";
+import {
+    Container, 
+    CardPlans, 
+    Cards, 
+    OpenModalButton, 
+    ButtonContainer, 
+    ReturnButtonContainer
+} from "../styles/paymentplans.style";
 import CustomModal from "../components/CustomModal";
 import  { CustomButton } from "../components/CustomButton";
 import React, { useState } from "react";
@@ -58,6 +65,7 @@ const paymentPlans = () => {
                     <CustomButton text="Regresar" type="submit"/> 
                 </a>
             </ReturnButtonContainer>
+
                 <CustomModal
                 open={isOpenConditions}
                 onClose={toggleTermsandConditionsModal}
