@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import CustomButton from "../CustomButtonAcademy";
 import {
   BasicInformation,
@@ -11,6 +11,9 @@ import {
   IncludeContainer,
   MoreDetail,
 } from "./index.style";
+import Link from "next/link";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 const CustomIndividualBook = ({
   imgFront,
@@ -21,23 +24,34 @@ const CustomIndividualBook = ({
   price,
   details,
 }) => {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleButtonClick = () => setOpenSnackbar(true);
+  const handleSnackbarClose = () => setOpenSnackbar(false);
+
   return (
     <Container>
       <BasicInformationContainer>
         <div>
-        <ImageContainer>
+          <ImageContainer>
             <ImageStyled src={imgFront}></ImageStyled>
             <HoverImage src={imgBack}></HoverImage>
           </ImageContainer>
-          {price > 0.00 ? (
+          {price > 0.0 ? (
             <BuyContainer>
               <span>$ {price}</span>
-              <CustomButton buttonText="Comprar ahora" type="button" />
+              <Link href="/academy/shopping-bag/payment-method">
+                <CustomButton buttonText="Comprar ahora" type="button" />
+              </Link>
             </BuyContainer>
           ) : (
             <BuyContainer>
-              <IncludeContainer><span className="DetailOptionStyled">Incluido en la suscripción</span></IncludeContainer>
-              <CustomButton showIcon />
+              <IncludeContainer>
+                <span className="DetailOptionStyled">
+                  Incluido en la suscripción
+                </span>
+              </IncludeContainer>
+              <CustomButton showIcon onClick={handleButtonClick}/>
             </BuyContainer>
           )}
         </div>
@@ -59,6 +73,19 @@ const CustomIndividualBook = ({
           <span className="DetailStyled">{details}</span>
         </div>
       </MoreDetail>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+      >
+        <MuiAlert
+          onClose={handleSnackbarClose}
+          severity="success"
+          variant="filled"
+        >
+          Se ha descargado correctamente
+        </MuiAlert>
+      </Snackbar>
     </Container>
   );
 };

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   AcceptPaymentContainer,
   CalculateTotalContainer,
@@ -19,12 +20,15 @@ import CustomInput from "../../../../components/CustomInput";
 import CustomButton from "../../../../components/CustomButtonAcademy";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 export default function PaymentMethod({
   productName,
   productDetails,
   productPrice,
 }) {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const {
     handleSubmit,
     control,
@@ -32,6 +36,9 @@ export default function PaymentMethod({
   } = useForm({
     defaultValues: {},
   });
+
+  const handleButtonClick = () => setOpenSnackbar(true);
+  const handleSnackbarClose = () => setOpenSnackbar(false);
 
   return (
     <Container>
@@ -106,15 +113,36 @@ export default function PaymentMethod({
               <p>- $ 0.00 MX</p>
             </RowSummary>
             <Line></Line>
-          <RowSummary>
-            <p className="ImportantText">Total:</p>
-            <p className="ImportantText">$ 0.00 MX</p>
-          </RowSummary>
-          <span className="DetailText">Al completar la compra, aceptas estas <Link href="#" className="LinkText">Condiciones de uso.</Link></span>
-          <CustomButton buttonText="Completar pago"/>
+            <RowSummary>
+              <p className="ImportantText">Total:</p>
+              <p className="ImportantText">$ 0.00 MX</p>
+            </RowSummary>
+            <span className="DetailText">
+              Al completar la compra, aceptas estas{" "}
+              <Link href="#" className="LinkText">
+                Condiciones de uso.
+              </Link>
+            </span>
+            <CustomButton
+              buttonText="Completar pago"
+              onClick={handleButtonClick}
+            />
           </CalculateTotalContainer>
         </AcceptPaymentContainer>
       </CompletePayment>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+      >
+        <MuiAlert
+          onClose={handleSnackbarClose}
+          severity="success"
+          variant="filled"
+        >
+          El pago se ha completado
+        </MuiAlert>
+      </Snackbar>
     </Container>
   );
 }

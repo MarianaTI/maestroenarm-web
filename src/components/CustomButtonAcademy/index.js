@@ -4,7 +4,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 
 const CustomButton = ({ buttonText, onClick, type, showIcon }) => {
   return (
-    <ButtonStyled fullwidth="true" onClick={onClick} type={type} disabled>
+    <ButtonStyled fullwidth="true" onClick={onClick} type={type}>
       {showIcon ? <DownloadIcon /> : buttonText}
     </ButtonStyled>
   );
