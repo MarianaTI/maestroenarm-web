@@ -28,8 +28,8 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
 
 const loginSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
+  password: yup.string().required("Por favor, ingresa tu contraseña"),
 });
 
   const Sesion = () => {
