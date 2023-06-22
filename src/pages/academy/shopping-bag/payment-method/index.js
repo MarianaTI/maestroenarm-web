@@ -12,6 +12,7 @@ import {
   PayContainer,
   Row,
   RowInputs,
+  RowSummary,
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";
@@ -96,19 +97,19 @@ export default function PaymentMethod({
         <AcceptPaymentContainer>
           <span>Resumen</span>
           <CalculateTotalContainer>
-            <Row>
+            <RowSummary>
               <p>Precio original:</p>
               <p>$ 0.00 MX</p>
-            </Row>
-            <Row>
+            </RowSummary>
+            <RowSummary>
               <p>Descuento:</p>
               <p>- $ 0.00 MX</p>
-            </Row>
+            </RowSummary>
             <Line></Line>
-          <Row>
+          <RowSummary>
             <p className="ImportantText">Total:</p>
             <p className="ImportantText">$ 0.00 MX</p>
-          </Row>
+          </RowSummary>
           <span className="DetailText">Al completar la compra, aceptas estas <Link href="#" className="LinkText">Condiciones de uso.</Link></span>
           <CustomButton buttonText="Completar pago"/>
           </CalculateTotalContainer>
