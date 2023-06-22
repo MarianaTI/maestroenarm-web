@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import TimeIcon from "../components/TimeIcon/index";
-import Feedback from "../components/Feedback/index"
 import { useRouter } from "next/router";
 import { answerCount } from "./results";
 import { CustomButton } from "../components/CustomButton"
@@ -26,24 +25,6 @@ export default function Home() {
   const subcategories = useSelector((state) => state.game.subcategories);
   const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
-
-  const toggleResultRevealed = () => {
-    setIsResultRevealed(!isResultRevealed);
-  };
-
-  const toggleForgotPasswordModal = () => {
-    setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
-  
-    if (isOpenFeedback) {
-      setIsCounting(true); // Reanuda el conteo al cerrar el feedback
-      goNext(); // Avanza a la siguiente pregunta solo cuando se cierra el feedback
-
-    } else {
-      setIsCounting(false); // Pausa el conteo al abrir el feedback
-    }
-  };
-  
-
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
   const question = clinicalCase.question[questionCounter];
@@ -53,6 +34,14 @@ export default function Home() {
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter = questionCounter + 1;
   const feedbackQuestion = question.feedbackQuestion;
+
+  const toggleResultRevealed = () => {
+    setIsResultRevealed(!isResultRevealed);
+  };
+
+  const toggleForgotPasswordModal = () => {
+    setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
+  };
 
   const goNext = () => {
     const question = clinicalCase.question[nowquestionCounter];
@@ -99,7 +88,7 @@ export default function Home() {
     setIsCounting(true);
     answerCount(trueCount, falseCount);
     if (!isOpenFeedback) {
-      goNext(); // Avanza a la siguiente pregunta si el feedback no está visible
+      goNext();
     }
   };
 
@@ -138,9 +127,10 @@ export default function Home() {
               />
               {!isCounterHidden && (
                 <div className={styles.counterContainer}>
-                  <Counter onCountFinish={handleCountFinish} />
+                  <Counter onCountFinish={handleCountFinish} isFeedbackOpen={isOpenFeedback} />
                 </div>
               )}
+
             </div>
           </div>
         )}
@@ -156,7 +146,7 @@ export default function Home() {
           title="Feedback"
           message={feedbackQuestion}
         />
-        {!isCounting && !isOpenFeedback  && (
+        {!isCounting && !isOpenFeedback && (
           <ReturnButtonContainer>
             <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
           </ReturnButtonContainer>
@@ -202,11 +192,11 @@ function Answer({ children, className, ...props }) {
   );
 }
 
-function Counter({ onCountFinish }) {
-  const [counter, setCounter] = useState(8);
+function Counter({ onCountFinish, isFeedbackOpen }) {
+  const [counter, setCounter] = useState(3);
 
   useEffect(() => {
-    if (counter !== 0) {
+    if (counter !== 0 && !isFeedbackOpen) {
       const countDownInterval = setInterval(
         () => setCounter(counter - 1),
         1000
@@ -214,7 +204,7 @@ function Counter({ onCountFinish }) {
       return () => clearInterval(countDownInterval);
     }
     if (counter === 0) onCountFinish();
-  }, [counter]);
+  }, [counter, isFeedbackOpen]);
 
   return (
     <div className={styles.counter}>
@@ -222,4 +212,5 @@ function Counter({ onCountFinish }) {
     </div>
   );
 }
+
 
