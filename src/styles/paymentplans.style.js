@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const CardPlans = styled.div`
    display: flex;
    justify-content: center;
+   flex-wrap: wrap;
 `;
 
 export const Cards = styled.div`
@@ -21,9 +22,6 @@ export const Cards = styled.div`
    border-radius: 20px;
    box-shadow: 2px 1px 4px 3px  rgba(0, 0, 0, 0.3);
    flex-direction: column;
-   hr {
-    
-   }
    h5 {
     display: flex;
     align-items: center;
@@ -43,6 +41,10 @@ export const Cards = styled.div`
    }
    h1 {
       margin: 0px;
+   }
+   @media (max-width: 600px) {
+      width: 100%;
+      margin: 10px;
    }
 `;
 export const OpenModalButton = styled.button`
