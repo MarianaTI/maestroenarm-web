@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
-import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
-import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
 import Feedback from "../components/Feedback/index"
 import { useRouter } from "next/router";
-import { answerCount } from "./finalStatistics";
+import { answerCount } from "./results";
+import { CustomButton } from "../components/CustomButton"
+import CustomModal from "../components/CustomModal";
+import { ReturnButtonContainer } from "../styles/demo.style";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -24,19 +25,25 @@ export default function Home() {
   const [falseCount, setFalseCount] = useState(0);
   const subcategories = useSelector((state) => state.game.subcategories);
   const router = useRouter();
+  const [isOpenFeedback, setOpenFeedback] = useState(false);
+
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
   };
 
+  const toggleForgotPasswordModal = () =>
+    setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
+
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
-  const question =  clinicalCase.question[questionCounter];
-  const questionText =  question.text;
+  const question = clinicalCase.question[questionCounter];
+  const questionText = question.text;
   const lengthClinicalCase = constants.clinicalCases.length;
   const lengthQuestions = clinicalCase.question.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
-  const nowquestionCounter=questionCounter + 1;
+  const nowquestionCounter = questionCounter + 1;
+  const feedback = question.feedbackQuestion;
 
   const goNext = () => {
     const question = clinicalCase.question[nowquestionCounter];
@@ -48,12 +55,12 @@ export default function Home() {
         setClinicalCaseCounter(nextClinicalCaseCounter);
         setQuestionCounter(0);
       } else {
-        router.push("/finalStatistics");
+        router.push("/results");
       }
     }
   };
 
-  const handleAnswer=(isAnswerCorrect)=>{
+  const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
       setTrueCount(trueCount + 1);
     } else {
@@ -93,7 +100,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <p className={advance.question}>
+        <p className={styles.countCase}>
           {nowClinicalCaseCounter} de {lengthClinicalCase}
         </p>
         <LinearProgress
@@ -106,7 +113,7 @@ export default function Home() {
           isCounting={isCounting}
         ></TimeIcon>
         <Question>{clinicalCaseName}</Question>
-        <p className={caso.pregunta}>{questionText}</p>
+        <p className={styles.pregunta}>{questionText}</p>
 
         {isFeedbackHidden && (
           <div className="container">
@@ -125,22 +132,31 @@ export default function Home() {
             </div>
           </div>
         )}
-        {!isFeedbackHidden && (
-          <div className="container">
-            <Feedback text={clinicalCase.feedback.text} />
-          </div>
-        )}
+
         <DotsMobileStepper
           lengthQuestions={lengthQuestions}
           nowquestionCounter={nowquestionCounter}
           nowClinicalCaseCounter={nowClinicalCaseCounter}
         ></DotsMobileStepper>
+        <CustomModal
+          open={isOpenFeedback}
+          onClose={toggleForgotPasswordModal}
+          title="Feedback"
+          message={feedback}
+        />
+        {!isCounting &&(
+          <ReturnButtonContainer>
+          <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
+        </ReturnButtonContainer>
+        )}
+        
+
       </main>
     </div>
   );
 }
 
-function Answers({ answers, onClick, isResultRevealed , correctAnswer}) {
+function Answers({ answers, onClick, isResultRevealed, correctAnswer }) {
   const handleAnswerClick = (id, item) => {
     onClick(id);
   };
@@ -153,11 +169,11 @@ function Answers({ answers, onClick, isResultRevealed , correctAnswer}) {
             handleAnswerClick(answer.id, evento.target)
           }
           className={
-            isResultRevealed && answer.id ==correctAnswer
+            isResultRevealed && answer.id == correctAnswer
               ? styles["is-correct"]
               : isResultRevealed && answer.id != correctAnswer
-              ? styles["is-error"]
-              : ""
+                ? styles["is-error"]
+                : ""
           }
         >
           {answer.text}
@@ -176,7 +192,7 @@ function Answer({ children, className, ...props }) {
 }
 
 function Counter({ onCountFinish }) {
-  const [counter, setCounter] = useState(3);
+  const [counter, setCounter] = useState(8);
 
   useEffect(() => {
     if (counter !== 0) {

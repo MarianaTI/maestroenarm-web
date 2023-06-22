@@ -193,6 +193,26 @@
   font-weight: 700;
 }
 
+.countCase{
+  font-family: 'Poppins';
+  font-size:normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: justify;
+  padding: 22px;
+}
+
+.pregunta {
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 120px;
+  color: #052970;
+  padding: 22px;
+  padding-top: 16px;
+  
+}
+
 .contenedorCentrado {
   display:flex;
   justify-content: center;

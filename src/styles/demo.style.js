@@ -6,3 +6,9 @@ export const ImagenDoctor = styled(NextImage)`
   background-blend-mode: darken;
   background-size: cover;
 `;
+
+export const ReturnButtonContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   padding: 10px;
+`;
