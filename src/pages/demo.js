@@ -27,13 +27,22 @@ export default function Home() {
   const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
 
-
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
   };
 
-  const toggleForgotPasswordModal = () =>
+  const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
+  
+    if (isOpenFeedback) {
+      setIsCounting(true); // Reanuda el conteo al cerrar el feedback
+      goNext(); // Avanza a la siguiente pregunta solo cuando se cierra el feedback
+
+    } else {
+      setIsCounting(false); // Pausa el conteo al abrir el feedback
+    }
+  };
+  
 
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
@@ -43,7 +52,7 @@ export default function Home() {
   const lengthQuestions = clinicalCase.question.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter = questionCounter + 1;
-  const feedback = question.feedbackQuestion;
+  const feedbackQuestion = question.feedbackQuestion;
 
   const goNext = () => {
     const question = clinicalCase.question[nowquestionCounter];
@@ -57,6 +66,7 @@ export default function Home() {
       } else {
         router.push("/results");
       }
+      setIsCounting(true);
     }
   };
 
@@ -86,9 +96,11 @@ export default function Home() {
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
-    goNext();
     setIsCounting(true);
     answerCount(trueCount, falseCount);
+    if (!isOpenFeedback) {
+      goNext(); // Avanza a la siguiente pregunta si el feedback no está visible
+    }
   };
 
   return (
@@ -142,14 +154,13 @@ export default function Home() {
           open={isOpenFeedback}
           onClose={toggleForgotPasswordModal}
           title="Feedback"
-          message={feedback}
+          message={feedbackQuestion}
         />
-        {!isCounting &&(
+        {!isCounting && !isOpenFeedback  && (
           <ReturnButtonContainer>
-          <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
-        </ReturnButtonContainer>
+            <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
+          </ReturnButtonContainer>
         )}
-        
 
       </main>
     </div>
