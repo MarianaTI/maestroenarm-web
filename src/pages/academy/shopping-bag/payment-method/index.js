@@ -17,6 +17,7 @@ import {
 import CustomInput from "../../../../components/CustomInput";
 import CustomButton from "../../../../components/CustomButtonAcademy";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
 export default function PaymentMethod({
   productName,
@@ -108,7 +109,7 @@ export default function PaymentMethod({
             <p className="ImportantText">Total:</p>
             <p className="ImportantText">$ 0.00 MX</p>
           </Row>
-          <span className="DetailText">Al completar la compra, aceptas estas Condiciones de uso.</span>
+          <span className="DetailText">Al completar la compra, aceptas estas <Link href="#" className="LinkText">Condiciones de uso.</Link></span>
           <CustomButton buttonText="Completar pago"/>
           </CalculateTotalContainer>
         </AcceptPaymentContainer>

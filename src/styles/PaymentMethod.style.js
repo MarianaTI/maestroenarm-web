@@ -86,7 +86,7 @@ export const DetailContainer = styled.div`
   .DetailText {
     font-size: 14px;
     padding: 0px 4px;
-    width: 400px;
+    width: 280px;
   }
 `;
 
@@ -100,6 +100,7 @@ export const CompletePayment = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
+  margin-top: 24px;
 `;
 
 export const AcceptPaymentContainer = styled.div`
@@ -115,22 +116,32 @@ export const AcceptPaymentContainer = styled.div`
     font-size: 16px;
     font-weight: 600;
     padding: 8px 4px;
+    color: #3A3B69;
   }
   .DetailText {
     font-size: 14px;
     font-weight: 500;
     padding: 0px;
-    margin: 8px;
+    margin: 24px 8px;
+  }
+  .LinkText {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px;
+    color: #3A3B69;
+    text-decoration: underline;
   }
 `;
 
 export const CalculateTotalContainer = styled.div`
-  width: 300px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   padding: 0px 32px;
+  margin-top: 8px;
 `;
+
 export const Line = styled.div`
-  border-bottom: 2px solid #484a84;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.70);
   padding: 8px;
 `;
