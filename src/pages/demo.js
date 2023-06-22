@@ -7,11 +7,10 @@ import caso from "../styles/GameByCategory.module.css";
 import { useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
-import advance from "../components/Question/Question.module.css";
 import TimeIcon from "../components/TimeIcon/index";
 import Feedback from "../components/Feedback/index"
 import { useRouter } from "next/router";
-import { answerCount } from "./finalStatistics";
+import { answerCount } from "./results";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -48,7 +47,7 @@ export default function Home() {
         setClinicalCaseCounter(nextClinicalCaseCounter);
         setQuestionCounter(0);
       } else {
-        router.push("/finalStatistics");
+        router.push("/results");
       }
     }
   };
@@ -93,7 +92,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <p className={advance.question}>
+        <p className={styles.countCase}>
           {nowClinicalCaseCounter} de {lengthClinicalCase}
         </p>
         <LinearProgress

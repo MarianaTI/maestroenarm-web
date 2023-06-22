@@ -21,7 +21,7 @@ const items = [
 return items;
 }
 
-export default function FinalStatistics() {
+export default function Results() {
   const items = answerCount();
   return (
     <Container>

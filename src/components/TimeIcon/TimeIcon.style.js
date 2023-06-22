@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 
 export const TimeIconContainer = styled.div`
-    position: absolute;
-    top: 55px;
-    right: 70px;
+    position: relative;
     color: #052970;
+    padding: 12px;
+    padding-left: 84%;
+    padding-bottom: 0px;
+    padding-right: 0px;
   `;
 
 export const TimeText = styled.span`
