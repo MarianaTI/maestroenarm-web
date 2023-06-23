@@ -3,6 +3,7 @@ import gameReducer from "./slices/gameSlice";
 import filterDrawerReducer from "./slices/filterDrawerSlice";
 import navDrawerReducer from "./slices/navDrawerSlice";
 import videosReducer from "./slices/videosSlice";
+import productReducer from "./slices/productSlice";
 
 
 export const store = configureStore({
@@ -11,5 +12,6 @@ export const store = configureStore({
     filterDrawer: filterDrawerReducer,
     navDrawer: navDrawerReducer,
     videos: videosReducer
+    product: productReducer,
   },
 });
