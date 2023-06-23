@@ -3,6 +3,8 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { useState } from 'react';
 import { Container } from './index.style';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { Collapse } from '@mui/material';
 
 export default function ListFilterDrawer({ subspecialties, label, children }) {
     const [open, setOpen] = useState(false)

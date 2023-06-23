@@ -14,15 +14,11 @@ export const Sidebar = styled.aside`
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 16px;
+    gap: 16px;  
     @media screen and (min-width: 1281px) {
-        flex: 0 0 250px;
         padding: 32px 32px 32px 0;
     }
 
-    @media screen and (max-width: 575px) {
-        padding: 0;
-    }
 `;
 
 export const MainContent = styled.main`

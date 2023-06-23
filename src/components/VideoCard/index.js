@@ -8,7 +8,7 @@ export default function VideoCard({ title, description, prize, isVertical = fals
             <Container isVertical={isVertical} isBidCard={isBidCard}>
                 <AdvancedVideo cldVid={player}></AdvancedVideo>
                 <div>
-                    <span>{title}</span>
+                    <h4>{title}</h4>
                     <p>{description}</p>
                     <span>$ {prize}</span>
                 </div>

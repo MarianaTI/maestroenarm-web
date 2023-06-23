@@ -17,7 +17,7 @@ const ContainerStyles = ({ isVertical }) => css`
         background: #D9D9D9;
     }
 
-    & > div > :nth-child(1) {
+    & > div > h4 {
         font-weight: bold;
     }
 
@@ -27,18 +27,7 @@ const ContainerStyles = ({ isVertical }) => css`
             margin: 0;
         }
     }
-
-    @media screen and (max-width: 575px) {
-        flex-direction: column;
-        margin: auto;
-        width: 320px;
-        & > video {
-            margin: auto;
-            width: 320px;
-            height: 180px
-        }
-    }
-
+    
 `;
 
 export const Container = styled.div`

@@ -1,6 +1,5 @@
 import QuizIcon from '@mui/icons-material/Quiz';
 import { Cloudinary } from "@cloudinary/url-gen";
-import { scale } from "@cloudinary/url-gen/actions/resize";
 import { CustomButton } from "../../../../components/CustomButton";
 import VideoCard from "../../../../components/VideoCard";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
@@ -17,43 +16,42 @@ const cloudinary = new Cloudinary({
 
 const videoCards = [
     {
-        id: "card1", title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
+        id: 1, title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
         player: cloudinary.video('v1686780756/samples/sea-turtle')
     },
     {
-        id: "card2", title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
+        id: 2, title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
         player: cloudinary.video('v1686780757/samples/elephants')
     },
     {
-        id: "card3", title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
+        id: 3, title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
         player: cloudinary.video('v1686780762/samples/cld-sample-video')
     },
     {
-        id: "card4", title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
+        id: 4, title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
         player: cloudinary.video('v1686780762/samples/cld-sample-video')
     },
     {
-        id: "card5", title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
+        id: 5, title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
         player: cloudinary.video('v1686780756/samples/sea-turtle')
     },
     {
-        id: "card6", title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
+        id: 6, title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
         player: cloudinary.video('v1686780757/samples/elephants')
     },
     {
-        id: "card7", title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
+        id: 7, title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
         player: cloudinary.video('v1686780762/samples/cld-sample-video')
     },
     {
-        id: "card8", title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
+        id: 8, title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
         player: cloudinary.video('v1686780762/samples/cld-sample-video')
     },
 ]
 
 export default function Watch() {
     const route = useRouter();
-
-    const video = videoCards.find(v => v.id === route.query.id)
+    const video = videoCards.find(v => v.id == route.query.id)
 
     if (!video) return <h1>NO se encontró el recurso</h1>
 
