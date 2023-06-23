@@ -23,22 +23,6 @@
     display:block;
 }
 
-.pregunta {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 140%;
-    /* identical to box height, or 28px */
-
-    display: flex;
-    align-items: center;
-    margin-left: 120px;
-    color: #052970;
-    padding-top: 16px;
-    
-}
-
 .tipoLetra{
     font-family: 'Poppins';
     font-style: normal;
