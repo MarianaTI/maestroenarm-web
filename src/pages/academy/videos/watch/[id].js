@@ -1,6 +1,5 @@
 import QuizIcon from '@mui/icons-material/Quiz';
 import { Cloudinary } from "@cloudinary/url-gen";
-import { scale } from "@cloudinary/url-gen/actions/resize";
 import { CustomButton } from "../../../../components/CustomButton";
 import VideoCard from "../../../../components/VideoCard";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
