@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import CustomButton from "../CustomButtonAcademy";
+
 import {
   BasicInformation,
   BasicInformationContainer,
@@ -20,11 +21,11 @@ import { setCurrentProduct } from "../../store/slices/productSlice";
 const CustomIndividualBook = ({
   imgFront,
   imgBack,
-  name,
-  author,
+  name = 'turtle',
+  author = 'none',
   topics = 'none',
-  price,
-  details,
+  price = '9.99',
+  details = 'none',
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);
