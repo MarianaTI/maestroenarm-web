@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {
-  AcceptPaymentContainer,
-  CalculateTotalContainer,
   CardContainer,
   CompletePayment,
   Container,
-  DetailContainer,
   FormStyled,
   IconStyled,
-  Line,
   MainContainer,
   PayContainer,
-  Row,
+  PaymentContainer,
   RowInputs,
-  RowSummary,
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";
@@ -22,8 +17,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 import { useRouter } from "next/router";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
@@ -173,10 +166,21 @@ export default function PaymentMethod() {
           productPrice="0.00"
         />
       </div>
-      <CompletePayment>
-        <CustomCalculateTotal />
-        
-      </CompletePayment>
+      <PaymentContainer>
+        <CompletePayment>
+          <CustomCalculateTotal />
+          <span className="DetailText">
+            Al completar la compra, aceptas estas{" "}
+            <Link href="#" className="LinkText">
+              Condiciones de uso.
+            </Link>
+          </span>
+          <CustomButtonAcademy
+            buttonText="Completar pago"
+            onClick={handleButtonClick} 
+          />
+        </CompletePayment>
+      </PaymentContainer>
     </Container>
   );
 }

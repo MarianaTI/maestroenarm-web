@@ -1,16 +1,12 @@
 import styled from "@emotion/styled";
 
 export const AcceptPaymentContainer = styled.div`
-  margin: 8px;
   width: 300px;
   color: #2d3648;
   & span {
     font-size: 22px;
     font-weight: 700;
-    padding: 0px 32px;
-    @media (max-width: 800px) {
-      padding: 0px 0px;
-    }
+    padding: 0px 16px;
   }
   .ImportantText {
     font-size: 16px;
@@ -34,10 +30,10 @@ export const AcceptPaymentContainer = styled.div`
 `;
 
 export const CalculateTotalContainer = styled.div`
-  width: 320px;
+  width: 280px;
   display: flex;
   flex-direction: column;
-  padding: 0px 32px;
+  padding: 0px 16px;
   margin-top: 8px;
   @media (max-width: 800px) {
     padding: 0px 0px;
