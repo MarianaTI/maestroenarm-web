@@ -29,9 +29,7 @@ export default function Academy() {
               weight.
             </p>
             <ButtonContainer>
-              <Link href="/academy/shopping-bag/payment-method">
-                <CustomButton buttonText="¡Suscríbete ahora!" />
-              </Link>
+                <CustomButton buttonText="¡Suscríbete ahora!" disabled/>
             </ButtonContainer>
           </StyledCard>
         </GridForm>

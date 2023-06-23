@@ -88,7 +88,7 @@ export const EmptyStateContainer = styled.div`
 
 export const BookGridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 180px);
+  grid-template-columns: repeat(5, 230px);
   gap: 16px;
   grid-row-gap: 60px;
   grid-column-gap: 22px;
