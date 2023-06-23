@@ -3,13 +3,17 @@ import { useRouter } from "next/router";
 import { StyledButton, StyledMenuItem } from "./index.style";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from "@material-ui/icons/Settings";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
 import { IconButton } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { History } from "@material-ui/icons";
+import { signOut } from "../../store/slices/authSlice";
 
 const MenuOption = () => {
+    const dispatch = useDispatch()
+    const { user } = useSelector(state => state.auth);
     const [anchorEl, setAnchorEl] = useState(null);
     const router = useRouter();
 
@@ -22,11 +26,11 @@ const MenuOption = () => {
     };
 
     const handleSettingsClickShopingBag = () => {
-        router.push("/academy/shopping-bag"); 
+        router.push("/academy/shopping-bag");
         handleMenuClose();
     };
     const handleSettingsClickHistory = () => {
-        router.push("/academy/shopping-bag/history"); 
+        router.push("/academy/shopping-bag/history");
         handleMenuClose();
     };
 
@@ -35,7 +39,7 @@ const MenuOption = () => {
         handleMenuClose();
     };
     const handleSettingsClickPaymentPlans = () => {
-        router.push("/payment-plans"); 
+        router.push("/payment-plans");
         handleMenuClose();
     };
 
@@ -47,6 +51,7 @@ const MenuOption = () => {
 
     const handleSettingsClickClosed = () => {
         router.push("/sesion");
+        dispatch(signOut())
         handleMenuClose();
     };
 
@@ -66,7 +71,7 @@ const MenuOption = () => {
                 onClose={handleMenuClose}
             >
                 <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins", fontWeight: "bold" }}>
-                    angelricardez002
+                    {user.email.split('@')[0].toUpperCase()}
                 </StyledMenuItem>
                 <StyledMenuItem style={{ marginRight: "auto" }} onClick={handleSettingsClickPaymentPlans}>
                     <StyledButton
@@ -84,8 +89,8 @@ const MenuOption = () => {
 
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleSettingsClickShopingBag}  style={{ fontFamily: "Poppins" }}>
-                    angel.ricardez@buencodigo.dev
+                <StyledMenuItem onClick={handleSettingsClickShopingBag} style={{ fontFamily: "Poppins" }}>
+                    {user.email}
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
@@ -95,7 +100,7 @@ const MenuOption = () => {
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickHistory} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
-                        <ShoppingBagIcon />
+                        <History />
                     </ListItemIcon>
                     Historial
                 </StyledMenuItem>
