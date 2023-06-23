@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "./index.style";
 import { AdvancedVideo } from "@cloudinary/react";
 
-export default function VideoCard({ title, description, prize, isVertical = false, isBidCard, route, player }) {
+export default function VideoCard({ title, description, price, isVertical = false, isBidCard, route, player }) {
     return (
         <Link href={route}>
             <Container isVertical={isVertical} isBidCard={isBidCard}>
@@ -10,7 +10,7 @@ export default function VideoCard({ title, description, prize, isVertical = fals
                 <div>
                     <h4>{title}</h4>
                     <p>{description}</p>
-                    <span>$ {prize}</span>
+                    <span>$ {price}</span>
                 </div>
             </Container>
         </Link>

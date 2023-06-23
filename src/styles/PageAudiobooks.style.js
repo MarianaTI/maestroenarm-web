@@ -89,10 +89,10 @@ export const EmptyStateContainer = styled.div`
 
 export const AudiobookGridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 300px);
-  gap: 16px;
+  grid-template-columns: repeat(5, 230px);
+
   grid-row-gap: 60px;
-  grid-column-gap: 22px;
+  grid-column-gap: 32px;
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 300px);
   }

@@ -1,7 +1,7 @@
 import VideoCard from "../../../components/VideoCard"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
-import { VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
+import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
@@ -20,26 +20,29 @@ export default function Videos() {
     const dispatch = useDispatch()
     useEffect(() => {
         fetch('http://localhost:3000/api/hello').then(res => res.json()).then(data => setVideos(data))
-         dispatch(setVideoList(videos))
-    }, [])  
+        dispatch(setVideoList(videos))
+    }, [])
 
     return (
         <>
-            <VideoContainer>
-                <div style={{ height: 364, width: '100%', marginTop: 48, display: 'flex', background: '#b9b9b9' }}>
-                    {/* <div>
-                        <h1>Body Bold Extra Large. </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </div>
-                    <Image style={{ marginLeft: 'auto' }} src="/academy-principal-video-page.svg" width={375} height={375}></Image> */}
-                </div>
-                <Filter></Filter>
+            <VideoContainer >
+                <MainContainer>
+                    <MainInformation>
+                        <h1>Body Bold Extra Large.</h1>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </span>
+                    </MainInformation>
+                    <ImageStyled src="/academy-principal-video-page.svg" width={350} height={300} />
+                </MainContainer>
+                <Filter />
                 <VideoCardContainer>
-                    {videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', prize: 9.99 } }) => <VideoCard
+                    {videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', price: 9.99 } }) => <VideoCard
                         key={public_id}
                         title={context.caption}
                         description={context.alt}
-                        prize={context.prize}
+                        price={context.price}
                         isVertical
                         isBidCard={true}
                         route={`/academy/videos/watch/${1}`}
@@ -49,7 +52,6 @@ export default function Videos() {
                 </VideoCardContainer>
             </VideoContainer >
             <FilterDrawer></FilterDrawer>
-
         </>
     )
 }

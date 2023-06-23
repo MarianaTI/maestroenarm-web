@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  width: 315px;
-  height: 170px;
+  width: 350px;
+  height: 200px;
   padding: 16px;
   display: flex;
   justify-content: center;
@@ -11,8 +11,8 @@ export const Container = styled.div`
 `;
 
 export const ImgStyled = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 15px;
   :hover{
     scale: 1.1;
@@ -20,34 +20,23 @@ export const ImgStyled = styled.img`
 `;
 
 export const DetailsContainer = styled.div`
-  width: 180px;
-  height: 150px;
-  display: flex;
   flex-direction: column;
   margin: 8px;
   position: relative;
   & div {
-    height: 50px;
-    width: 100%;
     overflow: hidden;
   }
-
-  & div:nth-child(1) {
-    font-size: 16px;
+  .NameStyle{
+    font-size: 14px;
     font-weight: 600;
-    text-overflow: ellipsis;
-    height: 70px;
+    padding: 8px 0px;
   }
-
-  & div:nth-child(2) {
-    margin-top: 8px;
-    font-size: 13px;
+  .AuthorStyle {
+    font-size: 12px;
     font-weight: 500;
     color: #2d3648;
-    height: 100px;
+    padding: 4px 0px;
   }
-
-
 `;
 
 export const PriceIconContainer = styled.div`

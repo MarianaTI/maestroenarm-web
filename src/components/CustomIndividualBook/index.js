@@ -22,7 +22,7 @@ const CustomIndividualBook = ({
   imgBack,
   name,
   author,
-  topics,
+  topics = 'none',
   price,
   details,
 }) => {
