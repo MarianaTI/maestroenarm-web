@@ -66,7 +66,6 @@ const loginSchema = yup.object({
       router.push("/game");
       setErrorLogin(false);
     } catch (error) {
-      console.log(error.message);
       setErrorLogin(true);
     }
   };

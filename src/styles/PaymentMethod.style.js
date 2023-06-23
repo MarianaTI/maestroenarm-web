@@ -39,6 +39,7 @@ export const PayContainer = styled.div`
   color: #2d3648;
   display: flex;
   flex-direction: column;
+
   & span {
     font-size: 22px;
     font-weight: 700;
@@ -82,7 +83,6 @@ export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   padding: 24px;
-  gap: 8px;
 `;
 
 export const RowInputs = styled.div`
@@ -90,7 +90,6 @@ export const RowInputs = styled.div`
   gap: 16px;
   @media (max-width: 400px) {
     flex-direction: column;
-    gap: 8px;
   }
 `;
 
@@ -129,11 +128,13 @@ export const Row = styled.div`
     flex-direction: column;
   }
 `;
+
 export const RowSummary = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 4px;
 `;
+
 
 export const CompletePayment = styled.div`
   display: flex;

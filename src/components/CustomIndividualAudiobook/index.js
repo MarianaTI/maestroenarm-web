@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   BasicInformation,
   BasicInformationContainer,
@@ -14,6 +14,7 @@ import CustomButton from "../CustomButtonAcademy";
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { useRouter } from "next/router";
 
 const CustomIndividualAudiobook = ({
   imgFront,
@@ -27,10 +28,12 @@ const CustomIndividualAudiobook = ({
   details,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const router = useRouter();
+  const { id } = router.query;
 
   const handleButtonClick = () => setOpenSnackbar(true);
   const handleSnackbarClose = () => setOpenSnackbar(false);
-  
+
   return (
     <Container>
       <BasicInformationContainer>
@@ -60,7 +63,10 @@ const CustomIndividualAudiobook = ({
           {price > 0.0 ? (
             <BuyContainer>
               <span className="DetailOptionStyled">$ {price}</span>
-              <Link href="/academy/shopping-bag/payment-method">
+              <Link
+                href={"/academy/shopping-bag/payment-method?id=${id}"}
+                as={`/academy/shopping-bag/payment-method?id=${id}`}
+              >
                 <CustomButton buttonText="Comprar ahora" type="button" />
               </Link>
             </BuyContainer>
@@ -71,7 +77,7 @@ const CustomIndividualAudiobook = ({
                   Incluido en la suscripción
                 </span>
               </IncludeContainer>
-              <CustomButton showIcon onClick={handleButtonClick}/>
+              <CustomButton showIcon onClick={handleButtonClick} />
             </BuyContainer>
           )}
         </div>
