@@ -1,38 +1,109 @@
+import React, { useEffect } from "react";
 import {
-  AcceptPaymentContainer,
-  CalculateTotalContainer,
   CardContainer,
   CompletePayment,
-  Container,
-  DetailContainer,
+  ContainerForm,
   FormStyled,
   IconStyled,
-  Line,
   MainContainer,
   PayContainer,
-  Row,
+  PaymentContainer,
   RowInputs,
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";
-import CustomButton from "../../../../components/CustomButtonAcademy";
+import CustomButtonAcademy from "../../../../components/CustomButtonAcademy";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import Link from "next/link";
+import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
+import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
+import { useSelector } from "react-redux";
 
-export default function PaymentMethod({
-  productName,
-  productDetails,
-  productPrice,
-}) {
+const paymentSchema = yup.object().shape({
+  cardName: yup.string().required("Este dato es requerido"),
+  cardNumber: yup
+    .string()
+    .required("Este dato es requerido")
+    .matches(
+      /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/,
+      "Ingresa el número con el formato correcto"
+    )
+    .max(19),
+  expiration: yup
+    .string()
+    .required("Este dato es requerido")
+    .matches(
+      /^(0[1-9]|1[0-2])\/([0-9]{2})$/,
+      "Ingresa el número con el formato correcto"
+    )
+    .max(5),
+  cvc: yup
+    .string()
+    .required("Este dato es requerido")
+    .matches(/^\d{3}$/, "Ingresa el número con el formato correcto")
+    .min(3)
+    .max(4),
+});
+
+const formatCardNumber = (value) => {
+  return value
+    .replace(/[^\d]/g, "")
+    .substring(0, 16)
+    .replace(/(.{4})/g, "$1 ")
+    .trim();
+};
+
+const formatExpirationDate = (value) => {
+  return value
+    .replace(/[^\d]/g, "")
+    .substring(0, 4)
+    .replace(/(.{2})/, "$1/");
+};
+export default function PaymentMethod() {
   const {
-    handleSubmit,
     control,
+    handleSubmit,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm({
-    defaultValues: {},
+    defaultValues: {
+      cardName: "",
+      cardNumber: "",
+      expiration: "",
+      cvc: "",
+    },
+    resolver: yupResolver(paymentSchema),
   });
+  const cardNumber = watch("cardNumber");
+  const expiration = watch("expiration");
+  const cvc = watch("cvc");
+
+  useEffect(() => {
+    const formattedCardNumber = formatCardNumber(cardNumber);
+    setValue("cardNumber", formattedCardNumber);
+  }, [cardNumber, setValue]);
+
+  useEffect(() => {
+    const formattedExpirationDate = formatExpirationDate(expiration);
+    setValue("expiration", formattedExpirationDate);
+  }, [expiration, setValue]);
+
+  useEffect(() => {
+    const limitedCvc = cvc.substring(0, 3);
+    setValue("cvc", limitedCvc);
+  }, [cvc, setValue]);
+
+  const onSubmit = (values) => {
+    console.log(values);
+  };
+
+  const product = useSelector((state) => state.product.currentProduct);
 
   return (
-    <Container>
+    <ContainerForm onSubmit={handleSubmit(onSubmit)}>
       <div>
         <MainContainer>
           <h1>Continua con tu compra</h1>
@@ -51,68 +122,61 @@ export default function PaymentMethod({
             <FormStyled>
               <CustomInput
                 label="Nombre del propietario"
-                name="name"
+                name="cardName"
                 control={control}
                 placeholder="Nombre del propietario"
+                error={errors.cardName?.message}
               />
               <CustomInput
                 label="Número de tarjeta"
-                name="card-number"
+                name="cardNumber"
                 control={control}
                 placeholder="1234 5678 9110 2134"
+                error={errors.cardNumber?.message}
+                onChange={(event) => {
+                  event.target.value = formatCardNumber(event.target.value);
+                }}
               />
               <RowInputs>
                 <CustomInput
                   label="Fecha de vencimiento"
-                  name="name"
+                  name="expiration"
                   control={control}
                   placeholder="MM/AA"
+                  error={errors.expiration?.message}
                 />
                 <CustomInput
                   label="CVC/CVV"
-                  name="card-number"
+                  name="cvc"
                   control={control}
                   placeholder="CVC"
+                  error={errors.cvc?.message}
                 />
               </RowInputs>
             </FormStyled>
           </CardContainer>
         </PayContainer>
-        <DetailContainer>
-          <span>Detalles de la compra</span>
-          <Row>
-            <p className="ImportantText">{productName} Nombre del producto</p>
-            <p className="ImportantText">$ {productPrice} 0.00</p>
-          </Row>
-          <p className="DetailText">
-            {productDetails} Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
-          </p>
-        </DetailContainer>
+        <CustomShoppingDetails
+          productName={product.name}
+          productTopics={product.topics}
+          productPrice={product.price}
+        />
       </div>
-      <CompletePayment>
-        <AcceptPaymentContainer>
-          <span>Resumen</span>
-          <CalculateTotalContainer>
-            <Row>
-              <p>Precio original:</p>
-              <p>$ 0.00 MX</p>
-            </Row>
-            <Row>
-              <p>Descuento:</p>
-              <p>- $ 0.00 MX</p>
-            </Row>
-            <Line></Line>
-          <Row>
-            <p className="ImportantText">Total:</p>
-            <p className="ImportantText">$ 0.00 MX</p>
-          </Row>
-          <span className="DetailText">Al completar la compra, aceptas estas Condiciones de uso.</span>
-          <CustomButton buttonText="Completar pago"/>
-          </CalculateTotalContainer>
-        </AcceptPaymentContainer>
-      </CompletePayment>
-    </Container>
+      <PaymentContainer>
+        <CompletePayment>
+          <CustomCalculateTotal
+            originalPrice={product.price}
+            totalPrice={product.price}
+          />
+          <span className="DetailText">
+            Al completar la compra, aceptas estas{" "}
+            <Link href="#" className="LinkText">
+              Condiciones de uso.
+            </Link>
+          </span>
+          <CustomButtonAcademy buttonText="Completar pago" type="submit" />
+        </CompletePayment>
+      </PaymentContainer>
+    </ContainerForm>
   );
 }
