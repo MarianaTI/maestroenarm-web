@@ -101,7 +101,6 @@ export default function Navbar() {
     }
   };
 
-
   const handleMouseLeave = () => {
     setAnchorEl(null);
   };
