@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   CardContainer,
   CompletePayment,
-  Container,
+  ContainerForm,
   FormStyled,
   IconStyled,
   MainContainer,
@@ -17,9 +17,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
+import { useSelector } from "react-redux";
 
 const paymentSchema = yup.object().shape({
   cardName: yup.string().required("Este dato es requerido"),
@@ -62,9 +62,6 @@ const formatExpirationDate = (value) => {
     .replace(/(.{2})/, "$1/");
 };
 export default function PaymentMethod() {
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const handleButtonClick = () => setOpenSnackbar(true);
-  const handleSnackbarClose = () => setOpenSnackbar(false);
   const {
     control,
     handleSubmit,
@@ -103,11 +100,10 @@ export default function PaymentMethod() {
     console.log(values);
   };
 
-  const router = useRouter();
-  const { id } = router.query;
+  const product = useSelector((state) => state.product.currentProduct);
 
   return (
-    <Container>
+    <ContainerForm onSubmit={handleSubmit(onSubmit)}>
       <div>
         <MainContainer>
           <h1>Continua con tu compra</h1>
@@ -123,7 +119,7 @@ export default function PaymentMethod() {
               <IconStyled />
               <span>Tarjeta de crédito/débito</span>
             </TitleContainer>
-            <FormStyled onSubmit={handleSubmit(onSubmit)}>
+            <FormStyled>
               <CustomInput
                 label="Nombre del propietario"
                 name="cardName"
@@ -161,26 +157,26 @@ export default function PaymentMethod() {
           </CardContainer>
         </PayContainer>
         <CustomShoppingDetails
-          productName="Nombre del producto"
-          productTopics="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          productPrice="0.00"
+          productName={product.name}
+          productTopics={product.topics}
+          productPrice={product.price}
         />
       </div>
       <PaymentContainer>
         <CompletePayment>
-          <CustomCalculateTotal />
+          <CustomCalculateTotal
+            originalPrice={product.price}
+            totalPrice={product.price}
+          />
           <span className="DetailText">
             Al completar la compra, aceptas estas{" "}
             <Link href="#" className="LinkText">
               Condiciones de uso.
             </Link>
           </span>
-          <CustomButtonAcademy
-            buttonText="Completar pago"
-            onClick={handleButtonClick} 
-          />
+          <CustomButtonAcademy buttonText="Completar pago" type="submit" />
         </CompletePayment>
       </PaymentContainer>
-    </Container>
+    </ContainerForm>
   );
 }

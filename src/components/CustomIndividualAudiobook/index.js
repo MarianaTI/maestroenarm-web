@@ -14,7 +14,8 @@ import CustomButton from "../CustomButtonAcademy";
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setCurrentProduct } from "../../store/slices/productSlice";
 
 const CustomIndividualAudiobook = ({
   imgFront,
@@ -28,11 +29,20 @@ const CustomIndividualAudiobook = ({
   details,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const router = useRouter();
-  const { id } = router.query;
-
   const handleButtonClick = () => setOpenSnackbar(true);
   const handleSnackbarClose = () => setOpenSnackbar(false);
+
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    const productInfo = {
+      name,
+      topics,
+      price,
+    };
+    dispatch(setCurrentProduct(productInfo));
+  };
+
+  
 
   return (
     <Container>
@@ -63,11 +73,12 @@ const CustomIndividualAudiobook = ({
           {price > 0.0 ? (
             <BuyContainer>
               <span className="DetailOptionStyled">$ {price}</span>
-              <Link
-                href={"/academy/shopping-bag/payment-method?id=${id}"}
-                as={`/academy/shopping-bag/payment-method?id=${id}`}
-              >
-                <CustomButton buttonText="Comprar ahora" type="button" />
+              <Link href="/academy/shopping-bag/payment-method">
+                <CustomButton
+                  buttonText="Comprar ahora"
+                  type="button"
+                  onClick={handleClick}
+                />
               </Link>
             </BuyContainer>
           ) : (

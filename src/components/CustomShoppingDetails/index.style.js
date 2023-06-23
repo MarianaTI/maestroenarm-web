@@ -11,7 +11,7 @@ export const DetailContainer = styled.div`
   .ImportantText {
     font-size: 16px;
     font-weight: 600;
-    padding: 16px 4px;
+    padding: 16px 0px;
     @media (max-width: 400px) {
       padding: 8px 0px;
     }

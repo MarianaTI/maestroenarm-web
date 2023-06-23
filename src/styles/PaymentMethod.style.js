@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
-export const Container = styled.div`
+export const ContainerForm = styled.form`
   height: 100%;
   padding: 16px;
   width: ${(props) => (props.fullwidth ? "100%" : "auto")};
@@ -79,7 +79,7 @@ export const IconStyled = styled(PaymentOutlinedIcon)`
   margin: 24px;
 `;
 
-export const FormStyled = styled.form`
+export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;

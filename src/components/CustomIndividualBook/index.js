@@ -14,6 +14,8 @@ import {
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { useDispatch } from "react-redux";
+import { setCurrentProduct } from "../../store/slices/productSlice";
 
 const CustomIndividualBook = ({
   imgFront,
@@ -25,9 +27,21 @@ const CustomIndividualBook = ({
   details,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
-
   const handleButtonClick = () => setOpenSnackbar(true);
   const handleSnackbarClose = () => setOpenSnackbar(false);
+
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    const productInfo = {
+      name,
+      topics,
+      price,
+    };
+    dispatch(setCurrentProduct(productInfo));
+  };
+
+
+  
 
   return (
     <Container>
@@ -41,7 +55,7 @@ const CustomIndividualBook = ({
             <BuyContainer>
               <span>$ {price}</span>
               <Link href="/academy/shopping-bag/payment-method">
-                <CustomButton buttonText="Comprar ahora" type="button" />
+                <CustomButton buttonText="Comprar ahora" type="button"  onClick={handleClick}/>
               </Link>
             </BuyContainer>
           ) : (
