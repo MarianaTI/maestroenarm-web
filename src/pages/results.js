@@ -36,7 +36,6 @@ export default function Results() {
         <ContainerRetroAlim>
           <span>ENARM</span>
           <span>2/5-40%</span>
-          <span>Ver más...</span>
         </ContainerRetroAlim>
         <TextStatic>
           <span>Ginecologia1/1 -100%</span>

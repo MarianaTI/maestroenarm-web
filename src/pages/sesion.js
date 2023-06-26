@@ -26,13 +26,15 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
+import { useDispatch } from "react-redux";
+import { signIn } from "../store/slices/authSlice";
 
 const loginSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
+  password: yup.string().required("Por favor, ingresa tu contraseña"),
 });
 
-  const Sesion = () => {
+const Sesion = () => {
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   const [openChangePassword, setOpenChangePassword] = useState(false);
@@ -63,6 +65,7 @@ const loginSchema = yup.object({
   const onSubmit = (values) => {
     try {
       authenticateUser(values.email, values.password);
+      dispatch(signIn({ email: values.email, password: values.password }))
       router.push("/game");
       setErrorLogin(false);
     } catch (error) {
@@ -80,6 +83,8 @@ const loginSchema = yup.object({
     setOpenForgotPassword(false);
     setOpenChangePassword(true);
   };
+
+  const dispatch = useDispatch()
 
   return (
     <LoginGrid>
@@ -148,10 +153,6 @@ const loginSchema = yup.object({
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
-        <BackLoginContainer>
-          <BackLoginIcon />
-          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
-        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );

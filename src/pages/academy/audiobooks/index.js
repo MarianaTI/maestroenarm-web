@@ -1,5 +1,4 @@
 import Image from "next/image";
-import CustomAudiobook from "../../../components/CustomAudiobook";
 import Filter from "../../../components/Filter";
 import FilterDrawer from "../../../components/FilterDrawer";
 import { audiobooks } from "../../../constants";
@@ -14,6 +13,7 @@ import {
   MainInformation,
 } from "../../../styles/PageAudiobooks.style";
 import Link from "next/link";
+import CustomBook from "../../../components/CustomBook";
 
 export default function AudioBooks() {
   return (
@@ -42,13 +42,12 @@ export default function AudioBooks() {
                 key={item.id}
               >
                 <div>
-                  <CustomAudiobook
+                  <CustomBook
                     key={index}
                     img={item.img}
                     name={item.name}
-                    topics={item.topics}
+                    topics={item.author}
                     price={item.price}
-                    showIcon
                   />
                 </div>
               </Link>

@@ -17,7 +17,7 @@ export const TextContainerResult = styled.div`
     font-size: 18px;
 
     & span:nth-of-type(1),
-    & span:nth-of-type(2),
+    & span:nth-of-type(2),                                          
     & span:nth-of-type(3) {
       font-size: 14px;
       margin: 4px;

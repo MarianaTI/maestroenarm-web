@@ -10,8 +10,9 @@ import {
     FormStyle,
     QuestionStyle,
     LinkText,
-    ErrorMessage
-} from "../styles/register.style";
+    ErrorMessage,
+    Space
+} from "../styles/Register.style";
 import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import { CustomButton } from "../components/CustomButton";
@@ -19,11 +20,11 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const registerSchema = yup.object({
-    namee: yup.string().required(),
-    lastname: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-    confirmpassword: yup.string().required(),
+    namee: yup.string().required("Por favor, ingresa tu nombre"),
+    lastname: yup.string().required("Por favor, ingresa tu apellido"),
+    email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
+    password: yup.string().required("Por favor, ingresa tu contraseña"),
+    confirmpassword: yup.string().required("Por favor, confirma tu contraseña"),
 });
 
 const register = () => {
@@ -32,20 +33,20 @@ const register = () => {
 
     const authenticateUser = (email, password, confirmpassword, namee, lastname) => {
         const user = userRegister.find(
-          (account) => account.name === namee && account.lastname === lastname &&
+          (account) => account.namee === namee && account.lastname === lastname &&
           account.email === email && account.password === password && 
           account.confirmpassword === confirmpassword
         );
         if (!user) {
           throw new Error("Error de registro");
         }
-      };
+    };
 
-      const {
+    const {
         handleSubmit,
         control,
         formState: { errors },
-      } = useForm({
+    } = useForm({
         defaultValues: {
           namee:"",
           lastname:"",
@@ -54,9 +55,9 @@ const register = () => {
           confirmpassword:"",
         },
         resolver: yupResolver(registerSchema),
-      });
+    });
 
-      const onSubmit = (values) => {
+    const onSubmit = (values) => {
         try {
           authenticateUser(values.namee, values.lastname, values.email, values.password, values.confirmpassword);
           console.log("Registro exitoso");
@@ -65,18 +66,18 @@ const register = () => {
           console.log(error.message);
           setErrorRegister(true);
         }
-      };
-      const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
-      const togglePasswordVisibility = () => {
+    };
+    const toggleForgotPasswordModal = () => setOpenForgotPassword((isOpenForgotPassword) => !isOpenForgotPassword);
+    const togglePasswordVisibility = () => {
         setShowPassword(!isShowPassword);
-      };
+    };
 
     return(
         <RegisterContainer>
             <ImageStyle/>
             <FormContainer>
                 <CardStyled>
-                    <h1>Register</h1>
+                    <h1>Registro</h1>
                     <span>¡Bienvenido! Ingresa tus datos</span>
                     {isErrorRegister && (
                         <ErrorMessage>
@@ -97,7 +98,7 @@ const register = () => {
                         error={errors.lastname?.message}
                         />
                         <CustomInput
-                        label="Correo electronico"
+                        label="Correo electrónico"
                         name="email"
                         control={control}
                         error={errors.email?.message}
@@ -130,10 +131,11 @@ const register = () => {
                             )
                         }
                         />
-                        <CustomButton text="Iniciar" type="submit"/>
+                        <Space/>
+                        <CustomButton text="Registrar" type="submit"/>
                         <QuestionStyle>
                             <span>¿Ya tienes cuenta?
-                                <LinkText href="#">Iniciar sesión</LinkText>
+                                <LinkText href="/sesion">Iniciar sesión</LinkText>
                             </span>
                         </QuestionStyle>
                     </FormStyle>

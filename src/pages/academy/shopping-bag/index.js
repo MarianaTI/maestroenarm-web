@@ -81,7 +81,7 @@ export default function ShoppingBag() {
           </TabInformation>
         )}
         {value === 2 && (
-          <TabInformationBook>
+          <TabInformation>
             {audiobooksInterest.length > 0 ? (
               audiobooksInterest.map((item, index) => (
                 <Link
@@ -89,7 +89,7 @@ export default function ShoppingBag() {
                   as={`/academy/books/view/${item.id}`}
                   key={item.id}
                 >
-                  <CustomBook
+                  <CustomAudiobook
                     key={index}
                     img={item.img}
                     name={item.name}
@@ -103,7 +103,7 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainerBook>
             )}
-          </TabInformationBook>
+          </TabInformation>
         )}
       </TabContainer>
     </div>

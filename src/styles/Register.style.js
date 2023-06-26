@@ -92,3 +92,7 @@ export const ErrorMessage = styled.p`
   padding-left: 16px;
   color: red;
 `;
+export const Space = styled.div`
+    margin-bottom: 10px;
+
+`;

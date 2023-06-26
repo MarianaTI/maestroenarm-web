@@ -2,7 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import gameReducer from "./slices/gameSlice";
 import filterDrawerReducer from "./slices/filterDrawerSlice";
 import navDrawerReducer from "./slices/navDrawerSlice";
+import videosReducer from "./slices/videosSlice";
 import productReducer from "./slices/productSlice";
+import authReducer from "./slices/authSlice";
 
 
 export const store = configureStore({
@@ -10,6 +12,8 @@ export const store = configureStore({
     game: gameReducer,
     filterDrawer: filterDrawerReducer,
     navDrawer: navDrawerReducer,
+    videos: videosReducer,
     product: productReducer,
+    auth: authReducer
   },
 });
