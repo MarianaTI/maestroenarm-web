@@ -9,9 +9,9 @@ import {
 } from "../../styles/PrincipalPage.style";
 import CustomButton from "../../components/CustomButtonAcademy";
 import CustomCategories from "../../components/CustomCategories";
+import Link from "next/link";
 
 export default function Academy() {
-
   return (
     <Container>
       <PrincipalContainer>
@@ -29,11 +29,16 @@ export default function Academy() {
               weight.
             </p>
             <ButtonContainer>
-              <CustomButton buttonText="¡Suscríbete ahora!" />
+                <CustomButton buttonText="¡Suscríbete ahora!" disabled/>
             </ButtonContainer>
           </StyledCard>
         </GridForm>
-        <ImageStyled src="/img/medicine.svg" width={600} height={400} alt="academy-img" />
+        <ImageStyled
+          src="/img/medicine.svg"
+          width={600}
+          height={400}
+          alt="academy-img"
+        />
       </PrincipalContainer>
       <CategoriesContainer>
         <span>Most fonts have a particular weight which corresponds.</span>

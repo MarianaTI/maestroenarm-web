@@ -41,7 +41,7 @@ export default function View() {
             key={index}
             img={item.img}
             name={item.name}
-            topics={item.topics}
+            author={item.author}
             price={item.price}
           />
           </Link>

@@ -7,6 +7,9 @@ export const Container = styled.div`
     color: #052970;
     margin: 10px;
    }
+   @media (max-width: 600px) {
+      font-size: 15px;
+   }
 `;
 export const CardPlans = styled.div`
    display: flex;

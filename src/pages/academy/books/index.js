@@ -46,9 +46,8 @@ export default function Books() {
                     key={index}
                     img={item.img}
                     name={item.name}
-                    topics={item.topics}
+                    author={item.author}
                     price={item.price}
-                    showIcon
                   />
                 </div>
               </Link>
