@@ -14,6 +14,6 @@ export const store = configureStore({
     navDrawer: navDrawerReducer,
     videos: videosReducer,
     product: productReducer,
-    auth: authReducer
+    auth: authReducer,
   },
 });
