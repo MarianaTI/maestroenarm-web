@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import TimeIcon from "../components/TimeIcon/index";
@@ -12,6 +12,7 @@ import { answerCount } from "./results";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
+import { setFalseAnswerCount, setTrueAnswerCount } from "../store/slices/gameSlice";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -20,9 +21,9 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
-  const [trueCount, setTrueCount] = useState(0);
-  const [falseCount, setFalseCount] = useState(0);
-  const subcategories = useSelector((state) => state.game.subcategories);
+  const {trueAnswerCount}= useSelector(state=>state.game)
+  const {falseAnswerCount}= useSelector(state=> state.game);
+  const dispatch= useDispatch();
   const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
@@ -61,9 +62,9 @@ export default function Home() {
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
-      setTrueCount(trueCount + 1);
+      dispatch(setTrueAnswerCount({valor:1}));
     } else {
-      setFalseCount(falseCount + 1);
+      dispatch(setFalseAnswerCount({valor:1}));
     }
   }
 
@@ -79,14 +80,13 @@ export default function Home() {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
-    setFalseCount(falseCount + 1);
+    dispatch(setFalseAnswerCount({valor:1}));
   };
 
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    answerCount(trueCount, falseCount);
     if (!isOpenFeedback) {
       goNext();
     }

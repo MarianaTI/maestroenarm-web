@@ -10,11 +10,14 @@ import {
   StatisticsContainer,
   ContainerSpecialty,
 } from "../styles/Result.style.js";
+import { useSelector } from "react-redux";
 
-export function answerCount(trueCount,falseCount){
-const items = [
-    { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueCount },
-    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseCount },
+export function answerCount(){
+  const {trueAnswerCount}= useSelector(state=>state.game)
+  const {falseAnswerCount}= useSelector(state=> state.game);
+  const items = [
+    { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueAnswerCount },
+    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseAnswerCount },
     { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: 40 }
 ];
 
