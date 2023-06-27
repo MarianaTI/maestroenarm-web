@@ -8,7 +8,6 @@ import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import TimeIcon from "../components/TimeIcon/index";
 import { useRouter } from "next/router";
-import { answerCount } from "./results";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
@@ -91,7 +90,6 @@ export default function Home() {
       goNext();
     }
   };
-
   return (
     <div className={styles.container}>
       <Head>
