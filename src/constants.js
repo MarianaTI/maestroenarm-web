@@ -97,6 +97,7 @@ export const audiobooks = [
     price: 601.24,
     detail:
       "Este audiolibro ofrece una exploración exhaustiva de la historia del cáncer, desde sus primeras descripciones hasta los avances médicos más recientes en la lucha contra esta enfermedad.",
+    audio: "https://res.cloudinary.com/ddqxeu7xc/video/upload/v1687812402/greysanatomy.mp3"
   },
   {
     id: 2,
@@ -112,6 +113,7 @@ export const audiobooks = [
     price: 279.0,
     detail:
       "Atul Gawande examina la experiencia de envejecer y enfrentar la mortalidad, explorando cómo la medicina puede mejorar la calidad de vida en los últimos años.",
+    audio: "https://res.cloudinary.com/ddqxeu7xc/video/upload/v1687888540/drhouse.mp3"
   },
   {
     id: 3,

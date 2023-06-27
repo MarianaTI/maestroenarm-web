@@ -29,6 +29,7 @@ export default function View() {
         topics={audiobook.topics}
         price={audiobook.price}
         details={audiobook.detail}
+        audio={audiobook.audio}
       />
       <InterestContainer>
         {audiobooksInterest.map((item, index) => (

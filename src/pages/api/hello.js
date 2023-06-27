@@ -12,3 +12,22 @@ export default async function handler(req, res) {
 
   res.status(200).json(resources)
 }
+
+
+
+//audiolibros
+
+// export default async function handlerAudiobook(req, res) {
+//   const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
+//   const API_KEY = process.env.CLOUDINARY_API_KEY;
+//   const API_SECRET = process.env.CLOUDINARY_API_SECRET;
+  
+//   try {
+//     // Construye la URL para extraer el audio del video (convertirlo a formato mp3)
+//     const audioUrl = `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/fl_spliced.audio_formats(mp3)/${PUBLIC_ID}.mp3`;
+
+//     res.status(200).json({ audioUrl });
+// } catch (error) {
+//     res.status(500).json({ error: error.message });
+// }
+// }
