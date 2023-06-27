@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   trueAnswerCount: 0,
   falseAnswerCount: 0,
+  quizAccuracy: 0,
 };
 
-export const counterAnswerSlice = createSlice({
+export const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
@@ -15,10 +16,15 @@ export const counterAnswerSlice = createSlice({
     setFalseAnswerCount: (state, action) => {
       state.falseAnswerCount += action.payload.valor;
     },
+    setQuizAccuracy: (state, action) => {
+      const totalAnswers = state.trueAnswerCount + state.falseAnswerCount;
+      const accuracy = state.trueAnswerCount/totalAnswers
+      state.quizAccuracy = Math.ceil(accuracy);
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTrueAnswerCount , setFalseAnswerCount } = counterAnswerSlice.actions;
+export const { setTrueAnswerCount , setFalseAnswerCount , setQuizAccuracy} = gameSlice.actions;
 
-export default counterAnswerSlice.reducer;
+export default gameSlice.reducer;
