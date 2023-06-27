@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { QuestionStyle, ButtonQuestion, TextQuestion } from './index.style';
+import {ButtonQuestion, TextQuestion, IconContainer, Text} from './index.style';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
 
 const SelectQuestions = ({ question, information }) => {
   const [desplegado, setDesplegado] = useState(false);
@@ -10,8 +12,12 @@ const SelectQuestions = ({ question, information }) => {
 
   return (
     <div>
-      <ButtonQuestion onClick={toggleDesplegar}>
-        {question}
+      <ButtonQuestion 
+      onClick={toggleDesplegar}>
+        <IconContainer>
+          <HelpOutlineIcon />
+        </IconContainer>
+        <Text>{question}</Text>
       </ButtonQuestion>
       {desplegado && <TextQuestion>{information}</TextQuestion>}
     </div>

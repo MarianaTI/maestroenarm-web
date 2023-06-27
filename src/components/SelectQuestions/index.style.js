@@ -1,21 +1,34 @@
 import styled from "@emotion/styled";
 
-
-export const QuestionStyle = styled.h5`
-  font-family: "Poppins";
-  font-weight: 400;
-
-`;
 export const ButtonQuestion = styled.button`
-  margin: 4px 0px 8px 0px;
-  width: 400px;
+  margin: 10px;
+  width: 550px;
   background-color: #f4f4f4;
   border-radius: 10px;
-  height: 50px;
-  border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+  height: 65px;
+  border: 2px solid #cccccc;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  :hover {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+`;
+export const IconContainer = styled.span`
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 export const TextQuestion = styled.p`
   font-family: "Poppins";
+  width: 550px;
+  margin: 0px 10px 0px 10px;
+`;
+export const Text = styled.p`
+  font-family: "Poppins";
+  font-size: 17px;
+  text-align: left;
 `;
