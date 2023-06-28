@@ -30,8 +30,8 @@ import { useDispatch } from "react-redux";
 import { signIn } from "../store/slices/authSlice";
 
 const loginSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
+  password: yup.string().required("Por favor, ingresa tu contraseña"),
 });
 
 const Sesion = () => {
@@ -153,10 +153,6 @@ const Sesion = () => {
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
-        <BackLoginContainer>
-          <BackLoginIcon />
-          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
-        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );

@@ -20,9 +20,10 @@ export default function Game() {
         <p>Feedback al finalizar el exámen</p>
         <p>AMISTOSO</p>
       </TitleGameContainer>
-      <GameField label="Aleatorio" />
-      <GameField
-        label="Por Categoría"
+      <a href="#">
+        <GameField label="Aleatorio"/>
+      </a>
+      <GameField  label="Por Categoría"
         disabled
         onClick={() => setOpen(true)}
       />
