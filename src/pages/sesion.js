@@ -28,10 +28,14 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
 import { useDispatch } from "react-redux";
 import { signIn } from "../store/slices/authSlice";
+import { signInByGoogle } from "../server/firebase/providers/google";
+import { signInByMicrosoft } from "../server/firebase/providers/microsoft";
+import { signInByMaestroEnarm } from "../server/firebase/providers/email";
+import { signInByApple } from "../server/firebase/providers/apple";
 
 const loginSchema = yup.object({
-  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
-  password: yup.string().required("Por favor, ingresa tu contraseña"),
+  email: yup.string().email().required(),
+  password: yup.string().required(),
 });
 
 const Sesion = () => {
@@ -64,7 +68,8 @@ const Sesion = () => {
 
   const onSubmit = (values) => {
     try {
-      authenticateUser(values.email, values.password);
+      // authenticateUser(values.email, values.password);
+      signInByMaestroEnarm(values.email, values.password)
       dispatch(signIn({ email: values.email, password: values.password }))
       router.push("/game");
       setErrorLogin(false);
@@ -126,9 +131,9 @@ const Sesion = () => {
             </QuestionStyled>
             <CustomButton text="Iniciar" type="submit" />
             <BoxOptions>
-              <CustomOptionsLogin icon="./google.svg" />
-              <CustomOptionsLogin icon="./microsoft.svg" />
-              <CustomOptionsLogin icon="./apple.svg" />
+              <CustomOptionsLogin icon="./google.svg" onClick={signInByGoogle} />
+              <CustomOptionsLogin icon="./microsoft.svg" onClick={signInByMicrosoft} />
+              <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} />
             </BoxOptions>
             <BackQuestionStyled>
               <span>
@@ -153,6 +158,10 @@ const Sesion = () => {
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
+        <BackLoginContainer>
+          <BackLoginIcon />
+          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
+        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );
