@@ -4,8 +4,8 @@ const initialState = {
     isAuthenticated: false,
     user: {
         email: 'empty',
-        password: 'emtp'
-    }
+        password: 'emtpy'
+    },
 };
 
 export const authSlice = createSlice({
