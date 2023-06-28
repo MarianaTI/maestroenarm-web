@@ -5,13 +5,12 @@ import { ChartContainer, Container, CustomLi, CustomSpan, CustomUl, Image } from
 ChartJS.register(ArcElement, Tooltip);
 
 export const StatisticChart = ({ items }) => {
-
     const data = {
         //labels: ['opcion1', 'opcion2', 'opcion3'],
         datasets: [
             {
                 label: 'score',
-                data: items.map(item => item.score),
+                data: items.slice(0, 2).map(item => item.score),
                 backgroundColor: [
                     '#6aa6fa',
                     '#024CBB',
