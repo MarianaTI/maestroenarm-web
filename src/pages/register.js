@@ -18,7 +18,7 @@ import CustomInput from "../components/CustomInput";
 import { CustomButton } from "../components/CustomButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { signUpByMaestroEnarm } from "../server/firebase/providers/email";
+import { signUpByMaestroEnarm } from "../services/firebase/providers/email";
 
 const registerSchema = yup.object({
     namee: yup.string().required("Por favor, ingresa tu nombre"),
