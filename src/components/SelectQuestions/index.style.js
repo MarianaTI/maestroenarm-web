@@ -6,12 +6,13 @@ export const ButtonQuestion = styled.button`
   background-color: #f4f4f4;
   border-radius: 10px;
   height: 65px;
-  border: 2px solid #cccccc;
+  border: 1px solid #cccccc;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
   display: flex;
   align-items: center;
   padding-left: 40px;
+  align-items: center;
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
