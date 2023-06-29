@@ -18,7 +18,7 @@ import {
   BackQuestionStyled,
   ErrorMessage,
 } from "../styles/Login.style";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
@@ -28,27 +28,30 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
 import { useDispatch } from "react-redux";
 import { signIn } from "../store/slices/authSlice";
+import { signInByGoogle } from "../services/firebase/providers/google";
+import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
+import { signInByMaestroEnarm } from "../services/firebase/providers/email";
+import { signInByApple } from "../services/firebase/providers/apple";
+import { useAuth } from "../context/AuthProvider";
+import { signInByFacebook } from "../services/firebase/providers/facebook";
 
 const loginSchema = yup.object({
-  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
-  password: yup.string().required("Por favor, ingresa tu contraseña"),
+  email: yup.string().email().required(),
+  password: yup.string().required(),
 });
 
 const Sesion = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
-  const [openChangePassword, setOpenChangePassword] = useState(false);
+  // const [openChangePassword, setOpenChangePassword] = useState(false);
   const [isShowPassword, setShowPassword] = useState(false);
-  const router = useRouter();
+  const { user } = useAuth();
 
-  const authenticateUser = (email, password) => {
-    const user = userAccount.find(
-      (account) => account.email === email && account.password === password
-    );
-    if (!user) {
-      throw new Error("Error de autenticación");
-    }
-  };
+  useEffect(() => {
+    if (user) router.push("/game")
+  })
 
   const {
     handleSubmit,
@@ -64,9 +67,8 @@ const Sesion = () => {
 
   const onSubmit = (values) => {
     try {
-      authenticateUser(values.email, values.password);
+      signInByMaestroEnarm(values.email, values.password)
       dispatch(signIn({ email: values.email, password: values.password }))
-      router.push("/game");
       setErrorLogin(false);
     } catch (error) {
       setErrorLogin(true);
@@ -78,13 +80,12 @@ const Sesion = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!isShowPassword);
   };
-  const handleCloseChangePassword = () => setOpenChangePassword(false);
+  // const handleCloseChangePassword = () => setOpenChangePassword(false);
   const handleOpenChangePassword = () => {
     setOpenForgotPassword(false);
     setOpenChangePassword(true);
   };
 
-  const dispatch = useDispatch()
 
   return (
     <LoginGrid>
@@ -126,9 +127,10 @@ const Sesion = () => {
             </QuestionStyled>
             <CustomButton text="Iniciar" type="submit" />
             <BoxOptions>
-              <CustomOptionsLogin icon="./google.svg" />
-              <CustomOptionsLogin icon="./microsoft.svg" />
-              <CustomOptionsLogin icon="./apple.svg" />
+              <CustomOptionsLogin icon="./google.svg" onClick={signInByGoogle} />
+              <CustomOptionsLogin icon="./microsoft.svg" onClick={signInByMicrosoft} />
+              <CustomOptionsLogin icon="./facebook.svg" onClick={signInByFacebook} />
+              <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} />
             </BoxOptions>
             <BackQuestionStyled>
               <span>
@@ -153,6 +155,10 @@ const Sesion = () => {
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
+        <BackLoginContainer>
+          <BackLoginIcon />
+          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
+        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );

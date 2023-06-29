@@ -7,19 +7,20 @@ import {
 import { ProfileField } from "../components/ProfileField";
 import Layout from "../layouts/index";
 import { CustomButton } from "../components/CustomButton/index";
-
-const profileFields = [
-  { label: "Nombre de Usuario", text: "ZeeN" },
-  { label: "Nombre Y Apellido", text: "Adrian Mis" },
-  { label: "Correo", text: "zeen.cr@gmail.com" },
-  { label: "Contraseña", text: "********" },
-];
+import { useAuth } from "../context/AuthProvider";
 
 export default function ProfileSettings() {
+  const { closeSesion, user } = useAuth()
+  const profileFields = [
+    { label: "Nombre de Usuario", text: user?.displayName },
+    { label: "Nombre Y Apellido", text: user?.displayName },
+    { label: "Correo", text: user?.email },
+    { label: "Contraseña", text: "********" },
+  ];
   return (
     <Layout>
       <AvatarContainer>
-        <Avatar sx={{ width: 132, height: 132 }} alt="Adrian Mis" src="" />
+        <Avatar sx={{ width: 132, height: 132, marginBottom: 1 }} alt={user?.displayName} src={user?.photoURL} />
         <p>Cuenta Básica</p>
       </AvatarContainer>
       <ProfileSettingsContainer>
@@ -28,10 +29,10 @@ export default function ProfileSettings() {
         ))}
       </ProfileSettingsContainer>
       <ButtonGroup>
-        <CustomButton theme="secondary" fullWidth>
+        <CustomButton theme="warning" fullWidth>
           <h3>Premium</h3>
         </CustomButton>
-        <CustomButton fullWidth>
+        <CustomButton fullWidth onClick={closeSesion}>
           <h3>Cerrar sesión</h3>
         </CustomButton>
         <CustomButton fullWidth>

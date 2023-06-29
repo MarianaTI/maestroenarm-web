@@ -88,450 +88,122 @@ export const videosInterest = [];
 
 
 export default {
-  clinicalCases: [
+  "clinicalCases": [
     {
-      id: 1,
-      case: "Caso clínico 1 : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      specialty: "Cirugía General",
-      question: [
+      "id": 1,
+      "case": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "speciality": "Cirugía General",
+      "sub-speciality": "Cirugía General",
+      "book": "https://www.uandes.cl/wp-content/uploads/2020/02/Manual-de-Cirugia-UANDES.pdf",
+      "question": [
         {
-          id: 1,
-          text: "¿Cuál es el tratamiento más adecuado para una fractura de hueso?",
-          correctAnswer: 3,
-          feedbackQuestion:
-            "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el tratamiento más adecuado para una fractura de hueso?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
+          "answers": [
             {
-              id: 1,
-              option: "A",
-              text: "Antibióticos",
-              answer:
-                "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso.",
+              "id": 1,
+              "option": "A",
+              "text": "Antibióticos",
+              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
             },
             {
-              id: 2,
-              option: "B",
-              text: "Fisioterapia",
-              answer:
-                "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial.",
+              "id": 2,
+              "option": "B",
+              "text": "Fisioterapia",
+              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
             },
             {
-              id: 3,
-              option: "C",
-              text: "Inmovilización",
-              answer:
-                "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado.",
+              "id": 3,
+              "option": "C",
+              "text": "Inmovilización",
+              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
             },
             {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
         },
         {
-          id: 2,
-          text: "¿SOY LA PREGUNTA DOS?",
-          correctAnswer: 3,
-          feedbackQuestion:
-            "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
-          answers: [
+          "id": 2,
+          "text": "¿SOY LA PREGUNTA DOS?",
+          "correctAnswer": 3,
+          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
+          "answers": [
             {
-              id: 1,
-              option: "A",
-              text: "Antibióticos",
-              answer:
-                "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso.",
+              "id": 1,
+              "option": "A",
+              "text": "Antibióticos",
+              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
             },
             {
-              id: 2,
-              option: "B",
-              text: "Fisioterapia",
-              answer:
-                "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial.",
+              "id": 2,
+              "option": "B",
+              "text": "Fisioterapia",
+              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
             },
             {
-              id: 3,
-              option: "C",
-              text: "Inmovilización",
-              answer:
-                "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado.",
+              "id": 3,
+              "option": "C",
+              "text": "Inmovilización",
+              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
             },
             {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Receta casera",
+              "answer": "Respuesta incorrecta. Son mitos."
+            }
+          ]
+        }
       ],
-      feedbackGeneral:
-        "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla.",
+      "feedbackGeneral": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     },
     {
-      id: 2,
-      case: "Caso clínico 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      specialty: "Cardiología",
-      question: [
+      "id": 2,
+      "case": "Se presenta el caso de un paciente de 60 años de edad con un bulto abdominal. El paciente experimenta molestias abdominales, pérdida de peso involuntaria y aumento progresivo de tamaño del bulto en los últimos meses. Los estudios de imagen revelan la presencia de un tumor sólido en el hígado de aproximadamente 5 cm de diámetro, confirmado como carcinoma hepatocelular. Se planifica una resección hepática para extirpar el segmento afectado y realizar una reconstrucción de la vía biliar durante el procedimiento. El paciente se somete a una hepatectomía parcial con resección en cuña del segmento hepático afectado. Durante la cirugía, se confirma la ausencia de metástasis en otros órganos y se procede a la reconstrucción de la vía biliar mediante una anastomosis biliodigestiva. Se establece un programa de seguimiento para evaluar la función hepática, controlar la cicatrización y detectar posibles complicaciones o recurrencias del carcinoma hepatocelular.",
+      "speciality": "Cirugía General",
+      "sub-speciality": "Cirugía General",
+      "book": "https://www.uandes.cl/wp-content/uploads/2020/02/Manual-de-Cirugia-UANDES.pdf",
+      "question": [
         {
-          id: 1,
-          text: "¿Cuál es el diagnóstico más probable para un paciente con dolor en el pecho, opresión y dificultad para respirar?",
-          correctAnswer: 1,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
-          answers: [
+          "id": 1,
+          "text": "¿Cuál es el objetivo principal de la resección hepática en el tratamiento del carcinoma hepatocelular?",
+          "correctAnswer": 4,
+          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
+          "answers": [
             {
-              id: 1,
-              option: "A",
-              text: "Infarto de miocardio",
-              answer:
-                "Respuesta correcta. Los síntomas descritos son comunes en un infarto de miocardio, una condición grave que requiere atención médica urgente.",
+              "id": 1,
+              "option": "A",
+              "text": "Controlar los síntomas relacionados con el tumor",
+              "answer": "Respuesta incorrecta. Esta opción no es el objetivo principal de la resección hepática en el tratamiento del carcinoma hepatocelular. Si bien la resección puede aliviar los síntomas asociados con el tumor, como el dolor abdominal, su objetivo principal es extirpar completamente el tumor y potencialmente lograr la curación o el control prolongado de la enfermedad."
             },
             {
-              id: 2,
-              option: "B",
-              text: "Neumonía",
-              answer:
-                "Respuesta incorrecta. Aunque la neumonía puede causar dolor en el pecho y dificultad para respirar, no suele presentarse como opresión.",
+              "id": 2,
+              "option": "B",
+              "text": "Prevenir la diseminación metastásica",
+              "answer": "Respuesta incorrecta. La prevención de la diseminación metastásica es un objetivo importante en el tratamiento del cáncer, pero la resección hepática se realiza principalmente en tumores localizados sin metástasis distantes. El objetivo principal de la resección hepática en el carcinoma hepatocelular es extirpar completamente el tumor primario y potencialmente mejorar la supervivencia a largo plazo."
             },
             {
-              id: 3,
-              option: "C",
-              text: "Ataque de ansiedad",
-              answer:
-                "Respuesta incorrecta. Si bien la ansiedad puede provocar síntomas similares, el dolor en el pecho y la opresión deben ser evaluados adecuadamente para descartar otras causas más graves.",
+              "id": 3,
+              "option": "C",
+              "text": "Mejorar la función hepática",
+              "answer": "Respuesta incorrecta. Si bien la resección hepática puede tener un impacto en la función hepática, especialmente en casos de enfermedad hepática subyacente, su objetivo principal no es mejorar la función hepática. El objetivo principal es extirpar completamente el tumor primario."
             },
             {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
-        {
-          id: 2,
-          text: "¿SOY LA PREGUNTA DOS?",
-          correctAnswer: 1,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Infarto de miocardio",
-              answer:
-                "Respuesta correcta. Los síntomas descritos son comunes en un infarto de miocardio, una condición grave que requiere atención médica urgente.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Neumonía",
-              answer:
-                "Respuesta incorrecta. Aunque la neumonía puede causar dolor en el pecho y dificultad para respirar, no suele presentarse como opresión.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Ataque de ansiedad",
-              answer:
-                "Respuesta incorrecta. Si bien la ansiedad puede provocar síntomas similares, el dolor en el pecho y la opresión deben ser evaluados adecuadamente para descartar otras causas más graves.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
+              "id": 4,
+              "option": "D",
+              "text": "Extirpar el tumor completamente",
+              "answer": "Respuesta correcta. La resección hepática tiene como objetivo principal la extirpación completa del tumor primario en el tratamiento del carcinoma hepatocelular. Al extirpar el tumor por completo, se busca lograr la curación o el control prolongado de la enfermedad."
+            }
+          ]
+        }
       ],
-      feedbackGeneral:
-        "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla.",
-    },
-    {
-      id: 3,
-      case: "Caso clínico 3: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      specialty: "Oncología",
-      question: [
-        {
-          id: 1,
-          text: "¿Cuál es el tratamiento más apropiado?",
-          correctAnswer: 3,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción C: Quimioterapia. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas, ayudando a combatir las células cancerosas y controlar la progresión de la enfermedad.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Radioterapia",
-              respuesta:
-                "Respuesta incorrecta. La radioterapia no es el tratamiento principal para esta afección.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Cirugía",
-              respuesta:
-                "Respuesta incorrecta. La cirugía puede no ser necesaria o apropiada en este caso.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Quimioterapia",
-              respuesta:
-                "Respuesta correcta. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              respuesta: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
-        {
-          id: 2,
-          text: "¿SOY LA PREGUNTA DOS?",
-          correctAnswer: 3,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción C: Quimioterapia. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas, ayudando a combatir las células cancerosas y controlar la progresión de la enfermedad.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Radioterapia",
-              answer:
-                "Respuesta incorrecta. La radioterapia no es el tratamiento principal para esta afección.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Cirugía",
-              answer:
-                "Respuesta incorrecta. La cirugía puede no ser necesaria o apropiada en este caso.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Quimioterapia",
-              answer:
-                "Respuesta correcta. La quimioterapia es el tratamiento principal para el cáncer en etapas avanzadas.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
-      ],
-      feedbackGeneral:
-        "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla.",
-    },
-    {
-      id: 4,
-      case: "Caso clínico 4: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      specialty: "Endocrinología",
-      question: [
-        {
-          id: 1,
-          text: "¿Cuál es el diagnóstico más probable?",
-          correctAnswer: 2,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción B: Diabetes tipo 2. Los síntomas descritos son más consistentes con la diabetes tipo 2, una condición crónica que se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Hipotiroidismo",
-              answer:
-                "Respuesta incorrecta. El hipotiroidismo se caracteriza por síntomas como fatiga, aumento de peso y sensibilidad al frío.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Diabetes tipo 2",
-              answer:
-                "Respuesta correcta. La diabetes tipo 2 se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Hipertiroidismo",
-              answer:
-                "Respuesta incorrecta. El hipertiroidismo se caracteriza por síntomas como pérdida de peso, nerviosismo e intolerancia al calor.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
-        {
-          id: 2,
-          text: "¿SOY LA PREGUNTA DOS?",
-          correctAnswer: 2,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción B: Diabetes tipo 2. Los síntomas descritos son más consistentes con la diabetes tipo 2, una condición crónica que se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Hipotiroidismo",
-              answer:
-                "Respuesta incorrecta. El hipotiroidismo se caracteriza por síntomas como fatiga, aumento de peso y sensibilidad al frío.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Diabetes tipo 2",
-              answer:
-                "Respuesta correcta. La diabetes tipo 2 se caracteriza por resistencia a la insulina y niveles elevados de glucosa en sangre.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Hipertiroidismo",
-              answer:
-                "Respuesta incorrecta. El hipertiroidismo se caracteriza por síntomas como pérdida de peso, nerviosismo e intolerancia al calor.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Receta casera",
-              answer: "Respuesta incorrecta. Son mitos.",
-            },
-          ],
-        },
-      ],
-      feedbackGeneral:
-        "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla.",
-    },
-    {
-      id: 5,
-      case: "Caso clínico 5: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      specialty: "Psiquiatría",
-      question: [
-        {
-          id: 1,
-          text: "¿Cuál es el tratamiento más adecuado para un paciente con depresión mayor?",
-          correctAnswer: 4,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Ansiolíticos",
-              answer:
-                "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Antidepresivos tricíclicos",
-              answer:
-                "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Terapia de electroconvulsiva (TEC)",
-              answer:
-                "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
-              answer:
-                "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves.",
-            },
-          ],
-        },
-        {
-          id: 2,
-          text: "¿SOY LA PREGUNTA DOS?",
-          correctAnswer: 4,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Ansiolíticos",
-              answer:
-                "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Antidepresivos tricíclicos",
-              answer:
-                "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Terapia de electroconvulsiva (TEC)",
-              answer:
-                "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
-              answer:
-                "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves.",
-            },
-          ],
-        },
-        {
-          id: 3,
-          text: "¿SOY LA PREGUNTA TRES?",
-          correctAnswer: 4,
-          feedbackQuestion:
-            "En esta pregunta, la respuesta correcta es la opción D: Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS). Estos fármacos son considerados como el tratamiento de elección para la depresión mayor debido a su efectividad y perfil de efectos secundarios más favorable.",
-          answers: [
-            {
-              id: 1,
-              option: "A",
-              text: "Ansiolíticos",
-              answer:
-                "Respuesta incorrecta. Los ansiolíticos no son el tratamiento principal para la depresión mayor.",
-            },
-            {
-              id: 2,
-              option: "B",
-              text: "Antidepresivos tricíclicos",
-              answer:
-                "Respuesta incorrecta. Los antidepresivos tricíclicos pueden ser una opción de tratamiento, pero no son de primera elección debido a sus efectos secundarios.",
-            },
-            {
-              id: 3,
-              option: "C",
-              text: "Terapia de electroconvulsiva (TEC)",
-              answer:
-                "Respuesta incorrecta. La terapia de electroconvulsiva puede ser utilizada en casos graves y resistentes de depresión, pero no es el tratamiento inicial.",
-            },
-            {
-              id: 4,
-              option: "D",
-              text: "Antidepresivos inhibidores selectivos de la recaptación de serotonina (ISRS)",
-              answer:
-                "Respuesta correcta. Los antidepresivos ISRS son la primera línea de tratamiento para la depresión mayor debido a su eficacia y menor riesgo de efectos secundarios graves.",
-            },
-          ],
-        },
-      ],
-      feedbackGeneral:
-        "En este caso clínico, se trato de blablabla, recuerda que es importante porque blablabla.",
-    },
+      "feedbackGeneral": "En este caso clínico, se abordó la especialidad de Cirugía General, con enfoque en la subespecialidad de Cirugía General. Se presentó el caso de un paciente con un tumor hepático maligno, donde se evaluaron los estudios diagnósticos y se planificó una resección hepática para extirpar completamente el tumor. Durante la cirugía, se realizaron procedimientos adicionales, como la reconstrucción de la vía biliar. Se destacó la importancia del seguimiento postoperatorio para detectar complicaciones y posibles recurrencias. El objetivo principal de la resección hepática fue extirpar el tumor por completo, con el fin de brindar la mejor oportunidad de curación o control prolongado del carcinoma hepatocelular."
+    }
   ],
 };

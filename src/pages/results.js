@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/GameByCategory.module.css";
 import TimeResult from "../components/TimeResult/Index.js";
 import { StatisticChart } from "../components/StatisticsChart/index.js";
 import {
@@ -10,22 +9,37 @@ import {
   StatisticsContainer,
   ContainerSpecialty,
 } from "../styles/Result.style.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setQuizAccuracy } from "../store/slices/gameSlice";
+import { CustomButton } from "../components/CustomButton";
+import { ReturnButtonContainer } from "../styles/paymentplans.style";
+import { useRouter } from "next/router";
+import CollapseComponent from "../components/Collapse";
 
-export function answerCount(){
-  const {trueAnswerCount}= useSelector(state=>state.game)
-  const {falseAnswerCount}= useSelector(state=> state.game);
+
+export function answerCount() {
+  const dispach = useDispatch();
+  dispach(setQuizAccuracy());
+  const { trueAnswerCount } = useSelector(state => state.game)
+  const { falseAnswerCount } = useSelector(state => state.game);
+  const { quizAccuracy } = useSelector(state => state.game);
   const items = [
     { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueAnswerCount },
     { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseAnswerCount },
-    { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: 40 }
-];
+    { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: quizAccuracy }
+  ];
 
-return items;
+  return items;
 }
 
 export default function Results() {
+  const router = useRouter();
   const items = answerCount();
+
+  const handleClick = () => {
+    router.push("/");
+  };
+
   return (
     <Container>
       <StatisticsContainer>
@@ -37,16 +51,16 @@ export default function Results() {
           <span>Resultados por categoria</span>
         </TextContainerResult>
         <ContainerRetroAlim>
-          <span>ENARM</span>
-          <span>2/5-40%</span>
+          <CollapseComponent />
         </ContainerRetroAlim>
         <TextStatic>
-          <span>Ginecologia1/1 -100%</span>
-          <span>Remautologia0/1 -0%</span>
+          <span>Ginecologia 1/1 -100%</span>
+          <span>Remautologia 0/1 -0%</span>
+          <span>MACARENA 0/1 -0%</span>
         </TextStatic>
-        <a href="/" className={styles.botonPageFinal}>
-          <span>Salir</span>
-        </a>
+        <ReturnButtonContainer>
+          <CustomButton text="Salir" type="submit" onClick={handleClick} />
+        </ReturnButtonContainer>
       </ContainerSpecialty>
     </Container>
   );

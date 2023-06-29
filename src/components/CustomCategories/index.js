@@ -1,6 +1,6 @@
 import React from "react";
 import { CardCategorie, Container, ImageStyled } from "./index.style";
-import { Link } from "@mui/material";
+import Link from "next/link";
 
 const CustomCategories = () => {
   return (
