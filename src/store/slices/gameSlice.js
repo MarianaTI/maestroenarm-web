@@ -18,7 +18,7 @@ export const gameSlice = createSlice({
     },
     setQuizAccuracy: (state, action) => {
       const totalAnswers = state.trueAnswerCount + state.falseAnswerCount;
-      const accuracy = state.trueAnswerCount/totalAnswers
+      const accuracy = (state.trueAnswerCount/totalAnswers)*100
       state.quizAccuracy = Math.ceil(accuracy);
     }
   },
