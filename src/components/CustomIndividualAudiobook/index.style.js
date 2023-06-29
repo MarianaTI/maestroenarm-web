@@ -26,14 +26,14 @@ export const ImageContainer = styled.div`
 
 export const ImageStyled = styled.img`
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
 `;
 
 export const HoverImage = styled.img`
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;

@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
-import { audiobooks, audiobooksInterest } from "../../../../constants";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "@firebase/firestore";
+import { db } from "../../../../utils/firebase";
+import { audiobooksInterest } from "../../../../constants";
 import CustomIndividualAudiobook from "../../../../components/CustomIndividualAudiobook";
 import {
   InterestContainer,
@@ -11,10 +14,23 @@ import Link from "next/link";
 export default function View() {
   const router = useRouter();
   const { id } = router.query;
+  const [audiobook, setAudiobook] = useState(null);
 
-  const audiobook = audiobooks.find((book) => book.id == id);
+  useEffect(() => {
+    const getAudiobook = async () => {
+      if(id) {
+        const audiobookRef = doc(db, 'audiobooks', id);
+        const audiobookDoc = await getDoc(audiobookRef);
+        if (audiobookDoc.exists()) {
+          setAudiobook(audiobookDoc.data());
+        }
+      }
+    };
+    getAudiobook();
+  }, [id]);
+
   if (!audiobook) {
-    return <p>Este audiolibro no esta disponible</p>;
+    return <p>Cargando...</p>;
   }
 
   return (
@@ -31,7 +47,7 @@ export default function View() {
         details={audiobook.detail}
         audio={audiobook.audio}
       />
-      <InterestContainer>
+      {/* <InterestContainer>
         {audiobooksInterest.map((item, index) => (
           <Link
           href="/academy/audiobooks/view/[id]"
@@ -47,7 +63,7 @@ export default function View() {
           />
           </Link>
         ))}
-      </InterestContainer>
+      </InterestContainer> */}
     </ViewContainer>
   );
 }

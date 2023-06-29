@@ -53,10 +53,10 @@ export default function AudioBooks() {
           <AudiobookGridContainer>
             {audiobooks.map((item, index) => (
               <Link
-                href="/academy/audiobooks/view/[id]"
-                as={`/academy/audiobooks/view/${item.id}`}
-                key={item.id}
-              >
+              href="/academy/audiobooks/view/[id]"
+              as={`/academy/audiobooks/view/${item.id}`}
+              key={item.id}
+            >
                 <div>
                   <CustomBook
                     key={index}
