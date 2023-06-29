@@ -14,6 +14,7 @@ import { setQuizAccuracy } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
 import { ReturnButtonContainer } from "../styles/paymentplans.style";
 import { useRouter } from "next/router";
+import CollapseComponent from "../components/Collapse";
 
 
 export function answerCount() {
@@ -37,7 +38,7 @@ export default function Results() {
 
   const handleClick = () => {
     router.push("/");
-};
+  };
 
   return (
     <Container>
@@ -50,14 +51,12 @@ export default function Results() {
           <span>Resultados por categoria</span>
         </TextContainerResult>
         <ContainerRetroAlim>
-          <span>ENARM</span>
-          <span>2/5-40%</span>
+          <CollapseComponent />
         </ContainerRetroAlim>
         <TextStatic>
           <span>Ginecologia 1/1 -100%</span>
           <span>Remautologia 0/1 -0%</span>
           <span>MACARENA 0/1 -0%</span>
-
         </TextStatic>
         <ReturnButtonContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
