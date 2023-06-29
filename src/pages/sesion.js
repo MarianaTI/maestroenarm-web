@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userAccount } from "../constants";
 import * as yup from "yup";
 import {
   StyledCard,
@@ -26,8 +25,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
-import { useDispatch } from "react-redux";
-import { signIn } from "../store/slices/authSlice";
 import { signInByGoogle } from "../services/firebase/providers/google";
 import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
 import { signInByMaestroEnarm } from "../services/firebase/providers/email";
@@ -42,7 +39,6 @@ const loginSchema = yup.object({
 
 const Sesion = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   // const [openChangePassword, setOpenChangePassword] = useState(false);
@@ -68,7 +64,6 @@ const Sesion = () => {
   const onSubmit = (values) => {
     try {
       signInByMaestroEnarm(values.email, values.password)
-      dispatch(signIn({ email: values.email, password: values.password }))
       setErrorLogin(false);
     } catch (error) {
       setErrorLogin(true);
