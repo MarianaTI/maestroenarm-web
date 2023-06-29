@@ -3,10 +3,10 @@ import Navbar from "../components/Nab";
 import { Container } from "./index.style";
 import NavDrawer from "../components/NavDrawer";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthProvider";
 
 export default function Layout({ children }) {
-    const { isAuthenticated } = useSelector(state => state.auth);
+    const { user } = useAuth();
     const route = useRouter();
     const protectedRoutes = route.pathname.match(/academy|game|edit|payment|profile|ranking|statistic/g)
     const hasNavbar = !(
@@ -14,8 +14,8 @@ export default function Layout({ children }) {
     );
 
     useEffect(() => {
-        if (!isAuthenticated && protectedRoutes) { route.replace('/sesion') }
-    }, [isAuthenticated, protectedRoutes, route])
+        if (!user && protectedRoutes) { route.replace('/sesion') }
+    }, [user, protectedRoutes, route])
 
     return (
         <>

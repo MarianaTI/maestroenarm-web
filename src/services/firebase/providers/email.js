@@ -19,7 +19,6 @@ export function signInByMaestroEnarm(email, password) {
             const errorCode = code;
             const errorMessage = message;
             console.log({ errorCode, errorMessage })
-            throw new Error(errorMessage)
         });
 }
 
