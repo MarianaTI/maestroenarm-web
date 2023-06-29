@@ -3,6 +3,7 @@ import { GameField } from "../../components/GameField";
 import { GameSettingsModal } from "../../components/GameSettingsModal";
 import { TitleGameContainer } from "../../styles/Game.style";
 
+
 export default function Game() {
   const [open, setOpen] = useState(false);
   return (
