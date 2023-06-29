@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "@firebase/firestore";
-import { db } from "../../../../utils/firebase";
 import { audiobooksInterest } from "../../../../constants";
 import CustomIndividualAudiobook from "../../../../components/CustomIndividualAudiobook";
 import {
@@ -10,6 +9,7 @@ import {
 } from "../../../../styles/ViewAudiobooks.style";
 import CustomAudiobook from "../../../../components/CustomAudiobook";
 import Link from "next/link";
+import { db } from "../../../../services/firebase/config";
 
 export default function View() {
   const router = useRouter();
