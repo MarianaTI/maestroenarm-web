@@ -11,6 +11,15 @@ export const Container = styled.div`
 `;
 
 export const Typography = styled.div`
-     font-family: "Poppins";
+     font-family: Poppins;
      overflow: auto;
+`;
+
+export const ClosedCollapse = styled.div`
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-family: Poppins;
+  font-weight: 500;
 `;

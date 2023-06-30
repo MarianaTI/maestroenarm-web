@@ -20,8 +20,6 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
-  const {trueAnswerCount}= useSelector(state=>state.game)
-  const {falseAnswerCount}= useSelector(state=> state.game);
   const dispatch= useDispatch();
   const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
