@@ -16,6 +16,13 @@ export const ButtonQuestion = styled.button`
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+  }
 `;
 export const IconContainer = styled.span`
   position: absolute;
