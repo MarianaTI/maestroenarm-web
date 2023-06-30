@@ -335,7 +335,7 @@ export default {
         {
           "id": 2,
           "text": "¿Cuál de las siguientes pruebas diagnósticas se utiliza comúnmente para evaluar la función cardíaca en la insuficiencia cardíaca?",
-          "correctAnswer": 1,
+          "correctAnswer": 3,
           "feedbackQuestion": "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
           "answers": [
             {
@@ -365,7 +365,7 @@ export default {
           ]
         }
       ],
-      "feedbackGeneral": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      "feedbackGeneral": "En este caso específico, la opción de tratamiento más adecuada para la fractura de hueso radio es la inmovilización. La inmovilización ayuda a estabilizar el hueso fracturado y promover su correcta recuperación. No se recomienda el uso de antibióticos como tratamiento principal para una fractura de hueso, y las recetas caseras no son efectivas. Siempre es esencial buscar atención médica especializada en Cirugía General para garantizar un manejo adecuado de las fracturas óseas."
     },
     {
       "id": 3,
@@ -377,7 +377,7 @@ export default {
         {
           "id": 1,
           "text": "¿Cuál es la causa más común de un accidente cerebrovascular isquémico?",
-          "correctAnswer": 2,
+          "correctAnswer": 3,
           "feedbackQuestion": "La respuesta correcta es la opción C) Tumor cerebral. Entre las opciones proporcionadas, el tumor cerebral es la afección neurológica que con mayor frecuencia requiere una intervención quirúrgica para su manejo, que puede incluir la extirpación del tumor o técnicas de radioterapia.",
           "answers": [
             {
@@ -682,7 +682,7 @@ export default {
               "id": 3,
               "option": "C",
               "text": "El delirium se caracteriza por una alteración aguda de la conciencia y la atención.",
-              "answer": "Respuesta correcta. El delirium se caracteriza por una alteración aguda de la conciencia y la atención. El delirium es un estado confusional agudo que se caracteriza por una alteración de la conciencia y la atención, junto con cambios en la cognición, la percepción y el comportamiento."
+              "answer": "Respuesta incorrecta. El delirium se caracteriza por una alteración aguda de la conciencia y la atención. El delirium es un estado confusional agudo que se caracteriza por una alteración de la conciencia y la atención, junto con cambios en la cognición, la percepción y el comportamiento."
             },
             {
               "id": 4,

@@ -12,4 +12,5 @@ export const Container = styled.div`
 
 export const Typography = styled.div`
      font-family: "Poppins";
+     overflow: auto;
 `;
