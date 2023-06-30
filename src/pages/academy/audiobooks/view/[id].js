@@ -10,6 +10,7 @@ import {
 import CustomAudiobook from "../../../../components/CustomAudiobook";
 import Link from "next/link";
 import { db } from "../../../../services/firebase/config";
+import LoadingPage from "../../../loading_page"
 
 export default function View() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function View() {
   }, [id]);
 
   if (!audiobook) {
-    return <p>Cargando...</p>;
+    return <LoadingPage/>;
   }
 
   return (
