@@ -3,8 +3,7 @@ import Modal from '@mui/material/Modal';
 import { CustomButton } from '../CustomButton';
 import { ModalBody, RangeContainer } from './index.style';
 
-export const GameSettingsModal = ({ isOpen }) => {
-    //todo:  usar estado global para cerrar el modal
+export const GameSettingsModal = ({ isOpen, closeModal }) => {
     return (
         <Modal
             open={isOpen}
@@ -23,7 +22,7 @@ export const GameSettingsModal = ({ isOpen }) => {
                     <input type='range' />
                     <label>Tiempo: 5 min</label>
                     <input type='range' />
-                    <CustomButton text='continuar' />
+                    <CustomButton text='continuar' onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>

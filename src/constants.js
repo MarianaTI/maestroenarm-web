@@ -1,4 +1,4 @@
- export const rankingUsers = [
+export const rankingUsers = [
   {
     name: "Angel Ricardez",
     profilePicture: true,
@@ -173,7 +173,7 @@ export const audiobooks = [
 
 export const audiobooksInterest = [
   {
-    id:4 ,
+    id: 4,
     img: "/img/audiobooks/audiolibro4.png",
     imgFront: "/img/individualAudiobooks/audiobook4-front.png",
     imgBack: "/img/individualAudiobooks/audiobook4-back.png",
@@ -200,7 +200,7 @@ export const audiobooksInterest = [
     detail: " El autor, un neurocirujano diagnosticado con cáncer terminal, comparte su perspectiva única sobre la vida, la muerte y el significado en este poderoso testimonio.",
   },
   {
-    id: 6 ,
+    id: 6,
     img: "/img/audiobooks/audiolibro6.png",
     imgFront: "/img/individualAudiobooks/audiobook6-front.png",
     imgBack: "/img/individualAudiobooks/audiobook6-back.png",
@@ -233,25 +233,21 @@ export default {
           "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
           "answers": [
             {
-              "id": 1,
               "option": "A",
               "text": "Antibióticos",
               "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
             },
             {
-              "id": 2,
               "option": "B",
               "text": "Fisioterapia",
               "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
             },
             {
-              "id": 3,
               "option": "C",
               "text": "Inmovilización",
               "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
             },
             {
-              "id": 4,
               "option": "D",
               "text": "Receta casera",
               "answer": "Respuesta incorrecta. Son mitos."
@@ -307,25 +303,21 @@ export default {
           "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
           "answers": [
             {
-              "id": 1,
               "option": "A",
               "text": "Controlar los síntomas relacionados con el tumor",
               "answer": "Respuesta incorrecta. Esta opción no es el objetivo principal de la resección hepática en el tratamiento del carcinoma hepatocelular. Si bien la resección puede aliviar los síntomas asociados con el tumor, como el dolor abdominal, su objetivo principal es extirpar completamente el tumor y potencialmente lograr la curación o el control prolongado de la enfermedad."
             },
             {
-              "id": 2,
               "option": "B",
               "text": "Prevenir la diseminación metastásica",
               "answer": "Respuesta incorrecta. La prevención de la diseminación metastásica es un objetivo importante en el tratamiento del cáncer, pero la resección hepática se realiza principalmente en tumores localizados sin metástasis distantes. El objetivo principal de la resección hepática en el carcinoma hepatocelular es extirpar completamente el tumor primario y potencialmente mejorar la supervivencia a largo plazo."
             },
             {
-              "id": 3,
               "option": "C",
               "text": "Mejorar la función hepática",
               "answer": "Respuesta incorrecta. Si bien la resección hepática puede tener un impacto en la función hepática, especialmente en casos de enfermedad hepática subyacente, su objetivo principal no es mejorar la función hepática. El objetivo principal es extirpar completamente el tumor primario."
             },
             {
-              "id": 4,
               "option": "D",
               "text": "Extirpar el tumor completamente",
               "answer": "Respuesta correcta. La resección hepática tiene como objetivo principal la extirpación completa del tumor primario en el tratamiento del carcinoma hepatocelular. Al extirpar el tumor por completo, se busca lograr la curación o el control prolongado de la enfermedad."
@@ -337,3 +329,4 @@ export default {
     }
   ],
 };
+

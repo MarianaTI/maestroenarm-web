@@ -1,25 +1,26 @@
 import VideoCard from "../../../components/VideoCard"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
-import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { setVideoList } from "../../../store/slices/videosSlice"
+import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 
 const cloudinary = new Cloudinary({
     cloud: {
-        cloudName: 'db0l9t7fr',
-        apiSecret: 'Sq6knO4gcBE7d9sbXdf8OxD6yTs',
-        apiKey: '631147659653346'
+        cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+        apiSecret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+        apiKey: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY
     }
 })
 
 export default function Videos() {
+    //todo: crear validacion de pago, si el usario ha pagado mostrar los videos con metadata premium
     const [videos, setVideos] = useState([])
     const dispatch = useDispatch()
     useEffect(() => {
-        fetch('http://localhost:3000/api/hello').then(res => res.json()).then(data => setVideos(data))
+        fetch('http://localhost:3000/api/videos').then(res => res.json()).then(data => setVideos(data))
         dispatch(setVideoList(videos))
     }, [])
 
