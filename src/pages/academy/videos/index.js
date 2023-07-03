@@ -3,7 +3,7 @@ import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
-import { useGetVideosQuery } from "../../../store/apis/videoApi"
+import { useGetVideosQuery, useLazyGetVideosQuery } from "../../../store/apis/videoApi"
 import { CircularProgress } from "@mui/material"
 
 const cloudinary = new Cloudinary({
@@ -15,8 +15,8 @@ const cloudinary = new Cloudinary({
 })
 
 export default function Videos() {
-    //todo: crear validacion de pago, si el usario ha pagado mostrar los videos con metadata premium
-    const { isError, isLoading, status, error, data: videos } = useGetVideosQuery()
+    //todo: crear validacion de pago, si el usario ha pagado mostrar los videos con metadata premium, las card de videos no deben reproducirse
+    const { isLoading, data: videos } = useGetVideosQuery()
     return (
         <>
             <VideoContainer >
@@ -40,7 +40,7 @@ export default function Videos() {
                         price={context.price}
                         isVertical
                         isBidCard={true}
-                        route={`/academy/videos/watch/${1}`}
+                        route={`/academy/videos/preview/${1}`}
                         player={cloudinary.video(public_id)}
                     >
                     </VideoCard>)}
