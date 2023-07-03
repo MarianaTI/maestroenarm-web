@@ -46,7 +46,7 @@ const Sesion = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (user) router.push("/game")
+    if (user) router.push("/home")
   })
 
   const {

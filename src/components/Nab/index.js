@@ -27,7 +27,7 @@ import { openNavDrawer } from "../../store/slices/navDrawerSlice";
 const links = [
   {
     label: "Examenes",
-    route: "/game",
+    route: "/home",
     icon: <HomeIcon />,
   },
   {

@@ -36,18 +36,20 @@ export default function Game() {
         <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
         <p>Feedback déspues de cada pregunta</p>
       </TitleGameContainer>
-      <a href="/demo">
+      <a href="/game">
         <GameField label="Aleatorio" />
       </a>
-      <GameField label="Por Categoría" disabled />
+      <GameField label="Por Categoría"  onClick={() => setOpen(true)}/>
+      <GameSettingsModal isOpen={open} />
+
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
         <p>Feedback al finalizar el exámen</p>
         <p>AMISTOSO</p>
       </TitleGameContainer>
       <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
-      <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
-      <GameSettingsModal isOpen={open} />
+      <GameField label="Por Categoría" disabled  onClick={() => setOpen(true)} />
+      <GameSettingsModal isOpen={open} closedModal={()=> setOpen(!open)}/>
     </>
   );
 }
