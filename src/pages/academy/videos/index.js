@@ -2,10 +2,9 @@ import VideoCard from "../../../components/VideoCard"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { Cloudinary } from "@cloudinary/url-gen"
-import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import { setVideoList } from "../../../store/slices/videosSlice"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
+import { useGetVideosQuery } from "../../../store/apis/videoApi"
+import { CircularProgress } from "@mui/material"
 
 const cloudinary = new Cloudinary({
     cloud: {
@@ -17,13 +16,7 @@ const cloudinary = new Cloudinary({
 
 export default function Videos() {
     //todo: crear validacion de pago, si el usario ha pagado mostrar los videos con metadata premium
-    const [videos, setVideos] = useState([])
-    const dispatch = useDispatch()
-    useEffect(() => {
-        fetch('http://localhost:3000/api/videos').then(res => res.json()).then(data => setVideos(data))
-        dispatch(setVideoList(videos))
-    }, [])
-
+    const { isError, isLoading, status, error, data: videos } = useGetVideosQuery()
     return (
         <>
             <VideoContainer >
@@ -39,7 +32,8 @@ export default function Videos() {
                 </MainContainer>
                 <Filter />
                 <VideoCardContainer>
-                    {videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', price: 9.99 } }) => <VideoCard
+                    {isLoading && <CircularProgress color="primary" />}
+                    {!isLoading && videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', price: 9.99 } }) => <VideoCard
                         key={public_id}
                         title={context.caption}
                         description={context.alt}
