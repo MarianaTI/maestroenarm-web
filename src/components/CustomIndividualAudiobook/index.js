@@ -43,14 +43,13 @@ const CustomIndividualAudiobook = ({
     dispatch(setCurrentProduct(productInfo));
   };
 
-
   return (
     <Container>
       <BasicInformationContainer>
         <div>
           <ImageContainer>
-            <ImageStyled src={imgFront}></ImageStyled>
-            <HoverImage src={imgBack}></HoverImage>
+            <ImageStyled src={imgFront} alt="front"></ImageStyled>
+            <HoverImage src={imgBack} alt="back"></HoverImage>
           </ImageContainer>
           <audio controls>
             <source src={audio} type="audio/mpeg" />
@@ -69,7 +68,10 @@ const CustomIndividualAudiobook = ({
               Duración: <span className="DetailStyled">{duration}</span>
             </div>
             <div className="DetailOptionStyled">
-              Temas: <span className="DetailStyled">{topics}</span>
+              Temas:{" "}
+              <span className="DetailStyled">
+                {topics.join(", ").toLowerCase()}
+              </span>
             </div>
           </BasicInformation>
           {price > 0.0 ? (

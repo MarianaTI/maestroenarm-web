@@ -73,7 +73,7 @@ export default function AudioBooks() {
           </AudiobookGridContainer>
         ) : (
           <EmptyStateContainer>
-            <Image src="/img/search.svg" width={150} height={150} />
+            <Image src="/img/search.svg" width={150} height={150} alt=""/>
             <span>Aún no hay productos disponibles</span>
           </EmptyStateContainer>
         )}
