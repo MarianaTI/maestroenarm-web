@@ -23,3 +23,26 @@ export const ClosedCollapse = styled.div`
   font-family: Poppins;
   font-weight: 500;
 `;
+
+export const Case = styled.p`
+    font-family: 'Poppins';
+    font-size:normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: justify;
+    padding: 22px;
+    padding-left: 90px;
+    padding-right: 90px;
+`;
+
+export const Pregunta = styled.p`
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 120px;
+  margin-right: 120px;
+  color: #052970;
+  padding: 22px;
+  padding-top: 16px;
+`;
