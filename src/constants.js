@@ -168,173 +168,179 @@ export const clinicalCases = {
       },
     ],
   },
-];
-
-
-export const audiobooksInterest = [
-  {
-    id:4 ,
-    img: "/img/audiobooks/audiolibro4.png",
-    imgFront: "/img/individualAudiobooks/audiobook4-front.png",
-    imgBack: "/img/individualAudiobooks/audiobook4-back.png",
-    name: "The Gene: An Intimate History",
-    author: "Siddhartha Mukherjee",
-    storyteller: "Dennis Boutsikaris",
-    duration: "21 horas y 41 minutos",
-    topics: "Genética, historia de la ciencia, avances tecnológicos y terapias genéticas.",
-    price: 139.0,
-    detail: "Siddhartha Mukherjee explora la historia del descubrimiento del genoma humano y los avances científicos que han revolucionado nuestra comprensión de la genética y su impacto en la medicina.",
+  2: {
+    id: 2,
+    case: "Un paciente de 60 años acude a la consulta de Cardiología con síntomas de fatiga, dificultad para respirar y retención de líquidos en las piernas. Después de realizar una evaluación cardiológica completa, se diagnostica con insuficiencia cardíaca congestiva. Como cardiólogo clínico, debes determinar el tratamiento más adecuado y brindar las recomendaciones correspondientes.",
+    speciality: "Cardiología",
+    subSpeciality: "Clinica",
+    book: "https://infolibros.org/pdfview/5801-insuficiencia-cardiaca-aspectos-basicos-de-una-epidemia-en-aumento-dr-javier-e-pereira-rodriguez-lic-gina-rincon-gonzalez-y-lic-damaris-r-nino-serrato/",
+    feedbackGeneral:
+      "En este caso específico, la opción de tratamiento más adecuada para la fractura de hueso radio es la inmovilización. La inmovilización ayuda a estabilizar el hueso fracturado y promover su correcta recuperación. No se recomienda el uso de antibióticos como tratamiento principal para una fractura de hueso, y las recetas caseras no son efectivas. Siempre es esencial buscar atención médica especializada en Cirugía General para garantizar un manejo adecuado de las fracturas óseas.",
+    question: [
+      {
+        id: 1,
+        text: "¿Cuál es el tratamiento de primera línea para la insuficiencia cardíaca congestiva?",
+        correctAnswer: 1,
+        feedbackQuestion:
+          "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
+        answers: [
+          {
+            id: 1,
+            option: "A",
+            text: "Diuréticos",
+            answer:
+              "Respuesta correcta. Los diuréticos son parte del tratamiento de primera línea en la insuficiencia cardíaca congestiva, ya que ayudan a controlar la retención de líquidos y reducir los síntomas de edema.",
+          },
+          {
+            id: 2,
+            option: "B",
+            text: "Estatinas",
+            answer:
+              "Respuesta incorrecta. Las estatinas son medicamentos utilizados principalmente para reducir los niveles de colesterol en sangre y no son el tratamiento principal para la insuficiencia cardíaca congestiva.",
+          },
+          {
+            id: 3,
+            option: "C",
+            text: "Angioplastia coronaria",
+            answer:
+              "Respuesta incorrecta. La angioplastia coronaria es un procedimiento utilizado para abrir las arterias coronarias obstruidas en el contexto de la enfermedad arterial coronaria y no es el tratamiento principal para la insuficiencia cardíaca congestiva.",
+          },
+          {
+            id: 4,
+            option: "D",
+            text: "Terapia con aspirina",
+            answer:
+              "Respuesta incorrecta. Si bien la terapia con aspirina puede ser parte del tratamiento para ciertas condiciones cardíacas, no es el tratamiento de primera línea para la insuficiencia cardíaca congestiva.",
+          },
+        ],
+      },
+      {
+        id: 2,
+        text: "¿Cuál de las siguientes pruebas diagnósticas se utiliza comúnmente para evaluar la función cardíaca en la insuficiencia cardíaca?",
+        correctAnswer: 3,
+        feedbackQuestion:
+          "En esta pregunta, la respuesta correcta es la opción A: Infarto de miocardio. Los síntomas de dolor en el pecho, opresión y dificultad para respirar son indicativos de un posible infarto de miocardio, una emergencia médica que requiere atención inmediata.",
+        answers: [
+          {
+            id: 1,
+            option: "A",
+            text: "Radiografía de tórax",
+            answer:
+              "Respuesta incorrecta. Si bien la radiografía de tórax puede proporcionar información general sobre el tamaño y la forma del corazón, no es la prueba más adecuada para evaluar la función cardíaca en la insuficiencia cardíaca.",
+          },
+          {
+            id: 2,
+            option: "B",
+            text: "Electrocardiograma (ECG)",
+            answer:
+              "Respuesta incorrecta. El ECG registra la actividad eléctrica del corazón y puede ayudar a detectar ciertos trastornos del ritmo cardíaco, pero no proporciona una evaluación completa de la función cardíaca en la insuficiencia cardíaca.",
+          },
+          {
+            id: 3,
+            option: "C",
+            text: "Resonancia magnética cardíaca (RMC)",
+            answer:
+              "Respuesta correcta. La RMC es una prueba diagnóstica utilizada comúnmente para evaluar la función cardíaca en la insuficiencia cardíaca, ya que proporciona información detallada sobre la estructura y la función del corazón.",
+          },
+          {
+            id: 4,
+            option: "D",
+            text: "Prueba de esfuerzo",
+            answer:
+              "Respuesta incorrecta. La prueba de esfuerzo evalúa la respuesta del corazón durante el ejercicio físico y puede ayudar a detectar problemas de flujo sanguíneo, pero no proporciona una evaluación completa de la función cardíaca en la insuficiencia cardíaca.",
+          },
+        ],
+      },
+    ],
   },
-  {
-    id: 5,
-    img: "/img/audiobooks/audiolibro5.png",
-    imgFront: "/img/individualAudiobooks/audiobook5-front.png",
-    imgBack: "/img/individualAudiobooks/audiobook5-back.png",
-    name: "When Breath Becomes Air",
-    author: "Paul Kalanithi",
-    storyteller: "Sunil Malhotra y Cassandra Campbell",
-    duration: "5 horas y 35 minutos",
-    topics:
-      "Vida, muerte, ética médica, neurocirugía y búsqueda de significado.",
-    price: 209.00,
-    detail: " El autor, un neurocirujano diagnosticado con cáncer terminal, comparte su perspectiva única sobre la vida, la muerte y el significado en este poderoso testimonio.",
+  3: {
+    id: 3,
+    case: "Un paciente de 55 años acude a la consulta de Neurología con síntomas de debilidad en el brazo derecho y dificultad para hablar. Después de realizar una evaluación neurológica completa y pruebas de imagen, se diagnostica con un accidente cerebrovascular isquémico. Como neurólogo especializado en cirugía neurológica, debes determinar el tratamiento más adecuado y brindar las recomendaciones correspondientes.",
+    speciality: "Neurología",
+    subSpeciality: "Cirugia Neorología",
+    book: "https://smeo.org.mx/wp-content/uploads/2022/01/3399AX161_Oncologia-Basica_SMEO.pdf",
+    feedbackGeneral:
+      "En este caso específico de accidente cerebrovascular isquémico, el tratamiento de primera línea puede incluir la administración de medicamentos trombolíticos o la realización de una trombectomía mecánica para restablecer el flujo sanguíneo cerebral. Además, se pueden recomendar terapias de rehabilitación, como fisioterapia y terapia del habla, para promover la recuperación funcional. El seguimiento cercano con el neurólogo especializado en cirugía neurológica es esencial para evaluar la respuesta al tratamiento y realizar intervenciones adicionales si es necesario.",
+    question: [
+      {
+        id: 1,
+        text: "¿Cuál es la causa más común de un accidente cerebrovascular isquémico?",
+        correctAnswer: 3,
+        feedbackQuestion:
+          "La respuesta correcta es la opción C) Tumor cerebral. Entre las opciones proporcionadas, el tumor cerebral es la afección neurológica que con mayor frecuencia requiere una intervención quirúrgica para su manejo, que puede incluir la extirpación del tumor o técnicas de radioterapia.",
+        answers: [
+          {
+            id: 1,
+            option: "A",
+            text: "Hemorragia cerebral",
+            answer:
+              "Respuesta incorrecta. La hemorragia cerebral, que implica la ruptura de un vaso sanguíneo en el cerebro, es una causa diferente de accidente cerebrovascular y se clasifica como un accidente cerebrovascular hemorrágico.",
+          },
+          {
+            id: 2,
+            option: "B",
+            text: "Obstrucción de una arteria cerebral por un coágulo",
+            answer:
+              "Respuesta incorrecta. La causa más común de un accidente cerebrovascular isquémico es la obstrucción de una arteria cerebral por un coágulo, lo que se conoce como accidente cerebrovascular isquémico de origen trombótico o embólico.",
+          },
+          {
+            id: 3,
+            option: "C",
+            text: "Tumor cerebral",
+            answer:
+              "Respuesta correcta. Entre las opciones proporcionadas, el tumor cerebral es la afección neurológica que con mayor frecuencia requiere una intervención quirúrgica para su manejo, que puede incluir la extirpación del tumor o técnicas de radioterapia.",
+          },
+          {
+            id: 4,
+            option: "D",
+            text: "Infección del sistema nervioso central",
+            answer:
+              "Respuesta incorrecta. Las infecciones del sistema nervioso central, como la meningitis o la encefalitis, pueden tener consecuencias graves, pero no son la causa más común de un accidente cerebrovascular isquémico.",
+          },
+        ],
+      },
+      {
+        id: 2,
+        text: "¿Cuál es el objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo?",
+        correctAnswer: 2,
+        feedbackQuestion:
+          "En esta pregunta, la respuesta correcta es la opción B: Restablecer el flujo sanguíneo cerebral. El objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo es restablecer el flujo sanguíneo cerebral lo antes posible para minimizar el daño cerebral y mejorar el pronóstico del paciente.",
+        answers: [
+          {
+            id: 1,
+            option: "A",
+            text: "Reducir la presión intracraneal",
+            answer:
+              "Respuesta incorrecta. Si bien el control de la presión intracraneal puede ser importante en ciertos casos de accidente cerebrovascular, el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+          {
+            id: 2,
+            option: "B",
+            text: "Restablecer el flujo sanguíneo cerebral",
+            answer:
+              "Respuesta correcta. El objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo es restablecer el flujo sanguíneo cerebral lo antes posible para minimizar el daño cerebral y mejorar el pronóstico del paciente.",
+          },
+          {
+            id: 3,
+            option: "C",
+            text: "Prevenir futuros accidentes cerebrovasculares",
+            answer:
+              "Respuesta incorrecta. Si bien la prevención de futuros accidentes cerebrovasculares es importante, el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+          {
+            id: 4,
+            option: "D",
+            text: "Controlar los síntomas de manera conservadora",
+            answer:
+              "Respuesta incorrecta. El control conservador de los síntomas puede ser parte del manejo a largo plazo del accidente cerebrovascular, pero el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+        ],
+      },
+    ],
   },
-  {
-    id: 6 ,
-    img: "/img/audiobooks/audiolibro6.png",
-    imgFront: "/img/individualAudiobooks/audiobook6-front.png",
-    imgBack: "/img/individualAudiobooks/audiobook6-back.png",
-    name: "The Checklist Manifesto: How to Get Things Right",
-    author: "Atul Gawande",
-    storyteller: "John Bedford Lloyd",
-    duration: "6 horas y 32 minutos",
-    topics: "Seguridad del paciente, errores médicos, calidad de atención y gestión de tareas.",
-    price: 216.77,
-    detail: "Atul Gawande explora cómo el uso de listas de verificación en medicina y otros campos puede mejorar la seguridad del paciente y prevenir errores médicos.",
-  },
-];
-
-export const videosInterest = [];
-
+};
 
 export default {
-  "clinicalCases": [
-    {
-      "id": 1,
-      "case": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-      "speciality": "Cirugía General",
-      "sub-speciality": "Cirugía General",
-      "book": "https://www.uandes.cl/wp-content/uploads/2020/02/Manual-de-Cirugia-UANDES.pdf",
-      "question": [
-        {
-          "id": 1,
-          "text": "¿Cuál es el tratamiento más adecuado para una fractura de hueso?",
-          "correctAnswer": 3,
-          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
-          "answers": [
-            {
-              "id": 1,
-              "option": "A",
-              "text": "Antibióticos",
-              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
-            },
-            {
-              "id": 2,
-              "option": "B",
-              "text": "Fisioterapia",
-              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
-            },
-            {
-              "id": 3,
-              "option": "C",
-              "text": "Inmovilización",
-              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
-            },
-            {
-              "id": 4,
-              "option": "D",
-              "text": "Receta casera",
-              "answer": "Respuesta incorrecta. Son mitos."
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "¿SOY LA PREGUNTA DOS?",
-          "correctAnswer": 3,
-          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
-          "answers": [
-            {
-              "id": 1,
-              "option": "A",
-              "text": "Antibióticos",
-              "answer": "Respuesta incorrecta. Los antibióticos no son el tratamiento principal para una fractura de hueso."
-            },
-            {
-              "id": 2,
-              "option": "B",
-              "text": "Fisioterapia",
-              "answer": "Respuesta incorrecta. La fisioterapia puede ser útil durante la rehabilitación después de una fractura, pero no es el tratamiento inicial."
-            },
-            {
-              "id": 3,
-              "option": "C",
-              "text": "Inmovilización",
-              "answer": "Respuesta correcta. La inmovilización es un tratamiento común para las fracturas óseas, ya que ayuda a estabilizar y permitir la recuperación adecuada del hueso fracturado."
-            },
-            {
-              "id": 4,
-              "option": "D",
-              "text": "Receta casera",
-              "answer": "Respuesta incorrecta. Son mitos."
-            }
-          ]
-        }
-      ],
-      "feedbackGeneral": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    },
-    {
-      "id": 2,
-      "case": "Se presenta el caso de un paciente de 60 años de edad con un bulto abdominal. El paciente experimenta molestias abdominales, pérdida de peso involuntaria y aumento progresivo de tamaño del bulto en los últimos meses. Los estudios de imagen revelan la presencia de un tumor sólido en el hígado de aproximadamente 5 cm de diámetro, confirmado como carcinoma hepatocelular. Se planifica una resección hepática para extirpar el segmento afectado y realizar una reconstrucción de la vía biliar durante el procedimiento. El paciente se somete a una hepatectomía parcial con resección en cuña del segmento hepático afectado. Durante la cirugía, se confirma la ausencia de metástasis en otros órganos y se procede a la reconstrucción de la vía biliar mediante una anastomosis biliodigestiva. Se establece un programa de seguimiento para evaluar la función hepática, controlar la cicatrización y detectar posibles complicaciones o recurrencias del carcinoma hepatocelular.",
-      "speciality": "Cirugía General",
-      "sub-speciality": "Cirugía General",
-      "book": "https://www.uandes.cl/wp-content/uploads/2020/02/Manual-de-Cirugia-UANDES.pdf",
-      "question": [
-        {
-          "id": 1,
-          "text": "¿Cuál es el objetivo principal de la resección hepática en el tratamiento del carcinoma hepatocelular?",
-          "correctAnswer": 4,
-          "feedbackQuestion": "En este pregunta, la respuesta correcta es la opción C: Inmovilización. La inmovilización es un tratamiento común y efectivo para las fracturas de hueso, ya que ayuda a estabilizar la lesión y promover la correcta recuperación del hueso fracturado.",
-          "answers": [
-            {
-              "id": 1,
-              "option": "A",
-              "text": "Controlar los síntomas relacionados con el tumor",
-              "answer": "Respuesta incorrecta. Esta opción no es el objetivo principal de la resección hepática en el tratamiento del carcinoma hepatocelular. Si bien la resección puede aliviar los síntomas asociados con el tumor, como el dolor abdominal, su objetivo principal es extirpar completamente el tumor y potencialmente lograr la curación o el control prolongado de la enfermedad."
-            },
-            {
-              "id": 2,
-              "option": "B",
-              "text": "Prevenir la diseminación metastásica",
-              "answer": "Respuesta incorrecta. La prevención de la diseminación metastásica es un objetivo importante en el tratamiento del cáncer, pero la resección hepática se realiza principalmente en tumores localizados sin metástasis distantes. El objetivo principal de la resección hepática en el carcinoma hepatocelular es extirpar completamente el tumor primario y potencialmente mejorar la supervivencia a largo plazo."
-            },
-            {
-              "id": 3,
-              "option": "C",
-              "text": "Mejorar la función hepática",
-              "answer": "Respuesta incorrecta. Si bien la resección hepática puede tener un impacto en la función hepática, especialmente en casos de enfermedad hepática subyacente, su objetivo principal no es mejorar la función hepática. El objetivo principal es extirpar completamente el tumor primario."
-            },
-            {
-              "id": 4,
-              "option": "D",
-              "text": "Extirpar el tumor completamente",
-              "answer": "Respuesta correcta. La resección hepática tiene como objetivo principal la extirpación completa del tumor primario en el tratamiento del carcinoma hepatocelular. Al extirpar el tumor por completo, se busca lograr la curación o el control prolongado de la enfermedad."
-            }
-          ]
-        }
-      ],
-      "feedbackGeneral": "En este caso clínico, se abordó la especialidad de Cirugía General, con enfoque en la subespecialidad de Cirugía General. Se presentó el caso de un paciente con un tumor hepático maligno, donde se evaluaron los estudios diagnósticos y se planificó una resección hepática para extirpar completamente el tumor. Durante la cirugía, se realizaron procedimientos adicionales, como la reconstrucción de la vía biliar. Se destacó la importancia del seguimiento postoperatorio para detectar complicaciones y posibles recurrencias. El objetivo principal de la resección hepática fue extirpar el tumor por completo, con el fin de brindar la mejor oportunidad de curación o control prolongado del carcinoma hepatocelular."
-    }
-  ],
+  clinicalCases: Object.values(clinicalCases),
 };
 
