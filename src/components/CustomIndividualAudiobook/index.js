@@ -16,6 +16,7 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useDispatch } from "react-redux";
 import { setCurrentProduct } from "../../store/slices/productSlice";
+import { saveAs } from "file-saver";
 
 const CustomIndividualAudiobook = ({
   imgFront,
@@ -41,6 +42,16 @@ const CustomIndividualAudiobook = ({
       price,
     };
     dispatch(setCurrentProduct(productInfo));
+  };
+
+  const handleDownload = async () => {
+    try {
+      const audioDownload = await fetch(audio).then(download => download.blob());
+      saveAs(audioDownload, 'audiolibro.mp3');
+      setOpenSnackbar(true);
+    } catch(error) {
+      console.error('Error descargando el archivo: ', error);
+    }
   };
 
   return (
@@ -92,7 +103,7 @@ const CustomIndividualAudiobook = ({
                   Incluido en la suscripción
                 </span>
               </IncludeContainer>
-              <CustomButton showIcon onClick={handleButtonClick} />
+              <CustomButton showIcon onClick={handleDownload} />
             </BuyContainer>
           )}
         </div>
