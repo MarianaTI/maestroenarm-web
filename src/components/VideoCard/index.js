@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "./index.style";
+import { Container, PlaceholderContainer } from "./index.style";
 import { AdvancedVideo } from "@cloudinary/react";
 
 export default function VideoCard({ title, description, price, isVertical = false, isBidCard, route, player }) {
@@ -14,5 +14,18 @@ export default function VideoCard({ title, description, price, isVertical = fals
                 </div>
             </Container>
         </Link>
+    )
+}
+
+export const PlaceholderVideo = ({ isVertical = false, isBidCard }) => {
+    return (
+        <PlaceholderContainer isVertical={isVertical} isBidCard={isBidCard}>
+            <div />
+            <div>
+                <div />
+                <div />
+                <div />
+            </div>
+        </PlaceholderContainer>
     )
 }

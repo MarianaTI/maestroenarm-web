@@ -1,10 +1,9 @@
-import VideoCard from "../../../components/VideoCard"
+import VideoCard, { PlaceholderVideo } from "../../../components/VideoCard"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
-import { useGetVideosQuery, useLazyGetVideosQuery } from "../../../store/apis/videoApi"
-import { CircularProgress } from "@mui/material"
+import { useGetVideosQuery } from "../../../store/apis/videoApi"
 
 const cloudinary = new Cloudinary({
     cloud: {
@@ -32,7 +31,11 @@ export default function Videos() {
                 </MainContainer>
                 <Filter />
                 <VideoCardContainer>
-                    {isLoading && <CircularProgress color="primary" />}
+                    {isLoading && <>
+                        <PlaceholderVideo isBidCard={true} isVertical />
+                        <PlaceholderVideo isBidCard={true} isVertical />
+                        <PlaceholderVideo isBidCard={true} isVertical />
+                    </>}
                     {!isLoading && videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', price: 9.99 } }) => <VideoCard
                         key={public_id}
                         title={context.caption}
