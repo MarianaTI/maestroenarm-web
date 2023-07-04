@@ -16,6 +16,7 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useDispatch } from "react-redux";
 import { setCurrentProduct } from "../../store/slices/productSlice";
+import { saveAs } from "file-saver";
 
 const CustomIndividualAudiobook = ({
   imgFront,
@@ -27,6 +28,7 @@ const CustomIndividualAudiobook = ({
   topics,
   price,
   details,
+  audio,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);
@@ -42,17 +44,27 @@ const CustomIndividualAudiobook = ({
     dispatch(setCurrentProduct(productInfo));
   };
 
-  
+  const handleDownload = async () => {
+    try {
+      const audioDownload = await fetch(audio).then(download => download.blob());
+      saveAs(audioDownload, 'audiolibro.mp3');
+      setOpenSnackbar(true);
+    } catch(error) {
+      console.error('Error descargando el archivo: ', error);
+    }
+  };
 
   return (
     <Container>
       <BasicInformationContainer>
         <div>
           <ImageContainer>
-            <ImageStyled src={imgFront}></ImageStyled>
-            <HoverImage src={imgBack}></HoverImage>
+            <ImageStyled src={imgFront} alt="front"></ImageStyled>
+            <HoverImage src={imgBack} alt="back"></HoverImage>
           </ImageContainer>
-          <img src="/img/repro.jpg" width={260} />
+          <audio controls>
+            <source src={audio} type="audio/mpeg" />
+          </audio>
         </div>
         <div>
           <BasicInformation>
@@ -67,7 +79,10 @@ const CustomIndividualAudiobook = ({
               Duración: <span className="DetailStyled">{duration}</span>
             </div>
             <div className="DetailOptionStyled">
-              Temas: <span className="DetailStyled">{topics}</span>
+              Temas:{" "}
+              <span className="DetailStyled">
+                {topics.join(", ").toLowerCase()}
+              </span>
             </div>
           </BasicInformation>
           {price > 0.0 ? (
@@ -88,7 +103,7 @@ const CustomIndividualAudiobook = ({
                   Incluido en la suscripción
                 </span>
               </IncludeContainer>
-              <CustomButton showIcon onClick={handleButtonClick} />
+              <CustomButton showIcon onClick={handleDownload} />
             </BuyContainer>
           )}
         </div>

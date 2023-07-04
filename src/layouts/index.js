@@ -8,9 +8,9 @@ import { useAuth } from "../context/AuthProvider";
 export default function Layout({ children }) {
     const { user } = useAuth();
     const route = useRouter();
-    const protectedRoutes = route.pathname.match(/academy|game|edit|payment|profile|ranking|statistic/g)
+    const protectedRoutes = route.pathname.match(/academy|home|edit|payment|profile|ranking|statistic/g)
     const hasNavbar = !(
-        route.pathname === "/" || route.pathname.match(/sesion|register|demo|test/g)
+        route.pathname === "/" || route.pathname.match(/sesion|register|demo|game|test/g)
     );
 
     useEffect(() => {

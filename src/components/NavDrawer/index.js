@@ -29,7 +29,7 @@ import { useState } from 'react';
 const links = [
     {
         label: "Examenes",
-        route: "/game",
+        route: "/home",
         icon: <HomeIcon />,
     },
     {

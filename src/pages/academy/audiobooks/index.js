@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Filter from "../../../components/Filter";
 import FilterDrawer from "../../../components/FilterDrawer";
-import { audiobooks } from "../../../constants";
 import {
   AudiobookContainer,
   AudiobookGridContainer,
@@ -14,8 +13,27 @@ import {
 } from "../../../styles/PageAudiobooks.style";
 import Link from "next/link";
 import CustomBook from "../../../components/CustomBook";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "@firebase/firestore";
+import { db } from "../../../services/firebase/config";
+
+
 
 export default function AudioBooks() {
+
+  const [audiobooks, setAudiobooks] = useState([]);
+
+  useEffect(() => {
+    const getAudiobooks = async () => {
+      const audiobooksRef = collection(db, 'audiobooks');
+      const snapshot = await getDocs(audiobooksRef);
+      const data = snapshot.docs.map(doc => doc.data());
+      setAudiobooks(data);
+    };
+    getAudiobooks();
+  }, []);
+  
+
   return (
     <Container>
       <MainContainer>
@@ -26,7 +44,7 @@ export default function AudioBooks() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
         </MainInformation>
-        <ImageStyled src="/img/podcast.svg" width={350} height={300} />
+        <ImageStyled src="/img/podcast.svg" width={350} height={300} alt=""/>
       </MainContainer>
       <FilterContainer>
         <Filter />
@@ -37,10 +55,10 @@ export default function AudioBooks() {
           <AudiobookGridContainer>
             {audiobooks.map((item, index) => (
               <Link
-                href="/academy/audiobooks/view/[id]"
-                as={`/academy/audiobooks/view/${item.id}`}
-                key={item.id}
-              >
+              href="/academy/audiobooks/view/[id]"
+              as={`/academy/audiobooks/view/${item.id}`}
+              key={item.id}
+            >
                 <div>
                   <CustomBook
                     key={index}
@@ -55,8 +73,8 @@ export default function AudioBooks() {
           </AudiobookGridContainer>
         ) : (
           <EmptyStateContainer>
-            <Image src="/img/search.svg" width={150} height={150} />
-            <span>Aún no hay compras disponibles</span>
+            <Image src="/img/search.svg" width={150} height={150} alt=""/>
+            <span>Aún no hay productos disponibles</span>
           </EmptyStateContainer>
         )}
       </AudiobookContainer>
