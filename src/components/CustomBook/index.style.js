@@ -4,28 +4,23 @@ export const Container = styled.div`
   height: 280px;
   display: flex;
   padding: 8px;
+  border-radius: 16px;
   flex-direction: column;
+  justify-content: center;
   cursor: pointer;
 `;
 
 export const ImgStyled = styled.img`
-  border-radius: 15px;
+  object-fit: cover;
   :hover {
     scale: 1.1;
-  }
-  @media (max-width: 500px) {
-    width: 280px;
-    margin: 8px;
   }
 `;
 
 export const DetailsContainer = styled.div`
-  height: 300px;
-  margin: 8px 0px;
-  flex-direction: column;
-  position: relative;
   & div {
-    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
   }
   .NameStyle {
     font-size: 14px;
@@ -43,9 +38,8 @@ export const DetailsContainer = styled.div`
 
 export const PriceIconContainer = styled.div`
   display: flex;
-  align-items: end;
+  justify-content: center;
   font-size: 16px;
   font-weight: 500;
   color: #2d3648;
-  cursor: pointer;
 `;

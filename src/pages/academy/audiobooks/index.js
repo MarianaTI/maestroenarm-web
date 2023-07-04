@@ -3,7 +3,6 @@ import Filter from "../../../components/Filter";
 import FilterDrawer from "../../../components/FilterDrawer";
 import {
 	AudiobookContainer,
-	AudiobookGridContainer,
 	Container,
 	EmptyStateContainer,
 	FilterContainer,
@@ -49,34 +48,32 @@ export default function AudioBooks() {
 				<Filter setState={setInput} />
 				<FilterDrawer />
 			</FilterContainer>
-			<AudiobookContainer>
-				{audiobooks.length > 0 ? (
-					<AudiobookGridContainer>
-						{audiobooks.map((item, index) => (
-							<Link
-								href="/academy/audiobooks/view/[id]"
-								as={`/academy/audiobooks/view/${item.id}`}
-								key={item.id}
-							>
-								<div>
-									<CustomBook
-										key={index}
-										img={item.img}
-										name={item.name}
-										topics={item.author}
-										price={item.price}
-									/>
-								</div>
-							</Link>
-						))}
-					</AudiobookGridContainer>
-				) : (
-					<EmptyStateContainer>
-						<Image src="/img/search.svg" width={150} height={150} alt="search" />
-						<span>Aún no hay productos disponibles</span>
-					</EmptyStateContainer>
-				)}
-			</AudiobookContainer>
+			{audiobooks.length > 0 ? (
+				<AudiobookContainer>
+					{audiobooks.map((item, index) => (
+						<Link
+							href="/academy/audiobooks/view/[id]"
+							as={`/academy/audiobooks/view/${item.id}`}
+							key={item.id}
+						>
+							<div>
+								<CustomBook
+									key={index}
+									img={item.img}
+									name={item.name}
+									topics={item.author}
+									price={item.price}
+								/>
+							</div>
+						</Link>
+					))}
+				</AudiobookContainer>
+			) : (
+				<EmptyStateContainer>
+					<Image src="/img/search.svg" width={150} height={150} alt="search" />
+					<span>Aún no hay productos disponibles</span>
+				</EmptyStateContainer>
+			)}
 		</Container>
 	);
 }
