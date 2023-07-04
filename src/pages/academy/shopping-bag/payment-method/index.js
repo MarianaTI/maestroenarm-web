@@ -1,3 +1,4 @@
+import { Elements } from '@stripe/react-stripe-js';
 import React, { useEffect } from "react";
 import {
   CardContainer,
@@ -20,6 +21,11 @@ import Link from "next/link";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
 import { useSelector } from "react-redux";
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat');
+
 
 const paymentSchema = yup.object().shape({
   cardName: yup.string().required("Este dato es requerido"),
@@ -96,13 +102,31 @@ export default function PaymentMethod() {
     setValue("cvc", limitedCvc);
   }, [cvc, setValue]);
 
-  const onSubmit = (values) => {
-    console.log(values);
-  };
+  const onSubmit = async (values) => {
+    if (!stripe || !elements) {
+        return; // retorna si Stripe no ha cargado aún.
+    }
+
+    const cardElement = elements.getElement(CardElement);
+
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card: cardElement,
+    });
+
+    if (error) {
+        console.log('[error]', error);
+    } else {
+        console.log('[PaymentMethod]', paymentMethod);
+        // Aquí puedes enviar `paymentMethod.id` a tu servidor para procesar el pago.
+    }
+};
+
 
   const product = useSelector((state) => state.product.currentProduct);
 
   return (
+    <Elements stripe={stripePromise}>
     <ContainerForm onSubmit={handleSubmit(onSubmit)}>
       <div>
         <MainContainer>
@@ -127,32 +151,20 @@ export default function PaymentMethod() {
                 placeholder="Nombre del propietario"
                 error={errors.cardName?.message}
               />
-              <CustomInput
-                label="Número de tarjeta"
-                name="cardNumber"
-                control={control}
-                placeholder="1234 5678 9110 2134"
-                error={errors.cardNumber?.message}
-                onChange={(event) => {
-                  event.target.value = formatCardNumber(event.target.value);
-                }}
-              />
-              <RowInputs>
-                <CustomInput
-                  label="Fecha de vencimiento"
-                  name="expiration"
-                  control={control}
-                  placeholder="MM/AA"
-                  error={errors.expiration?.message}
-                />
-                <CustomInput
-                  label="CVC/CVV"
-                  name="cvc"
-                  control={control}
-                  placeholder="CVC"
-                  error={errors.cvc?.message}
-                />
-              </RowInputs>
+              <CardElement options={{
+                  style: {
+                    base: {
+                      fontSize: '14px',
+                      color: '#424770',
+                      '::placeholder': {
+                        color: '#aab7c4',
+                      },
+                    },
+                    invalid: {
+                      color: '#9e2146',
+                    },
+                  },
+                }} />
             </FormStyled>
           </CardContainer>
         </PayContainer>
@@ -178,5 +190,6 @@ export default function PaymentMethod() {
         </CompletePayment>
       </PaymentContainer>
     </ContainerForm>
+    </Elements>
   );
 }
