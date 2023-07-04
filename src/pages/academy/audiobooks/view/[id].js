@@ -9,7 +9,7 @@ import {
 } from "../../../../styles/ViewAudiobooks.style";
 import CustomAudiobook from "../../../../components/CustomAudiobook";
 import Link from "next/link";
-import LoadingPage from "../../../loading_page";
+import LoadingPage from "../../../loading-page";
 
 export default function View() {
   const router = useRouter();

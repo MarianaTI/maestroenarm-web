@@ -13,6 +13,10 @@ export const ImgStyled = styled.img`
   :hover {
     scale: 1.1;
   }
+  @media (max-width: 500px) {
+    width: 280px;
+    margin: 8px;
+  }
 `;
 
 export const DetailsContainer = styled.div`
