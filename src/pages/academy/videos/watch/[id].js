@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { setCurrentProduct } from '../../../../store/slices/productSlice';
 import { useDispatch } from 'react-redux';
 import { cloudinary } from '../../../../services/cloudinary/config';
-import CardVideo from '../../../../components/CardVideo';
+import { CardVideo } from '../../../../components/CardVideo';
 
 
 const videoCards = [

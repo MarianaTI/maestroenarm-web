@@ -7,7 +7,7 @@ import { setCurrentProduct } from '../../../../store/slices/productSlice';
 import { useDispatch } from 'react-redux';
 import { cloudinary } from '../../../../services/cloudinary/config';
 import { preview } from '@cloudinary/url-gen/actions/videoEdit';
-import CardVideo from '../../../../components/CardVideo';
+import { CardVideo } from '../../../../components/CardVideo';
 
 const videoCards = [
     {

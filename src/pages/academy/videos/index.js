@@ -1,10 +1,9 @@
-import VideoCard, { PlaceholderVideo } from "../../../components/VideoCard"
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { useGetVideosQuery } from "../../../store/apis/videoApi"
-import CardVideo from "../../../components/CardVideo"
+import { CardVideo, CardVideoPlaceholder } from "../../../components/CardVideo"
 
 const cloudinary = new Cloudinary({
     cloud: {
@@ -33,9 +32,9 @@ export default function Videos() {
                 <Filter />
                 <VideoCardContainer>
                     {isLoading && <>
-                        <PlaceholderVideo isBidCard={true} isVertical />
-                        <PlaceholderVideo isBidCard={true} isVertical />
-                        <PlaceholderVideo isBidCard={true} isVertical />
+                        <CardVideoPlaceholder />
+                        <CardVideoPlaceholder />
+                        <CardVideoPlaceholder />
                     </>}
                     {!isLoading && videos.map(({ asset_id, public_id, context = { alt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', caption: 'Title', price: 9.99 } }) => <CardVideo
                         key={public_id}
@@ -44,12 +43,11 @@ export default function Videos() {
                         price={context.price}
                         url={`/academy/videos/preview/${1}`}
                         player={cloudinary.video(public_id)}
-                        isReponsive={false}
                     >
                     </CardVideo>)}
                 </VideoCardContainer>
             </VideoContainer >
-            <FilterDrawer></FilterDrawer>
+            <FilterDrawer />
         </>
     )
 }
