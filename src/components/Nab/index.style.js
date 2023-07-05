@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Header = styled.header`
     border: 2px solid #f0f0f0;
-    background-color: white;
     border-top: none;
     border-left: none;
     border-right: none;
