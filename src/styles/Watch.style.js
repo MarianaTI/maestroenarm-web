@@ -2,14 +2,14 @@ import { AdvancedVideo } from "@cloudinary/react";
 import styled from "@emotion/styled";
 
 export const WatchContainer = styled.div`
-    margin-top: 16px;
     @media screen and (min-width: 1281px) {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 400px;
     }
 `;
 
 export const Sidebar = styled.aside`
-    padding: 0 32px;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -22,8 +22,7 @@ export const Sidebar = styled.aside`
 `;
 
 export const MainContent = styled.main`
-    flex: 1;
-    padding: 32px;
+    padding: 32px 16px;
 `
 
 export const VideoContainer = styled.div`

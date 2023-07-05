@@ -1,12 +1,12 @@
 import QuizIcon from '@mui/icons-material/Quiz';
 import { CustomButton } from "../../../../components/CustomButton";
-import VideoCard from "../../../../components/VideoCard";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
 import { useRouter } from "next/router";
 import Link from 'next/link';
 import { setCurrentProduct } from '../../../../store/slices/productSlice';
 import { useDispatch } from 'react-redux';
 import { cloudinary } from '../../../../services/cloudinary/config';
+import CardVideo from '../../../../components/CardVideo';
 
 
 const videoCards = [
@@ -76,16 +76,16 @@ export default function Watch() {
                 </div>
             </MainContent>
             <Sidebar>
-                {videoCards.map(({ id, title, description, price, player }) => <VideoCard
+                {videoCards.map(({ id, title, description, price, player }) => <CardVideo
                     key={id}
                     title={title}
                     description={description}
                     price={price}
-                    isBidCard={false}
-                    route={`/academy/videos/watch/${id}`}
+                    url={`/academy/videos/watch/${id}`}
                     player={player}
+                    isReponsive={true}
                 >
-                </VideoCard>)}
+                </CardVideo>)}
             </Sidebar>
         </WatchContainer>
     )

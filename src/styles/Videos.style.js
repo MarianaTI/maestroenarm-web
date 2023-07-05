@@ -2,20 +2,21 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 
 export const VideoContainer = styled.div`
-    display: flex; 
-    align-items: center; 
-    flex-direction: column;
-    gap: 64px;
+    gap: 32px;
+    display: grid;
+    place-content: center;
 `;
 
 export const VideoCardContainer = styled.div`
-    flex-wrap: wrap;
-    display: flex; 
-    justify-content: center;
-    gap: 32px
+    padding: 16px;
+    display: grid;
+    place-content: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
 `;
 
 export const ImageStyled = styled(Image)`
+  margin: auto;
   :hover {
     animation: float 2s linear infinite;
     @keyframes float {
@@ -45,12 +46,8 @@ export const ImageStyled = styled(Image)`
 `;
 
 export const MainContainer = styled.div`
-  padding: 16px 64px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 300px;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr 400px;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
@@ -58,12 +55,13 @@ export const MainContainer = styled.div`
 
 
 export const MainInformation = styled.div`
-  padding: 16px;
+  margin: auto;
+  padding: 32px 0;
   & h1 {
     font-size: 30px;
     font-weight: 700;
   }
-  & span {
+  & p {
     font-size: 18px;
     font-weight: 500;
     color: #2D3648;

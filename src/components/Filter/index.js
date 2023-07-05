@@ -1,9 +1,9 @@
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { FilterButton, FilterContainer, SearchButton, SearchInput } from "./index.style";
+import { FilterButton, FilterContainer, SearchInput } from "./index.style";
 import { openDrawer } from "../../store/slices/filterDrawerSlice";
 import { useDispatch } from "react-redux";
 
-export default function Filter({ setState }) {
+export default function Filter({ setState = () => { } }) {
     const dispatch = useDispatch()
     const handleChange = e => { setState(e.target.value) }
     return (

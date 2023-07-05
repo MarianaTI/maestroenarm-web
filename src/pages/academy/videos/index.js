@@ -4,6 +4,7 @@ import Filter from "../../../components/Filter"
 import { Cloudinary } from "@cloudinary/url-gen"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { useGetVideosQuery } from "../../../store/apis/videoApi"
+import CardVideo from "../../../components/CardVideo"
 
 const cloudinary = new Cloudinary({
     cloud: {
@@ -22,10 +23,10 @@ export default function Videos() {
                 <MainContainer>
                     <MainInformation>
                         <h1>Body Bold Extra Large.</h1>
-                        <span>
+                        <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </span>
+                        </p>
                     </MainInformation>
                     <ImageStyled src="/academy-principal-video-page.svg" width={350} height={300} />
                 </MainContainer>
@@ -36,17 +37,16 @@ export default function Videos() {
                         <PlaceholderVideo isBidCard={true} isVertical />
                         <PlaceholderVideo isBidCard={true} isVertical />
                     </>}
-                    {!isLoading && videos.map(({ asset_id, public_id, context = { alt: 'descripcion', caption: 'Title', price: 9.99 } }) => <VideoCard
+                    {!isLoading && videos.map(({ asset_id, public_id, context = { alt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', caption: 'Title', price: 9.99 } }) => <CardVideo
                         key={public_id}
                         title={context.caption}
                         description={context.alt}
                         price={context.price}
-                        isVertical
-                        isBidCard={true}
-                        route={`/academy/videos/preview/${1}`}
+                        url={`/academy/videos/preview/${1}`}
                         player={cloudinary.video(public_id)}
+                        isReponsive={false}
                     >
-                    </VideoCard>)}
+                    </CardVideo>)}
                 </VideoCardContainer>
             </VideoContainer >
             <FilterDrawer></FilterDrawer>

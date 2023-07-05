@@ -20,8 +20,8 @@ export const SearchInput = styled.input`
 `;
 
 export const FilterContainer = styled.div`  
+    margin: auto;
     display: flex;
-    align-items: center;
     width: 800px;
     padding: 0 24px;
     @media screen and (max-width: 1020px) {
