@@ -6,10 +6,43 @@ import { closeDrawer } from '../../store/slices/filterDrawerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
 
+const drawerItems = [
+    {
+        id: 1, label: 'Especialidad', isOpen: false, subspecialties: [
+            { id: 1, label: 'Sub - especialidad', isSelected: false },
+            { id: 2, label: 'Sub - especialidad', isSelected: false },
+            { id: 3, label: 'Sub - especialidad', isSelected: false },
+            { id: 4, label: 'Sub - especialidad', isSelected: false }
+        ]
+    },
+    {
+        id: 2, label: 'Especialidad', isOpen: false, subspecialties: [
+            { id: 1, label: 'Sub - especialidad', isSelected: false },
+            { id: 2, label: 'Sub - especialidad', isSelected: false },
+            { id: 3, label: 'Sub - especialidad', isSelected: false },
+            { id: 4, label: 'Sub - especialidad', isSelected: false }
+        ]
+    },
+    {
+        id: 3, label: 'Especialidad', isOpen: false, subspecialties: [
+            { id: 1, label: 'Sub - especialidad', isSelected: false },
+            { id: 2, label: 'Sub - especialidad', isSelected: false },
+            { id: 3, label: 'Sub - especialidad', isSelected: false },
+            { id: 4, label: 'Sub - especialidad', isSelected: false }
+        ]
+    },
+    {
+        id: 4, label: 'Especialidad', isOpen: false, subspecialties: [
+            { id: 1, label: 'Sub - especialidad', isSelected: false },
+            { id: 2, label: 'Sub - especialidad', isSelected: false },
+            { id: 3, label: 'Sub - especialidad', isSelected: false },
+            { id: 4, label: 'Sub - especialidad', isSelected: false }
+        ]
+    },
+]
 
 export default function FilterDrawer() {
-    const dispatch = useDispatch();
-    const { isOpen, drawerItems } = useSelector(state => state.filterDrawer);
+    const { isOpen } = useSelector(state => state.filterDrawer);
     return (
         <Drawer
             anchor="right"
@@ -18,9 +51,7 @@ export default function FilterDrawer() {
             <DrawerBody role="presentation">
                 <Container>
                     <DrawerHeader>Filtro</DrawerHeader>
-                    <IconButtonStyled onClick={() => dispatch(closeDrawer())}>
-                        <CloseIcon />
-                    </IconButtonStyled>
+                    <CloseButton />
                 </Container>
                 <List>
                     {drawerItems.map(({ id, label, subspecialties }) => <ListFilterDrawer
@@ -31,4 +62,13 @@ export default function FilterDrawer() {
             </DrawerBody>
         </Drawer >
     );
+}
+
+function CloseButton() {
+    const dispatch = useDispatch();
+    return (
+        <IconButtonStyled onClick={() => dispatch(closeDrawer())}>
+            <CloseIcon />
+        </IconButtonStyled>
+    )
 }

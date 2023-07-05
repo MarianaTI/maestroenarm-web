@@ -3,6 +3,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 
 export const FieldWrapper = styled.div`
+    cursor: pointer;
     width: 100%;
     border: 2px solid rgba(72, 74, 132, 1);
     border-radius: 16px;

@@ -4,8 +4,7 @@ import { CustomButton } from '../CustomButton';
 import { ModalBody, RangeContainer } from './index.style';
 import { useState } from 'react';
 
-export const GameSettingsModal = ({ isOpen, closedModal }) => {
-    //todo:  usar estado global para cerrar el modal
+export const GameSettingsModal = ({ isOpen, closeModal }) => {
     return (
         <Modal
             open={isOpen}
@@ -24,7 +23,7 @@ export const GameSettingsModal = ({ isOpen, closedModal }) => {
                     <input type='range' />
                     <label>Tiempo: 5 min</label>
                     <input type='range' />
-                    <CustomButton text='continuar' onClick={closedModal}/>
+                    <CustomButton text='continuar' onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>

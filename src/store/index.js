@@ -4,6 +4,7 @@ import filterDrawerReducer from "./slices/filterDrawerSlice";
 import navDrawerReducer from "./slices/navDrawerSlice";
 import videosReducer from "./slices/videosSlice";
 import productReducer from "./slices/productSlice";
+import { videosApi } from "./apis/videoApi";
 
 
 export const store = configureStore({
@@ -13,5 +14,7 @@ export const store = configureStore({
     navDrawer: navDrawerReducer,
     videos: videosReducer,
     product: productReducer,
+    [videosApi.reducerPath]: videosApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(videosApi.middleware)
 });

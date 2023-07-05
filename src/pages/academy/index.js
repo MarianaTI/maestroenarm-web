@@ -9,7 +9,6 @@ import {
 } from "../../styles/PrincipalPage.style";
 import CustomButton from "../../components/CustomButtonAcademy";
 import CustomCategories from "../../components/CustomCategories";
-import Link from "next/link";
 
 export default function Academy() {
   return (
@@ -29,7 +28,7 @@ export default function Academy() {
               weight.
             </p>
             <ButtonContainer>
-                <CustomButton buttonText="¡Suscríbete ahora!" disabled/>
+                <CustomButton buttonText="¡Suscríbete ahora!"/>
             </ButtonContainer>
           </StyledCard>
         </GridForm>
