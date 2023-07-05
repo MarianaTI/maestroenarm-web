@@ -5,6 +5,7 @@ export const Header = styled.header`
     border-top: none;
     border-left: none;
     border-right: none;
+    background: white;
     border-bottom-color: rgb(16, 10, 95);
     position: fixed;
     top: 0;
