@@ -27,6 +27,7 @@ const CustomIndividualAudiobook = ({
   topics,
   price,
   details,
+  audio,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);
@@ -42,17 +43,17 @@ const CustomIndividualAudiobook = ({
     dispatch(setCurrentProduct(productInfo));
   };
 
-  
-
   return (
     <Container>
       <BasicInformationContainer>
         <div>
           <ImageContainer>
-            <ImageStyled src={imgFront}></ImageStyled>
-            <HoverImage src={imgBack}></HoverImage>
+            <ImageStyled src={imgFront} alt="front"></ImageStyled>
+            <HoverImage src={imgBack} alt="back"></HoverImage>
           </ImageContainer>
-          <img src="/img/repro.jpg" width={260} />
+          <audio controls>
+            <source src={audio} type="audio/mpeg" />
+          </audio>
         </div>
         <div>
           <BasicInformation>
@@ -67,7 +68,10 @@ const CustomIndividualAudiobook = ({
               Duración: <span className="DetailStyled">{duration}</span>
             </div>
             <div className="DetailOptionStyled">
-              Temas: <span className="DetailStyled">{topics}</span>
+              Temas:{" "}
+              <span className="DetailStyled">
+                {topics.join(", ").toLowerCase()}
+              </span>
             </div>
           </BasicInformation>
           {price > 0.0 ? (

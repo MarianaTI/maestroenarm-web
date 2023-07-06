@@ -4,7 +4,6 @@ import filterDrawerReducer from "./slices/filterDrawerSlice";
 import navDrawerReducer from "./slices/navDrawerSlice";
 import videosReducer from "./slices/videosSlice";
 import productReducer from "./slices/productSlice";
-import authReducer from "./slices/authSlice";
 
 
 export const store = configureStore({
@@ -14,6 +13,5 @@ export const store = configureStore({
     navDrawer: navDrawerReducer,
     videos: videosReducer,
     product: productReducer,
-    auth: authReducer,
   },
 });

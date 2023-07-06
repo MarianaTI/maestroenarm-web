@@ -27,7 +27,7 @@ import { openNavDrawer } from "../../store/slices/navDrawerSlice";
 const links = [
   {
     label: "Examenes",
-    route: "/game",
+    route: "/home",
     icon: <HomeIcon />,
   },
   {
@@ -75,32 +75,32 @@ const links = [
     icon: <SchoolIcon />,
     suboptions: [
       {
-        label: "home",
+        label: "Inicio",
         route: "/academy",
         icon: <HomeIcon />,
       }, ,
       {
-        label: "books",
+        label: "Libros",
         route: "/academy/books",
         icon: <MenuBookOutlinedIcon />,
       },
       {
-        label: "audiobooks",
+        label: "Audiolibros",
         route: "/academy/audiobooks",
         icon: <PlayLessonOutlinedIcon />,
       },
       {
-        label: "videos",
+        label: "Videos",
         route: "/academy/videos",
         icon: <PlayCircleOutlinedIcon />,
       },
       {
-        label: "compras",
+        label: "Compras",
         route: "/academy/shopping-bag",
         icon: <ShoppingBagIcon />,
       },
       {
-        label: "historial",
+        label: "Historial",
         route: "/academy/shopping-bag/history",
         icon: <HistoryIcon />,
       },

@@ -13,7 +13,6 @@ export const Container = styled.div`
   }
 `;
 
-
 export const ImageContainer = styled.div`
   position: relative;
   display: flex;
@@ -27,14 +26,14 @@ export const ImageContainer = styled.div`
 
 export const ImageStyled = styled.img`
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
 `;
 
 export const HoverImage = styled.img`
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
@@ -76,6 +75,18 @@ export const BasicInformationContainer = styled.div`
   align-items: center;
   @media (max-width: 400px) {
     flex-direction: column;
+  }
+  & audio {
+    transition: all 0.5s linear;
+    border-radius: 7px;
+
+  }
+  audio:hover,
+  audio:focus,
+  audio:active {
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    color: purple;
   }
 `;
 

@@ -61,72 +61,11 @@ export const StatisticsContainer = styled.div`
 `;
 
 export const ContainerRetroAlim = styled.div`
-    box-sizing: border-box;
-    position: absolute;
-    width: 90%;
     max-width: 1020px;
     background: #FCFCFC;
     border: 0.5px solid #585555;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin: auto;
-  
-    
-    & span {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        text-align: center;
-        letter-spacing: -0.01em;
-        font-feature-settings: 'calt' off;
-        margin: 1.2%;
-        margin-left: 3%;
-    }
-    & span:nth-of-type(1) {
-        display: flex;
-        color: #000000;
-    }
-    & span:nth-of-type(2) {
-        font-size: 16px;
-        display: inline;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    & span:nth-of-type(3) {
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.5);
-        margin-left: 78%;
-    }
-
-    @media (max-width: 995px) {
-    width: 90%;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px;
-
-    & span:nth-of-type(1),
-    & span:nth-of-type(2),
-    & span:nth-of-type(3) {
-      font-size: 14px;
-      margin: 4px;
-    }
-   }
-
-    @media (max-width: 768px) {
-        width: 90%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 8px;
-
-        & span:nth-of-type(1),
-        & span:nth-of-type(2),
-        & span:nth-of-type(3) {
-            font-size: 14px;
-            margin: 4px;
-        }
-    }
 `;
 
 export const ReturnDemoButtonContainer = styled.div`
@@ -137,12 +76,12 @@ export const ReturnDemoButtonContainer = styled.div`
 
 
 export const TextStatic = styled.div`
-  margin-top: 12%;
   display: flex;
   flex-wrap: wrap;
   width: 90%;
   max-width: 900px;
-  margin-left: 3%;
+  padding-left: 3%;
+  padding-top: 15px;
 
   & span {
     font-family: 'Poppins';

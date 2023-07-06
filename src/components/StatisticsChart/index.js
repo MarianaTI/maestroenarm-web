@@ -5,7 +5,6 @@ import { ChartContainer, Container, CustomLi, CustomSpan, CustomUl, Image } from
 ChartJS.register(ArcElement, Tooltip);
 
 export const StatisticChart = ({ items }) => {
-
     const data = {
         //labels: ['opcion1', 'opcion2', 'opcion3'],
         datasets: [
