@@ -46,3 +46,8 @@ export const Pregunta = styled.p`
   padding: 22px;
   padding-top: 16px;
 `;
+export const Answer = styled.div`
+ display: grid;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+`;
