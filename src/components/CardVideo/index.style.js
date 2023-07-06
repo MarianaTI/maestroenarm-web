@@ -1,5 +1,6 @@
 import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const cardBodyStyle = ({ isResponsive }) => css`
     display: grid;
@@ -22,11 +23,11 @@ const cardBodyStyle = ({ isResponsive }) => css`
     }
 `
 
-export const CardBody = styled.div`
+export const CardBody = styled(Link)`
     ${cardBodyStyle}
 `
 
-const placeholderFrame = keyframes`
+export const placeholderFrame = keyframes`
     0% {
         opacity: 0.5;
     }
@@ -40,26 +41,27 @@ const placeholderFrame = keyframes`
 
 const cardBodyStylePlaceholder = ({ isResponsive }) => css`
     display: grid;
-    gap: 8px;
+    row-gap: 12px;
     width: 100%;
     height: 100%;
 
     .card__player__placeholder {
         aspect-ratio: 16/9;
-        background: #eee;
+        background: #ccc;
     }
 
     .card__content__placeholder  {
-        display: grid;
-        gap: 8px
+        display: flex;
+        flex-direction: column;
+        gap: 19px
     }
 
     .card__content__placeholder > * {
-        background: #eee;
+        background: #ccc;
         height: 20px;
     }
 
-    @media screen and (min-width: 475px) {
+    @media screen and (min-width: 465px) {
         grid-template-columns: ${isResponsive && "180px 1fr"};
         column-gap: 16px;
     }

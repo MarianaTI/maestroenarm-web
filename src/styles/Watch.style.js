@@ -1,5 +1,6 @@
 import { AdvancedVideo } from "@cloudinary/react";
 import styled from "@emotion/styled";
+import { placeholderFrame } from "../components/CardVideo/index.style";
 
 export const WatchContainer = styled.div`
     @media screen and (min-width: 1281px) {
@@ -10,10 +11,8 @@ export const WatchContainer = styled.div`
 
 export const Sidebar = styled.aside`
     padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    align-content: start;
     gap: 16px;  
     @media screen and (min-width: 1281px) {
         padding: 32px 32px 32px 0;
@@ -24,6 +23,27 @@ export const Sidebar = styled.aside`
 export const MainContent = styled.main`
     padding: 32px 16px;
 `
+
+export const MainContentPlaceholder = styled.main`
+    padding: 32px 16px;
+    display: grid;
+    gap: 16px;
+
+    & > * {
+        background: #ccc;
+    }
+
+    .player__placeholder {
+        aspect-ratio: 16/9;
+    }
+
+    .content__placeholder {
+        height: 12px;
+    }
+
+    animation: ${placeholderFrame} 2s ease-in-out 0s infinite reverse;
+`
+
 
 export const VideoContainer = styled.div`
     position: relative;
