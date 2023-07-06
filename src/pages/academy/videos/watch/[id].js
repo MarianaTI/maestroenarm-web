@@ -3,15 +3,12 @@ import Link from 'next/link';
 import { CustomButton } from "../../../../components/CustomButton";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar, MainContentPlaceholder } from "../../../../styles/Watch.style";
 import { useRouter } from "next/router";
-import { setCurrentProduct } from '../../../../store/slices/productSlice';
-import { useDispatch } from 'react-redux';
 import { cloudinaryReact } from '../../../../services/cloudinary/config';
 import { CardVideo, CardVideoPlaceholder } from '../../../../components/CardVideo';
 import { useGetVideoQuery, useGetVideosQuery } from '../../../../store/apis/videoApi';
 import { Download } from '@mui/icons-material';
 
 export default function Watch() {
-    const dispatch = useDispatch();
     const router = useRouter()
     const { data: videos, isLoading } = useGetVideosQuery()
     const { data: video, isLoading: isLoadingPlayer } = useGetVideoQuery(router.query?.id?.replace('/', '%2F'));
