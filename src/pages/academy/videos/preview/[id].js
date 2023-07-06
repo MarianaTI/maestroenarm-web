@@ -46,7 +46,7 @@ export default function Preview() {
                 {isLoading && <>
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
-                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />    
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
