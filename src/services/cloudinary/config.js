@@ -1,8 +1,9 @@
 import { Cloudinary } from "@cloudinary/url-gen"
-export const cloudinary = new Cloudinary({
+
+export const cloudinaryReact = new Cloudinary({
     cloud: {
-        cloudName: 'db0l9t7fr',
-        apiSecret: 'Sq6knO4gcBE7d9sbXdf8OxD6yTs',
-        apiKey: '631147659653346'
+        cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+        apiSecret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+        apiKey: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY
     }
 })
