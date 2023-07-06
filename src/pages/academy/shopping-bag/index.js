@@ -8,9 +8,8 @@ import {
   TabInformationBook,
 } from "../../../styles/ShoppingBag.style";
 import { Tab } from "@mui/material";
-import { audiobooksInterest, videosInterest } from "../../../constants";
+import { audiobooksInterest, videosInterest, booksInterest } from "../../../constants";
 import CustomAudiobook from "../../../components/CustomAudiobook";
-import CustomBook from "../../../components/CustomBook";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,15 +80,15 @@ export default function ShoppingBag() {
           </TabInformation>
         )}
         {value === 2 && (
-          <TabInformationBook>
-            {audiobooksInterest.length > 0 ? (
-              audiobooksInterest.map((item, index) => (
+          <TabInformation>
+            {booksInterest.length > 0 ? (
+              booksInterest.map((item, index) => (
                 <Link
                   href="/academy/books/view/[id]"
                   as={`/academy/books/view/${item.id}`}
                   key={item.id}
                 >
-                  <CustomBook
+                  <CustomAudiobook
                     key={index}
                     img={item.img}
                     name={item.name}
@@ -103,7 +102,7 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainerBook>
             )}
-          </TabInformationBook>
+          </TabInformation>
         )}
       </TabContainer>
     </div>

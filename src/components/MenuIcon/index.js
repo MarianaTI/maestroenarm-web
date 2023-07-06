@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { StyledButton, StyledMenuItem } from "./index.style";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from "@material-ui/icons/Settings";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Menu from "@material-ui/core/Menu";
 import { ListItemIcon } from "@material-ui/core";
-import { IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
+import { History } from "@material-ui/icons";
+import { useAuth } from "../../context/AuthProvider";
 
 const MenuOption = () => {
+    const { closeSesion, user } = useAuth()
     const [anchorEl, setAnchorEl] = useState(null);
     const router = useRouter();
 
@@ -22,11 +23,11 @@ const MenuOption = () => {
     };
 
     const handleSettingsClickShopingBag = () => {
-        router.push("/academy/shopping-bag"); 
+        router.push("/academy/shopping-bag");
         handleMenuClose();
     };
     const handleSettingsClickHistory = () => {
-        router.push("/academy/shopping-bag/history"); 
+        router.push("/academy/shopping-bag/history");
         handleMenuClose();
     };
 
@@ -35,10 +36,9 @@ const MenuOption = () => {
         handleMenuClose();
     };
     const handleSettingsClickPaymentPlans = () => {
-        router.push("/payment-plans"); 
+        router.push("/payment-plans");
         handleMenuClose();
     };
-
 
     const handleSettingsClickAjust = () => {
         router.push("/profile-settings");
@@ -46,7 +46,7 @@ const MenuOption = () => {
     };
 
     const handleSettingsClickClosed = () => {
-        router.push("/sesion");
+        closeSesion()
         handleMenuClose();
     };
 
@@ -55,9 +55,9 @@ const MenuOption = () => {
             <IconButton
                 onClick={handleButtonClick}
                 color="inherit"
-                style={{ marginLeft: "auto", marginRight: 28 }}
+                style={{ marginLeft: "auto", marginRight: 28, padding: 2}}
             >
-                <AccountCircleIcon />
+                <Avatar  src={user?.photoURL} />
             </IconButton>
             <Menu
                 id="options-menu"
@@ -66,7 +66,7 @@ const MenuOption = () => {
                 onClose={handleMenuClose}
             >
                 <StyledMenuItem onClick={handleSettingsClick} style={{ fontFamily: "Poppins", fontWeight: "bold" }}>
-                    angelricardez002
+                    {user?.displayName}
                 </StyledMenuItem>
                 <StyledMenuItem style={{ marginRight: "auto" }} onClick={handleSettingsClickPaymentPlans}>
                     <StyledButton
@@ -84,8 +84,8 @@ const MenuOption = () => {
 
                     </StyledButton>
                 </StyledMenuItem>
-                <StyledMenuItem onClick={handleSettingsClickShopingBag}  style={{ fontFamily: "Poppins" }}>
-                    angel.ricardez@buencodigo.dev
+                <StyledMenuItem onClick={handleSettingsClickShopingBag} style={{ fontFamily: "Poppins" }}>
+                    {user?.email}
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickAjust} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
@@ -95,7 +95,7 @@ const MenuOption = () => {
                 </StyledMenuItem>
                 <StyledMenuItem onClick={handleSettingsClickHistory} style={{ fontFamily: "Poppins" }}>
                     <ListItemIcon>
-                        <ShoppingBagIcon />
+                        <History />
                     </ListItemIcon>
                     Historial
                 </StyledMenuItem>

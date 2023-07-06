@@ -1,96 +1,72 @@
 import QuizIcon from '@mui/icons-material/Quiz';
-import { Cloudinary } from "@cloudinary/url-gen";
-import { scale } from "@cloudinary/url-gen/actions/resize";
+import Link from 'next/link';
 import { CustomButton } from "../../../../components/CustomButton";
-import VideoCard from "../../../../components/VideoCard";
-import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar } from "../../../../styles/Watch.style";
+import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar, MainContentPlaceholder } from "../../../../styles/Watch.style";
 import { useRouter } from "next/router";
-import { Link } from '@mui/material';
-
-const cloudinary = new Cloudinary({
-    cloud: {
-        cloudName: 'db0l9t7fr',
-        apiSecret: 'Sq6knO4gcBE7d9sbXdf8OxD6yTs',
-        apiKey: '631147659653346'
-    }
-})
-
-const videoCards = [
-    {
-        id: "card1", title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
-        player: cloudinary.video('v1686780756/samples/sea-turtle')
-    },
-    {
-        id: "card2", title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
-        player: cloudinary.video('v1686780757/samples/elephants')
-    },
-    {
-        id: "card3", title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
-        player: cloudinary.video('v1686780762/samples/cld-sample-video')
-    },
-    {
-        id: "card4", title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
-        player: cloudinary.video('v1686780762/samples/cld-sample-video')
-    },
-    {
-        id: "card5", title: "Titulo 1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "0.00",
-        player: cloudinary.video('v1686780756/samples/sea-turtle')
-    },
-    {
-        id: "card6", title: "Titulo 2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "10.00",
-        player: cloudinary.video('v1686780757/samples/elephants')
-    },
-    {
-        id: "card7", title: "Titulo 3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "8.00",
-        player: cloudinary.video('v1686780762/samples/cld-sample-video')
-    },
-    {
-        id: "card8", title: "Titulo 4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", prize: "9.98",
-        player: cloudinary.video('v1686780762/samples/cld-sample-video')
-    },
-]
+import { cloudinaryReact } from '../../../../services/cloudinary/config';
+import { CardVideo, CardVideoPlaceholder } from '../../../../components/CardVideo';
+import { useGetVideoQuery, useGetVideosQuery } from '../../../../store/apis/videoApi';
+import { Download } from '@mui/icons-material';
 
 export default function Watch() {
-    const route = useRouter();
-
-    const video = videoCards.find(v => v.id === route.query.id)
-
-    if (!video) return <h1>NO se encontró el recurso</h1>
-
+    const router = useRouter()
+    const { data: videos, isLoading } = useGetVideosQuery()
+    const { data: video, isLoading: isLoadingPlayer } = useGetVideoQuery(router.query?.id?.replace('/', '%2F'));
     return (
         <WatchContainer>
-            <MainContent>
-                <VideoContainer>
-                    <PlayerVideo cldVid={video.player} controls />
-                </VideoContainer>
-                <div style={{ marginTop: 16 }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: 'space-between' }}>
-                        <h2 style={{ margin: 0 }}>{video.title}</h2>
-                        <Link href='/academy/videos/watch/test'>
-                            <CustomButton theme="secondary">
-                                <QuizIcon />
-                            </CustomButton>
-                        </Link>
-                    </div>
-                    <p style={{ margin: "6px 0" }}>{video.description}</p>
-                    <CustomButton theme="secondary" >
-                        <span style={{ fontSize: 16 }}>comprar</span>
-                    </CustomButton>
-                    <span style={{ margin: 16 }}>$ {video.prize}</span>
-                </div>
-            </MainContent>
+            {isLoadingPlayer ?
+                <MainContentPlaceholder>
+                    <div className='player__placeholder' />
+                    <div className='content__placeholder' />
+                    <div className='content__placeholder' />
+                    <div className='content__placeholder' />
+                </MainContentPlaceholder>
+                : video ?
+                    <MainContent>
+                        <VideoContainer>
+                            <PlayerVideo cldVid={cloudinaryReact.video(video.public_id)} controls />
+                        </VideoContainer>
+                        <div style={{ marginTop: 16 }}>
+                            <div style={{ display: "flex", justifyContent: 'space-between', flexWrap: "wrap", gap: 6 }}>
+                                <div>
+                                    <h2 style={{ margin: 0 }}>{video.context?.custom.alt || 'No Title'}</h2>
+                                    <p>{video.context?.custom.alt || 'Not description'}</p>
+                                </div>
+                                <div style={{ display: "flex", gap: 6 }}>
+                                    <Link href='/academy/videos/watch/test'>
+                                        <CustomButton theme="secondary">
+                                            <QuizIcon />
+                                        </CustomButton>
+                                    </Link>
+                                    <CustomButton theme="secondary" >
+                                        <Download />
+                                    </CustomButton>
+                                </div>
+                            </div>
+                        </div>
+                    </MainContent >
+                    : <h1>NO se encontró el recurso</h1>
+            }
             <Sidebar>
-                {videoCards.map(({ id, title, description, prize, player }) => <VideoCard
-                    key={id}
-                    title={title}
-                    description={description}
-                    prize={prize}
-                    isBidCard={false}
-                    route={`/academy/videos/watch/${id}`}
-                    player={player}
+                {isLoading && <>
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                </>}
+                {!isLoading && videos.map(({ asset_id, public_id, context }) => <CardVideo
+                    key={asset_id}
+                    title={context?.custom.caption}
+                    description={context?.custom.alt}
+                    price={context?.custom.price}
+                    url={`/academy/videos/watch/${public_id.replace('/', '%2F')}`}
+                    player={cloudinaryReact.video(public_id)}
+                    isReponsive={true}
                 >
-                </VideoCard>)}
+                </CardVideo>)}
             </Sidebar>
-        </WatchContainer>
+        </WatchContainer >
     )
 } 

@@ -1,34 +1,49 @@
 import { AdvancedVideo } from "@cloudinary/react";
 import styled from "@emotion/styled";
+import { placeholderFrame } from "../components/CardVideo/index.style";
 
 export const WatchContainer = styled.div`
-    margin-top: 16px;
     @media screen and (min-width: 1281px) {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 400px;
     }
 `;
 
 export const Sidebar = styled.aside`
-    padding: 0 32px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 16px;
+    padding: 0 16px;
+    display: grid;
+    align-content: start;
+    gap: 16px;  
     @media screen and (min-width: 1281px) {
-        flex: 0 0 250px;
         padding: 32px 32px 32px 0;
     }
 
-    @media screen and (max-width: 575px) {
-        padding: 0;
-    }
 `;
 
 export const MainContent = styled.main`
-    flex: 1;
-    padding: 32px;
+    padding: 32px 16px;
 `
+
+export const MainContentPlaceholder = styled.main`
+    padding: 32px 16px;
+    display: grid;
+    gap: 16px;
+
+    & > * {
+        background: #ccc;
+    }
+
+    .player__placeholder {
+        aspect-ratio: 16/9;
+    }
+
+    .content__placeholder {
+        height: 12px;
+    }
+
+    animation: ${placeholderFrame} 2s ease-in-out 0s infinite reverse;
+`
+
 
 export const VideoContainer = styled.div`
     position: relative;

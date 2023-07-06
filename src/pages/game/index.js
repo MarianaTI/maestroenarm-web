@@ -12,7 +12,7 @@ export default function Game() {
         <p>Feedback déspues de cada pregunta</p>
       </TitleGameContainer>
       <a href="/demo">
-        <GameField label="Aleatorio" /> 
+        <GameField label="Aleatorio" />
       </a>
       <GameField label="Por Categoría" disabled />
       <TitleGameContainer>
@@ -21,13 +21,12 @@ export default function Game() {
         <p>AMISTOSO</p>
       </TitleGameContainer>
       <a href="#">
-        <GameField label="Aleatorio"/>
+        <GameField label="Aleatorio" />
       </a>
-      <GameField  label="Por Categoría"
-        disabled
+      <GameField label="Por Categoría"
         onClick={() => setOpen(true)}
       />
-      <GameSettingsModal isOpen={open} />
+      <GameSettingsModal isOpen={open} closeModal={() => setOpen(!open)} />
     </>
   );
 }

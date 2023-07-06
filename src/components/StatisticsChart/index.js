@@ -5,17 +5,15 @@ import { ChartContainer, Container, CustomLi, CustomSpan, CustomUl, Image } from
 ChartJS.register(ArcElement, Tooltip);
 
 export const StatisticChart = ({ items }) => {
-
     const data = {
         //labels: ['opcion1', 'opcion2', 'opcion3'],
         datasets: [
             {
                 label: 'score',
-                data: items.map(item => item.score),
+                data: items.slice(0,2).map(item => item.score),
                 backgroundColor: [
                     '#6aa6fa',
-                    '#024CBB',
-                    '#7cbdff'
+                    '#024CBB'
                 ],
                 borderWidth: 0,
             },
@@ -28,10 +26,10 @@ export const StatisticChart = ({ items }) => {
                 <Doughnut data={data} />
             </ChartContainer>
             <CustomUl>
-                {items.map(item => <CustomLi key={item.label}>
+                {items.map((item, index) => <CustomLi key={item.label}>
                     <Image src={item.imageUrl} alt={item.label} />
                     <CustomSpan >{item.label}</CustomSpan>
-                    <CustomSpan >{item.score}</CustomSpan>
+                    <CustomSpan>{index === 2 ? `${item.score}%` : item.score}</CustomSpan>
                 </CustomLi>)}
             </CustomUl>
         </Container>

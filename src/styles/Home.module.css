@@ -4,6 +4,7 @@
   max-width: 1200px;
   margin: auto;
   padding-top: 16px;
+
   @media (max-width: 767px) {
     padding: 10px;
   }
@@ -18,21 +19,38 @@
   border-radius: 4px;
 }
 
-.main{
+.main {
   margin: 100px;
 }
 
-.answer{
+.answer {
   padding: 8px 16px;
   border-radius: 4px;
-  color:rgba(255,255,255);
-  cursor:pointer;
+  color: rgba(255, 255, 255);
+  cursor: pointer;
   min-height: 100px;
   box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
   display: flex;
   align-items: center;
   justify-content: center;
 
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 705px) {
+  .answers {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 8px 245px;
+
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 700px) {
+  .answers {
+    grid-template-columns: 1fr;
+    padding: 8px;
+  }
 }
 
 .answer span {
@@ -57,9 +75,7 @@
 
 .answers {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  padding: 8px 245px;
   transition: background-color 0.3s ease;
 }
 
@@ -81,6 +97,8 @@
 
 .answersContainer {
   position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .counterContainer {
@@ -121,7 +139,7 @@
   margin-left: 50%;
 }
 
-.bienvenido{
+.bienvenido {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
@@ -151,23 +169,14 @@
 
 .boton span {
 
-  /* WF Buttons/Button Large */
-
-  font-family: 'Inter';
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.01em;
   font-feature-settings: 'calt' off;
-
   color: #FFFFFF;
-
-
-  /* Inside auto layout */
-
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -188,14 +197,15 @@
   color: #000000;
   margin-top: 10px;
 }
+
 .saltarDemo a {
   color: #052970;
   font-weight: 700;
 }
 
-.countCase{
+.countCase {
   font-family: 'Poppins';
-  font-size:normal;
+  font-size: normal;
   font-weight: 700;
   font-size: 18px;
   text-align: justify;
@@ -210,34 +220,35 @@
   color: #052970;
   padding: 22px;
   padding-top: 16px;
-  
+
 }
 
 .contenedorCentrado {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
 }
+
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
   .imagenDoctor {
     width: 150px;
     height: 160px;
   }
-  
+
   .boton {
     width: 100%;
     left: 0;
     top: auto;
     margin-top: 20px;
   }
-  
+
   .boton span {
     font-size: 16px;
   }
-  
+
   .saltarDemo {
     width: 100%;
     margin: 20px auto;
@@ -251,11 +262,11 @@
   .bienvenido {
     font-size: 40px;
   }
-  
+
   .boton {
     height: 70px;
   }
-  
+
   .saltarDemo {
     font-size: 16px;
   }

@@ -61,7 +61,7 @@ const paymentPlans = () => {
                 </Cards>
             </CardPlans>
             <ReturnButtonContainer>
-                <a href="/game">
+                <a href="/home">
                     <CustomButton text="Regresar" type="submit"/> 
                 </a>
             </ReturnButtonContainer>

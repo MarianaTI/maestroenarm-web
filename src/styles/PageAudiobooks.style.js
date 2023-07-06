@@ -13,9 +13,6 @@ export const MainContainer = styled.div`
   grid-gap: 300px;
   align-items: center;
   justify-content: center;
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 export const MainInformation = styled.div`
@@ -31,15 +28,7 @@ export const MainInformation = styled.div`
   }
 `;
 
-export const AudiobookContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 48px;
-  @media (max-width: 800px) {
-    padding: 40px;
-  }
-`;
+
 export const ImageStyled = styled(Image)`
   :hover {
     animation: float 2s linear infinite;
@@ -64,7 +53,7 @@ export const ImageStyled = styled(Image)`
     }
   }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1070px) {
     display: none;
   }
 `;
@@ -87,18 +76,11 @@ export const EmptyStateContainer = styled.div`
 `;
 
 
-export const AudiobookGridContainer = styled.div`
+export const AudiobookContainer = styled.div`
+  padding: 32px;
   display: grid;
-  grid-template-columns: repeat(4, 300px);
-  gap: 16px;
-  grid-row-gap: 60px;
-  grid-column-gap: 22px;
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(2, 300px);
-  }
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
 `;
 
 export const FilterContainer = styled.div`

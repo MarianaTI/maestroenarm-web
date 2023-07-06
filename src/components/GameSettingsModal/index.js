@@ -2,9 +2,9 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { CustomButton } from '../CustomButton';
 import { ModalBody, RangeContainer } from './index.style';
+import { useState } from 'react';
 
-export const GameSettingsModal = ({ isOpen }) => {
-    //todo:  usar estado global para cerrar el modal
+export const GameSettingsModal = ({ isOpen, closeModal }) => {
     return (
         <Modal
             open={isOpen}
@@ -13,7 +13,7 @@ export const GameSettingsModal = ({ isOpen }) => {
         >
             <ModalBody>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Modo Multijugador Amistoso - Por categoría
+                    Por categoría
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     Selecciona el número de casos que desea responder y tiempo deseado
@@ -23,7 +23,7 @@ export const GameSettingsModal = ({ isOpen }) => {
                     <input type='range' />
                     <label>Tiempo: 5 min</label>
                     <input type='range' />
-                    <CustomButton text='continuar' />
+                    <CustomButton text='continuar' onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>

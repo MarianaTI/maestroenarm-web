@@ -19,13 +19,15 @@ import SchoolIcon from "@mui/icons-material/School";
 import GroupIcon from "@mui/icons-material/Group";
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
+import HistoryIcon from '@mui/icons-material/History';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useDispatch } from "react-redux";
 import { openNavDrawer } from "../../store/slices/navDrawerSlice";
 
 const links = [
   {
     label: "Examenes",
-    route: "/game",
+    route: "/home",
     icon: <HomeIcon />,
   },
   {
@@ -73,22 +75,37 @@ const links = [
     icon: <SchoolIcon />,
     suboptions: [
       {
-        label: "books",
+        label: "Inicio",
+        route: "/academy",
+        icon: <HomeIcon />,
+      }, ,
+      {
+        label: "Libros",
         route: "/academy/books",
         icon: <MenuBookOutlinedIcon />,
       },
       {
-        label: "audiobooks",
+        label: "Audiolibros",
         route: "/academy/audiobooks",
         icon: <PlayLessonOutlinedIcon />,
       },
       {
-        label: "videos",
+        label: "Videos",
         route: "/academy/videos",
         icon: <PlayCircleOutlinedIcon />,
       },
-    ],
-  },
+      {
+        label: "Compras",
+        route: "/academy/shopping-bag",
+        icon: <ShoppingBagIcon />,
+      },
+      {
+        label: "Historial",
+        route: "/academy/shopping-bag/history",
+        icon: <HistoryIcon />,
+      },
+    ]
+  }
 ];
 
 export default function Navbar() {
@@ -100,7 +117,6 @@ export default function Navbar() {
       setAnchorEl(event.currentTarget);
     }
   };
-
 
   const handleMouseLeave = () => {
     setAnchorEl(null);
@@ -180,6 +196,6 @@ export default function Navbar() {
           <MenuOption />
         </CustomNavUl>
       </nav>
-    </Header>
+    </Header >
   );
 }

@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userAccount } from "../constants";
 import * as yup from "yup";
 import {
   StyledCard,
@@ -18,7 +17,7 @@ import {
   BackQuestionStyled,
   ErrorMessage,
 } from "../styles/Login.style";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomModal from "../components/CustomModal";
 import CustomOptionsLogin from "../components/CustomOptionsLogin";
@@ -26,27 +25,29 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
+import { signInByGoogle } from "../services/firebase/providers/google";
+import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
+import { signInByMaestroEnarm } from "../services/firebase/providers/email";
+import { signInByApple } from "../services/firebase/providers/apple";
+import { useAuth } from "../context/AuthProvider";
+import { signInByFacebook } from "../services/firebase/providers/facebook";
 
 const loginSchema = yup.object({
-  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
-  password: yup.string().required("Por favor, ingresa tu contraseña"),
+  email: yup.string().email().required(),
+  password: yup.string().required(),
 });
 
-  const Sesion = () => {
+const Sesion = () => {
+  const router = useRouter();
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
-  const [openChangePassword, setOpenChangePassword] = useState(false);
+  // const [openChangePassword, setOpenChangePassword] = useState(false);
   const [isShowPassword, setShowPassword] = useState(false);
-  const router = useRouter();
+  const { user } = useAuth();
 
-  const authenticateUser = (email, password) => {
-    const user = userAccount.find(
-      (account) => account.email === email && account.password === password
-    );
-    if (!user) {
-      throw new Error("Error de autenticación");
-    }
-  };
+  useEffect(() => {
+    if (user) router.push("/home")
+  })
 
   const {
     handleSubmit,
@@ -62,11 +63,9 @@ const loginSchema = yup.object({
 
   const onSubmit = (values) => {
     try {
-      authenticateUser(values.email, values.password);
-      router.push("/game");
+      signInByMaestroEnarm(values.email, values.password)
       setErrorLogin(false);
     } catch (error) {
-      console.log(error.message);
       setErrorLogin(true);
     }
   };
@@ -76,11 +75,12 @@ const loginSchema = yup.object({
   const togglePasswordVisibility = () => {
     setShowPassword(!isShowPassword);
   };
-  const handleCloseChangePassword = () => setOpenChangePassword(false);
+  // const handleCloseChangePassword = () => setOpenChangePassword(false);
   const handleOpenChangePassword = () => {
     setOpenForgotPassword(false);
     setOpenChangePassword(true);
   };
+
 
   return (
     <LoginGrid>
@@ -122,9 +122,10 @@ const loginSchema = yup.object({
             </QuestionStyled>
             <CustomButton text="Iniciar" type="submit" />
             <BoxOptions>
-              <CustomOptionsLogin icon="./google.svg" />
-              <CustomOptionsLogin icon="./microsoft.svg" />
-              <CustomOptionsLogin icon="./apple.svg" />
+              <CustomOptionsLogin icon="./google.svg" onClick={signInByGoogle} />
+              <CustomOptionsLogin icon="./microsoft.svg" onClick={signInByMicrosoft} />
+              <CustomOptionsLogin icon="./facebook.svg" onClick={signInByFacebook} />
+              <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} />
             </BoxOptions>
             <BackQuestionStyled>
               <span>
@@ -149,6 +150,10 @@ const loginSchema = yup.object({
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
+        <BackLoginContainer>
+          <BackLoginIcon />
+          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
+        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );

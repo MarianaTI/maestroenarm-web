@@ -1,24 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  subcategories: [],
-  casesQuantity: 0,
+  trueAnswerCount: 0,
+  falseAnswerCount: 0,
+  quizAccuracy: 0,
+  gameHistory: [],
 };
 
-export const counterSlice = createSlice({
+
+export const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
-    setSubcategories: (state, action) => {
-      state.subcategories = action.payload;
+    setTrueAnswerCount: (state, action) => {
+      state.trueAnswerCount += action.payload.valor;
     },
-    setCasesQuantity: (state, action) => {
-      state.casesQuantity = action.payload;
+    setFalseAnswerCount: (state, action) => {
+      state.falseAnswerCount += action.payload.valor;
     },
+    setQuizAccuracy: (state, action) => {
+      const totalAnswers = state.trueAnswerCount + state.falseAnswerCount;
+      const accuracy = (state.trueAnswerCount/totalAnswers)*100
+      state.quizAccuracy = Math.ceil(accuracy);
+    },
+    setAddGameHistory: (state, action) => {
+      state.gameHistory.push(action.payload);
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setSubcategories, setCasesQuantity } = counterSlice.actions;
+export const { setTrueAnswerCount, setFalseAnswerCount, setQuizAccuracy, setAddGameHistory } = gameSlice.actions;
 
-export default counterSlice.reducer;
+export default gameSlice.reducer;

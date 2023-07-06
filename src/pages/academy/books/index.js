@@ -2,7 +2,7 @@ import Image from "next/image";
 import CustomBook from "../../../components/CustomBook";
 import Filter from "../../../components/Filter";
 import FilterDrawer from "../../../components/FilterDrawer";
-import { audiobooks } from "../../../constants";
+import { books } from "../../../constants";
 import {
   BookContainer,
   BookGridContainer,
@@ -33,9 +33,9 @@ export default function Books() {
         <FilterDrawer></FilterDrawer>
       </FilterContainer>
       <BookContainer>
-        {audiobooks.length > 0 ? (
+        {books.length > 0 ? (
           <BookGridContainer>
-            {audiobooks.map((item, index) => (
+            {books.map((item, index) => (
               <Link
                 href="/academy/books/view/[id]"
                 as={`/academy/books/view/${item.id}`}
@@ -46,9 +46,8 @@ export default function Books() {
                     key={index}
                     img={item.img}
                     name={item.name}
-                    topics={item.topics}
+                    author={item.author}
                     price={item.price}
-                    showIcon
                   />
                 </div>
               </Link>

@@ -13,9 +13,10 @@ export const InterestContainer = styled.div`
   flex-direction: column;
   margin: 48px;
   .InterestTitle {
+    color: #2d3648;
     font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 24px;
+    font-size: 20px;
+    margin-left: 8px;
   }
   .CurouselStyled {
     background-color: aliceblue;

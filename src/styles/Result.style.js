@@ -7,7 +7,6 @@ export const TextContainerResult = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 150%;
     text-align: center;
     letter-spacing: -0.01em;
     font-feature-settings: 'calt' off;
@@ -38,7 +37,7 @@ export const TextContainerResult = styled.div`
 `;
 
 export const Container = styled.div`
-     padding-top: 100px;
+     padding-top: 15px;
     @media (max-width: 768px) {
         margin-left: 5%;
     }
@@ -62,134 +61,59 @@ export const StatisticsContainer = styled.div`
 `;
 
 export const ContainerRetroAlim = styled.div`
-    box-sizing: border-box;
-    position: absolute;
-    width: 90%;
     max-width: 1020px;
-    height: 90px;
     background: #FCFCFC;
     border: 0.5px solid #585555;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin: auto;
-  
-    
-    & span {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 150%;
-        text-align: center;
-        letter-spacing: -0.01em;
-        font-feature-settings: 'calt' off;
-        margin: 1.2%;
-        margin-left: 3%;
-    }
-    & span:nth-of-type(1) {
-        display: flex;
-        color: #000000;
-    }
-    & span:nth-of-type(2) {
-        font-size: 16px;
-        display: inline;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    & span:nth-of-type(3) {
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.5);
-        margin-left: 78%;
-    }
+`;
 
-    @media (max-width: 995px) {
-    width: 90%;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px;
-
-    & span:nth-of-type(1),
-    & span:nth-of-type(2),
-    & span:nth-of-type(3) {
-      font-size: 14px;
-      margin: 4px;
-    }
-   }
-
-    @media (max-width: 768px) {
-        width: 90%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 8px;
-
-        & span:nth-of-type(1),
-        & span:nth-of-type(2),
-        & span:nth-of-type(3) {
-            font-size: 14px;
-            margin: 4px;
-        }
-    }
+export const ReturnDemoButtonContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   padding: 10px;
 `;
 
 
 export const TextStatic = styled.div`
-    margin-top: 12%;
-    display: flex;
-    width: 90%;
-    max-width: 900px;
-  margin-left: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 900px;
+  padding-left: 3%;
+  padding-top: 15px;
 
-  
- & span {
+  & span {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
     text-align: center;
-    letter-spacing: -0.01em;
-    font-feature-settings: 'calt' off;
-   
-   
-  }
-  & span:nth-of-type(1) {
+    width: 50%; 
+    color: rgba(0, 0, 0, 1);
     font-size: 16px;
-    color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
   }
-  & span:nth-of-type(2) {
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.5);
-    margin-left: 78%;
+
+  & span:nth-of-type(2n) {
+    margin-left: auto; 
   }
+
   @media (max-width: 768px) {
-    flex-wrap: wrap;
+    flex-direction: column; 
+    align-items: flex-start; 
     margin-left: 1%;
 
-    & span:nth-of-type(1),
-    & span:nth-of-type(2) {
+    & span {
       font-size: 14px;
       margin: 2px;
+      width: 100%; 
     }
 
-    & span:nth-of-type(3) {
-      font-size: 14px;
-      margin-left: auto;
-    }
-  }
-
-  @media (max-width: 995px) {
-    margin-left: 2%;
-
-    & span:nth-of-type(1) {
-      font-size: 14px;
-    }
-
-    & span:nth-of-type(2) {
-      font-size: 14px;
-      margin-left: 68%;
+    & span:nth-of-type(2n) {
+      margin-left: 0; 
     }
   }
+
 `;
 
 
