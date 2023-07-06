@@ -22,7 +22,7 @@ export default function AudioBooks() {
 	let audiobooksRef = null;
 	async function getAudiobooks() {
 		if (input === '') audiobooksRef = query(collection(db, 'audiobooks'), limit(24))
-		else audiobooksRef = query(collection(db, 'audiobooks'), where('name', '>=', input), where('name', '<', input + '\uf8ff'))
+		else audiobooksRef = query(collection(db, 'audiobooks'), where('name', '>=', input), where('name', '<=', input + '\uf8ff'))
 		const snapshot = await getDocs(audiobooksRef);
 		const data = snapshot.docs.map(doc => doc.data());
 		setAudiobooks(data);
