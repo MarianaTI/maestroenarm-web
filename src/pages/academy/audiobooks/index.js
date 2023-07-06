@@ -17,20 +17,17 @@ import { collection, getDocs, query, where, limit } from "@firebase/firestore";
 import { db } from "../../../services/firebase/config";
 
 export default function AudioBooks() {
-	const [audiobooks, setAudiobooks] = useState([]);
-	const [input, setInput] = useState('');
-	let audiobooksRef = null;
+	const [filterItems, setFilterItems] = useState([])
+	const [input, setInput] = useState('')
 	async function getAudiobooks() {
-		if (input === '') audiobooksRef = query(collection(db, 'audiobooks'), limit(24))
-		else audiobooksRef = query(collection(db, 'audiobooks'), where('name', '>=', input), where('name', '<', input + '\uf8ff'))
-		const snapshot = await getDocs(audiobooksRef);
-		const data = snapshot.docs.map(doc => doc.data());
-		setAudiobooks(data);
+		const snapshot = await getDocs(query(collection(db, 'audiobooks'), limit(24)));
+		const audiobooks = snapshot.docs.map(doc => doc.data());
+		setFilterItems(audiobooks.filter(data => data.name.includes(input)))
 	}
 	useEffect(() => {
 		const debouncing = setTimeout(() => { getAudiobooks() }, 500)
 		return () => clearTimeout(debouncing)
-	}, [input]);
+	}, [filterItems]);
 
 	return (
 		<Container>
@@ -48,9 +45,9 @@ export default function AudioBooks() {
 				<Filter setState={setInput} />
 				<FilterDrawer />
 			</FilterContainer>
-			{audiobooks.length > 0 ? (
+			{filterItems.length > 0 ? (
 				<AudiobookContainer>
-					{audiobooks.map((item, index) => (
+					{filterItems.map((item, index) => (
 						<Link
 							href="/academy/audiobooks/view/[id]"
 							as={`/academy/audiobooks/view/${item.id}`}
