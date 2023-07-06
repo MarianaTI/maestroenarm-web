@@ -82,7 +82,11 @@ export const userRegister = [
   },
 ];
 
+export const books = [];
 export const videosInterest = [];
+export const audiobooksInterest = [];
+export const booksInterest = [];
+
 
 export const clinicalCases = {
   1: {
@@ -343,3 +347,4 @@ export const clinicalCases = {
 export default {
   clinicalCases: Object.values(clinicalCases),
 };
+

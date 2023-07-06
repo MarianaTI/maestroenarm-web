@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Question from "../components/Question";
+import Case from "../components/Case";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import TimeIcon from "../components/TimeIcon/index";
@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
-import { setFalseAnswerCount, setTrueAnswerCount } from "../store/slices/gameSlice";
+import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory } from "../store/slices/gameSlice";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -84,6 +84,7 @@ export default function Home() {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
+    dispatch(setAddGameHistory({clinicalCaseName, questionText}))
     if (!isOpenFeedback) {
       goNext();
     }
@@ -109,7 +110,7 @@ export default function Home() {
           seconds={13}
           isCounting={isCounting}
         ></TimeIcon>
-        <Question>{clinicalCaseName}</Question>
+        <Case>{clinicalCaseName}</Case>
         <p className={styles.pregunta}>{questionText}</p>
 
         {isFeedbackHidden && (
