@@ -30,14 +30,7 @@ export default function Preview() {
                             <PlayerVideo cldVid={cloudinaryReact.video(video.public_id).videoEdit(preview().duration(5))} controls />
                         </VideoContainer>
                         <div style={{ marginTop: 16 }}>
-                            <div style={{ display: "flex", alignItems: "center", justifyContent: 'space-between' }}>
-                                <h2 style={{ margin: 0 }}>{video.context?.custom.alt || 'No Title'}</h2>
-                                <Link href='/academy/videos/watch/test'>
-                                    <CustomButton theme="secondary">
-                                        <QuizIcon />
-                                    </CustomButton>
-                                </Link>
-                            </div>
+                            <h2 style={{ margin: 0 }}>{video.context?.custom.alt || 'No Title'}</h2>
                             <p style={{ margin: "6px 0" }}>{video.context?.custom.alt || 'Not description'}</p>
                             <Link href="/academy/shopping-bag/payment-method" onClick={() => dispatch(setCurrentProduct({ ...video }))}>
                                 <CustomButton theme="secondary" >
@@ -51,6 +44,9 @@ export default function Preview() {
             }
             <Sidebar>
                 {isLoading && <>
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
+                    <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />

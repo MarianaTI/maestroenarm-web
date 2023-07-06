@@ -29,7 +29,7 @@ export default function Videos() {
                         <CardVideoPlaceholder />
                     </>}
                     {!isLoading && videos.map(({ asset_id, public_id, context }) => <CardVideo
-                        key={public_id}
+                        key={asset_id}
                         title={context?.custom.caption}
                         description={context?.custom.alt}
                         price={context?.custom.price}
