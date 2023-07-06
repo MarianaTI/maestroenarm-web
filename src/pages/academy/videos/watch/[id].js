@@ -29,8 +29,8 @@ export default function Watch() {
                         <div style={{ marginTop: 16 }}>
                             <div style={{ display: "flex", justifyContent: 'space-between', flexWrap: "wrap", gap: 6 }}>
                                 <div>
-                                    <h2 style={{ margin: 0 }}>{video.context?.custom.alt || 'No Title'}</h2>
-                                    <p>{video.context?.custom.alt || 'Not description'}</p>
+                                    <h2 style={{ margin: 0 }}>{video.context?.alt || 'No Title'}</h2>
+                                    <p>{video.context?.alt || 'Not description'}</p>
                                 </div>
                                 <div style={{ display: "flex", gap: 6 }}>
                                     <Link href='/academy/videos/watch/test'>
@@ -58,9 +58,9 @@ export default function Watch() {
                 </>}
                 {!isLoading && videos.map(({ asset_id, public_id, context }) => <CardVideo
                     key={asset_id}
-                    title={context?.custom.caption}
-                    description={context?.custom.alt}
-                    price={context?.custom.price}
+                    title={context?.caption}
+                    description={context?.alt}
+                    price={context?.price}
                     url={`/academy/videos/watch/${public_id.replace('/', '%2F')}`}
                     player={cloudinaryReact.video(public_id)}
                     isReponsive={true}

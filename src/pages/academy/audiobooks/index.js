@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import CustomBook from "../../../components/CustomBook";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, where, limit } from "@firebase/firestore";
+import { collection, getDocs, query, limit } from "@firebase/firestore";
 import { db } from "../../../services/firebase/config";
 
 export default function AudioBooks() {
