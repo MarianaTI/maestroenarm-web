@@ -26,7 +26,7 @@ export default function Videos() {
                             eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </MainInformation>
-                    <ImageStyled src="/academy-principal-video-page.svg" width={350} height={300} alt="banner" />
+                    <ImageStyled src="/academy-principal-video-page.svg" width={300} height={300} alt="banner" />
                 </MainContainer>
                 <Filter setState={setQuery} />
                 <VideoCardContainer>
