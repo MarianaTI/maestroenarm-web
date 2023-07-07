@@ -1,20 +1,29 @@
-import React from "react";
-import styles from "../styles/Home.module.css";
-import { ImagenDoctor } from "../styles/demo.style";
+import Image from "next/image";
+import Link from "next/link";
+import { CustomButton } from "../components/CustomButton";
+import { LandingContainer } from "../styles/demo.style";
 
-const Bienvenido = () => {
-  return (
-    <div className={styles.contenedorCentrado}>
-      <h1 className={styles.bienvenido}>Bienvenido a Maestro ENARM</h1>
-      <ImagenDoctor src="./doctor.svg" width={222} height={222}/>
-      <a className={styles.boton} href="/demo">
-        <span>Jugar Demo</span>
-      </a>
-      <p className={styles.saltarDemo}>
-        Desea saltar la DEMO? <a href="/sesion"> Saltar</a>
-      </p>
-    </div>
-  );
-};
 
-export default Bienvenido;
+export default function Landing() {
+  return <>
+    <LandingContainer>
+      <Image src="/beam-online-medical-consultation.gif" alt="banner" height={500} width={500} />
+      <div className="content">
+        <div>
+          <h1>Bienvenido a Maestro Enarm</h1>
+          <p>Aprende divirtiendote, compite con amigos, encuentra recursos de estudio y mucho mas.</p>
+        </div>
+        <div className="button__container">
+          <Link href="/demo">
+            <CustomButton>probar demo</CustomButton>
+          </Link>
+          <Link href="/sesion">
+            <CustomButton>crear cuenta</CustomButton>
+          </Link>
+
+        </div>
+      </div>
+    </LandingContainer>
+  </>
+
+}
