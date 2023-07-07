@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const CollapseComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [casoClinicoIndex, setCasoClinicoIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const gameHistory = useSelector((state) => state.game.gameHistory);
 
@@ -12,11 +13,12 @@ const CollapseComponent = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleToggleAnswer = (questionIndex) => {
+  const handleToggleAnswer = (questionIndex, index) => {
     setSelectedAnswerIndex(questionIndex === selectedAnswerIndex ? null : questionIndex);
+    setCasoClinicoIndex(index=== casoClinicoIndex ? null : index);
+    console.log(questionIndex, index);
   };
-
-
+  
   const uniqueClinicalCases = gameHistory.reduce((uniqueCases, item) => {
     if (!uniqueCases.includes(item.clinicalCaseName)) {
       uniqueCases.push(item.clinicalCaseName);
@@ -38,22 +40,22 @@ const CollapseComponent = () => {
               (item) => item.clinicalCaseName === caseName
             );
 
-            return (
+            return ( 
               <div key={index}>
                 <Case>Caso clínico {index + 1}: {caseName}</Case>
                 {filteredQuestions.map((item, questionIndex) => (
                   <div key={questionIndex}>
                     <Pregunta>Pregunta: {item.questionText}</Pregunta>
                     <ContainerAnswert>
-                      <ClosedCollapseAnswert onClick={() => handleToggleAnswer(questionIndex)}>
+                    <ClosedCollapseAnswert onClick={() => handleToggleAnswer(questionIndex, index)}>
                         {item.answers.map((answer, answerIndex) => (
                           <div key={answerIndex}>{answer.text}</div>
                         ))}
-                      </ClosedCollapseAnswert>
-                      <Collapse in={selectedAnswerIndex === questionIndex}>
-                        <Typography onClick={() => handleToggleAnswer(questionIndex)}>
-                          {item.answers.map((answer, answerIndexWhy) => (
-                            <div key={answerIndexWhy}>{answer.answer}</div>
+                    </ClosedCollapseAnswert>
+                      <Collapse in={selectedAnswerIndex === questionIndex && casoClinicoIndex === index}>
+                        <Typography>
+                          {item.answers.map((answer, answerIndexResults) => (
+                            <div key={answerIndexResults}>{answer.answer}</div>
                           ))}
                         </Typography>
                       </Collapse>
