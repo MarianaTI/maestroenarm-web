@@ -11,6 +11,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import {CheckBoxButton} from "../../components/CheckBoxButton";
 
 export default function Game() {
   const router = useRouter();
