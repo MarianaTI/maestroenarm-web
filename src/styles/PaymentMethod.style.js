@@ -83,7 +83,19 @@ export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
+  .custom-card-number {
+    margin: 4px 0px 8px 0px;
+    background-color: #ebebeb;
+    height: 50px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
+
 
 export const RowInputs = styled.div`
   display: flex;
@@ -157,3 +169,5 @@ export const CompletePayment = styled.div`
     text-decoration: underline;
   }
 `;
+
+

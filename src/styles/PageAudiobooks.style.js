@@ -79,7 +79,7 @@ export const EmptyStateContainer = styled.div`
 export const AudiobookContainer = styled.div`
   padding: 32px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
   gap: 12px;
 `;
 

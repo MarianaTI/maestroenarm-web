@@ -31,10 +31,11 @@ const paymentSchema = yup.object().shape({
   cardName: yup.string().required("Este dato es requerido"),
 });
 
-
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+
+  const product = useSelector((state) => state.product.currentProduct);
 
   const {
     control,
@@ -47,102 +48,135 @@ const CheckoutForm = () => {
     resolver: yupResolver(paymentSchema),
   });
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
+  const onSubmit = async () => {
 
     if (!stripe || !elements) {
       return; // Retorna si Stripe no ha cargado aún.
     }
 
-    console.log("Form Values:", values); // Aquí imprimimos los datos del formulario.
-
-    const cardElement = elements.getElement(CardElement);
-
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: cardElement,
+      card: elements.getElement(CardElement),
     });
 
     if (error) {
       console.log("Error al crear el método de pago:", error);
     } else {
-      console.log("Método de pago creado:", paymentMethod);
+      const {id} = paymentMethod;
+      try {
+        const response = await fetch("http://localhost:3001/api/checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id,
+            amount: 10000, //cents
+          }),
+        });
       
-        
+        if (response.ok) {
+          if (response.headers.get("content-type")?.includes("application/json")) {
+            const data = await response.json();
+            console.log(data);
+          } else {
+            console.log('Pago exitoso, pero no se devolvió ningún contenido');
+          }
+          elements.getElement(CardElement).clear();
+        } else {
+          const errorData = await response.json();
+          console.log("Error en la solicitud:", response.status, errorData);
+        }        
+      } catch (error) {
+        console.log("Error en la solicitud:", error);
+      }      
     }
   };
 
-  const product = useSelector((state) => state.product.currentProduct);
-  
+  // console.log("Form Values:", data); // Aquí imprimimos los datos del formulario.
+
+  // const cardElement = elements.getElement(CardElement);
+
+  // const { error, paymentMethod } = await stripe.createPaymentMethod({
+  //   type: "card",
+  //   card: cardElement,
+  // });
+
+  // if (error) {
+  //   console.log("Error al crear el método de pago:", error);
+  // } else {
+  //   console.log("Método de pago creado:", paymentMethod);
+
+  // }
 
   return (
-      <ContainerForm onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <MainContainer>
-            <h1>Continua con tu compra</h1>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
-            </span>
-          </MainContainer>
-          <PayContainer>
-            <span>Método de pago</span>
-            <CardContainer>
-              <TitleContainer>
-                <IconStyled />
-                <span>Tarjeta de crédito/débito</span>
-              </TitleContainer>
-              <FormStyled>
-                <CustomInput
-                  label="Nombre del propietario"
-                  name="cardName"
-                  control={control}
-                  placeholder="Nombre del propietario"
-                  error={errors.cardName?.message}
-                />
-                <CardElement
-                  options={{
-                    style: {
-                      base: {
-                        fontSize: "14px",
-                        color: "#424770",
-                        "::placeholder": {
-                          color: "#aab7c4",
-                        },
-                      },
-                      invalid: {
-                        color: "#9e2146",
+    <ContainerForm onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <MainContainer>
+          <h1>Continua con tu compra</h1>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </MainContainer>
+        <PayContainer>
+          <span>Método de pago</span>
+          <CardContainer>
+            <TitleContainer>
+              <IconStyled />
+              <span>Tarjeta de crédito/débito</span>
+            </TitleContainer>
+            <FormStyled>
+              <CustomInput
+                label="Nombre del propietario"
+                name="cardName"
+                control={control}
+                placeholder="Nombre del propietario"
+                error={errors.cardName?.message}
+              />
+              <CardElement
+                options={{
+                  style: {
+                    base: {
+                      fontSize: "14px",
+                      color: "#424770",
+                      "::placeholder": {
+                        color: "#aab7c4",
                       },
                     },
-                  }}
-                />
-              </FormStyled>
-            </CardContainer>
-          </PayContainer>
-          <CustomShoppingDetails
-            productName={product.name}
-            productTopics={product.topics}
-            productPrice={product.price}
+                    invalid: {
+                      color: "#9e2146",
+                    },
+                  },
+                }}
+              />
+            </FormStyled>
+          </CardContainer>
+        </PayContainer>
+        <CustomShoppingDetails
+          productName={product.name}
+          productTopics={product.topics}
+          productPrice={product.price}
+        />
+      </div>
+      <PaymentContainer>
+        <CompletePayment>
+          <CustomCalculateTotal
+            originalPrice={product.price}
+            totalPrice={product.price}
           />
-        </div>
-        <PaymentContainer>
-          <CompletePayment>
-            <CustomCalculateTotal
-              originalPrice={product.price}
-              totalPrice={product.price}
-            />
-            <span className="DetailText">
-              Al completar la compra, aceptas estas{" "}
-              <Link href="#" className="LinkText">
-                Condiciones de uso.
-              </Link>
-            </span>
-            <CustomButtonAcademy buttonText="Completar pago" type="submit" />
-          </CompletePayment>
-        </PaymentContainer>
-      </ContainerForm>
+          <span className="DetailText">
+            Al completar la compra, aceptas estas{" "}
+            <Link href="#" className="LinkText">
+              Condiciones de uso.
+            </Link>
+          </span>
+          <CustomButtonAcademy buttonText="Completar pago" type="submit" disabled={!stripe}/>
+        </CompletePayment>
+      </PaymentContainer>
+    </ContainerForm>
   );
-}
+};
 
 export default function PaymentMethod() {
   return (
