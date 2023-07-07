@@ -1,13 +1,20 @@
 import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { ImageStyled, MainContainer, MainInformation, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
-import { useGetVideosQuery } from "../../../store/apis/videoApi"
+import { useGetVideosByTitleQuery } from "../../../store/apis/videoApi"
 import { CardVideo, CardVideoPlaceholder } from "../../../components/CardVideo"
 import { cloudinaryReact } from "../../../services/cloudinary/config"
+import { useEffect, useState } from "react"
 
 export default function Videos() {
-    //todo: crear validacion de pago, si el usario ha pagado mostrar los videos con metadata premium, las card de videos no deben reproducirse
-    const { isLoading, data: videos } = useGetVideosQuery()
+    const [query, setQuery] = useState('')
+    const { data: videos, isLoading, refetch } = useGetVideosByTitleQuery(query)
+    console.log(isLoading)
+    useEffect(() => {
+        const debouncing = setTimeout(() => { refetch() }, 500)
+        return () => clearTimeout(debouncing)
+    }, [query])
+
     return (
         <>
             <VideoContainer >
@@ -19,20 +26,19 @@ export default function Videos() {
                             eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </MainInformation>
-                    <ImageStyled src="/academy-principal-video-page.svg" width={350} height={300} />
+                    <ImageStyled src="/academy-principal-video-page.svg" width={350} height={300} alt="banner" />
                 </MainContainer>
-                <Filter />
+                <Filter setState={setQuery} />
                 <VideoCardContainer>
-                    {isLoading && <>
+                    {isLoading ? <>
                         <CardVideoPlaceholder />
                         <CardVideoPlaceholder />
                         <CardVideoPlaceholder />
-                    </>}
-                    {!isLoading && videos.map(({ asset_id, public_id, context }) => <CardVideo
+                    </> : videos?.map(({ asset_id, public_id, context }) => <CardVideo
                         key={asset_id}
-                        title={context?.custom.caption}
-                        description={context?.custom.alt}
-                        price={context?.custom.price}
+                        title={context?.caption}
+                        description={context?.alt}
+                        price={context?.price}
                         url={`/academy/videos/preview/${public_id.replace('/', '%2F')}`}
                         player={cloudinaryReact.video(public_id)}
                     >

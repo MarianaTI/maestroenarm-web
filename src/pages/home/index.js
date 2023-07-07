@@ -1,17 +1,37 @@
 import { useState } from "react";
 import { GameField } from "../../components/GameField";
 import { GameSettingsModal } from "../../components/GameSettingsModal";
-import { TitleGameContainer } from "../../styles/Game.style";
+import { LinkModalBody, TitleGameContainer } from "../../styles/Game.style";
 import { getRandomClinicalCases } from "../../utils";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
+import CustomModal from "../../components/CustomModal";
+import ShareIcon from "@mui/icons-material/Share";
+import { CustomButton } from "../../components/CustomButton";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Game() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const auth = useAuth();
+  const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
+    useState(false);
+  const [roomId, setRoomId] = useState("");
 
-  console.log(auth.user);
+  useEffect(() => {
+    if (roomId) {
+      const unsub = onSnapshot(doc(db, "games", roomId), (doc) => {
+        const { player_2: player2 } = doc.data();
+        if (player2) {
+          router.push("/home/match/" + roomId);
+        }
+      });
+
+      return () => unsub();
+    }
+  }, [roomId]);
   const handleRandomMultiplayerClick = async () => {
     const randomClinicalCases = getRandomClinicalCases(2);
     const docRef = await addDoc(collection(db, "games"), {
@@ -27,8 +47,12 @@ export default function Game() {
       player_2: null,
     });
     const roomId = docRef.id;
-    const matchLink = `localhost:3000/game/match/${roomId}`;
-    console.log(matchLink);
+    setRoomId(roomId);
+    setIsMultiplayerLinkModalOpen(true);
+  };
+
+  const handleCopyLinkToClipboard = () => {
+    navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
   return (
     <>
@@ -39,7 +63,7 @@ export default function Game() {
       <a href="/game">
         <GameField label="Aleatorio" />
       </a>
-      <GameField label="Por Categoría"  onClick={() => setOpen(true)}/>
+      <GameField label="Por Categoría" onClick={() => setOpen(true)} />
       <GameSettingsModal isOpen={open} />
 
       <TitleGameContainer>
@@ -48,8 +72,25 @@ export default function Game() {
         <p>AMISTOSO</p>
       </TitleGameContainer>
       <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
-      <GameField label="Por Categoría" disabled  onClick={() => setOpen(true)} />
-      <GameSettingsModal isOpen={open} closedModal={()=> setOpen(!open)}/>
+      <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
+      <CustomModal
+        title="¡Estamos esperando a tu contrincante!"
+        message="Comparte este link con algún amigo y averiguar quien sabe más. ¿Quién será...?"
+        open={isMultiplayerLinkModalOpen}
+        onClose={() => setIsMultiplayerLinkModalOpen(false)}
+      >
+        <LinkModalBody>
+          <span>Copiar Link</span>
+          <div className="link-container">
+            <span>{`localhost:3000/home/match/${roomId}`}</span>
+            <CustomButton theme="icon" onClick={handleCopyLinkToClipboard}>
+              <ShareIcon />
+            </CustomButton>
+          </div>
+          <span>Esperando...</span>
+        </LinkModalBody>
+      </CustomModal>
     </>
   );
 }

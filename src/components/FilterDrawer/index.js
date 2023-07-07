@@ -8,7 +8,7 @@ import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.s
 
 const drawerItems = [
     {
-        id: 1, label: 'Especialidad', isOpen: false, subspecialties: [
+        id: 1, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad', isSelected: false },
             { id: 2, label: 'Sub - especialidad', isSelected: false },
             { id: 3, label: 'Sub - especialidad', isSelected: false },
@@ -16,7 +16,7 @@ const drawerItems = [
         ]
     },
     {
-        id: 2, label: 'Especialidad', isOpen: false, subspecialties: [
+        id: 2, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad', isSelected: false },
             { id: 2, label: 'Sub - especialidad', isSelected: false },
             { id: 3, label: 'Sub - especialidad', isSelected: false },
@@ -24,7 +24,7 @@ const drawerItems = [
         ]
     },
     {
-        id: 3, label: 'Especialidad', isOpen: false, subspecialties: [
+        id: 3, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad', isSelected: false },
             { id: 2, label: 'Sub - especialidad', isSelected: false },
             { id: 3, label: 'Sub - especialidad', isSelected: false },
@@ -32,7 +32,7 @@ const drawerItems = [
         ]
     },
     {
-        id: 4, label: 'Especialidad', isOpen: false, subspecialties: [
+        id: 4, label: 'Especialidad', subspecialties: [
             { id: 1, label: 'Sub - especialidad', isSelected: false },
             { id: 2, label: 'Sub - especialidad', isSelected: false },
             { id: 3, label: 'Sub - especialidad', isSelected: false },

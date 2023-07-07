@@ -2,7 +2,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { CustomButton } from '../CustomButton';
 import { ModalBody, RangeContainer } from './index.style';
-import { useState } from 'react';
 
 export const GameSettingsModal = ({ isOpen, closeModal }) => {
     return (
@@ -19,11 +18,13 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     Selecciona el número de casos que desea responder y tiempo deseado
                 </Typography>
                 <RangeContainer>
-                    <label>Casos: </label>
-                    <input type='range' />
-                    <label>Tiempo: 5 min</label>
-                    <input type='range' />
-                    <CustomButton text='continuar' onClick={closeModal} />
+                    <label>Casos:
+                        <input type='range' />
+                    </label>
+                    <label>Tiempo: 5 min
+                        <input type='range' />
+                    </label>
+                    <CustomButton text='continuar' theme="primary" onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>

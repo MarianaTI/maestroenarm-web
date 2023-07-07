@@ -30,13 +30,13 @@ export default function ProfileSettings() {
       </ProfileSettingsContainer>
       <ButtonGroup>
         <CustomButton theme="warning" fullWidth>
-          <h3>Premium</h3>
+          Premium
         </CustomButton>
         <CustomButton fullWidth onClick={closeSesion}>
-          <h3>Cerrar sesión</h3>
+          Cerrar sesión
         </CustomButton>
         <CustomButton fullWidth>
-          <h3>Eliminar cuenta</h3>
+          Eliminar cuenta
         </CustomButton>
       </ButtonGroup>
     </Layout>

@@ -9,11 +9,34 @@ import {
 import { db } from "../../../services/firebase/config";
 import { useRouter } from "next/router";
 import { useAuth } from "../../../context/AuthProvider";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
 
 export default function Game() {
   const router = useRouter();
   const auth = useAuth();
+  const [game, setGame] = useState({});
+
+  const initGame = async () => {
+    const game = await getGame();
+    if (game.player_1.name !== auth.user.displayName) {
+      await setPlayerTwo();
+    }
+  };
+
+  const getGame = async () => {
+    const gameDocRef = doc(db, "games", router.query.roomId);
+    const gameDoc = await getDoc(gameDocRef);
+    const game = gameDoc.data();
+    setGame(game);
+    return game;
+  };
+
+  useEffect(() => {
+    if (router.query.roomId && auth.user.displayName) {
+      initGame();
+    }
+  }, [router.query.roomId, auth.user.displayName]);
 
   const setPlayerTwo = async () => {
     const gameRef = doc(db, "games", router.query.roomId);
@@ -26,10 +49,7 @@ export default function Game() {
       },
     });
   };
-  useEffect(() => {
-    console.log("hola");
-    if (router.query.roomId && auth.user.displayName) setPlayerTwo();
-  }, [router.query.roomId, auth.user.displayName]);
+
   return (
     <Layout>
       <div style={{ display: "flex", flexDirection: "column" }}>
@@ -45,7 +65,7 @@ export default function Game() {
               profile={{
                 name: "Adriana Mis",
                 specialty: "Ginecología",
-                imgUrl: "https://thispersondoesnotexist.xyz/img/4183.jpg",
+                imgUrl: game.player_1?.photo_url,
               }}
             />
           </FlexRightWrapper>
@@ -54,7 +74,7 @@ export default function Game() {
               profile={{
                 name: "Alejandra Jiménez",
                 specialty: "Pediatría",
-                imgUrl: "https://thispersondoesnotexist.xyz/img/4127.jpg",
+                imgUrl: game.player_2?.photo_url ?? auth.user.photoURL,
               }}
             />
           </FlexLeftWrapper>
