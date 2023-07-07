@@ -19,6 +19,6 @@ export const ModalBody = styled(Box)`
 export const RangeContainer = styled.div`
     margin-top: 16px;
     display: flex;
-    gap: 6px; 
+    gap: 16px; 
     flex-direction: column
 `;
