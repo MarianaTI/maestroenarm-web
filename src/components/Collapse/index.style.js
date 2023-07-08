@@ -11,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const ContainerAnswert = styled.div`
-  padding: 10px;
+  padding-left: 90px;
+  padding-right: 90px;
   overflow: hidden;
   height: auto;
 
@@ -43,7 +44,6 @@ export const ClosedCollapseAnswert = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
 
   div {
     margin-bottom: 10px; 
