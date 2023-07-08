@@ -30,19 +30,16 @@ export default function Videos() {
                 </MainContainer>
                 <Filter setState={setQuery} />
                 <VideoCardContainer>
-                    {isLoading ? <>
-                        <CardVideoPlaceholder />
-                        <CardVideoPlaceholder />
-                        <CardVideoPlaceholder />
-                    </> : videos?.map(({ asset_id, public_id, context }) => <CardVideo
-                        key={asset_id}
-                        title={context?.caption}
-                        description={context?.alt}
-                        price={context?.price}
-                        url={`/academy/videos/preview/${public_id.replace('/', '%2F')}`}
-                        player={cloudinaryReact.video(public_id)}
-                    >
-                    </CardVideo>)}
+                    {isLoading ? 'abcdefghij'.split('').map(n => <CardVideoPlaceholder key={n} />)
+                        : videos?.map(({ asset_id, public_id, context }) => <CardVideo
+                            key={asset_id}
+                            title={context?.caption}
+                            description={context?.alt}
+                            price={context?.price}
+                            url={`/academy/videos/preview/${public_id.replace('/', '%2F')}`}
+                            player={cloudinaryReact.video(public_id)}
+                        >
+                        </CardVideo>)}
                 </VideoCardContainer>
             </VideoContainer >
             <FilterDrawer />
