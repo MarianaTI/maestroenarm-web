@@ -22,7 +22,7 @@ import Link from "next/link";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
 import { useSelector } from "react-redux";
-import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement  } from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
@@ -52,15 +52,22 @@ const CheckoutForm = () => {
     resolver: yupResolver(paymentSchema),
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (formData) => {
     if (!stripe || !elements) {
       return; // Retorna si Stripe no ha cargado aún.
     }
+    const CARD_ELEMENT_OPTIONS = {
+      hidePostalCode: true, // Aquí puedes establecer opciones adicionales
+    };
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardNumberElement),
+      card: elements.getElement(CardElement, CARD_ELEMENT_OPTIONS),
+      billing_details: {
+        name: formData.cardName,
+      },
     });
+    console.log("Payment Method:", paymentMethod);
 
     if (error) {
       console.log("Error al crear el método de pago:", error);
@@ -122,20 +129,8 @@ const CheckoutForm = () => {
                 placeholder="Nombre del propietario"
                 error={errors.cardName?.message}
               />
-              <span>Número de tarjeta</span>
-              <div>
-                <CardNumberElement className="card-number-styled" />
-              </div>
-              <RowInputs>
-                <CardElementsRow>
-                  <span>Fecha de vencimiento</span>
-                  <CardExpiryElement className="card-row-styled" />
-                </CardElementsRow>
-                <CardElementsRow>
-                  <span>CVC/CVV</span>
-                  <CardCvcElement className="card-row-styled" />
-                </CardElementsRow>
-              </RowInputs>
+              <span>Agrega los datos de tu tarjeta</span>
+              <CardElement className="card-number-styled" />
             </FormStyled>
           </CardContainer>
         </PayContainer>
