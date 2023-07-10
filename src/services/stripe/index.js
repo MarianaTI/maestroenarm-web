@@ -1,10 +1,25 @@
 const express = require('express');
 const Stripe = require('stripe');
 const stripe = new Stripe("sk_test_51NQEZFEgjOGrqMGr2NxYJPYlzNKW2cwJgRHjHx8BjWn4W7otAPjkEe4Fy4H8Banr8ktCLnkTcUQQw0peZ3zo2ycu00dnDsbQnr");
-
+const helmet = require('helmet');
 const cors = require('cors');
 
 const app = express();
+
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+        },
+    },
+}));
+
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' http://localhost:3001");
+    next();
+  });
+  
 
 app.use(cors({ origin: "http://localhost:3000"}));
 app.use(express.json());

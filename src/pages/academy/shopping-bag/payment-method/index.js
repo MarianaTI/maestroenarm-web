@@ -37,6 +37,8 @@ const CheckoutForm = () => {
 
   const product = useSelector((state) => state.product.currentProduct);
 
+  const totalAmount = product.price;
+
   const {
     control,
     handleSubmit,
@@ -71,7 +73,7 @@ const CheckoutForm = () => {
           },
           body: JSON.stringify({
             id,
-            amount: 10000, //cents
+            amount: totalAmount * 100, //cents
           }),
         });
       
@@ -92,22 +94,6 @@ const CheckoutForm = () => {
       }      
     }
   };
-
-  // console.log("Form Values:", data); // Aquí imprimimos los datos del formulario.
-
-  // const cardElement = elements.getElement(CardElement);
-
-  // const { error, paymentMethod } = await stripe.createPaymentMethod({
-  //   type: "card",
-  //   card: cardElement,
-  // });
-
-  // if (error) {
-  //   console.log("Error al crear el método de pago:", error);
-  // } else {
-  //   console.log("Método de pago creado:", paymentMethod);
-
-  // }
 
   return (
     <ContainerForm onSubmit={handleSubmit(onSubmit)}>
