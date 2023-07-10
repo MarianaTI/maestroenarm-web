@@ -18,7 +18,6 @@ const CollapseComponent = () => {
     setSelectedAnswerIndex(questionIndex === selectedAnswerIndex ? null : questionIndex);
     setCasoClinicoIndex(index=== casoClinicoIndex ? null : index);
     setAnswerIndexFeedback(answerIndex === answerIndexFeedback ? null : answerIndex);
-    console.log(gameHistory[answerIndex].correctAnswer)
   };
   
   const uniqueClinicalCases = gameHistory.reduce((uniqueCases, item) => {
@@ -50,7 +49,7 @@ const CollapseComponent = () => {
                     <Pregunta>Pregunta {questionIndex + 1}: {item.questionText}</Pregunta>
                       {item.answers.map((answer, answerIndex) => (
                         <ContainerAnswert key={answerIndex}>
-                          <ClosedCollapseAnswert onClick={() => handleToggleAnswer(questionIndex, index, answerIndex)} isCorrectAnswer={answerIndex === gameHistory[answerIndex].correctAnswer}>
+                          <ClosedCollapseAnswert onClick={() => handleToggleAnswer(questionIndex, index, answerIndex)} isCorrectAnswer={gameHistory[answerIndex].answers[answerIndex].id === item.correctAnswer}>
                             <div>{answer.text}</div>
                           </ClosedCollapseAnswert> 
                           <Collapse in={selectedAnswerIndex === questionIndex && answerIndexFeedback === answerIndex && casoClinicoIndex === index}>
