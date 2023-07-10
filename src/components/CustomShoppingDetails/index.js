@@ -14,7 +14,7 @@ const CustomShoppingDetails = ({
         <p className="ImportantText">$ {productPrice}</p>
       </Row>
       <p className="DetailText">
-        {productTopics}
+        {productTopics.join(", ").toLowerCase()}
       </p>
     </DetailContainer>
   );

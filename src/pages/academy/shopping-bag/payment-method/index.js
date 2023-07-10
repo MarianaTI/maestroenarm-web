@@ -2,6 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import React from "react";
 import {
   CardContainer,
+  CardElementsRow,
   CompletePayment,
   ContainerForm,
   FormStyled,
@@ -9,6 +10,7 @@ import {
   MainContainer,
   PayContainer,
   PaymentContainer,
+  RowInputs,
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";
@@ -20,7 +22,7 @@ import Link from "next/link";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
 import { useSelector } from "react-redux";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement  } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
@@ -51,20 +53,19 @@ const CheckoutForm = () => {
   });
 
   const onSubmit = async () => {
-
     if (!stripe || !elements) {
       return; // Retorna si Stripe no ha cargado aún.
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardElement),
+      card: elements.getElement(CardNumberElement),
     });
 
     if (error) {
       console.log("Error al crear el método de pago:", error);
     } else {
-      const {id} = paymentMethod;
+      const { id } = paymentMethod;
       try {
         const response = await fetch("http://localhost:3001/api/checkout", {
           method: "POST",
@@ -76,22 +77,23 @@ const CheckoutForm = () => {
             amount: totalAmount * 100, //cents
           }),
         });
-      
+
         if (response.ok) {
-          if (response.headers.get("content-type")?.includes("application/json")) {
+          if (
+            response.headers.get("content-type")?.includes("application/json")
+          ) {
             const data = await response.json();
             console.log(data);
           } else {
-            console.log('Pago exitoso, pero no se devolvió ningún contenido');
+            console.log("Pago exitoso, pero no se devolvió ningún contenido");
           }
-          elements.getElement(CardElement).clear();
         } else {
           const errorData = await response.json();
           console.log("Error en la solicitud:", response.status, errorData);
-        }        
+        }
       } catch (error) {
         console.log("Error en la solicitud:", error);
-      }      
+      }
     }
   };
 
@@ -120,22 +122,20 @@ const CheckoutForm = () => {
                 placeholder="Nombre del propietario"
                 error={errors.cardName?.message}
               />
-              <CardElement
-                options={{
-                  style: {
-                    base: {
-                      fontSize: "14px",
-                      color: "#424770",
-                      "::placeholder": {
-                        color: "#aab7c4",
-                      },
-                    },
-                    invalid: {
-                      color: "#9e2146",
-                    },
-                  },
-                }}
-              />
+              <span>Número de tarjeta</span>
+              <div>
+                <CardNumberElement className="card-number-styled" />
+              </div>
+              <RowInputs>
+                <CardElementsRow>
+                  <span>Fecha de vencimiento</span>
+                  <CardExpiryElement className="card-row-styled" />
+                </CardElementsRow>
+                <CardElementsRow>
+                  <span>CVC/CVV</span>
+                  <CardCvcElement className="card-row-styled" />
+                </CardElementsRow>
+              </RowInputs>
             </FormStyled>
           </CardContainer>
         </PayContainer>
@@ -157,7 +157,11 @@ const CheckoutForm = () => {
               Condiciones de uso.
             </Link>
           </span>
-          <CustomButtonAcademy buttonText="Completar pago" type="submit" disabled={!stripe}/>
+          <CustomButtonAcademy
+            buttonText="Completar pago"
+            type="submit"
+            disabled={!stripe}
+          />
         </CompletePayment>
       </PaymentContainer>
     </ContainerForm>
