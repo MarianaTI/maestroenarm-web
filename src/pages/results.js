@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState } from "react";
 import TimeResult from "../components/TimeResult/Index.js";
 import { StatisticChart } from "../components/StatisticsChart/index.js";
 import {
@@ -8,13 +8,14 @@ import {
   TextStatic,
   StatisticsContainer,
   ContainerSpecialty,
+  ReturnButtonsContainer
 } from "../styles/Result.style.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuizAccuracy } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
-import { ReturnButtonContainer } from "../styles/paymentplans.style";
 import { useRouter } from "next/router";
 import CollapseComponent from "../components/Collapse";
+import CustomModal from "../components/CustomModal";
 
 
 export function answerCount() {
@@ -35,6 +36,11 @@ export function answerCount() {
 export default function Results() {
   const router = useRouter();
   const items = answerCount();
+  const [isOpenFeedback, setOpenFeedback] = useState(false);
+
+  const toggleForgotPasswordModal = () => {
+    setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
+  };
 
   const handleClick = () => {
     router.push("/");
@@ -58,9 +64,18 @@ export default function Results() {
           <span>Remautologia 0/1 -0%</span>
           <span>MACARENA 0/1 -0%</span>
         </TextStatic>
-        <ReturnButtonContainer>
+        <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
-        </ReturnButtonContainer>
+          <CustomModal
+          open={isOpenFeedback}
+          onClose={toggleForgotPasswordModal}
+          title="Feedback"
+          message={'feedbackQuestion'}
+        />
+        {!isOpenFeedback && (
+          <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal}  />
+        )}
+        </ReturnButtonsContainer>
       </ContainerSpecialty>
     </Container>
   );

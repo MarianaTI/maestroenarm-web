@@ -81,7 +81,6 @@ export default function Home() {
     setIsCounting(false);
     dispatch(setFalseAnswerCount({valor:1}));
   };
-console.log(question.answers)
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
