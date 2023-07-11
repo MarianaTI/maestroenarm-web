@@ -7,7 +7,7 @@ import { LandingContainer } from "../styles/demo.style";
 export default function Landing() {
   return <>
     <LandingContainer>
-      <Image src="/beam-online-medical-consultation.gif" alt="banner" height={500} width={500} />
+      <Image src="/beam-woman-sitting-at-desk-and-programming.gif" alt="banner" height={500} width={500} />
       <div className="content">
         <div>
           <h1>Bienvenido a Maestro Enarm</h1>
