@@ -27,6 +27,19 @@ export const AcademyBanner = styled.div`
         gap: 16px
     }
 
+    .academy__main__image {
+        animation: float 3s backwards infinite;
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(.4rem);
+            }
+            50% {
+                transform: translateY(-.5rem);
+            }
+        }
+    }
+
     @media screen and (max-width: 1019px) {
         & > img {
             display: none;
@@ -40,7 +53,7 @@ export const AcademyBanner = styled.div`
 export const ContentContainer = styled.div`
     display: grid;
     padding: 16px;
-    gap: 16px;
+    gap: 32px;
     & > h2 {
         margin: auto;
     }
@@ -50,9 +63,13 @@ export const ContentContainer = styled.div`
         place-content: center;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
         & > * {
+            :hover { border-color: rgb(72, 74, 132) }
             object-fit: cover;
             padding: 16px;
-            background-color: aliceblue;
+            border: 2px solid #ccc;
+            box-shadow: 4px 8px 6px 3px rgba(0,0,0,0.08);
+            -webkit-box-shadow: 4px 8px 6px 3px rgba(0,0,0,0.08);
+            -moz-box-shadow: 4px 8px 6px 3px rgba(0,0,0,0.08);
         }
     }
 
