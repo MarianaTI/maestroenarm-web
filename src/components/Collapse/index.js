@@ -16,8 +16,8 @@ const CollapseComponent = () => {
 
   const handleToggleAnswer = (questionIndex, index, answerIndex) => {
     setSelectedAnswerIndex(questionIndex === selectedAnswerIndex ? null : questionIndex);
-    setCasoClinicoIndex(index=== casoClinicoIndex ? null : index);
-    setAnswerIndexFeedback(answerIndex === answerIndexFeedback ? null : answerIndex);
+    setCasoClinicoIndex(index=== casoClinicoIndex ? 0 : index);
+    setAnswerIndexFeedback(answerIndex === answerIndexFeedback ? 0 : answerIndex);
   };
   
   const uniqueClinicalCases = gameHistory.reduce((uniqueCases, item) => {
