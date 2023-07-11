@@ -35,7 +35,7 @@ export const AcademyBanner = styled.div`
                 transform: translateY(.4rem);
             }
             50% {
-                transform: translateY(-.5rem);
+                transform: translateY(-.4rem);
             }
         }
     }
