@@ -12,7 +12,7 @@ export const VideoCardContainer = styled.div`
     display: grid;
     place-content: center;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
 `;
 
 export const ImageStyled = styled(Image)`
@@ -47,6 +47,7 @@ export const ImageStyled = styled(Image)`
 
 export const MainContainer = styled.div`
   display: grid;
+  padding: 32px 0 0px 16px;
   grid-template-columns: 1fr 400px;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
