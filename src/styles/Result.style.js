@@ -44,9 +44,11 @@ export const Container = styled.div`
 `;
 
 export const ContainerSpecialty = styled.div`
-     margin-left: 10%;
+     padding-left: 10%;
+     padding-right: 10%;
     @media (max-width: 768px) {
-        margin-left: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
     }
 `;
 
@@ -61,7 +63,6 @@ export const StatisticsContainer = styled.div`
 `;
 
 export const ContainerRetroAlim = styled.div`
-    max-width: 1020px;
     background: #FCFCFC;
     border: 0.5px solid #585555;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -116,4 +117,17 @@ export const TextStatic = styled.div`
 
 `;
 
+export const ReturnButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 20px;
+  padding-top: 10px;
+`;
 
+export const ContainerCustomModal = styled.div`
+  overflow: auto;
+  max-height: 300px;
+`;

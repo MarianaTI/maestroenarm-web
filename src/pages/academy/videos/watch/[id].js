@@ -5,12 +5,13 @@ import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar, Main
 import { useRouter } from "next/router";
 import { cloudinaryReact } from '../../../../services/cloudinary/config';
 import { CardVideo, CardVideoPlaceholder } from '../../../../components/CardVideo';
-import { useGetVideoQuery, useGetVideosQuery } from '../../../../store/apis/videoApi';
+import { useGetPremiumVideosQuery, useGetVideoQuery } from '../../../../store/apis/videoApi';
 import { Download } from '@mui/icons-material';
 
 export default function Watch() {
+    //todo: ahhhh si ingresa el public id, aun asi se reproduce el video, es un bug muy malo,puede visualizar contenido premium gratiss!!!!1
     const router = useRouter()
-    const { data: videos, isLoading } = useGetVideosQuery()
+    const { data: videos, isLoading } = useGetPremiumVideosQuery()
     const { data: video, isLoading: isLoadingPlayer } = useGetVideoQuery(router.query?.id?.replace('/', '%2F'));
     return (
         <WatchContainer>
@@ -24,13 +25,13 @@ export default function Watch() {
                 : video ?
                     <MainContent>
                         <VideoContainer>
-                            <PlayerVideo cldVid={cloudinaryReact.video(video.public_id)} controls />
+                            <PlayerVideo cldVid={cloudinaryReact.video(video[0].public_id)} controls />
                         </VideoContainer>
                         <div style={{ marginTop: 16 }}>
                             <div style={{ display: "flex", justifyContent: 'space-between', flexWrap: "wrap", gap: 6 }}>
                                 <div>
-                                    <h2 style={{ margin: 0 }}>{video.context?.alt || 'No Title'}</h2>
-                                    <p>{video.context?.alt || 'Not description'}</p>
+                                    <h2 style={{ margin: 0 }}>{video[0].context?.alt || 'No Title'}</h2>
+                                    <p>{video[0].context?.alt || 'Not description'}</p>
                                 </div>
                                 <div style={{ display: "flex", gap: 6 }}>
                                     <Link href='/academy/videos/watch/test'>

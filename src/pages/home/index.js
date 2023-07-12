@@ -56,7 +56,7 @@ export default function Game() {
     navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
   return (
-    <>
+    <div style={{ padding: 16 }}>
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
         <p>Feedback déspues de cada pregunta</p>
@@ -92,6 +92,6 @@ export default function Game() {
           <span>Esperando...</span>
         </LinkModalBody>
       </CustomModal>
-    </>
+    </div>
   );
 }
