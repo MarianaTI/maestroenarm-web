@@ -126,3 +126,7 @@ export const ReturnButtonsContainer = styled.div`
   padding-bottom: 20px;
   padding-top: 10px;
 `;
+
+export const ContainerCustomModal = styled.div`
+  overflow: scroll;
+`;
