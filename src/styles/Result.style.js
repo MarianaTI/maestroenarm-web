@@ -128,5 +128,6 @@ export const ReturnButtonsContainer = styled.div`
 `;
 
 export const ContainerCustomModal = styled.div`
-  overflow: scroll;
+  overflow: auto;
+  max-height: 300px;
 `;

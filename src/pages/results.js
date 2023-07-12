@@ -81,21 +81,23 @@ export default function Results() {
         </TextStatic>
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
-          <ContainerCustomModal>
+          
           <CustomModal
             open={isOpenFeedback}
             onClose={toggleForgotPasswordModal}
             title="Feedback"
             message={'Descubre recursos de repaso especializados para cada caso clínico y lleva tu aprendizaje al siguiente nivel.'}
           >
-            {bookList.map((book, index) => (
+            <ContainerCustomModal>
+              {bookList.map((book, index) => (
               <div key={index}>
                 <h1>{book}</h1>
                 <span>{feedbackList[index]}</span>
               </div>
             ))}
+            </ContainerCustomModal>
+            
           </CustomModal>
-          </ContainerCustomModal>
           
           {!isOpenFeedback && (
             <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
