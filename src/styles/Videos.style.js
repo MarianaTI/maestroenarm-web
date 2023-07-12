@@ -47,6 +47,7 @@ export const ImageStyled = styled(Image)`
 
 export const MainContainer = styled.div`
   display: grid;
+  padding: 32px 0 0px 16px;
   grid-template-columns: 1fr 400px;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
