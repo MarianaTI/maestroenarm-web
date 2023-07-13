@@ -8,7 +8,7 @@ export const ContainerForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-  overflow-x: hidden; // Agregar esta línea
+  overflow-x: hidden; 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
