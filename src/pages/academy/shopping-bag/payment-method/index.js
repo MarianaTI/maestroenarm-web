@@ -1,5 +1,5 @@
 import { Elements } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import {
   CardContainer,
   CardElementsRow,
@@ -21,7 +21,7 @@ import * as yup from "yup";
 import Link from "next/link";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -36,8 +36,9 @@ const paymentSchema = yup.object().shape({
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-
+  
   const product = useSelector((state) => state.product.currentProduct);
+
 
   const totalAmount = product.price;
 
@@ -56,6 +57,7 @@ const CheckoutForm = () => {
     if (!stripe || !elements) {
       return; // Retorna si Stripe no ha cargado aún.
     }
+    localStorage.setItem('product', JSON.stringify(product));
     const CARD_ELEMENT_OPTIONS = {
       hidePostalCode: true, // Aquí puedes establecer opciones adicionales
     };
