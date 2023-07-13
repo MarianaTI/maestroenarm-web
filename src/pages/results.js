@@ -15,9 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setQuizAccuracy } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import CollapseComponent from "../components/Collapse";
 import CustomModal from "../components/CustomModal";
-
 
 export function answerCount() {
   const dispach = useDispatch();
@@ -51,6 +51,10 @@ export default function Results() {
     router.push("/");
   };
 
+  const handleClickLinkFeedback = (book) => {
+    window.open(`/${book}`, '_blank');
+  };
+
   gameHistory.forEach((item) => {
     if (!bookList.includes(item.book)) {
       bookList.push(item.book);
@@ -81,26 +85,32 @@ export default function Results() {
         </TextStatic>
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
-          
+
           <CustomModal
             open={isOpenFeedback}
             onClose={toggleForgotPasswordModal}
             title="Feedback"
             message={'Descubre recursos de repaso especializados para cada caso clínico y lleva tu aprendizaje al siguiente nivel.'}
           >
+
             <ContainerCustomModal>
               {bookList.map((book, index) => (
-              <div key={index}>
-                <h1>{book}</h1>
-                <span>{feedbackList[index]}</span>
-              </div>
-            ))}
+                <div key={index}>
+                  <span>Resumen general del caso clínico {index + 1}: </span>
+                  <span>{feedbackList[index]}</span>
+                  <span>
+                    <Link href={book} target="_blank">
+                      <CustomButton text="Recurso de estudio" type ></CustomButton>
+                    </Link>
+                  </span>
+                </div>
+              ))}
             </ContainerCustomModal>
-            
+
           </CustomModal>
-          
+
           {!isOpenFeedback && (
-            <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
+            <CustomButton text="Feedback" type="submit" onClick={toggleForgotPasswordModal} />
           )}
         </ReturnButtonsContainer>
       </ContainerSpecialty>
