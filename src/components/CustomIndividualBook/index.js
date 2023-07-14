@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CustomButton from "../CustomButtonAcademy";
 
 import {
@@ -41,35 +41,30 @@ const CustomIndividualBook = ({
     dispatch(setCurrentProduct(productInfo));
   };
 
-
-  
-
   return (
     <Container>
       <BasicInformationContainer>
-        <div>
-          <ImageContainer>
-            <ImageStyled src={imgFront}></ImageStyled>
-            <HoverImage src={imgBack}></HoverImage>
-          </ImageContainer>
-          {price > 0.0 ? (
-            <BuyContainer>
-              <span>$ {price}</span>
-              <Link href="/academy/shopping-bag/payment-method">
-                <CustomButton buttonText="Comprar ahora" type="button"  onClick={handleClick}/>
-              </Link>
-            </BuyContainer>
-          ) : (
-            <BuyContainer>
-              <IncludeContainer>
-                <span className="DetailOptionStyled">
-                  Incluido en la suscripción
-                </span>
-              </IncludeContainer>
-              <CustomButton showIcon onClick={handleButtonClick}/>
-            </BuyContainer>
-          )}
-        </div>
+        <ImageContainer>
+          <ImageStyled src={imgFront}></ImageStyled>
+          <HoverImage src={imgBack}></HoverImage>
+        </ImageContainer>
+        {price > 0.0 ? (
+          <BuyContainer>
+            <span>$ {price}</span>
+            <Link href="/academy/shopping-bag/payment-method">
+              <CustomButton buttonText="Comprar ahora" type="button" onClick={handleClick} />
+            </Link>
+          </BuyContainer>
+        ) : (
+          <BuyContainer>
+            <IncludeContainer>
+              <span className="DetailOptionStyled">
+                Incluido en la suscripción
+              </span>
+            </IncludeContainer>
+            <CustomButton showIcon onClick={handleButtonClick} />
+          </BuyContainer>
+        )}
         <div>
           <BasicInformation>
             <div className="NameStyled">{name}</div>

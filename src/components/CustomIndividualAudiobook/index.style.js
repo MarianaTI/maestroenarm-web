@@ -1,16 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  margin: 48px 80px;
-  width: 800px;
-  @media (max-width: 800px) {
-    margin: 48px 40px;
-    width: 700px;
-  }
-  @media (max-width: 400px) {
-    margin: 28px 20px;
-    width: 300px;
-  }
+  display: grid;
 `;
 
 export const ImageContainer = styled.div`
@@ -71,11 +62,8 @@ export const IncludeContainer = styled.div`
 `;
 
 export const BasicInformationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  @media (max-width: 400px) {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   & audio {
     transition: all 0.5s linear;
     border-radius: 7px;
@@ -91,8 +79,6 @@ export const BasicInformationContainer = styled.div`
 `;
 
 export const BasicInformation = styled.div`
-  width: 500px;
-  height: 300px;
   display: flex;
   flex-direction: column;
   margin-left: 24px;
