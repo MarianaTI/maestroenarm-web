@@ -37,6 +37,8 @@ export function answerCount() {
 export default function Results() {
   const bookList = [];
   const feedbackList = [];
+  const specialityList = [];
+  const subSpecialityList = [];
   const router = useRouter();
   const items = answerCount();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
@@ -59,6 +61,15 @@ export default function Results() {
     }
   });
 
+  gameHistory.forEach((item) => {
+    if (!specialityList.includes(item.speciality)) {
+      specialityList.push(item.speciality);
+    }
+    if (!subSpecialityList.includes(item.subSpeciality)) {
+      subSpecialityList.push(item.subSpeciality)
+    }
+  });
+
 
   return (
     <Container>
@@ -73,11 +84,14 @@ export default function Results() {
         <ContainerRetroAlim>
           <CollapseComponent />
         </ContainerRetroAlim>
-        <TextStatic>
-          <span>Ginecologia 1/1 -100%</span>
-          <span>Remautologia 0/1 -0%</span>
-          <span>MACARENA 0/1 -0%</span>
-        </TextStatic>
+        
+          {specialityList.map((speciality, index) => (
+            <TextStatic key={index}>
+              <span> speciality: {speciality}</span>
+              <span>subSpeciality: {subSpecialityList[index]}</span>
+            </TextStatic>
+          ))};
+          
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
 
