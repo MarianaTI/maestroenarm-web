@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   max-width: 100%;
+  padding-left: 30px;
+  padding-top: 30px;
 `;
 export const ButtonClik = styled.button`
   width: 50px;
