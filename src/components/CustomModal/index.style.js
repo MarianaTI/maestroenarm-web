@@ -3,7 +3,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 export const ModalContent = styled.div`
   position: absolute;
-  max-height: 300px;
+  max-height: 500px;
   overflow-y: auto;
   top: 50%;
   left: 50%;

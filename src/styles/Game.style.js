@@ -68,3 +68,10 @@ export const LinkModalBody = styled.div`
     }
   }
 `;
+
+export const MatchLobbyFooter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 132px;
+`;

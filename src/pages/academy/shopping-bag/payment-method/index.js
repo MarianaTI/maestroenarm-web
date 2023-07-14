@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import React, { use, useEffect, useState } from "react";
 import {
   CardContainer,
+  CardElementsRow,
   CompletePayment,
   ContainerForm,
   FormStyled,
@@ -19,88 +21,90 @@ import * as yup from "yup";
 import Link from "next/link";
 import CustomShoppingDetails from "../../../../components/CustomShoppingDetails";
 import CustomCalculateTotal from "../../../../components/CustomCalculateTotal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat"
+);
 
 const paymentSchema = yup.object().shape({
   cardName: yup.string().required("Este dato es requerido"),
-  cardNumber: yup
-    .string()
-    .required("Este dato es requerido")
-    .matches(
-      /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/,
-      "Ingresa el número con el formato correcto"
-    )
-    .max(19),
-  expiration: yup
-    .string()
-    .required("Este dato es requerido")
-    .matches(
-      /^(0[1-9]|1[0-2])\/([0-9]{2})$/,
-      "Ingresa el número con el formato correcto"
-    )
-    .max(5),
-  cvc: yup
-    .string()
-    .required("Este dato es requerido")
-    .matches(/^\d{3}$/, "Ingresa el número con el formato correcto")
-    .min(3)
-    .max(4),
 });
 
-const formatCardNumber = (value) => {
-  return value
-    .replace(/[^\d]/g, "")
-    .substring(0, 16)
-    .replace(/(.{4})/g, "$1 ")
-    .trim();
-};
+const CheckoutForm = () => {
+  const stripe = useStripe();
+  const elements = useElements();
+  
+  const product = useSelector((state) => state.product.currentProduct);
 
-const formatExpirationDate = (value) => {
-  return value
-    .replace(/[^\d]/g, "")
-    .substring(0, 4)
-    .replace(/(.{2})/, "$1/");
-};
-export default function PaymentMethod() {
+
+  const totalAmount = product.price;
+
   const {
     control,
     handleSubmit,
-    watch,
-    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
       cardName: "",
-      cardNumber: "",
-      expiration: "",
-      cvc: "",
     },
     resolver: yupResolver(paymentSchema),
   });
-  const cardNumber = watch("cardNumber");
-  const expiration = watch("expiration");
-  const cvc = watch("cvc");
 
-  useEffect(() => {
-    const formattedCardNumber = formatCardNumber(cardNumber);
-    setValue("cardNumber", formattedCardNumber);
-  }, [cardNumber, setValue]);
+  const onSubmit = async (formData) => {
+    if (!stripe || !elements) {
+      return; // Retorna si Stripe no ha cargado aún.
+    }
+    localStorage.setItem('product', JSON.stringify(product));
+    const CARD_ELEMENT_OPTIONS = {
+      hidePostalCode: true, // Aquí puedes establecer opciones adicionales
+    };
 
-  useEffect(() => {
-    const formattedExpirationDate = formatExpirationDate(expiration);
-    setValue("expiration", formattedExpirationDate);
-  }, [expiration, setValue]);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement, CARD_ELEMENT_OPTIONS),
+      billing_details: {
+        name: formData.cardName,
+      },
+    });
+    console.log("Payment Method:", paymentMethod);
 
-  useEffect(() => {
-    const limitedCvc = cvc.substring(0, 3);
-    setValue("cvc", limitedCvc);
-  }, [cvc, setValue]);
+    if (error) {
+      console.log("Error al crear el método de pago:", error);
+    } else {
+      const { id } = paymentMethod;
+      try {
+        const response = await fetch("http://localhost:3001/api/checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id,
+            amount: totalAmount * 100, //cents
+          }),
+        });
 
-  const onSubmit = (values) => {
-    console.log(values);
+        if (response.ok) {
+          if (
+            response.headers.get("content-type")?.includes("application/json")
+          ) {
+            const data = await response.json();
+            console.log(data);
+          } else {
+            console.log("Pago exitoso, pero no se devolvió ningún contenido");
+          }
+        } else {
+          const errorData = await response.json();
+          console.log("Error en la solicitud:", response.status, errorData);
+        }
+      } catch (error) {
+        console.log("Error en la solicitud:", error);
+      }
+    }
   };
-
-  const product = useSelector((state) => state.product.currentProduct);
 
   return (
     <ContainerForm onSubmit={handleSubmit(onSubmit)}>
@@ -127,32 +131,8 @@ export default function PaymentMethod() {
                 placeholder="Nombre del propietario"
                 error={errors.cardName?.message}
               />
-              <CustomInput
-                label="Número de tarjeta"
-                name="cardNumber"
-                control={control}
-                placeholder="1234 5678 9110 2134"
-                error={errors.cardNumber?.message}
-                onChange={(event) => {
-                  event.target.value = formatCardNumber(event.target.value);
-                }}
-              />
-              <RowInputs>
-                <CustomInput
-                  label="Fecha de vencimiento"
-                  name="expiration"
-                  control={control}
-                  placeholder="MM/AA"
-                  error={errors.expiration?.message}
-                />
-                <CustomInput
-                  label="CVC/CVV"
-                  name="cvc"
-                  control={control}
-                  placeholder="CVC"
-                  error={errors.cvc?.message}
-                />
-              </RowInputs>
+              <span>Agrega los datos de tu tarjeta</span>
+              <CardElement className="card-number-styled" />
             </FormStyled>
           </CardContainer>
         </PayContainer>
@@ -174,9 +154,21 @@ export default function PaymentMethod() {
               Condiciones de uso.
             </Link>
           </span>
-          <CustomButtonAcademy buttonText="Completar pago" type="submit" />
+          <CustomButtonAcademy
+            buttonText="Completar pago"
+            type="submit"
+            disabled={!stripe}
+          />
         </CompletePayment>
       </PaymentContainer>
     </ContainerForm>
+  );
+};
+
+export default function PaymentMethod() {
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckoutForm />
+    </Elements>
   );
 }

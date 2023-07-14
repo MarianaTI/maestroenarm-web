@@ -34,6 +34,8 @@ export default function Home() {
   const feedbackQuestion = question.feedbackQuestion;
   const answers = question.answers;
   const correctAnswer = question.correctAnswer;
+  const book = clinicalCase.book;
+  const feedbackGeneralCase = clinicalCase.feedbackGeneral;
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -81,12 +83,11 @@ export default function Home() {
     setIsCounting(false);
     dispatch(setFalseAnswerCount({valor:1}));
   };
-console.log(question.answers)
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers}))
+    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase}))
     if (!isOpenFeedback) {
       goNext();
     }
