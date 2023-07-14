@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import TimeResult from "../components/TimeResult/Index.js";
 import { StatisticChart } from "../components/StatisticsChart/index.js";
 import {
@@ -8,14 +8,16 @@ import {
   TextStatic,
   StatisticsContainer,
   ContainerSpecialty,
+  ReturnButtonsContainer,
+  ContainerCustomModal
 } from "../styles/Result.style.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuizAccuracy } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
-import { ReturnButtonContainer } from "../styles/paymentplans.style";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import CollapseComponent from "../components/Collapse";
-
+import CustomModal from "../components/CustomModal";
 
 export function answerCount() {
   const dispach = useDispatch();
@@ -33,12 +35,35 @@ export function answerCount() {
 }
 
 export default function Results() {
+  const bookList = [];
+  const feedbackList = [];
   const router = useRouter();
   const items = answerCount();
+  const [isOpenFeedback, setOpenFeedback] = useState(false);
+  const gameHistory = useSelector((state) => state.game.gameHistory);
+  console.log(gameHistory)
+
+  const toggleForgotPasswordModal = () => {
+    setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
+  };
 
   const handleClick = () => {
     router.push("/");
   };
+
+  const handleClickLinkFeedback = (book) => {
+    window.open(`/${book}`, '_blank');
+  };
+
+  gameHistory.forEach((item) => {
+    if (!bookList.includes(item.book)) {
+      bookList.push(item.book);
+    }
+    if (!feedbackList.includes(item.feedbackGeneralCase)) {
+      feedbackList.push(item.feedbackGeneralCase);
+    }
+  });
+
 
   return (
     <Container>
@@ -58,9 +83,36 @@ export default function Results() {
           <span>Remautologia 0/1 -0%</span>
           <span>MACARENA 0/1 -0%</span>
         </TextStatic>
-        <ReturnButtonContainer>
+        <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
-        </ReturnButtonContainer>
+
+          <CustomModal
+            open={isOpenFeedback}
+            onClose={toggleForgotPasswordModal}
+            title="Feedback"
+            message={'Descubre recursos de repaso especializados para cada caso clínico y lleva tu aprendizaje al siguiente nivel.'}
+          >
+
+            <ContainerCustomModal>
+              {bookList.map((book, index) => (
+                <div key={index}>
+                  <span>Resumen general del caso clínico {index + 1}: </span>
+                  <span>{feedbackList[index]}</span>
+                  <span>
+                    <Link href={book} target="_blank">
+                      <CustomButton text="Recurso de estudio" type ></CustomButton>
+                    </Link>
+                  </span>
+                </div>
+              ))}
+            </ContainerCustomModal>
+
+          </CustomModal>
+
+          {!isOpenFeedback && (
+            <CustomButton text="Feedback" type="submit" onClick={toggleForgotPasswordModal} />
+          )}
+        </ReturnButtonsContainer>
       </ContainerSpecialty>
     </Container>
   );

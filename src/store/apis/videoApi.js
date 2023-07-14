@@ -7,7 +7,7 @@ export const videosApi = createApi({
         getVideos: builder.query({ query: () => `/videos` }),
         getVideosByTitle: builder.query({ query: title => `/videos?title=${title}` }),
         getVideo: builder.query({ query: id => `/videos/${id}` }),
-        getPremiumVideos: builder.query({ query: () => '/premiun-videos' }),
+        getPremiumVideos: builder.query({ query: () => '/videos/premium' }),
         getMyVideos: builder.query({ query: () => '/my-videos' }),
     })
 })
