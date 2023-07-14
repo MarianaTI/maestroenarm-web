@@ -9,6 +9,8 @@ import { ModalBody, RangeContainer } from './index.style';
 
 export const GameSettingsModal = ({ isOpen, closeModal }) => {
 
+    const specialityList = [];
+    const subSpecialityList = [];
     const gameHistory = useSelector((state) => state.game.gameHistory);
 
     const [isChecked, setIsChecked] = useState(false);
@@ -17,6 +19,17 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
         setIsChecked(event.target.checked);
     };
 
+    gameHistory.forEach((item) => {
+
+        if(!specialityList.includes(item.speciality)){
+            specialityList.push(item.speciality)
+        }
+
+        if(!subSpecialityList.includes(item.subSpeciality)){
+            subSpecialityList.push(item.subSpeciality)
+        }
+    });
+    
     return (
         <Modal
             open={isOpen}
@@ -37,6 +50,12 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     <label>Tiempo: 5 min
                         <input type='range' />
                     </label>
+                    {specialityList.map((speciality, index) => (
+                        <div key={index}> 
+                            <span>speciality: {speciality} </span>
+                            <span>subspeciality: {subSpecialityList[index]}</span>
+                        </div>
+                    ))};
                     <CheckBoxButton
                         label="Check me"
                         checked={isChecked}
