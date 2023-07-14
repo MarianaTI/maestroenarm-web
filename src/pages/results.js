@@ -41,7 +41,6 @@ export default function Results() {
   const items = answerCount();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
-  console.log(gameHistory)
 
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
@@ -49,10 +48,6 @@ export default function Results() {
 
   const handleClick = () => {
     router.push("/");
-  };
-
-  const handleClickLinkFeedback = (book) => {
-    window.open(`/${book}`, '_blank');
   };
 
   gameHistory.forEach((item) => {
@@ -89,7 +84,7 @@ export default function Results() {
           <CustomModal
             open={isOpenFeedback}
             onClose={toggleForgotPasswordModal}
-            title="Feedback"
+            title="Comentario"
             message={'Descubre recursos de repaso especializados para cada caso clínico y lleva tu aprendizaje al siguiente nivel.'}
           >
 
@@ -110,7 +105,7 @@ export default function Results() {
           </CustomModal>
 
           {!isOpenFeedback && (
-            <CustomButton text="Feedback" type="submit" onClick={toggleForgotPasswordModal} />
+            <CustomButton text="Comentario" type="submit" onClick={toggleForgotPasswordModal} />
           )}
         </ReturnButtonsContainer>
       </ContainerSpecialty>
