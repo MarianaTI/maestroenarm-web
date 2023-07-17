@@ -6,7 +6,7 @@ import { setTotalGameTime } from "../../store/slices/gameSlice";
 
 function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
   const [countdown, setCountdown] = useState(seconds);
-  const [countdownValue, setCountdownValue] = useState(countdown);
+  const [countdownValue, setCountdownValue] = useState(0);
   const dispatch= useDispatch();
 
   useEffect(() => {
@@ -15,7 +15,6 @@ function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
       if (countdown === 0) {
         onTimeFinish();
       }
-      // console.log(countdown)
       
       if (countdown !== 0) {
         setTimeout(() => setCountdown((countdown) => countdown - 1), 1000);
@@ -25,10 +24,9 @@ function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
     
     // si se detiene el contador va a reiniciar la cuenta
     if (!isCounting){
-      setCountdown(seconds);
-      setCountdownValue((countdownValue) => countdownValue =- countdown);
+      setCountdownValue((prevCountdownValue ) => prevCountdownValue  +  seconds - countdown);
       dispatch(setTotalGameTime({valor: countdownValue}));
-    console.log(countdownValue)
+      setCountdown(seconds);
     } 
   }, [countdown, isCounting]);
 

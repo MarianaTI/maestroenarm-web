@@ -29,7 +29,7 @@ export const gameSlice = createSlice({
       state.gameHistory.push(action.payload);
     },
     setTotalGameTime: (state, action) => {
-      state.totalGameTime += action.payload.valor;
+      state.totalGameTime = action.payload.valor;
     }
   },
 });
