@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { TimeIconContainer, TimeText } from "./TimeIcon.style";
@@ -8,6 +8,7 @@ function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
   const [countdown, setCountdown] = useState(seconds);
   const [countdownValue, setCountdownValue] = useState(0);
   const dispatch= useDispatch();
+  const prevIsCountingRef = useRef(isCounting)
 
   useEffect(() => {
     // isCounting nos indica si el contador esta contando, nos permite pausar el tiempo para esperar que suceda algo mas antes de seguir contando.
@@ -20,15 +21,16 @@ function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
         setTimeout(() => setCountdown((countdown) => countdown - 1), 1000);
       }
     }
-   
     
-    // si se detiene el contador va a reiniciar la cuenta
-    if (!isCounting){
+    if (!isCounting && prevIsCountingRef.current){
       setCountdownValue((prevCountdownValue ) => prevCountdownValue  +  seconds - countdown);
-      dispatch(setTotalGameTime({valor: countdownValue}));
+      const updatedCountdownValue = countdownValue + seconds - countdown;
+      dispatch(setTotalGameTime({valor: updatedCountdownValue }));
+      console.log(updatedCountdownValue )
       setCountdown(seconds);
-    } 
-  }, [countdown, isCounting]);
+    }
+    prevIsCountingRef.current = isCounting;
+  }, [countdown, isCounting, countdownValue]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
