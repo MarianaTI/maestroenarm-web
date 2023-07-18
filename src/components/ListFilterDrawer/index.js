@@ -2,9 +2,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Container } from './index.style';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
-import { Checkbox, Collapse } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addCollapse, addSpecialty } from '../../store/slices/filterDrawerSlice';
+import { Collapse } from '@mui/material';
 
 export default function ListFilterDrawer({ subspecialties, label, children, value, collapseList }) {
     const dispatch = useDispatch()
