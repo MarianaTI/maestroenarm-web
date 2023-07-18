@@ -40,9 +40,7 @@ export default function ListFilterDrawer({ subspecialties, label, children, valu
 }
 
 function FilterCheckbox({ label, checked, onChange }) {
-    function handleChange() {
-        onChange(label)
-    }
+    function handleChange() { onChange(label) }
     return (
         <label style={{ marginLeft: 20 }} >
             <Checkbox checked={checked} onChange={handleChange} />
