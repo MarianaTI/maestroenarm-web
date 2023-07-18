@@ -7,7 +7,7 @@ export const ModalContent = styled.div`
   overflow-y: auto;
   top: 50%;
   left: 50%;
-  width: 500px;
+  width: 600px;
   transform: translate(-50%, -50%);
   background-color: #f4f4f4;
   box-shadow: 24;

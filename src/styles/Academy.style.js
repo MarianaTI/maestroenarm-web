@@ -63,7 +63,7 @@ export const ContentContainer = styled.div`
         place-content: center;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
         & > * {
-            :hover { border-color: rgb(72, 74, 132) }
+            :hover { border-color: rgb(72, 74, 132); color : rgb(72, 74, 132)}
             object-fit: cover;
             padding: 16px;
             border: 2px solid #ccc;

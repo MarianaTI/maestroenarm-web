@@ -83,6 +83,25 @@ export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
+  & span {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
+    margin: 4px 0px;
+  }
+  .card-number-styled {
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: #ebebeb;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 4px;
+  }
+`;
+
+export const CardElementsRow = styled.div`
+  margin: 8px 0px;
 `;
 
 export const RowInputs = styled.div`
@@ -118,7 +137,6 @@ export const DetailContainer = styled.div`
     }
   }
 `;
-
 
 export const PaymentContainer = styled.div`
   display: flex;

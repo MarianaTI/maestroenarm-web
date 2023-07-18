@@ -78,7 +78,7 @@ export const BasicInformationContainer = styled.div`
   }
   & audio {
     transition: all 0.5s linear;
-    border-radius: 7px;
+    border-radius: 2rem;
 
   }
   audio:hover,

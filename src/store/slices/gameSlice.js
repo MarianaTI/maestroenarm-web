@@ -5,6 +5,8 @@ const initialState = {
   falseAnswerCount: 0,
   quizAccuracy: 0,
   gameHistory: [],
+  totalGameTime: 0,
+  timePerQuestion: 0,
 };
 
 
@@ -20,16 +22,21 @@ export const gameSlice = createSlice({
     },
     setQuizAccuracy: (state, action) => {
       const totalAnswers = state.trueAnswerCount + state.falseAnswerCount;
-      const accuracy = (state.trueAnswerCount/totalAnswers)*100
+      const accuracy = (state.trueAnswerCount / totalAnswers) * 100
       state.quizAccuracy = Math.ceil(accuracy);
     },
     setAddGameHistory: (state, action) => {
       state.gameHistory.push(action.payload);
-    }
+    },
+    setTotalGameTimeAndTimePerQuestion: (state, action) => {
+      state.totalGameTime = action.payload.valor;
+      const totalAnswers = state.trueAnswerCount + state.falseAnswerCount;
+      state.timePerQuestion= Math.ceil(state.totalGameTime / totalAnswers);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTrueAnswerCount, setFalseAnswerCount, setQuizAccuracy, setAddGameHistory } = gameSlice.actions;
+export const { setTrueAnswerCount, setFalseAnswerCount, setQuizAccuracy, setAddGameHistory, setTotalGameTimeAndTimePerQuestion } = gameSlice.actions;
 
 export default gameSlice.reducer;

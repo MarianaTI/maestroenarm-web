@@ -145,12 +145,12 @@ export default function Home() {
         <CustomModal
           open={isOpenFeedback}
           onClose={toggleForgotPasswordModal}
-          title="Feedback"
+          title="Comentario"
           message={feedbackQuestion}
         />
         {!isCounting && !isOpenFeedback && (
           <ReturnButtonContainer>
-            <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
+            <CustomButton text="Comentario" type onClick={toggleForgotPasswordModal} />
           </ReturnButtonContainer>
         )}
 
