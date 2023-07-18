@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { TimeIconContainer, TimeText } from "./TimeIcon.style";
-import { setTotalGameTime } from "../../store/slices/gameSlice";
+import { setTotalGameTimeAndTimePerQuestion } from "../../store/slices/gameSlice";
 
 function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
   const [countdown, setCountdown] = useState(seconds);
@@ -25,8 +25,7 @@ function TimeIcon({ onTimeFinish, isCounting, seconds = 10 }) {
     if (!isCounting && prevIsCountingRef.current){
       setCountdownValue((prevCountdownValue ) => prevCountdownValue  +  seconds - countdown);
       const updatedCountdownValue = countdownValue + seconds - countdown;
-      dispatch(setTotalGameTime({valor: updatedCountdownValue }));
-      console.log(updatedCountdownValue )
+      dispatch(setTotalGameTimeAndTimePerQuestion({valor: updatedCountdownValue }));
       setCountdown(seconds);
     }
     prevIsCountingRef.current = isCounting;
