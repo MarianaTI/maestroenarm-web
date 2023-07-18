@@ -24,7 +24,6 @@ import HistoryIcon from '@mui/icons-material/History';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
 import Link from 'next/link';
-import { useState } from 'react';
 
 const links = [
     {

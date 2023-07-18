@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
 
 const specialties = [
-    { id: 1, label: 'Especialidad 1', subspecialties: ['Opción 1', 'Opción 2', 'Opción 3'] },
-    { id: 2, label: 'Especialidad 2', subspecialties: ['Opción 4', 'Opción 5', 'Opción 6'] },
-    { id: 3, label: 'Especialidad 3', subspecialties: ['Opción 7', 'Opción 8', 'Opción 9'] },
-    { id: 4, label: 'Especialidad 4', subspecialties: ['Opción 10', 'Opción 11', 'Opción 12'] },
+    { id: 1, label: 'Cardiología', subspecialties: ['cardiología clínica', 'cardiología pediátrica'] },
+    { id: 2, label: 'Cirugia', subspecialties: ['cirgia general', 'cirugia pediatrica', 'cirugía bariátria', 'cirugia de trasplantes'] },
+    { id: 3, label: 'Geriatria', subspecialties: ['cardio geriatria', 'orto geriatría', 'geriatría general'] },
+    { id: 4, label: 'Ginecología', subspecialties: ['obstetricia', 'medicina materno fetal', 'urológica'] },
+    { id: 5, label: 'Medicina', subspecialties: ['medicina iterna', 'medicina familiar'] },
+    { id: 6, label: 'Odontología', subspecialties: ['endodoncia', 'ortodoncia', 'cirugia oral', 'prostodoncia'] },
 ]
 
 export default function FilterDrawer() {

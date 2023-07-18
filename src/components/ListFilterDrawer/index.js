@@ -43,8 +43,8 @@ function FilterCheckbox({ label, checked, onChange }) {
     function handleChange() { onChange(label) }
     return (
         <label style={{ marginLeft: 20 }} >
-            <Checkbox checked={checked} onChange={handleChange} />
-            {label}
+            <input type='checkbox' checked={checked} onChange={handleChange} />
+            <span style={{ paddingLeft: 8 }}>{label}</span>
         </label>
     )
 }
