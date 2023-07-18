@@ -1,4 +1,3 @@
-import FilterDrawer from "../../../components/FilterDrawer"
 import Filter from "../../../components/Filter"
 import { AcademyVideoBanner, VideoCardContainer, VideoContainer } from "../../../styles/Videos.style"
 import { useGetVideosByTitleQuery } from "../../../store/apis/videoApi"
@@ -6,6 +5,7 @@ import { CardVideo, CardVideoPlaceholder } from "../../../components/CardVideo"
 import { cloudinaryReact } from "../../../services/cloudinary/config"
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import FilterLayout from "../../../layouts/FilterDrawer"
 
 export default function Videos() {
     const [query, setQuery] = useState('')
@@ -17,7 +17,7 @@ export default function Videos() {
     }, [query])
 
     return (
-        <>
+        <FilterLayout setCheck={setQuery}>
             <VideoContainer >
                 <AcademyVideoBanner className="academy__container">
                     <div className="academy__info__group">
@@ -35,12 +35,12 @@ export default function Videos() {
                         src="/academy-principal-video-page.svg"
                         width={600}
                         height={400}
-                        alt="academy-img"
+                        alt="academy-videos-img"
                     />
                 </AcademyVideoBanner>
                 <Filter setState={setQuery} />
                 <VideoCardContainer>
-                    {isLoading ? 'abcdefghij'.split('').map(n => <CardVideoPlaceholder key={n} />)
+                    {isLoading ? 'abcdefghij'.split('').map(c => <CardVideoPlaceholder key={c} />)
                         : videos?.map(({ asset_id, public_id, context }) => <CardVideo
                             key={asset_id}
                             title={context?.caption}
@@ -52,8 +52,7 @@ export default function Videos() {
                         </CardVideo>)}
                 </VideoCardContainer>
             </VideoContainer >
-            <FilterDrawer />
-        </>
+        </FilterLayout>
     )
 }
 

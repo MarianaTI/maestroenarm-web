@@ -39,9 +39,11 @@ export default function Watch() {
                                             <QuizIcon />
                                         </CustomButton>
                                     </Link>
-                                    <CustomButton theme="secondary" >
-                                        <Download />
-                                    </CustomButton>
+                                    <div>
+                                        <CustomButton theme="secondary"  >
+                                            <Download />
+                                        </CustomButton>
+                                    </div>
                                 </div>
                             </div>
                         </div>

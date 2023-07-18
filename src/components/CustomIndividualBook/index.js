@@ -21,11 +21,11 @@ import { setCurrentProduct } from "../../store/slices/productSlice";
 const CustomIndividualBook = ({
   imgFront,
   imgBack,
-  name = 'turtle',
-  author = 'none',
-  topics = 'none',
-  price = '9.99',
-  details = 'none',
+  name,
+  author,
+  topics,
+  price,
+  details,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);

@@ -6,43 +6,15 @@ import { closeDrawer } from '../../store/slices/filterDrawerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
 
-const drawerItems = [
-    {
-        id: 1, label: 'Especialidad', subspecialties: [
-            { id: 1, label: 'Sub - especialidad', isSelected: false },
-            { id: 2, label: 'Sub - especialidad', isSelected: false },
-            { id: 3, label: 'Sub - especialidad', isSelected: false },
-            { id: 4, label: 'Sub - especialidad', isSelected: false }
-        ]
-    },
-    {
-        id: 2, label: 'Especialidad', subspecialties: [
-            { id: 1, label: 'Sub - especialidad', isSelected: false },
-            { id: 2, label: 'Sub - especialidad', isSelected: false },
-            { id: 3, label: 'Sub - especialidad', isSelected: false },
-            { id: 4, label: 'Sub - especialidad', isSelected: false }
-        ]
-    },
-    {
-        id: 3, label: 'Especialidad', subspecialties: [
-            { id: 1, label: 'Sub - especialidad', isSelected: false },
-            { id: 2, label: 'Sub - especialidad', isSelected: false },
-            { id: 3, label: 'Sub - especialidad', isSelected: false },
-            { id: 4, label: 'Sub - especialidad', isSelected: false }
-        ]
-    },
-    {
-        id: 4, label: 'Especialidad', subspecialties: [
-            { id: 1, label: 'Sub - especialidad', isSelected: false },
-            { id: 2, label: 'Sub - especialidad', isSelected: false },
-            { id: 3, label: 'Sub - especialidad', isSelected: false },
-            { id: 4, label: 'Sub - especialidad', isSelected: false }
-        ]
-    },
+const specialties = [
+    { id: 1, label: 'Especialidad 1', subspecialties: ['Opción 1', 'Opción 2', 'Opción 3'] },
+    { id: 2, label: 'Especialidad 2', subspecialties: ['Opción 4', 'Opción 5', 'Opción 6'] },
+    { id: 3, label: 'Especialidad 3', subspecialties: ['Opción 7', 'Opción 8', 'Opción 9'] },
+    { id: 4, label: 'Especialidad 4', subspecialties: ['Opción 10', 'Opción 11', 'Opción 12'] },
 ]
 
 export default function FilterDrawer() {
-    const { isOpen } = useSelector(state => state.filterDrawer);
+    const { isOpen, drawerItems, drawerCollapse } = useSelector(state => state.filterDrawer);
     return (
         <Drawer
             anchor="right"
@@ -54,9 +26,11 @@ export default function FilterDrawer() {
                     <CloseButton />
                 </Container>
                 <List>
-                    {drawerItems.map(({ id, label, subspecialties }) => <ListFilterDrawer
+                    {specialties.map(({ id, label, subspecialties }) => <ListFilterDrawer
                         key={id}
+                        value={drawerItems}
                         label={label}
+                        collapseList={drawerCollapse}
                         subspecialties={subspecialties} />)}
                 </List>
             </DrawerBody>

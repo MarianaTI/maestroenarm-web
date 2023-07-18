@@ -30,7 +30,6 @@ export const MainInformation = styled.div`
 
 
 export const ImageStyled = styled(Image)`
-  :hover {
     animation: float 2s linear infinite;
     @keyframes float {
       0%,
@@ -38,21 +37,9 @@ export const ImageStyled = styled(Image)`
         transform: translateY(0rem);
       }
       50% {
-        transform: translateY(-1.5rem);
+        transform: translateY(-1rem);
       }
-    }
-  }
-  :not(:hover) {
-    animation: fall 0.5s linear forwards;
-    @keyframes fall {
-    from {
-      transform: translateY(-1.5rem);
-    }
-    to {
-      transform: translateY(0rem);
-    }
-  }
-  }
+    }   
   @media (max-width: 1070px) {
     display: none;
   }
