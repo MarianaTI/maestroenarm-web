@@ -14,8 +14,7 @@ export default function ProfileSettings() {
   const profileFields = [
     { label: "Nombre de Usuario", text: user?.displayName },
     { label: "Nombre Y Apellido", text: user?.displayName },
-    { label: "Correo", text: user?.email },
-    { label: "Contraseña", text: "********" },
+    { label: "Correo", text: user?.email }
   ];
   return (
     <Layout>
