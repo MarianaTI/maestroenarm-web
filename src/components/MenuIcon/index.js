@@ -55,7 +55,6 @@ const MenuOption = () => {
             <IconButton
                 onClick={handleButtonClick}
                 color="inherit"
-                style={{ marginLeft: "auto", marginRight: 28, padding: 2}}
             >
                 <Avatar  src={user?.photoURL} />
             </IconButton>

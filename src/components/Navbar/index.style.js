@@ -1,47 +1,43 @@
 import styled from "@emotion/styled";
 
-export const Header = styled.header`
+export const NavContent = styled.nav`
+    padding: 4px 16px;
     border-bottom: 2px solid #052970;
     background: white;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 999;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    @media screen and (max-width: 1220px) {
-        display: initial;
-    }
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 `;
 
 export const CustomNavUl = styled.ul`
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     font-size: medium;
-    gap: 60px;
-    font-family: Poppins;
+    gap: 32px;
     font-weight: bold;
+    @media screen and (max-width: 1020px){
+        display: none;
+    }
 `;
 
 export const EnarmIcon = styled.span`
-    color: black;
-    font-family: Poppins;
+    color: #052970;
+    font-weight: 700;
     font-size: large;
-    margin-top: 8px;
-    @media screen and (max-width: 1220px) {
-        margin: auto;
-    }
-
-    @media screen and (max-width: 578px) {
+    @media screen and (max-width: 300px) {
         display: none;
     }
 `;
 
 export const IconWrapper = styled.div`
     display: none;
-    @media screen and (max-width: 1220px) {
+    @media screen and (max-width: 1020px) {
         display: initial;
     }
 `
@@ -50,7 +46,4 @@ export const CustomNavLi = styled.li`
     display: flex;
     gap: 16px;
     align-items: center;
-    @media screen and (max-width: 1220px){
-        display: none;
-    }
 `;

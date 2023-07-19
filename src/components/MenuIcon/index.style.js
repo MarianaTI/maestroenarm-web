@@ -3,9 +3,7 @@ import { MenuItem, Menu, IconButton } from "@mui/material";
 
 export const StyledButton = styled(IconButton)`
   && {
-    margin-left: auto;
-    color: #000;
-    box-shadow: none;
+    box-shadow: none; 
     font-size: medium;
     cursor: pointer;
     &:hover {

@@ -4,7 +4,7 @@ import NextImage from "next/image";
 
 export const Container = styled.div`
   max-width: 100%;
-  padding: 64px 32px;
+  padding: 38px 32px;
   font-family: "Poppins";
   & h1 {
     font-weight: 300px;
