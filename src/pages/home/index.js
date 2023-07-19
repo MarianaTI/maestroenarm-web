@@ -11,6 +11,9 @@ import ShareIcon from "@mui/icons-material/Share";
 import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { clinicalCases } from "../../constants";
+import {setAddSpecialityAndSubspeciality} from "../../store/slices/menuCheckBoxSlice";
 
 export default function Game() {
   const router = useRouter();
@@ -19,6 +22,25 @@ export default function Game() {
   const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
     useState(false);
   const [roomId, setRoomId] = useState("");
+  const dispatch= useDispatch(); 
+
+  useEffect(() => {
+
+    const especialidadesUnicas = new Set();
+    const subEspecialidadesUnicas = new Set();
+
+    for(const caseId in clinicalCases) {
+      const caso = clinicalCases[caseId];
+      especialidadesUnicas.add(caso.speciality);
+      subEspecialidadesUnicas.add(caso.subSpeciality);
+    }
+    dispatch(setAddSpecialityAndSubspeciality([...especialidadesUnicas],[...subEspecialidadesUnicas]));
+  }, [dispatch]);
+
+
+
+
+
 
   useEffect(() => {
     if (roomId) {

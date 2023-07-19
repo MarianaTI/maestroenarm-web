@@ -8,6 +8,7 @@ import navDrawerReducer from "./slices/navDrawerSlice";
 import videosReducer from "./slices/videosSlice";
 import productReducer from "./slices/productSlice";
 import { videosApi } from "./apis/videoApi";
+import CheckBoxMenuReducer from "./slices/menuCheckBoxSlice";
 
 // Configuración de persistencia para cada reductor
 const persistConfig = {
@@ -21,9 +22,11 @@ const persistedFilterDrawerReducer = persistReducer(persistConfig, filterDrawerR
 const persistedNavDrawerReducer = persistReducer(persistConfig, navDrawerReducer);
 const persistedVideosReducer = persistReducer(persistConfig, videosReducer);
 const persistedProductReducer = persistReducer(persistConfig, productReducer);
+const persistedCheckBoxMenuReducer = persistReducer(persistConfig, CheckBoxMenuReducer )
 
 export const store = configureStore({
   reducer: {
+    checkBoxMenu: persistedCheckBoxMenuReducer,
     game: persistedGameReducer,
     filterDrawer: persistedFilterDrawerReducer,
     navDrawer: persistedNavDrawerReducer,

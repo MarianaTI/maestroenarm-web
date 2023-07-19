@@ -11,15 +11,15 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
 
     const specialityList = [];
     const subSpecialityList = [];
-    const gameHistory = useSelector((state) => state.game.gameHistory);
-
+    const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
+    console.log(specialityAndSubspeciality);
     const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked);
     };
 
-    gameHistory.forEach((item) => {
+    specialityAndSubspeciality.forEach((item) => {
 
         if(!specialityList.includes(item.speciality)){
             specialityList.push(item.speciality)

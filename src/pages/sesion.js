@@ -150,10 +150,6 @@ const Sesion = () => {
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
-        <BackLoginContainer>
-          <BackLoginIcon />
-          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
-        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );
