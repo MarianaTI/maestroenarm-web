@@ -4,34 +4,33 @@ import NextImage from "next/image";
 
 export const Container = styled.div`
   max-width: 100%;
-  padding: 60px;
+  padding: 64px 32px;
   font-family: "Poppins";
   & h1 {
-    text-align: center;
-    font-size: 30px;
     font-weight: 300px;
     color: #052970;
-    padding: 20px;
+  }
+
+  & h2 {
+    text-align: center;
+    font-weight: 300px;
+    color: #052970;
   }
 `;
 
 export const AboutContainer = styled.div`
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   align-items: center;
-  margin-top: 15px;
-  & p {
+  text-align: justify;
+  & div p {
     font-size: 18px;
     margin-bottom: 20px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1020px) {
     flex-direction: row;
     justify-content: space-between;
-    
-
-    & p {
-      flex-basis: 60%;
-    }
   }
 `;
 
@@ -48,22 +47,16 @@ export const ImageStyle = styled(NextImage)`
 `;
 
 export const AvatarsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  display: grid;
+  gap: 1.2em;
+  grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
 `;
 
 export const AboutCard = styled(Box)`
-  padding: 5px;
-  width: 300px;
   height: auto;
   background-color: #f4f4f4;
   border-radius: 5px;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
-  margin: 15px;
   & h3 {
     text-align: center;
     font-size: 15px;

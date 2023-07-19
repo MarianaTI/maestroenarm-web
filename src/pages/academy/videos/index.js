@@ -6,15 +6,16 @@ import { cloudinaryReact } from "../../../services/cloudinary/config"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import FilterLayout from "../../../layouts/FilterDrawer"
+import { useSelector } from "react-redux"
 
 export default function Videos() {
+    const { drawerItems } = useSelector(state => state.filterDrawer)
     const [query, setQuery] = useState('')
     const { data: videos, isLoading, refetch } = useGetVideosByTitleQuery(query)
-    console.log(isLoading)
     useEffect(() => {
         const debouncing = setTimeout(() => { refetch() }, 500)
         return () => clearTimeout(debouncing)
-    }, [query])
+    }, [query, drawerItems])
 
     return (
         <FilterLayout setCheck={setQuery}>

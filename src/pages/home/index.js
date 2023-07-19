@@ -8,9 +8,9 @@ import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
 import ShareIcon from "@mui/icons-material/Share";
-import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { IconButton } from "@mui/material";
 
 export default function Game() {
   const router = useRouter();
@@ -71,8 +71,10 @@ export default function Game() {
         <p>Feedback al finalizar el exámen</p>
         <p>AMISTOSO</p>
       </TitleGameContainer>
-      <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
-      <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      <div>
+        <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
+        <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      </div>
       <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
       <CustomModal
         title="¡Estamos esperando a tu contrincante!"
@@ -84,13 +86,13 @@ export default function Game() {
           <span>Copiar Link</span>
           <div className="link-container">
             <span>{`localhost:3000/home/match/${roomId}`}</span>
-            <CustomButton theme="icon" onClick={handleCopyLinkToClipboard}>
+            <IconButton onClick={handleCopyLinkToClipboard}>
               <ShareIcon />
-            </CustomButton>
+            </IconButton>
           </div>
           <span>Esperando...</span>
         </LinkModalBody>
       </CustomModal>
-    </div>
+    </div >
   );
 }
