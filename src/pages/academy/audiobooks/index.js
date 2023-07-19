@@ -12,21 +12,20 @@ import {
 import Link from "next/link";
 import CustomBook from "../../../components/CustomBook";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, limit } from "@firebase/firestore";
+import { collection, getDocs, query, where } from "@firebase/firestore";
 import { db } from "../../../services/firebase/config";
 import FilterLayout from "../../../layouts/FilterDrawer";
+import { useSelector } from "react-redux";
 
 export default function AudioBooks() {
+	const { drawerItems } = useSelector(state => state.filterDrawer)
 	const [filterItems, setFilterItems] = useState([])
 	const [input, setInput] = useState('')
+	let snapshot;
 	async function getAudiobooks() {
-		const snapshot = await getDocs(query(collection(db, 'audiobooks'), limit(24)));
-		const audiobooks = snapshot.docs.map(doc => doc.data());
-		setFilterItems(audiobooks.filter(data => data.name.includes(input)))
-	}
-
-	async function getAudiobooksByFilter() {
-		const snapshot = await getDocs(query(collection(db, 'audiobooks'), limit(24), where('sub_specialties', 'array-contains')));
+		if (drawerItems.length > 0) {snapshot = await getDocs(
+			query(collection(db, 'audiobooks'), where('subEspecialidad', 'array-contains-any', drawerItems)))}
+		else snapshot = await getDocs(query(collection(db, 'audiobooks')));
 		const audiobooks = snapshot.docs.map(doc => doc.data());
 		setFilterItems(audiobooks.filter(data => data.name.includes(input)))
 	}
@@ -34,7 +33,7 @@ export default function AudioBooks() {
 	useEffect(() => {
 		const debouncing = setTimeout(() => { getAudiobooks() }, 500)
 		return () => clearTimeout(debouncing)
-	}, [input]);
+	}, [input, drawerItems]);
 
 	return (
 		<FilterLayout setCheck={setInput}>
