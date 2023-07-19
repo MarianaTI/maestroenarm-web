@@ -29,16 +29,13 @@ export default function Game() {
     const especialidadesUnicas = new Set();
     const subEspecialidadesUnicas = new Set();
 
-    for(const caseId in clinicalCases) {
-      const caso = clinicalCases[caseId];
+    for(const index in clinicalCases) {
+      const caso = clinicalCases[index];
       especialidadesUnicas.add(caso.speciality);
       subEspecialidadesUnicas.add(caso.subSpeciality);
     }
-    dispatch(setAddSpecialityAndSubspeciality([...especialidadesUnicas],[...subEspecialidadesUnicas]));
+    dispatch(setAddSpecialityAndSubspeciality({especialidadesUnicas, subEspecialidadesUnicas}));
   }, [dispatch]);
-
-
-
 
 
 

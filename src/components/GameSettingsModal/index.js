@@ -9,27 +9,11 @@ import { ModalBody, RangeContainer } from './index.style';
 
 export const GameSettingsModal = ({ isOpen, closeModal }) => {
 
-    const specialityList = [];
-    const subSpecialityList = [];
     const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
-    console.log(specialityAndSubspeciality);
     const [isChecked, setIsChecked] = useState(false);
-
     const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked);
     };
-
-    specialityAndSubspeciality.forEach((item) => {
-
-        if(!specialityList.includes(item.speciality)){
-            specialityList.push(item.speciality)
-        }
-
-        if(!subSpecialityList.includes(item.subSpeciality)){
-            subSpecialityList.push(item.subSpeciality)
-        }
-    });
-    
     return (
         <Modal
             open={isOpen}
@@ -50,12 +34,17 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     <label>Tiempo: 5 min
                         <input type='range' />
                     </label>
-                    {specialityList.map((speciality, index) => (
-                        <div key={index}> 
-                            <span>speciality: {speciality} </span>
-                            <span>subspeciality: {subSpecialityList[index]}</span>
+                        <div>
+                            <span>-Especialidades: </span>
+                            {Array.from(specialityAndSubspeciality[0].especialidadesUnicas).map((especialidad, especialidadIndex) => (
+                                <span key={especialidadIndex}>{especialidad}</span>
+                            ))}
+
+                            <span>-Subespecialidades: </span>
+                            {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).map((subespecialidad, subespecialidadIndex)=>(
+                                <span key={subespecialidadIndex}>{subespecialidad}</span>
+                            ))}
                         </div>
-                    ))};
                     <CheckBoxButton
                         label="Check me"
                         checked={isChecked}
