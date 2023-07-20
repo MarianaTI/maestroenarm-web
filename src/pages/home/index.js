@@ -12,7 +12,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { clinicalCases } from "../../constants";
-import {setAddSpecialityAndSubspeciality} from "../../store/slices/menuCheckBoxSlice";
+import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
+import { IconButton } from "@mui/material";
 
 export default function Game() {
   const router = useRouter();
@@ -21,22 +22,20 @@ export default function Game() {
   const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
     useState(false);
   const [roomId, setRoomId] = useState("");
-  const dispatch= useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
 
     const especialidadesUnicas = new Set();
     const subEspecialidadesUnicas = new Set();
 
-    for(const index in clinicalCases) {
+    for (const index in clinicalCases) {
       const caso = clinicalCases[index];
       especialidadesUnicas.add(caso.speciality);
       subEspecialidadesUnicas.add(caso.subSpeciality);
     }
-    dispatch(setAddSpecialityAndSubspeciality({especialidadesUnicas, subEspecialidadesUnicas}));
+    dispatch(setAddSpecialityAndSubspeciality({ especialidadesUnicas, subEspecialidadesUnicas }));
   }, [dispatch]);
-
-
 
   useEffect(() => {
     if (roomId) {
@@ -82,7 +81,7 @@ export default function Game() {
         <GameField label="Aleatorio" />
       </a>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
-      <GameSettingsModal isOpen={open} />
+      {/* <GameSettingsModal isOpen={open} /> */}
 
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
@@ -93,7 +92,7 @@ export default function Game() {
         <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
         <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
       </div>
-      <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
+      {/* <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} /> */}
       <CustomModal
         title="¡Estamos esperando a tu contrincante!"
         message="Comparte este link con algún amigo y averiguar quien sabe más. ¿Quién será...?"
