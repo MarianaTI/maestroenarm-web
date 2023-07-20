@@ -43,7 +43,8 @@ export default function Results() {
   const items = answerCount();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
-
+  const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
+console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
   };
