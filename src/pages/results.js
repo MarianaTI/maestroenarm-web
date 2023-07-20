@@ -61,14 +61,14 @@ export default function Results() {
     }
   });
 
-  gameHistory.forEach((item) => {
-    if (!specialityList.includes(item.speciality)) {
-      specialityList.push(item.speciality);
-    }
-    if (!subSpecialityList.includes(item.subSpeciality)) {
-      subSpecialityList.push(item.subSpeciality)
-    }
-  });
+  // gameHistory.forEach((item) => {
+  //   if (!specialityList.includes(item.speciality)) {
+  //     specialityList.push(item.speciality);
+  //   }
+  //   if (!subSpecialityList.includes(item.subSpeciality)) {
+  //     subSpecialityList.push(item.subSpeciality)
+  //   }
+  // });
 
 
   return (
@@ -79,19 +79,29 @@ export default function Results() {
       </StatisticsContainer>
       <ContainerSpecialty>
         <TextContainerResult>
-          <span>Resultados por categoria</span>
+          <span>Historial del juego</span>
         </TextContainerResult>
         <ContainerRetroAlim>
           <CollapseComponent />
         </ContainerRetroAlim>
         
-          {specialityList.map((speciality, index) => (
+          {/* {specialityList.map((speciality, index) => (
             <TextStatic key={index}>
               <span> speciality: {speciality}</span>
               <span>subSpeciality: {subSpecialityList[index]}</span>
             </TextStatic>
-          ))};
-          
+          ))}; */}
+          <TextContainerResult>
+          <span>Resultados por categoria</span>
+        </TextContainerResult>
+          <TextStatic >
+              <span>Ginecologia 1/1 - 100% </span>
+              <span>Remautologia 4/5 - 80% </span>
+              <span>Hematología 2/3 - 67% </span>
+              <span>Neonatología 1/1 - 100% </span>
+              <span>Neonatología 1/2 - 50% </span>
+              <span>Gastroenterología 0/1 - 0% </span>
+          </TextStatic>
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
 

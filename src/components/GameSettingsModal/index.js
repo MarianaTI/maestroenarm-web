@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { CustomButton } from '../CustomButton';
 import CheckBoxButton from "../CheckBoxButton";
-
+import { clinicalCases } from "../../constants";
+import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
 import { ModalBody, RangeContainer } from './index.style';
 
 export const GameSettingsModal = ({ isOpen, closeModal }) => {
 
     const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
     const [isChecked, setIsChecked] = useState(false);
+    const [dataLoaded, setDataLoaded] = useState(false);
+
+    const dispatch = useDispatch();
+
     const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked);
     };
+
+    useEffect(() => {
+
+        const especialidadesUnicas = new Set();
+        const subEspecialidadesUnicas = new Set();
+
+        for (const index in clinicalCases) {
+            const caso = clinicalCases[index];
+            especialidadesUnicas.add(caso.speciality);
+            subEspecialidadesUnicas.add(caso.subSpeciality);
+        }
+        dispatch(setAddSpecialityAndSubspeciality({ especialidadesUnicas, subEspecialidadesUnicas }));
+        setDataLoaded(true);
+    }, [dispatch]);
+
     return (
         <Modal
             open={isOpen}
@@ -34,17 +54,25 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     <label>Tiempo: 5 min
                         <input type='range' />
                     </label>
+                    {dataLoaded ? ( 
                         <div>
                             <span>-Especialidades: </span>
-                            {Array.from(specialityAndSubspeciality[0].especialidadesUnicas).map((especialidad, especialidadIndex) => (
-                                <span key={especialidadIndex}>{especialidad}</span>
-                            ))}
+                            {Array.from(specialityAndSubspeciality[0].especialidadesUnicas).map(
+                                (especialidad, especialidadIndex) => (
+                                    <span key={especialidadIndex}>{especialidad}</span>
+                                )
+                            )}
 
                             <span>-Subespecialidades: </span>
-                            {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).map((subespecialidad, subespecialidadIndex)=>(
-                                <span key={subespecialidadIndex}>{subespecialidad}</span>
-                            ))}
+                            {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).map(
+                                (subespecialidad, subespecialidadIndex) => (
+                                    <span key={subespecialidadIndex}>{subespecialidad}</span>
+                                )
+                            )}
                         </div>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
                     <CheckBoxButton
                         label="Check me"
                         checked={isChecked}

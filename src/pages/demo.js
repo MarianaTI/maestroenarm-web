@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
-import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory } from "../store/slices/gameSlice";
+import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -20,9 +20,10 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
-  const dispatch= useDispatch();
-  const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
+  const [isAnswerCorrectSubspecialty, setIsAnswerCorrectSubspecialty] = useState(0);
+  const dispatch = useDispatch();
+  const router = useRouter();
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
   const question = clinicalCase.question[questionCounter];
@@ -38,6 +39,11 @@ export default function Home() {
   const feedbackGeneralCase = clinicalCase.feedbackGeneral;
   const speciality = clinicalCase.speciality;
   const subSpeciality = clinicalCase.subSpeciality;
+  const uniqueSpeciality = new Set();
+  const uniqueSubSpeciality = new Set();
+
+  uniqueSpeciality.add(speciality);
+  uniqueSubSpeciality.add(subSpeciality);
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -62,12 +68,28 @@ export default function Home() {
       setIsCounting(true);
     }
   };
+  // const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
+  //   const percentageBySubspecialty = 100 / lengthQuestions;
+  //     const subSpecialtyScores = percentageBySubspecialty * isAnswerCorrectSubspecialty;
+  //     //aqui ira la validacion de las buenas y malas
+  //     if (isAnswerCorrect == question.correctAnswer) {
+  //       setIsAnswerCorrectSubspecialty((preIsAnswerCorrectSubspecialty) => preIsAnswerCorrectSubspecialty + 1);
+  //     }
+  //     //aqui ira el dispach
+  //     dispatch(setGameSpecialityAndSubspeciality({ subSpecialtyScores }))
+  // };
+  // useEffect(() => {
+    
+  //     handleSpecialityAnswerCorrect();
+    
+  // }, [lengthQuestions, isAnswerCorrectSubspecialty])
+
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
-      dispatch(setTrueAnswerCount({valor:1}));
+      dispatch(setTrueAnswerCount({ valor: 1 }));
     } else {
-      dispatch(setFalseAnswerCount({valor:1}));
+      dispatch(setFalseAnswerCount({ valor: 1 }));
     }
   }
 
@@ -77,19 +99,21 @@ export default function Home() {
     toggleResultRevealed();
     setIsCounting(false);
     handleAnswer(isAnswerCorrect);
+    handleSpecialityAnswerCorrect(isAnswerCorrect);
   };
 
   const handleQuestionTimeFinished = () => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
-    dispatch(setFalseAnswerCount({valor:1}));
+    dispatch(setFalseAnswerCount({ valor: 1 }));
   };
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase, speciality, subSpeciality}))
+    dispatch(setAddGameHistory({ clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase }))
+    dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality }));
     if (!isOpenFeedback) {
       goNext();
     }
