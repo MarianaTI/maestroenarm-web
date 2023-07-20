@@ -1,9 +1,19 @@
+import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useSelector } from "react-redux";
 import { CustomButton } from '../CustomButton';
+import CheckBoxButton from "../CheckBoxButton";
+
 import { ModalBody, RangeContainer } from './index.style';
 
 export const GameSettingsModal = ({ isOpen, closeModal }) => {
+
+    const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
+    const [isChecked, setIsChecked] = useState(false);
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
+    };
     return (
         <Modal
             open={isOpen}
@@ -24,6 +34,21 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     <label>Tiempo: 5 min
                         <input type='range' />
                     </label>
+                        <div>
+                            <span>-Especialidades: </span>
+                            {Array.from(specialityAndSubspeciality[0].especialidadesUnicas).map((especialidad, especialidadIndex) => (
+                                <span key={especialidadIndex}>{especialidad}</span>
+                            ))}
+
+                            <span>-Subespecialidades: </span>
+                            {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).map((subespecialidad, subespecialidadIndex)=>(
+                                <span key={subespecialidadIndex}>{subespecialidad}</span>
+                            ))}
+                        </div>
+                    <CheckBoxButton
+                        label="Check me"
+                        checked={isChecked}
+                        onChange={handleCheckboxChange} />
                     <CustomButton text='continuar' theme="primary" onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
