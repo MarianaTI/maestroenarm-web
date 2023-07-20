@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import { Box, Link} from "@mui/material";
-
+import { Box } from "@mui/material";
+import Link from "next/link";
 
 export const RegisterContainer = styled.div`
-    height: 110vh;
-    width: ${(props) => (props.fullwidth ? "100%" : "auto")};
+    height: 100vh;
+    margin: auto;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 32px;
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
@@ -22,37 +22,28 @@ export const FormContainer = styled.div`
     padding: 8px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 `;
 export const CardStyled = styled(Box)`
+    padding: 16px;
+    max-width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    & h1 { text-align: center }
     & span {
-    color: #00000090;
-    font-weight: 500;
-    padding: 8px 0 16px 0;
-    letter-spacing: -0.01em;
-    font-feature-settings: "calt" off;
-    @media (max-width: 400px) {
-      display: inline;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-    }
+        text-align: center;
+        color: #00000090;
+        font-weight: 500;
+        padding: 8px 0 16px 0;
+        letter-spacing: -0.01em;
+        font-feature-settings: "calt" off;
     }
 `;
 export const FormStyle = styled.form`
-    width: 380px;
     display: flex;
     flex-direction: column;
-    @media (max-width: 400px) {
-        width: ${(props) => (props.fullwidth ? "100%" : "auto")};
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
 `;
 export const ImageStyle = styled.div`
     background-image: url(registerphoto2.svg);
@@ -69,6 +60,7 @@ export const ImageStyle = styled.div`
 `;
 export const QuestionStyle = styled.div`
     padding: 16px 0 16px 0;
+    text-align: center;
     & span {
         display: inline;
     }

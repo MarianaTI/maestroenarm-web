@@ -89,6 +89,7 @@ const register = () => {
                     )}
                     <FormStyle onSubmit={handleSubmit(onSubmit)}>
                         <CustomInput
+                            
                             label="Nombre"
                             name="namee"
                             control={control}
