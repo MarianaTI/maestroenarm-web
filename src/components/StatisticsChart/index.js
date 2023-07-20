@@ -23,7 +23,7 @@ export const StatisticChart = ({ items }) => {
     return (
         <Container>
             <ChartContainer>
-                <Doughnut data={data} />
+                <Doughnut data={data} style={{position: "absolute"}}/>
             </ChartContainer>
             <CustomUl>
                 {items.map((item, index) => <CustomLi key={item.label}>

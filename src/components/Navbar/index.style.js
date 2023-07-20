@@ -44,6 +44,6 @@ export const IconWrapper = styled.div`
 
 export const CustomNavLi = styled.li`
     display: flex;
-    gap: 16px;
+    gap: 8px;
     align-items: center;
 `;

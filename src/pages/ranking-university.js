@@ -37,14 +37,14 @@ const RankingUniversity = () => {
   const [firstPlaceUniversity, secondPlaceUniversity, thirdPlaceUniversity] =
     topThreeUniversities;
   return (
-    <Layout>
+    <>
       <RankingContainer>
         {secondPlaceUniversity && (
           <RankingCard
             data={secondPlaceUniversity}
             position={2}
             variant="secondPlaceUniversity"
-            universityStyle={{ color: "#000000", fontSize: "20px"}}
+            universityStyle={{ color: "#000000", fontSize: "20px" }}
             isDisplayFields={["university", "point"]}
           ></RankingCard>
         )}
@@ -72,10 +72,10 @@ const RankingUniversity = () => {
         <RankingList
           data={remainingUniversities}
           isDisplayFields={["university", "point"]}
-          styledText={{ color: "#000000;", fontSize: "20px", margin: "500px"}}
+          styledText={{ color: "#000000;", fontSize: "20px", margin: "500px" }}
         />
       </RankingListContainer>
-    </Layout>
+    </>
   );
 };
 export default RankingUniversity;

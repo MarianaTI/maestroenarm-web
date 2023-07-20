@@ -6,7 +6,6 @@ import { rankingUsers } from "../constants";
 import RankingCard from "../components/RankingCard";
 import RankingList from "../components/RankingList";
 import Avatar from "../components/Avatar";
-import Layout from "../layouts/index";
 
 const getTopThreeRankingUsers = () =>
   rankingUsers.sort((a, b) => Number(b.point) - Number(a.point)).slice(0, 3);
@@ -18,7 +17,7 @@ const RankingUser = () => {
   const remainingUsers = rankingUsers.slice(3);
 
   return (
-    <Layout>
+    <>
       <RankingContainer>
         <RankingCard
           data={secondPlaceUser}
@@ -48,7 +47,7 @@ const RankingUser = () => {
           avatar={<Avatar />}
         />
       </RankingListContainer>
-    </Layout>
+    </>
   );
 };
 

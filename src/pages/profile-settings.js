@@ -17,7 +17,7 @@ export default function ProfileSettings() {
     { label: "Correo", text: user?.email }
   ];
   return (
-    <Layout>
+    <>
       <AvatarContainer>
         <Avatar sx={{ width: 132, height: 132, marginBottom: 1 }} alt={user?.displayName} src={user?.photoURL} />
         <p>Cuenta Básica</p>
@@ -38,6 +38,6 @@ export default function ProfileSettings() {
           Eliminar cuenta
         </CustomButton>
       </ButtonGroup>
-    </Layout>
+    </>
   );
 }
