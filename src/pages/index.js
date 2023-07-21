@@ -1,25 +1,35 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
-import { ContainerBienvenido, ImagenInicioDemo, InformationContainer, WelcomeTitle } from "../styles/demo.style";
+import Link from "next/link";
+import { CustomButton } from "../components/CustomButton";
+import {
+  ContainerBienvenido,
+  ImagenInicioDemo,
+  InformationContainer,
+  WelcomeTitle,
+  BOOMPharase,
+  Button,
+  SaltarDemo
+} from "../styles/demo.style";
 
 const Bienvenido = () => {
   return (
     <ContainerBienvenido>
-      <ImagenInicioDemo src="./iniciodemo.svg" width={550} height={550} />
-
-      <InformationContainer>
-        <WelcomeTitle>Bienvenido a Maestro ENARM</WelcomeTitle>
-        <span>"¡Juega, compite y aprende en nuestra página:
-          el lugar donde la preparación para el examen
-          de ERNAM se vuelve divertida y accesible, con
-          recursos de estudio incluidos!"</span>
-        <a className={styles.boton} href="/demo">
-          <span>Jugar Demo</span>
-        </a>
-        <p className={styles.saltarDemo}>
-          Desea saltar la DEMO? <a href="/sesion"> Saltar</a>
-        </p>
-      </InformationContainer>
+      <ImagenInicioDemo src="./iniciodemo.svg" width={500} height={500} />
+        <InformationContainer>
+          <WelcomeTitle>Bienvenido a Maestro ENARM</WelcomeTitle>
+          <BOOMPharase>"¡Juega, compite y aprende en nuestra página:
+            el lugar donde la preparación para el examen
+            de ERNAM se vuelve divertida y accesible, con
+            recursos de estudio incluidos!"</BOOMPharase>
+          <Button>
+              <Link href="/demo">
+               <CustomButton text="Jugar Demo" fullWidth size="large"/>  
+              </Link>
+          </Button>
+          <SaltarDemo>
+            Desea saltar la DEMO? <Link href="/sesion"> Saltar</Link>
+          </SaltarDemo>
+        </InformationContainer>
     </ContainerBienvenido>
 
 
