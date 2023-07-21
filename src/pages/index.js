@@ -1,19 +1,28 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
-import { ImagenDoctor } from "../styles/demo.style";
+import { ContainerBienvenido, ImagenInicioDemo, InformationContainer, WelcomeTitle } from "../styles/demo.style";
 
 const Bienvenido = () => {
   return (
-    <div className={styles.contenedorCentrado}>
-      <h1 className={styles.bienvenido}>Bienvenido a Maestro ENARM</h1>
-      <ImagenDoctor src="./doctor.svg" width={222} height={222}/>
-      <a className={styles.boton} href="/demo">
-        <span>Jugar Demo</span>
-      </a>
-      <p className={styles.saltarDemo}>
-        Desea saltar la DEMO? <a href="/sesion"> Saltar</a>
-      </p>
-    </div>
+    <ContainerBienvenido>
+      <ImagenInicioDemo src="./iniciodemo.svg" width={550} height={550} />
+
+      <InformationContainer>
+        <WelcomeTitle>Bienvenido a Maestro ENARM</WelcomeTitle>
+        <span>"¡Juega, compite y aprende en nuestra página:
+          el lugar donde la preparación para el examen
+          de ERNAM se vuelve divertida y accesible, con
+          recursos de estudio incluidos!"</span>
+        <a className={styles.boton} href="/demo">
+          <span>Jugar Demo</span>
+        </a>
+        <p className={styles.saltarDemo}>
+          Desea saltar la DEMO? <a href="/sesion"> Saltar</a>
+        </p>
+      </InformationContainer>
+    </ContainerBienvenido>
+
+
   );
 };
 

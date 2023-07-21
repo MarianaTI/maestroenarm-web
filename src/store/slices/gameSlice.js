@@ -36,6 +36,9 @@ export const gameSlice = createSlice({
     },
     setGameSpecialityAndSubspeciality: (state, action) => {
       state.gameSpecialityAndSubspeciality.push(action.payload)
+    },
+    clearGame: (state, action) => {
+      state.gameHistory=[]
     }
   },
 });
@@ -47,6 +50,7 @@ export const {
   setQuizAccuracy, 
   setAddGameHistory, 
   setTotalGameTimeAndTimePerQuestion,
-  setGameSpecialityAndSubspeciality } = gameSlice.actions;
+  setGameSpecialityAndSubspeciality,
+  clearGame } = gameSlice.actions;
 
 export default gameSlice.reducer;

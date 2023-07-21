@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Case from "../components/Case";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
@@ -68,22 +68,23 @@ export default function Home() {
       setIsCounting(true);
     }
   };
-  // const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
-  //   const percentageBySubspecialty = 100 / lengthQuestions;
-  //     const subSpecialtyScores = percentageBySubspecialty * isAnswerCorrectSubspecialty;
-  //     //aqui ira la validacion de las buenas y malas
-  //     if (isAnswerCorrect == question.correctAnswer) {
-  //       setIsAnswerCorrectSubspecialty((preIsAnswerCorrectSubspecialty) => preIsAnswerCorrectSubspecialty + 1);
-  //     }
-  //     //aqui ira el dispach
-  //     dispatch(setGameSpecialityAndSubspeciality({ subSpecialtyScores }))
-  // };
-  // useEffect(() => {
-    
-  //     handleSpecialityAnswerCorrect();
-    
-  // }, [lengthQuestions, isAnswerCorrectSubspecialty])
+  const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
+    if (!isCounting ) {
+      const percentageBySubspecialty = 100 / lengthQuestions;
+      const subSpecialtyScores = percentageBySubspecialty * isAnswerCorrectSubspecialty;
+      
+      if (isAnswerCorrect == question.correctAnswer) {
+        setIsAnswerCorrectSubspecialty((preIsAnswerCorrectSubspecialty) => preIsAnswerCorrectSubspecialty + 1);
+      }
+      
+      dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, percentageBySubspecialty }))
+    }
+  };
+  useEffect(() => {
 
+    handleSpecialityAnswerCorrect();
+
+  }, [uniqueSpeciality, uniqueSubSpeciality])
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
@@ -113,7 +114,6 @@ export default function Home() {
     toggleResultRevealed();
     setIsCounting(true);
     dispatch(setAddGameHistory({ clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase }))
-    dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality }));
     if (!isOpenFeedback) {
       goNext();
     }

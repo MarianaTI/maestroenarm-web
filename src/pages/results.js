@@ -12,7 +12,7 @@ import {
   ContainerCustomModal
 } from "../styles/Result.style.js";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuizAccuracy } from "../store/slices/gameSlice";
+import { setQuizAccuracy, clearGame } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -41,6 +41,7 @@ export default function Results() {
   const subSpecialityList = [];
   const router = useRouter();
   const items = answerCount();
+  const dispach = useDispatch();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
   const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
@@ -52,6 +53,9 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
   const handleClick = () => {
     router.push("/");
   };
+  const handleClearCache = () => {
+    dispach(clearGame());
+  };
 
   gameHistory.forEach((item) => {
     if (!bookList.includes(item.book)) {
@@ -62,14 +66,17 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
     }
   });
 
-  // gameHistory.forEach((item) => {
-  //   if (!specialityList.includes(item.speciality)) {
+  // gameSpecialityAndSubspeciality.forEach((item) => {
+  //   if (!specialityList.includes(item.uniqueSpeciality)) {
   //     specialityList.push(item.speciality);
   //   }
   //   if (!subSpecialityList.includes(item.subSpeciality)) {
-  //     subSpecialityList.push(item.subSpeciality)
+  //     subSpecialityList.push(item.uniqueSubSpeciality)
   //   }
   // });
+
+  // console.log('specialityList: ', specialityList);
+  // console.log('subSpecialityList: ', subSpecialityList)
 
 
   return (
@@ -85,6 +92,7 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
         <ContainerRetroAlim>
           <CollapseComponent />
         </ContainerRetroAlim>
+        <CustomButton text="Borrar Caché" type="submit" onClick={handleClearCache} />
         
           {/* {specialityList.map((speciality, index) => (
             <TextStatic key={index}>
