@@ -53,14 +53,14 @@ const links = [
     icon: <BarChartIcon />,
     suboptions: [
       {
-        label: "Universidades",
-        route: "/ranking-university",
-        icon: <SchoolIcon />,
+        label: "Usuarios",
+        route: "/ranking",
+        icon: <GroupIcon />,
       },
       {
-        label: "Usuarios",
-        route: "/ranking-user",
-        icon: <GroupIcon />,
+        label: "Universidades",
+        route: "/ranking/universities",
+        icon: <SchoolIcon />,
       },
     ],
   },

@@ -27,6 +27,7 @@ export const CustomNavUl = styled.ul`
 `;
 
 export const EnarmIcon = styled.span`
+    cursor: pointer;    
     color: #052970;
     font-weight: 700;
     font-size: large;

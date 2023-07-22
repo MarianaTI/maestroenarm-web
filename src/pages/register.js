@@ -88,19 +88,20 @@ const register = () => {
                         </ErrorMessage>
                     )}
                     <FormStyle onSubmit={handleSubmit(onSubmit)}>
-                        <CustomInput
-                            
-                            label="Nombre"
-                            name="namee"
-                            control={control}
-                            error={errors.namee?.message}
-                        />
-                        <CustomInput
-                            label="Apellido"
-                            name="lastname"
-                            control={control}
-                            error={errors.lastname?.message}
-                        />
+                        <div className="form-names">
+                            <CustomInput
+                                label="Nombre"
+                                name="namee"
+                                control={control}
+                                error={errors.namee?.message}
+                            />
+                            <CustomInput
+                                label="Apellido"
+                                name="lastname"
+                                control={control}
+                                error={errors.lastname?.message}
+                            />  
+                        </div>
                         <CustomInput
                             label="Correo electrónico"
                             name="email"

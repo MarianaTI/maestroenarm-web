@@ -57,31 +57,6 @@ export const rankingUsers = [
   },
 ];
 
-export const userAccount = [
-  {
-    email: "mariana@hotmail.com",
-    password: "mariana123",
-  },
-  {
-    email: "angel@hotmail.com",
-    password: "angel123",
-  },
-  {
-    email: "cloe@hotmail.com",
-    password: "cloe123",
-  },
-];
-
-export const userRegister = [
-  {
-    namee: "Sugey",
-    lastname: "Rosado",
-    email: "syra478xd@gmail.com",
-    password: "123sugey",
-    confirmpassword: "123sugey",
-  },
-];
-
 export const books = [];
 export const videosInterest = [];
 export const audiobooksInterest = [];

@@ -4,7 +4,7 @@ export const InputStyled = styled.input`
   width: 100%;
   margin: 4px 0px 8px 0px;
   background-color: #ebebeb;
-  border-radius: 4px;
+  border-radius: 8px;
   height: 50px;
   border: none;
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.25);

@@ -9,9 +9,6 @@ import {
   LinkText,
   QuestionStyled,
   GridImage,
-  BackLoginContainer,
-  BackLoginIcon,
-  BackLoginLink,
   GridForm,
   OpenModalButton,
   BackQuestionStyled,
@@ -28,7 +25,7 @@ import { CustomButton } from "../components/CustomButton";
 import { signInByGoogle } from "../services/firebase/providers/google";
 import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
 import { signInByMaestroEnarm } from "../services/firebase/providers/email";
-import { signInByApple } from "../services/firebase/providers/apple";
+// import { signInByApple } from "../services/firebase/providers/apple";
 import { useAuth } from "../context/AuthProvider";
 import { signInByFacebook } from "../services/firebase/providers/facebook";
 
@@ -125,7 +122,7 @@ const Sesion = () => {
               <CustomOptionsLogin icon="./google.svg" onClick={signInByGoogle} />
               <CustomOptionsLogin icon="./microsoft.svg" onClick={signInByMicrosoft} />
               <CustomOptionsLogin icon="./facebook.svg" onClick={signInByFacebook} />
-              <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} />
+              {/* <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} /> */}
             </BoxOptions>
             <BackQuestionStyled>
               <span>

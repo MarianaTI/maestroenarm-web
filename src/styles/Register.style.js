@@ -44,6 +44,16 @@ export const CardStyled = styled(Box)`
 export const FormStyle = styled.form`
     display: flex;
     flex-direction: column;
+
+    .form-names {
+        display:  grid; 
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+
+        @media screen and (max-width: 576px) {
+            display: initial;
+        }
+    }
 `;
 export const ImageStyle = styled.div`
     background-image: url(registerphoto2.svg);
