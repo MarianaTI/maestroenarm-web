@@ -59,7 +59,7 @@ export default function Game() {
     navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
   return (
-    <div style={{ padding: 16 }}>
+    <div style={{ padding: '0 16px' }}>
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
         <p>Feedback déspues de cada pregunta</p>
