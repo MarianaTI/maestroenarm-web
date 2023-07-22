@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
-import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory } from "../store/slices/gameSlice";
+import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
 
 export default function Home() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
@@ -89,7 +89,8 @@ export default function Home() {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase, speciality, subSpeciality}))
+    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase}))
+    dispatch(setGameSpecialityAndSubspeciality({speciality, subSpeciality}));
     if (!isOpenFeedback) {
       goNext();
     }

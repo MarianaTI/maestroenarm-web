@@ -8,6 +8,7 @@ import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
 import ShareIcon from "@mui/icons-material/Share";
+import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
@@ -22,20 +23,6 @@ export default function Game() {
   const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
     useState(false);
   const [roomId, setRoomId] = useState("");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-
-    const especialidadesUnicas = new Set();
-    const subEspecialidadesUnicas = new Set();
-
-    for (const index in clinicalCases) {
-      const caso = clinicalCases[index];
-      especialidadesUnicas.add(caso.speciality);
-      subEspecialidadesUnicas.add(caso.subSpeciality);
-    }
-    dispatch(setAddSpecialityAndSubspeciality({ especialidadesUnicas, subEspecialidadesUnicas }));
-  }, [dispatch]);
 
   useEffect(() => {
     if (roomId) {
@@ -92,7 +79,7 @@ export default function Game() {
         <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
         <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
       </div>
-      {/* <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} /> */}
+      <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
       <CustomModal
         title="¡Estamos esperando a tu contrincante!"
         message="Comparte este link con algún amigo y averiguar quien sabe más. ¿Quién será...?"
@@ -103,13 +90,13 @@ export default function Game() {
           <span>Copiar Link</span>
           <div className="link-container">
             <span>{`localhost:3000/home/match/${roomId}`}</span>
-            <IconButton onClick={handleCopyLinkToClipboard}>
+            <CustomButton theme="icon" onClick={handleCopyLinkToClipboard}>
               <ShareIcon />
-            </IconButton>
+            </CustomButton>
           </div>
           <span>Esperando...</span>
         </LinkModalBody>
       </CustomModal>
-    </div >
+    </div>
   );
 }
