@@ -2,13 +2,16 @@ import styled from "@emotion/styled";
 import NextImage from "next/image";
 
 export const ImagenInicioDemo = styled(NextImage)`
-    margin-left: 100px;
+    /* margin-left: 100px; */
+    justify-self: center;
 
     @media (max-width: 768px) {
       padding: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      height: 100%;
     }
 `;
 
@@ -24,9 +27,12 @@ export const InformationContainer = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 50px;
+  
 
   @media (max-width: 768px) {
     padding: 20px; 
+    justify-self: center;
+    flex-wrap: wrap;
   }
 `;
 
@@ -35,6 +41,7 @@ export const ContainerBienvenido = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr; 

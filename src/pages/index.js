@@ -31,8 +31,6 @@ const Bienvenido = () => {
           </SaltarDemo>
         </InformationContainer>
     </ContainerBienvenido>
-
-
   );
 };
 
