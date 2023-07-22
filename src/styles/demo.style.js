@@ -3,6 +3,13 @@ import NextImage from "next/image";
 
 export const ImagenInicioDemo = styled(NextImage)`
     margin-left: 100px;
+
+    @media (max-width: 768px) {
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 `;
 
 export const ReturnButtonContainer = styled.div`
@@ -16,9 +23,11 @@ export const InformationContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   padding: 50px;
-  max-width: 650px;
+
+  @media (max-width: 768px) {
+    padding: 20px; 
+  }
 `;
 
 export const ContainerBienvenido = styled.div`
@@ -26,6 +35,11 @@ export const ContainerBienvenido = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; 
+    padding: 20px; 
+  }
 `;
 
 
@@ -36,7 +50,6 @@ export const WelcomeTitle = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.01em;
   color: #052970;
 `;
 
@@ -63,12 +76,5 @@ export const BOOMPharase = styled.div`
 `;
 
 export const Button = styled.div`
-  
  width: 70%;
-  
-  & a{
-    font-weight: 600;
-    font-size: 18px;
-    color: #FFFFFF;
-  }
 `;

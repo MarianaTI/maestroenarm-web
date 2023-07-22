@@ -11,6 +11,10 @@ import ShareIcon from "@mui/icons-material/Share";
 import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { clinicalCases } from "../../constants";
+import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
+import { IconButton } from "@mui/material";
 
 export default function Game() {
   const router = useRouter();
@@ -19,7 +23,6 @@ export default function Game() {
   const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
     useState(false);
   const [roomId, setRoomId] = useState("");
-
 
   useEffect(() => {
     if (roomId) {
@@ -65,15 +68,17 @@ export default function Game() {
         <GameField label="Aleatorio" />
       </a>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
-      <GameSettingsModal isOpen={open} />
+      {/* <GameSettingsModal isOpen={open} /> */}
 
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
         <p>Feedback al finalizar el exámen</p>
         <p>AMISTOSO</p>
       </TitleGameContainer>
-      <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
-      <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      <div>
+        <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
+        <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      </div>
       <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
       <CustomModal
         title="¡Estamos esperando a tu contrincante!"

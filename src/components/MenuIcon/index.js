@@ -56,7 +56,7 @@ const MenuOption = () => {
                 onClick={handleButtonClick}
                 color="inherit"
             >
-                <Avatar  src={user?.photoURL} />
+                <Avatar  src={user?.photoURL} alt="my-avatar"/>
             </IconButton>
             <Menu
                 id="options-menu"
