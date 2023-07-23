@@ -65,7 +65,7 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
       feedbackList.push(item.feedbackGeneralCase);
     }
   });
-
+//comentario de prueba bababababab
   // gameSpecialityAndSubspeciality.forEach((item) => {
   //   if (!specialityList.includes(item.uniqueSpeciality)) {
   //     specialityList.push(item.speciality);
