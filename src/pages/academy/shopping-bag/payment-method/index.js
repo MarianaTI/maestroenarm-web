@@ -2,7 +2,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import React, { use, useEffect, useState } from "react";
 import {
   CardContainer,
-  CardElementsRow,
   CompletePayment,
   ContainerForm,
   FormStyled,
@@ -10,7 +9,6 @@ import {
   MainContainer,
   PayContainer,
   PaymentContainer,
-  RowInputs,
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";

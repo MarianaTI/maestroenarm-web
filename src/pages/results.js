@@ -19,7 +19,7 @@ import Link from "next/link";
 import CollapseComponent from "../components/Collapse";
 import CustomModal from "../components/CustomModal";
 
-export function AnswerCount() {
+export function answerCount() {
   const dispach = useDispatch();
   dispach(setQuizAccuracy());
   const { trueAnswerCount } = useSelector(state => state.game)
@@ -67,6 +67,19 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
       feedbackList.push(item.feedbackGeneralCase);
     }
   });
+//comentario de prueba bababababab
+  // gameSpecialityAndSubspeciality.forEach((item) => {
+  //   if (!specialityList.includes(item.uniqueSpeciality)) {
+  //     specialityList.push(item.speciality);
+  //   }
+  //   if (!subSpecialityList.includes(item.subSpeciality)) {
+  //     subSpecialityList.push(item.uniqueSubSpeciality)
+  //   }
+  // });
+
+  // console.log('specialityList: ', specialityList);
+  // console.log('subSpecialityList: ', subSpecialityList)
+
 
   return (
     <Container>
