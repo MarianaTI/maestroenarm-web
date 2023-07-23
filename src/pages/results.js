@@ -19,35 +19,30 @@ import Link from "next/link";
 import CollapseComponent from "../components/Collapse";
 import CustomModal from "../components/CustomModal";
 
-export function answerCount() {
-  const dispach = useDispatch();
-  dispach(setQuizAccuracy());
+export default function Results() {
+  const dispatch = useDispatch();
   const { trueAnswerCount } = useSelector(state => state.game)
   const { falseAnswerCount } = useSelector(state => state.game);
   const { quizAccuracy } = useSelector(state => state.game);
-  const items = [
-    { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueAnswerCount },
-    { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseAnswerCount },
-    { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: quizAccuracy }
-  ];
-
-  return items;
-}
-
-//TODO: fix this page
-
-export default function Results() {
+  function answerCount() {
+    dispatch(setQuizAccuracy());
+    const items = [
+      { label: 'Correctos', imageUrl: 'https://th.bing.com/th/id/OIP.oHwE7W6T_2kEtiaccChqAQHaHa?pid=ImgDet&rs=1', score: trueAnswerCount },
+      { label: 'Incorrectos', imageUrl: 'https://th.bing.com/th/id/OIP.I0NNniKmzK627B-_tBRWSAHaHZ?pid=ImgDet&w=2307&h=2304&rs=1', score: falseAnswerCount },
+      { label: 'Presición', imageUrl: 'https://th.bing.com/th/id/OIP.fbb4EeguJb90nSJIozLqjQHaHa?pid=ImgDet&rs=1', score: quizAccuracy }
+    ];
+    return items;
+  }
   const bookList = [];
   const feedbackList = [];
   const specialityList = [];
   const subSpecialityList = [];
   const router = useRouter();
   const items = answerCount();
-  const dispach = useDispatch();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
   const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
-console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
+  console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
   };
@@ -67,7 +62,7 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
       feedbackList.push(item.feedbackGeneralCase);
     }
   });
-//comentario de prueba bababababab
+  //comentario de prueba bababababab
   // gameSpecialityAndSubspeciality.forEach((item) => {
   //   if (!specialityList.includes(item.uniqueSpeciality)) {
   //     specialityList.push(item.speciality);
@@ -95,24 +90,24 @@ console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
           <CollapseComponent />
         </ContainerRetroAlim>
         <CustomButton text="Borrar Caché" type="submit" onClick={handleClearCache} />
-        
-          {/* {specialityList.map((speciality, index) => (
+
+        {/* {specialityList.map((speciality, index) => (
             <TextStatic key={index}>
               <span> speciality: {speciality}</span>
               <span>subSpeciality: {subSpecialityList[index]}</span>
             </TextStatic>
           ))}; */}
-          <TextContainerResult>
+        <TextContainerResult>
           <span>Resultados por categoria</span>
         </TextContainerResult>
-          <TextStatic >
-              <span>Ginecologia 1/1 - 100% </span>
-              <span>Remautologia 4/5 - 80% </span>
-              <span>Hematología 2/3 - 67% </span>
-              <span>Neonatología 1/1 - 100% </span>
-              <span>Neonatología 1/2 - 50% </span>
-              <span>Gastroenterología 0/1 - 0% </span>
-          </TextStatic>
+        <TextStatic >
+          <span>Ginecologia 1/1 - 100% </span>
+          <span>Remautologia 4/5 - 80% </span>
+          <span>Hematología 2/3 - 67% </span>
+          <span>Neonatología 1/1 - 100% </span>
+          <span>Neonatología 1/2 - 50% </span>
+          <span>Gastroenterología 0/1 - 0% </span>
+        </TextStatic>
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
 
