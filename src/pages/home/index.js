@@ -8,7 +8,6 @@ import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
 import ShareIcon from "@mui/icons-material/Share";
-import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
@@ -91,9 +90,9 @@ export default function Game() {
           <span>Copiar Link</span>
           <div className="link-container">
             <span>{`localhost:3000/home/match/${roomId}`}</span>
-            <CustomButton theme="icon" onClick={handleCopyLinkToClipboard}>
+            <IconButton onClick={handleCopyLinkToClipboard}>
               <ShareIcon />
-            </CustomButton>
+            </IconButton>
           </div>
           <span>Esperando...</span>
         </LinkModalBody>

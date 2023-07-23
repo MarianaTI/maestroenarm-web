@@ -27,7 +27,7 @@ const Bienvenido = () => {
               </Link>
           </Button>
           <SaltarDemo>
-            Desea saltar la DEMO? <Link href="/sesion"> Saltar</Link>
+            Desea saltar la DEMO? <Link href="/login"> Saltar</Link>
           </SaltarDemo>
         </InformationContainer>
     </ContainerBienvenido>

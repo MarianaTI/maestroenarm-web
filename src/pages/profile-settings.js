@@ -5,7 +5,6 @@ import {
   ProfileSettingsContainer,
 } from "../styles/ProfileSettings";
 import { ProfileField } from "../components/ProfileField";
-import Layout from "../layouts/index";
 import { CustomButton } from "../components/CustomButton/index";
 import { useAuth } from "../context/AuthProvider";
 

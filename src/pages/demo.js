@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Case from "../components/Case";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
@@ -13,7 +13,7 @@ import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
 import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
 
-export default function Home() {
+export default function Demo() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
   const [questionCounter, setQuestionCounter] = useState(0);
   const [isCounterHidden, setIsCounterHidden] = useState(true);

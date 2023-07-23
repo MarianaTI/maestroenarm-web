@@ -34,7 +34,7 @@ const loginSchema = yup.object({
   password: yup.string().required(),
 });
 
-const Sesion = () => {
+export default function Login() {
   const router = useRouter();
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
@@ -151,4 +151,3 @@ const Sesion = () => {
     </LoginGrid>
   );
 };
-export default Sesion;

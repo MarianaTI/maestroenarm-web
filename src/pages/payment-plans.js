@@ -12,6 +12,8 @@ import React, { useState } from "react";
 import CheckIcon from '@mui/icons-material/Check';
 import Link from "next/link";
 
+//TODO: update interface
+
 const PaymentPlans = () => {
 
     const [isOpenConditions, setOpenConditions] = useState(false);

@@ -127,7 +127,7 @@ const Register = () => {
                         <CustomButton text="Registrar" type="submit" />
                         <QuestionStyle>
                             <span>¿Ya tienes cuenta?
-                                <LinkText href="/sesion">Iniciar sesión</LinkText>
+                                <LinkText href="/login">Iniciar sesión</LinkText>
                             </span>
                         </QuestionStyle>
                     </FormStyle>

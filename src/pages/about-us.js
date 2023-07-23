@@ -1,7 +1,7 @@
 import { AboutContainer, Container, ImageStyle, AvatarsContainer, AboutCard } from "../styles/about-us.style"
 import Avatar from "../components/Avatar";
 
-const aboutUs = () => {
+export default function About() {
 	return (
 		<Container>
 			<AboutContainer>
@@ -80,4 +80,3 @@ const aboutUs = () => {
 
 	)
 }
-export default aboutUs; 
