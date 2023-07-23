@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userRegister } from "../constants";
 import * as yup from "yup";
 import {
     RegisterContainer,
@@ -28,20 +27,9 @@ const registerSchema = yup.object({
     confirmpassword: yup.string().required("Por favor, confirma tu contraseña"),
 });
 
-const register = () => {
+const Register = () => {
     const [isErrorRegister, setErrorRegister] = useState(false);
     const [isShowPassword, setShowPassword] = useState(false);
-
-    const authenticateUser = (email, password, confirmpassword, namee, lastname) => {
-        const user = userRegister.find(
-            (account) => account.namee === namee && account.lastname === lastname &&
-                account.email === email && account.password === password &&
-                account.confirmpassword === confirmpassword
-        );
-        if (!user) {
-            throw new Error("Error de registro");
-        }
-    };
 
     const {
         handleSubmit,
@@ -61,7 +49,6 @@ const register = () => {
     const onSubmit = (values) => {
         //TODO: check
         try {
-            //   authenticateUser(values.namee, values.lastname, values.email, values.password, values.confirmpassword);
             signUpByMaestroEnarm(values.email, values.password)
             console.log("Registro exitoso");
             setErrorRegister(false);
@@ -149,4 +136,4 @@ const register = () => {
         </RegisterContainer>
     )
 }
-export default register;
+export default Register;

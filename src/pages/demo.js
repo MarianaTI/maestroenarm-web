@@ -69,14 +69,14 @@ export default function Home() {
     }
   };
   const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
-    if (!isCounting ) {
+    if (!isCounting) {
       const percentageBySubspecialty = 100 / lengthQuestions;
       const subSpecialtyScores = percentageBySubspecialty * isAnswerCorrectSubspecialty;
-      
+
       if (isAnswerCorrect == question.correctAnswer) {
         setIsAnswerCorrectSubspecialty((preIsAnswerCorrectSubspecialty) => preIsAnswerCorrectSubspecialty + 1);
       }
-      
+
       dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, percentageBySubspecialty }))
     }
   };
@@ -192,6 +192,7 @@ function Answers({ answers, onClick, isResultRevealed, correctAnswer }) {
     <div className={styles.answers}>
       {answers.map((answer) => (
         <Answer
+          key={answer.id}
           onClick={(evento) =>
             handleAnswerClick(answer.id, evento.target)
           }

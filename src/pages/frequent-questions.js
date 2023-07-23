@@ -6,7 +6,7 @@ const frecuentQuestions = () => {
        <Container>
         <h1>Preguntas frecuentes</h1>
         <AboutQuestion>
-            <Image src="./frequentQuestions.svg" width={500} height={500}/>
+            <Image src="./frequentQuestions.svg" width={500} height={500} alt="frequent-questions"/>
             <QuestionsFrequent>
                 <SelectQuestions 
                 question={"¿Cómo puedo acceder a la sección de práctica gratuita?"}

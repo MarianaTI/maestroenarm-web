@@ -17,10 +17,10 @@ const Bienvenido = () => {
       <ImagenInicioDemo src="./iniciodemo.svg" width={500} height={500} />
         <InformationContainer>
           <WelcomeTitle>Bienvenido a Maestro ENARM</WelcomeTitle>
-          <BOOMPharase>"¡Juega, compite y aprende en nuestra página:
+          <BOOMPharase>¡Juega, compite y aprende en nuestra página:
             el lugar donde la preparación para el examen
             de ERNAM se vuelve divertida y accesible, con
-            recursos de estudio incluidos!"</BOOMPharase>
+            recursos de estudio incluidos!</BOOMPharase>
           <Button>
               <Link href="/demo">
                <CustomButton text="Jugar Demo" fullWidth size="large"/>  

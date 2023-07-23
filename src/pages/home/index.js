@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { clinicalCases } from "../../constants";
 import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
 import { IconButton } from "@mui/material";
+import Link from "next/link";
 
 export default function Game() {
   const router = useRouter();
@@ -64,9 +65,9 @@ export default function Game() {
         <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
         <p>Feedback déspues de cada pregunta</p>
       </TitleGameContainer>
-      <a href="/game">
+      <Link href="/game">
         <GameField label="Aleatorio" />
-      </a>
+      </Link>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
       {/* <GameSettingsModal isOpen={open} /> */}
 

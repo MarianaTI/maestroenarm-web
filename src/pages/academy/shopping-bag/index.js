@@ -73,7 +73,7 @@ export default function ShoppingBag() {
               ))
             ) : (
               <EmptyStateContainer>
-                <Image src="/img/shop.svg" width={150} height={150} />
+                <Image src="/img/shop.svg" width={150} height={150} alt="shopping-bag-empty" />
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
@@ -98,7 +98,7 @@ export default function ShoppingBag() {
               ))
             ) : (
               <EmptyStateContainerBook>
-                <Image src="/img/shop.svg" width={150} height={150} />
+                <Image src="/img/shop.svg" width={150} height={150} alt="book-shop"/>
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainerBook>
             )}

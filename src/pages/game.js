@@ -20,7 +20,7 @@ export default function Home() {
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
   const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
@@ -65,9 +65,9 @@ export default function Home() {
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
-      dispatch(setTrueAnswerCount({valor:1}));
+      dispatch(setTrueAnswerCount({ valor: 1 }));
     } else {
-      dispatch(setFalseAnswerCount({valor:1}));
+      dispatch(setFalseAnswerCount({ valor: 1 }));
     }
   }
 
@@ -83,14 +83,14 @@ export default function Home() {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
-    dispatch(setFalseAnswerCount({valor:1}));
+    dispatch(setFalseAnswerCount({ valor: 1 }));
   };
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    dispatch(setAddGameHistory({clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase}))
-    dispatch(setGameSpecialityAndSubspeciality({speciality, subSpeciality}));
+    dispatch(setAddGameHistory({ clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase }))
+    dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality }));
     if (!isOpenFeedback) {
       goNext();
     }
@@ -169,6 +169,7 @@ function Answers({ answers, onClick, isResultRevealed, correctAnswer }) {
     <div className={styles.answers}>
       {answers.map((answer) => (
         <Answer
+          key={answer.id}
           onClick={(evento) =>
             handleAnswerClick(answer.id, evento.target)
           }

@@ -7,7 +7,7 @@ const aboutUs = () => {
 			<AboutContainer>
 				<div>
 					<h1>Sobre nosotros</h1>
-					<p>"Lorem ipsum dolor sit amet,
+					<p>Lorem ipsum dolor sit amet,
 						consectetur adipiscing elit,
 						sed do eiusmod tempor incididunt ut labore et
 						dolore magna aliqua. Ut enim ad minim veniam,
@@ -16,8 +16,8 @@ const aboutUs = () => {
 						irure dolor in reprehenderit in voluptate velit
 						esse cillum dolore eu fugiat nulla pariatur.
 						Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum."
-						"Lorem ipsum dolor sit amet,
+						sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet,
 						consectetur adipiscing elit,
 						sed do eiusmod tempor incididunt ut labore et
 						dolore magna aliqua. Ut enim ad minim veniam,
@@ -26,7 +26,7 @@ const aboutUs = () => {
 						irure dolor in reprehenderit in voluptate velit
 						esse cillum dolore eu fugiat nulla pariatur.
 						Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum."
+						sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 				</div>
 				<ImageStyle src="./aboutus.svg" width={500} height={500} />
