@@ -161,7 +161,7 @@ export default function Navbar() {
           <CustomNavLi
             key={route}
             data-label={label}
-            onPointerDown={label === "Estadisticas" ? handleMouseEnter : label === "Ranking" ? handleRankingMouseEnter : label === "Academy" ? handleAcademyMouseEnter : null}
+            onMouseEnter={label === "Estadisticas" ? handleMouseEnter : label === "Ranking" ? handleRankingMouseEnter : label === "Academy" ? handleAcademyMouseEnter : null}
             onMouseLeave={label === "Estadisticas" ? handleMouseLeave : label === "Ranking" ? handleRankingMouseLeave : label === "Academy" ? handleAcademyMouseLeave : null}
           >
             {icon}

@@ -15,14 +15,13 @@ const persistConfig = {
   key: 'root',
   storage,
 };
-
 // Persistimos cada reductor individualmente
 const persistedGameReducer = persistReducer(persistConfig, gameReducer);
 const persistedFilterDrawerReducer = persistReducer(persistConfig, filterDrawerReducer);
 const persistedNavDrawerReducer = persistReducer(persistConfig, navDrawerReducer);
 const persistedVideosReducer = persistReducer(persistConfig, videosReducer);
 const persistedProductReducer = persistReducer(persistConfig, productReducer);
-const persistedCheckBoxMenuReducer = persistReducer(persistConfig, CheckBoxMenuReducer )
+const persistedCheckBoxMenuReducer = persistReducer(persistConfig, CheckBoxMenuReducer)
 
 export const store = configureStore({
   reducer: {
@@ -34,7 +33,7 @@ export const store = configureStore({
     product: persistedProductReducer,
     [videosApi.reducerPath]: videosApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => 
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
