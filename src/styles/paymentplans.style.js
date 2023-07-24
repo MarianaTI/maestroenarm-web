@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 export const Container = styled.div`
-   max-width: 100%;
    h1 {
     text-align: center;
     color: #052970;
@@ -18,20 +17,17 @@ export const CardPlans = styled.div`
 `;
 
 export const Cards = styled.div`
-   background-color: #f4f4f4;
    margin: 30px;
    width: 350px;
    padding: 50px;
-   border-radius: 20px;
-   box-shadow: 2px 1px 4px 3px  rgba(0, 0, 0, 0.3);
-   flex-direction: column;
+   border-radius: 8px;
+   box-shadow: 2px 6px 10px 2px  rgba(4, 4, 4, 0.2);
    h5 {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 15px;
-    margin: 0;
-    white-space: nowrap;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin: 0;
+      white-space: nowrap;
    }
    span {
     display: flex;

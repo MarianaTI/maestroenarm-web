@@ -7,7 +7,6 @@ export function signUpByMaestroEnarm(email, password) {
         .catch(({ code, message }) => {
             const errorCode = code;
             const errorMessage = message;
-            console.log({ errorCode, errorMessage })
             throw new Error(errorMessage)
         });
 }
@@ -18,7 +17,6 @@ export function signInByMaestroEnarm(email, password) {
         .catch(({ code, message }) => {
             const errorCode = code;
             const errorMessage = message;
-            console.log({ errorCode, errorMessage })
         });
 }    
 

@@ -1,25 +1,24 @@
 import {
-    Container, 
-    CardPlans, 
-    Cards, 
-    OpenModalButton, 
-    ButtonContainer, 
+    Container,
+    CardPlans,
+    Cards,
+    OpenModalButton,
+    ButtonContainer,
     ReturnButtonContainer
 } from "../styles/paymentplans.style";
 import CustomModal from "../components/CustomModal";
-import  { CustomButton } from "../components/CustomButton";
+import { CustomButton } from "../components/CustomButton";
 import React, { useState } from "react";
 import CheckIcon from '@mui/icons-material/Check';
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 //TODO: update interface
 
 const PaymentPlans = () => {
-
+    const router = useRouter()
     const [isOpenConditions, setOpenConditions] = useState(false);
-
     const toggleTermsandConditionsModal = () =>
-    setOpenConditions((isOpenConditions) => !isOpenConditions);
+        setOpenConditions((isOpenConditions) => !isOpenConditions);
 
     return (
         <Container>
@@ -27,7 +26,7 @@ const PaymentPlans = () => {
             <CardPlans>
                 <Cards>
                     <h1>Mensual</h1>
-                    <hr/>
+                    <hr />
                     <h5><CheckIcon />Modo práctica aleatorio</h5>
                     <span>Por tiempo o número de casos</span>
                     <h5><CheckIcon />+2400 preguntas</h5>
@@ -37,7 +36,7 @@ const PaymentPlans = () => {
                     <span>Elige la sub especialidad</span>
                     <h5><CheckIcon />Material de estudio</h5>
                     <ButtonContainer>
-                        <CustomButton text="ENARM 1 mes $200.00" type="submit"/>
+                        <CustomButton text="ENARM 1 mes $200.00" type="submit" />
                         <OpenModalButton onClick={toggleTermsandConditionsModal}>
                             Terminos y condiciones
                         </OpenModalButton>
@@ -45,7 +44,7 @@ const PaymentPlans = () => {
                 </Cards>
                 <Cards>
                     <h1>Anual</h1>
-                    <hr/>
+                    <hr />
                     <h5><CheckIcon />Modo práctica aleatorio</h5>
                     <span>Por tiempo o número de casos</span>
                     <h5><CheckIcon />+2400 preguntas</h5>
@@ -56,25 +55,23 @@ const PaymentPlans = () => {
                     <h5><CheckIcon />Material de estudio</h5>
                     <h5><CheckIcon />Un mes de regalo</h5>
                     <ButtonContainer>
-                       <CustomButton text="ENARM 1 año $2200.00" type="submit"/>
+                        <CustomButton text="ENARM 1 año $2200.00" type="submit" />
                         <OpenModalButton onClick={toggleTermsandConditionsModal}>
                             Terminos y condiciones
-                        </OpenModalButton> 
+                        </OpenModalButton>
                     </ButtonContainer>
                 </Cards>
             </CardPlans>
             <ReturnButtonContainer>
-                <Link href="/home">
-                    <CustomButton text="Regresar" type="submit"/> 
-                </Link>
+                <CustomButton text="Regresar" type="button" onClick={() => router.back()} />
             </ReturnButtonContainer>
 
-                <CustomModal
+            <CustomModal
                 open={isOpenConditions}
                 onClose={toggleTermsandConditionsModal}
                 title={"Terminos y condiciones"}
                 message={"Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "}
-                />
+            />
         </Container>
     )
 }
