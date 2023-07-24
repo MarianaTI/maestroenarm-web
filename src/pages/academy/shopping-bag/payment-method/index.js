@@ -13,7 +13,6 @@ import {
   TitleContainer,
 } from "../../../../styles/PaymentMethod.style";
 import CustomInput from "../../../../components/CustomInput";
-import CustomButtonAcademy from "../../../../components/CustomButtonAcademy";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -26,6 +25,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Snackbar, Alert } from "@mui/material";
 import { useState } from "react";
 import CustomModal from "../../../../components/CustomModal";
+import { CustomButton } from "../../../../components/CustomButton";
 
 const stripePromise = loadStripe(
   "pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat"
@@ -171,12 +171,9 @@ const CheckoutForm = () => {
               Condiciones de uso.
             </Link>
           </span>
-          <CustomButtonAcademy
-            type="submit"
-            disabled={!stripe}
-            buttonText="Completar pago"
-          >
-          </CustomButtonAcademy>
+          <CustomButton theme="secondary" type="submit" disabled={!stripe}>
+            Completar pago
+          </CustomButton>
         </CompletePayment>
       </PaymentContainer>
       <Snackbar
