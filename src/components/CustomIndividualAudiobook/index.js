@@ -93,7 +93,7 @@ const CustomIndividualAudiobook = ({
                   type="button"
                   theme="secondary"
                   onClick={handleClick}
-                >comprar</CustomButton>
+                >Comprar ahora</CustomButton>
               </Link>
             </BuyContainer>
           ) : (
@@ -103,7 +103,8 @@ const CustomIndividualAudiobook = ({
                   Incluido en la suscripción
                 </span>
               </IncludeContainer>
-              <CustomButton showIcon onClick={handleDownload} />
+              <CustomButton showIcon onClick={handleDownload} type="button"
+                  theme="secondary"/>
             </BuyContainer>
           )}
         </div>

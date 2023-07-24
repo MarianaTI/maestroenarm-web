@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonStyled } from "./index.style";
+import DownloadIcon from '@mui/icons-material/Download';
 
 export const CustomButton = ({
   text,
@@ -9,6 +10,7 @@ export const CustomButton = ({
   theme = "primary",
   children,
   size = "medium",
+  showIcon
 }) => {
   return (
     <ButtonStyled
@@ -18,7 +20,7 @@ export const CustomButton = ({
       theme={theme}
       size={size}
     >
-      {children || text}
+      {showIcon ? <DownloadIcon /> : children || text}
     </ButtonStyled>
   );
 };
