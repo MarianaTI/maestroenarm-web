@@ -1,8 +1,8 @@
 import cloudinary from "../../../server/cloudinary/config"
 
-export default async (req, res) => {
+export default async function handler(req, res) {
     const { limit = 10, title } = req.query;
-    try {            
+    try {
         if (title) {
             const { resources } = await cloudinary.search.expression(`context.caption:${title}  AND resource_type:video`).with_field('context').execute()
             res.status(200).json(resources)

@@ -6,7 +6,7 @@ cloudinary.v2.config({
     api_secret: HGcAPgJWVVzj9S1vFmd8BNpauDU
 });
 
-export default async(req, res) => {
+export default async function handler(req, res) {
     try {
         const { resources } = await cloudinary.v2.api.resources({
             resource_type: 'video',

@@ -10,8 +10,8 @@ import {
   CustomNavLi,
   CustomNavUl,
   EnarmIcon,
-  Header,
   IconWrapper,
+  NavContent,
 } from "./index.style";
 import MenuOption from "../MenuIcon";
 import { Popover, List, ListItem, ListItemIcon, ListItemText, IconButton } from "@mui/material";
@@ -53,14 +53,14 @@ const links = [
     icon: <BarChartIcon />,
     suboptions: [
       {
-        label: "Universidades",
-        route: "/ranking-university",
-        icon: <SchoolIcon />,
+        label: "Usuarios",
+        route: "/ranking",
+        icon: <GroupIcon />,
       },
       {
-        label: "Usuarios",
-        route: "/ranking-user",
-        icon: <GroupIcon />,
+        label: "Universidades",
+        route: "/ranking/universities",
+        icon: <SchoolIcon />,
       },
     ],
   },
@@ -149,53 +149,51 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   return (
-    <Header>
-      <nav>
-        <CustomNavUl>
-          <IconWrapper>
-            <IconButton onClick={() => dispatch(openNavDrawer())}>
-              <MenuIcon />
-            </IconButton>
-          </IconWrapper>
-          <EnarmIcon>Maestro ENARM</EnarmIcon>
-          {links.map(({ label, route, icon, suboptions }) => (
-            <CustomNavLi
-              key={route}
-              data-label={label}
-              onMouseEnter={label === "Estadisticas" ? handleMouseEnter : label === "Ranking" ? handleRankingMouseEnter : label === "Academy" ? handleAcademyMouseEnter : null}
-              onMouseLeave={label === "Estadisticas" ? handleMouseLeave : label === "Ranking" ? handleRankingMouseLeave : label === "Academy" ? handleAcademyMouseLeave : null}
-            >
-              {icon}
-              <Link href={route}>{label}</Link>
-              {(label === "Estadisticas" || label === "Ranking" || label === 'Academy') && suboptions && (
-                <Popover
-                  open={label === "Estadisticas" ? open : label === "Ranking" ? rankingOpen : academyOpen}
-                  anchorEl={label === "Estadisticas" ? anchorEl : label === "Ranking" ? rankingAnchorEl : academyAnchorEl}
-                  onClose={label === "Estadisticas" ? handleMouseLeave : label === "Ranking" ? handleRankingMouseLeave : handleAcademyMouseLeave}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-                  <List>
-                    {suboptions.map(({ label, route, icon }) => (
-                      <ListItem key={route} component={Link} href={route}>
-                        <ListItemIcon>{icon}</ListItemIcon>
-                        <ListItemText primary={label} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </Popover>
-              )}
-            </CustomNavLi>
-          ))}
-          <MenuOption />
-        </CustomNavUl>
-      </nav>
-    </Header >
+    <NavContent>
+      <IconWrapper>
+        <IconButton onClick={() => dispatch(openNavDrawer())}>
+          <MenuIcon />
+        </IconButton>
+      </IconWrapper>
+      <EnarmIcon>Maestro ENARM</EnarmIcon>
+      <CustomNavUl>
+        {links.map(({ label, route, icon, suboptions }) => (
+          <CustomNavLi
+            key={route}
+            data-label={label}
+            onPointerDown={label === "Estadisticas" ? handleMouseEnter : label === "Ranking" ? handleRankingMouseEnter : label === "Academy" ? handleAcademyMouseEnter : null}
+            onMouseLeave={label === "Estadisticas" ? handleMouseLeave : label === "Ranking" ? handleRankingMouseLeave : label === "Academy" ? handleAcademyMouseLeave : null}
+          >
+            {icon}
+            <Link href={route}>{label}</Link>
+            {(label === "Estadisticas" || label === "Ranking" || label === 'Academy') && suboptions && (
+              <Popover
+                open={label === "Estadisticas" ? open : label === "Ranking" ? rankingOpen : academyOpen}
+                anchorEl={label === "Estadisticas" ? anchorEl : label === "Ranking" ? rankingAnchorEl : academyAnchorEl}
+                onClose={label === "Estadisticas" ? handleMouseLeave : label === "Ranking" ? handleRankingMouseLeave : handleAcademyMouseLeave}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                <List>
+                  {suboptions.map(({ label, route, icon }) => (
+                    <ListItem key={route} component={Link} href={route}>
+                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemText primary={label} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Popover>
+            )}
+          </CustomNavLi>
+        ))}
+      </CustomNavUl>
+      <MenuOption />
+    </NavContent>
   );
 }

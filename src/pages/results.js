@@ -12,7 +12,7 @@ import {
   ContainerCustomModal
 } from "../styles/Result.style.js";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuizAccuracy } from "../store/slices/gameSlice";
+import { setQuizAccuracy, clearGame } from "../store/slices/gameSlice";
 import { CustomButton } from "../components/CustomButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -34,15 +34,20 @@ export function answerCount() {
   return items;
 }
 
+//TODO: fix this page
+
 export default function Results() {
   const bookList = [];
   const feedbackList = [];
+  const specialityList = [];
+  const subSpecialityList = [];
   const router = useRouter();
   const items = answerCount();
+  const dispach = useDispatch();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
-  console.log(gameHistory)
-
+  const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
+console.log('gameSpecialityAndSubspeciality:', gameSpecialityAndSubspeciality)
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
   };
@@ -50,9 +55,8 @@ export default function Results() {
   const handleClick = () => {
     router.push("/");
   };
-
-  const handleClickLinkFeedback = (book) => {
-    window.open(`/${book}`, '_blank');
+  const handleClearCache = () => {
+    dispach(clearGame());
   };
 
   gameHistory.forEach((item) => {
@@ -63,6 +67,18 @@ export default function Results() {
       feedbackList.push(item.feedbackGeneralCase);
     }
   });
+//comentario de prueba bababababab
+  // gameSpecialityAndSubspeciality.forEach((item) => {
+  //   if (!specialityList.includes(item.uniqueSpeciality)) {
+  //     specialityList.push(item.speciality);
+  //   }
+  //   if (!subSpecialityList.includes(item.subSpeciality)) {
+  //     subSpecialityList.push(item.uniqueSubSpeciality)
+  //   }
+  // });
+
+  // console.log('specialityList: ', specialityList);
+  // console.log('subSpecialityList: ', subSpecialityList)
 
 
   return (
@@ -73,23 +89,37 @@ export default function Results() {
       </StatisticsContainer>
       <ContainerSpecialty>
         <TextContainerResult>
-          <span>Resultados por categoria</span>
+          <span>Historial del juego</span>
         </TextContainerResult>
         <ContainerRetroAlim>
           <CollapseComponent />
         </ContainerRetroAlim>
-        <TextStatic>
-          <span>Ginecologia 1/1 -100%</span>
-          <span>Remautologia 0/1 -0%</span>
-          <span>MACARENA 0/1 -0%</span>
-        </TextStatic>
+        <CustomButton text="Borrar Caché" type="submit" onClick={handleClearCache} />
+        
+          {/* {specialityList.map((speciality, index) => (
+            <TextStatic key={index}>
+              <span> speciality: {speciality}</span>
+              <span>subSpeciality: {subSpecialityList[index]}</span>
+            </TextStatic>
+          ))}; */}
+          <TextContainerResult>
+          <span>Resultados por categoria</span>
+        </TextContainerResult>
+          <TextStatic >
+              <span>Ginecologia 1/1 - 100% </span>
+              <span>Remautologia 4/5 - 80% </span>
+              <span>Hematología 2/3 - 67% </span>
+              <span>Neonatología 1/1 - 100% </span>
+              <span>Neonatología 1/2 - 50% </span>
+              <span>Gastroenterología 0/1 - 0% </span>
+          </TextStatic>
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
 
           <CustomModal
             open={isOpenFeedback}
             onClose={toggleForgotPasswordModal}
-            title="Feedback"
+            title="Comentario"
             message={'Descubre recursos de repaso especializados para cada caso clínico y lleva tu aprendizaje al siguiente nivel.'}
           >
 
@@ -110,7 +140,7 @@ export default function Results() {
           </CustomModal>
 
           {!isOpenFeedback && (
-            <CustomButton text="Feedback" type="submit" onClick={toggleForgotPasswordModal} />
+            <CustomButton text="Comentario" type="submit" onClick={toggleForgotPasswordModal} />
           )}
         </ReturnButtonsContainer>
       </ContainerSpecialty>

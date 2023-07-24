@@ -2,40 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isOpen: false,
-    drawerItems: [
-        {
-            id: 1, label: 'Especialidad', isOpen: false, subspecialties: [
-                { id: 1, label: 'Sub - especialidad', isSelected: false },
-                { id: 2, label: 'Sub - especialidad', isSelected: false },
-                { id: 3, label: 'Sub - especialidad', isSelected: false },
-                { id: 4, label: 'Sub - especialidad', isSelected: false }
-            ]
-        },
-        {
-            id: 2, label: 'Especialidad', isOpen: false, subspecialties: [
-                { id: 1, label: 'Sub - especialidad', isSelected: false },
-                { id: 2, label: 'Sub - especialidad', isSelected: false },
-                { id: 3, label: 'Sub - especialidad', isSelected: false },
-                { id: 4, label: 'Sub - especialidad', isSelected: false }
-            ]
-        },
-        {
-            id: 3, label: 'Especialidad', isOpen: false, subspecialties: [
-                { id: 1, label: 'Sub - especialidad', isSelected: false },
-                { id: 2, label: 'Sub - especialidad', isSelected: false },
-                { id: 3, label: 'Sub - especialidad', isSelected: false },
-                { id: 4, label: 'Sub - especialidad', isSelected: false }
-            ]
-        },
-        {
-            id: 4, label: 'Especialidad', isOpen: false, subspecialties: [
-                { id: 1, label: 'Sub - especialidad', isSelected: false },
-                { id: 2, label: 'Sub - especialidad', isSelected: false },
-                { id: 3, label: 'Sub - especialidad', isSelected: false },
-                { id: 4, label: 'Sub - especialidad', isSelected: false }
-            ]
-        },
-    ]
+    drawerItems: [],
+    drawerCollapse: []
 };
 
 export const filterDrawerSlice = createSlice({
@@ -44,9 +12,12 @@ export const filterDrawerSlice = createSlice({
     reducers: {
         openDrawer: state => { state.isOpen = true },
         closeDrawer: state => { state.isOpen = false },
+        addSpecialty: (state, action) => { state.drawerItems = action.payload },
+        addCollapse: (state, action) => { state.drawerCollapse = action.payload },
+        clearFilter: state => { state.drawerItems = [] }
     },
 });
 
-export const { openDrawer, closeDrawer, selectCheckbox } = filterDrawerSlice.actions;
+export const { openDrawer, closeDrawer, addSpecialty, addCollapse, clearFilter } = filterDrawerSlice.actions;
 
 export default filterDrawerSlice.reducer;

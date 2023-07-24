@@ -13,12 +13,12 @@ export default function Layout({ children }) {
   );
   const hasNavbar = !(
     route.pathname === "/" ||
-    route.pathname.match(/sesion|register|demo|game|test/g)
+    route.pathname.match(/login|register|demo|game|test/g)
   );
 
   useEffect(() => {
     if (!user && protectedRoutes) {
-      route.replace("/sesion");
+      route.replace("/login");
     }
   }, [user, protectedRoutes, route]);
 

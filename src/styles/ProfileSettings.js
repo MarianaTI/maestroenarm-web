@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
 
-// const breakpoints = [576, 768, 992, 1200]
-// const mediaQueries = breakpoints.map(breakPoint => `@media (min-width: ${breakPoint}px)`)
-
 export const AvatarContainer = styled.div`
     margin-top: 64px; 
     display: flex;
@@ -11,36 +8,25 @@ export const AvatarContainer = styled.div`
     align-items: center
 `;
 
-export const Button = styled.button`
-    border: none;
-    border-radius: 16px;
-    width: 272px;
-    height: 54px;   
-
-    &:hover {
-        opacity: .9
-    };
-    
-    ${props => ({
-        backgroundColor: props.bg,
-        color: props.color,
-    })}
-`;
-
 export const ButtonGroup = styled.div`
     margin: auto;
-    width: 276px;
-    heigth: 46px;
-    display: flex;
-    flex-direction: column;
+    padding: 0 16px;
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     justify-content: center;
-    align-items: center;
-    gap: 8px
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const ProfileSettingsContainer = styled.div`
-    margin: 24px;
+    text-overflow: ellipsis;
+    max-width: 900px;
     display: flex;
+    margin: auto;
+    padding: 24px;
     flex-direction: column;
     justify-content: center;
     align-items: center;

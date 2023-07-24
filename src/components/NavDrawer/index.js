@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, EnarmIcon } from './index.style';
 import { IconButton } from '@mui/material';
-import { closeNavDrawer } from '../../store/slices/navDrawerSlice';
+import { addCollapse, closeNavDrawer } from '../../store/slices/navDrawerSlice';
 
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import HomeIcon from "@mui/icons-material/Home";
@@ -24,13 +24,17 @@ import HistoryIcon from '@mui/icons-material/History';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import PlayLessonOutlinedIcon from '@mui/icons-material/PlayLessonOutlined';
 import Link from 'next/link';
-import { useState } from 'react';
 
 const links = [
     {
         label: "Examenes",
         route: "/home",
         icon: <HomeIcon />,
+    },
+    {
+        label: "Nosotros",
+        route: "/about-us",
+        icon: <PersonIcon />,
     },
     {
         label: "Estadisticas",
@@ -55,21 +59,16 @@ const links = [
         icon: <BarChartIcon />,
         subOptions: [
             {
-                label: "Universidades",
-                route: "/ranking-university",
-                icon: <SchoolIcon />,
-            },
-            {
                 label: "Usuarios",
-                route: "/ranking-user",
+                route: "/ranking",
                 icon: <GroupIcon />,
             },
+            {
+                label: "Universidades",
+                route: "/ranking/universities",
+                icon: <SchoolIcon />,
+            },
         ],
-    },
-    {
-        label: "Nosotros",
-        route: "/about-us",
-        icon: <PersonIcon />,
     },
     {
         label: "Academy",
@@ -128,19 +127,25 @@ function ExpandedOption({ subOptions, isOpen }) {
 }
 
 function NavDrawerItem({ label, icon, subOptions, route }) {
-    const [open, setOpen] = useState(false)
+    const { collapseList } = useSelector(state => state.navDrawer)
+    const dispatch = useDispatch()
+    const isExpanded = collapseList.includes(label)
+    function handleExpanded() {
+        if (!collapseList.includes(label)) dispatch(addCollapse([...collapseList, label]))
+        if (collapseList.includes(label)) dispatch(addCollapse(collapseList.filter(collapseName => collapseName !== label)))
+    }
     return (
         <>
             {subOptions ? <>
                 <ListItem key={label} disablePadding>
-                    <ListItemButton onClick={() => setOpen(!open)}>
+                    <ListItemButton onClick={handleExpanded}>
                         <ListItemIcon>
                             {icon}
                         </ListItemIcon>
                         <ListItemText primary={label} />
-                        {subOptions && (open ? <ExpandLess /> : <ExpandMore />)}
+                        {subOptions && (isExpanded ? <ExpandLess /> : <ExpandMore />)}
                     </ListItemButton>
-                </ListItem> <ExpandedOption subOptions={subOptions} isOpen={open} />
+                </ListItem> <ExpandedOption subOptions={subOptions} isOpen={isExpanded} />
             </> : <ListItem key={label} disablePadding>
                 <Link style={{ width: "100%" }} href={route}>
                     <ListItemButton>

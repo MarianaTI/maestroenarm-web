@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const InputStyled = styled.input`
+  width: 100%;
   margin: 4px 0px 8px 0px;
-  width: ${(props) => (props.fullwidth ? "100%" : "auto")};
   background-color: #ebebeb;
-  border-radius: 10px;
+  border-radius: 8px;
   height: 50px;
   border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.25);
   &:focus {
     outline: none;
     border: none;

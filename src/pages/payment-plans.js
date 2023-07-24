@@ -10,8 +10,11 @@ import CustomModal from "../components/CustomModal";
 import  { CustomButton } from "../components/CustomButton";
 import React, { useState } from "react";
 import CheckIcon from '@mui/icons-material/Check';
+import Link from "next/link";
 
-const paymentPlans = () => {
+//TODO: update interface
+
+const PaymentPlans = () => {
 
     const [isOpenConditions, setOpenConditions] = useState(false);
 
@@ -61,9 +64,9 @@ const paymentPlans = () => {
                 </Cards>
             </CardPlans>
             <ReturnButtonContainer>
-                <a href="/home">
+                <Link href="/home">
                     <CustomButton text="Regresar" type="submit"/> 
-                </a>
+                </Link>
             </ReturnButtonContainer>
 
                 <CustomModal
@@ -75,4 +78,4 @@ const paymentPlans = () => {
         </Container>
     )
 }
-export default paymentPlans;
+export default PaymentPlans;

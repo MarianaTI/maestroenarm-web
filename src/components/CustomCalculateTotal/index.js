@@ -1,7 +1,7 @@
 import React from "react";
 import { AcceptPaymentContainer, CalculateTotalContainer, Line, RowSummary } from "./index.style";
 
-const CustomCalculateTotal = ({originalPrice, totalPrice}) => {
+const CustomCalculateTotal = ({ originalPrice, totalPrice }) => {
   return (
     <AcceptPaymentContainer>
       <span>Resumen</span>

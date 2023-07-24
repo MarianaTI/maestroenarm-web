@@ -44,8 +44,8 @@ export default function Test() {
             <QuestionContainer>
                 {testQuestions.map(({ question, options }) => <TestQuestion verifyAnswer={checkTest} key={question} question={question} options={options} />)}
                 <ButtonWrapper>
-                    <CustomButton onClick={() => setCheckTest(!checkTest)} theme="secondary" size="large">
-                        <span style={{ fontSize: 16, padding: 20 }}>Finalizar</span>
+                    <CustomButton onClick={() => setCheckTest(!checkTest)} theme="secondary">
+                        <span>Finalizar</span>
                     </CustomButton>
                 </ButtonWrapper>
             </QuestionContainer>

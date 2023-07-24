@@ -15,17 +15,17 @@ app.use(helmet({
     },
 }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' http://localhost:3001");
     next();
-  });
-  
+});
 
-app.use(cors({ origin: "http://localhost:3000"}));
+
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 app.post("/api/checkout", async (req, res) => {
-    const {id, amount} = req.body;
+    const { id, amount } = req.body;
 
     try {
         const payment = await stripe.paymentIntents.create({
@@ -37,10 +37,10 @@ app.post("/api/checkout", async (req, res) => {
 
         console.log(payment);
 
-        return res.status(200).json({message: 'Pago exitoso'});
+        return res.status(200).json({ message: 'Pago exitoso' });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message: error.message});
+        return res.status(500).json({ message: error.message });
     }
 });
 

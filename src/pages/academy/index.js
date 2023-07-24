@@ -32,19 +32,19 @@ export default function Academy() {
                 <h2>Most fonts have a particular weight which corresponds. </h2>
                 <div className="academy__content__resources">
                     <Link href="/academy/books" alt="books">
-                        <Image src="/img/podcastoption.svg" height={150} width={150} />
+                        <Image src="/img/podcastoption.svg" height={150} width={150} alt="audiobooks" />
                         <h3>Libros</h3>
                     </Link>
                     <Link href="/academy/audiobooks" alt="audiobooks">
-                        <Image src="/img/booksoption.svg" height={150} width={150} />
+                        <Image src="/img/booksoption.svg" height={150} width={150} alt="books" />
                         <h3>Audiolibros</h3>
                     </Link>
                     <Link href="/academy/videos" alt="videos">
-                        <Image src="/img/videosoption.svg" height={150} width={150} />
+                        <Image src="/img/videosoption.svg" height={150} width={150} alt="videos"/>
                         <h3>Videos</h3>
                     </Link>
                 </div>
             </ContentContainer>
         </>
     )
-} 
+}

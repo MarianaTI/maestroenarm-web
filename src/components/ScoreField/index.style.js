@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const ScoreFieldContainer = styled.div`
     margin-top: 24px;
     height: 42px;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

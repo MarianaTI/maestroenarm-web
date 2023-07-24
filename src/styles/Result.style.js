@@ -59,6 +59,12 @@ export const StatisticsContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   position:relative;
+
+  .scorefield-container {
+    max-width: 800px;
+    padding: 0 16px;
+    width: 100%;
+  }
 `;
 
 export const ContainerRetroAlim = styled.div`

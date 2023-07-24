@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Box } from "@mui/material";
+import { Modal } from "@mui/material";
 import {
   ModalContent,
   ModalHead,
@@ -16,7 +16,9 @@ const CustomModal = ({ open, onClose, title, message, children }) => {
           <ModalCloseIcon onClick={onClose} />
         </ModalHead>
         <span>{message}</span>
-        <ModalMain>{children}</ModalMain>
+        <ModalMain>
+          {children}
+        </ModalMain>
       </ModalContent>
     </Modal>
   );
