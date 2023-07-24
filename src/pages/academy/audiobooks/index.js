@@ -22,7 +22,7 @@ export default function AudioBooks() {
 	async function getAudiobooks() {
 		if (drawerItems.length > 0) {
 			snapshot = await getDocs(
-				query(collection(db, 'audiobooks'), where('subEspecialidad', 'array-contains-any', drawerItems)))
+				query(collection(db, 'audiobooks'), where('subSpecialties', 'array-contains-any', drawerItems)))
 		}
 		else snapshot = await getDocs(query(collection(db, 'audiobooks')));
 		const audiobooks = snapshot.docs.map(doc => doc.data());
