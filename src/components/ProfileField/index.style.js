@@ -9,7 +9,7 @@ export const CustomProfileField = styled.div`
     border: 0.5px solid #888;
     border-radius: 10px;
     padding: 24px;
-    box-shadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

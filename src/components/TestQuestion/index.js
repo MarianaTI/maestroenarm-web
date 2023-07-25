@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Container, CorrectIcon, FieldWrapper, IncorrectIcon } from "./index.style";
 
-function TestField({ questionOption, answer, isSelected, onClick, isCorrect, verifyAnswer }) {
+function TestField({
+    questionOption,
+    answer,
+    isSelected, onClick, isCorrect, verifyAnswer }) {
     return (
         <FieldWrapper onClick={onClick} isSelected={isSelected}>
             <span>{questionOption}</span>
