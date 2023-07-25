@@ -55,7 +55,7 @@ export const BuyContainer = styled.div`
   @media (max-width: 400px) {
     align-items: center;
     justify-content: center;
-    padding: 50px 16px;
+    padding: 72px 16px;
   }
 `;
 
@@ -129,7 +129,7 @@ export const BasicInformation = styled.div`
     align-items: start;
     justify-content: center;
     padding: 32px;
-    margin-top: 74px;
+    margin-top: 88px;
   }
 `;
 

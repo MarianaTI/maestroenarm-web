@@ -1,7 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import React from "react";
 import {
-  ButtonStyledPayment,
   CardContainer,
   CompletePayment,
   ContainerForm,
