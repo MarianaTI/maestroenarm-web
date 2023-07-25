@@ -11,18 +11,19 @@ import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
-import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory } from "../store/slices/gameSlice";
+import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
 
-export default function Home() {
+export default function Demo() {
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
   const [questionCounter, setQuestionCounter] = useState(0);
   const [isCounterHidden, setIsCounterHidden] = useState(true);
   const [isResultRevealed, setIsResultRevealed] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
-  const dispatch= useDispatch();
-  const router = useRouter();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
+  const [isAnswerCorrectSubspecialty, setIsAnswerCorrectSubspecialty] = useState(0);
+  const dispatch = useDispatch();
+  const router = useRouter();
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
   const question = clinicalCase.question[questionCounter];
@@ -32,6 +33,17 @@ export default function Home() {
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter = questionCounter + 1;
   const feedbackQuestion = question.feedbackQuestion;
+  const answers = question.answers;
+  const correctAnswer = question.correctAnswer;
+  const book = clinicalCase.book;
+  const feedbackGeneralCase = clinicalCase.feedbackGeneral;
+  const speciality = clinicalCase.speciality;
+  const subSpeciality = clinicalCase.subSpeciality;
+  const uniqueSpeciality = new Set();
+  const uniqueSubSpeciality = new Set();
+
+  uniqueSpeciality.add(speciality);
+  uniqueSubSpeciality.add(subSpeciality);
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -56,12 +68,36 @@ export default function Home() {
       setIsCounting(true);
     }
   };
+  const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
+    console.log(isAnswerCorrect)
+
+    if (!isCounting) {
+      const percentageBySubspecialty = 100 / lengthQuestions;
+
+      if (isAnswerCorrect == question.correctAnswer) {
+        setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
+        console.log('SI ENTRE')
+      }
+      console.log(isAnswerCorrectSubspecialty)
+
+      // if (uniqueSubSpeciality !== clinicalCase.subSpeciality) {
+      //   setIsAnswerCorrectSubspecialty(0);
+      // }
+
+      dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, percentageBySubspecialty }))
+    }
+  };
+  useEffect(() => {
+
+    handleSpecialityAnswerCorrect();
+
+  }, [uniqueSpeciality, uniqueSubSpeciality])
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
-      dispatch(setTrueAnswerCount({valor:1}));
+      dispatch(setTrueAnswerCount({ valor: 1 }));
     } else {
-      dispatch(setFalseAnswerCount({valor:1}));
+      dispatch(setFalseAnswerCount({ valor: 1 }));
     }
   }
 
@@ -71,20 +107,20 @@ export default function Home() {
     toggleResultRevealed();
     setIsCounting(false);
     handleAnswer(isAnswerCorrect);
+    handleSpecialityAnswerCorrect(isAnswerCorrect);
   };
 
   const handleQuestionTimeFinished = () => {
     setIsCounterHidden(false);
     toggleResultRevealed();
     setIsCounting(false);
-    dispatch(setFalseAnswerCount({valor:1}));
+    dispatch(setFalseAnswerCount({ valor: 1 }));
   };
-
   const handleCountFinish = () => {
     setIsCounterHidden(true);
     toggleResultRevealed();
     setIsCounting(true);
-    dispatch(setAddGameHistory({clinicalCaseName, questionText}))
+    dispatch(setAddGameHistory({ clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase }))
     if (!isOpenFeedback) {
       goNext();
     }
@@ -140,12 +176,12 @@ export default function Home() {
         <CustomModal
           open={isOpenFeedback}
           onClose={toggleForgotPasswordModal}
-          title="Feedback"
+          title="Comentario"
           message={feedbackQuestion}
         />
         {!isCounting && !isOpenFeedback && (
           <ReturnButtonContainer>
-            <CustomButton text="Feedback" type onClick={toggleForgotPasswordModal} />
+            <CustomButton text="Comentario" type onClick={toggleForgotPasswordModal} />
           </ReturnButtonContainer>
         )}
 
@@ -163,6 +199,7 @@ function Answers({ answers, onClick, isResultRevealed, correctAnswer }) {
     <div className={styles.answers}>
       {answers.map((answer) => (
         <Answer
+          key={answer.id}
           onClick={(evento) =>
             handleAnswerClick(answer.id, evento.target)
           }

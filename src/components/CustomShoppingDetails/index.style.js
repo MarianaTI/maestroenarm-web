@@ -8,7 +8,17 @@ export const DetailContainer = styled.div`
     font-size: 22px;
     font-weight: 700;
   }
-  .ImportantText {
+  .ImportantTextName {
+    width: 350px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 0px;
+    @media (max-width: 400px) {
+      padding: 8px 0px;
+    }
+  }
+  .ImportantTextPrice {
+    width: 100px;
     font-size: 16px;
     font-weight: 600;
     padding: 16px 0px;
@@ -18,7 +28,7 @@ export const DetailContainer = styled.div`
   }
   .DetailText {
     font-size: 14px;
-    padding: 0px 4px;
+    padding: 0px 0px;
     width: 280px;
     @media (max-width: 400px) {
       padding: 8px 0px;

@@ -8,7 +8,8 @@ export const Container = styled.div`
 `;
 
 export const EnarmIcon = styled.span`
-    color: black;
+    cursor: pointer;    
+    color: #052970;
     font-family: Poppins;
     font-size: medium;
     font-weight: 600;

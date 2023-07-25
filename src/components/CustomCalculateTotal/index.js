@@ -1,7 +1,7 @@
 import React from "react";
 import { AcceptPaymentContainer, CalculateTotalContainer, Line, RowSummary } from "./index.style";
 
-const CustomCalculateTotal = ({originalPrice, totalPrice}) => {
+const CustomCalculateTotal = ({ originalPrice, totalPrice }) => {
   return (
     <AcceptPaymentContainer>
       <span>Resumen</span>
@@ -9,10 +9,6 @@ const CustomCalculateTotal = ({originalPrice, totalPrice}) => {
         <RowSummary>
           <p>Precio original:</p>
           <p>$ {originalPrice} MX</p>
-        </RowSummary>
-        <RowSummary>
-          <p>Descuento:</p>
-          <p>- $ 0.00 MX</p>
         </RowSummary>
         <Line></Line>
         <RowSummary>

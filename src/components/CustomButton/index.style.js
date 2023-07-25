@@ -1,27 +1,31 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 
+const themes = {
+  icon: "background:none; border:0; box-shadow: none; padding:8px; min-width:0px; border-radius:50%; svg {color: #052970}",
+  primary:
+    "background: rgb(9, 62, 143); :hover {background: rgba(9, 62, 143, .8);}",
+  secondary:
+    "background: rgb(72, 74, 132); :hover {background: rgba(72, 74, 132, .8)}",
+  warning:
+    "background:rgb(255, 170, 43); :hover {background:rgba(255, 170, 43, .9)}",
+};
+
+const sizes = {
+  small: "padding:8px 16px; font-size: 12px;",
+  medium: "padding:10px 24px",
+  large: "padding:12px 38px; font-size: 18px;",
+};
+
 export const ButtonStyled = styled(Button)`
+  ${({ theme, size }) => `
     text-transform: none;
-    border-radius: 12px;
-    font-size: 12px;
+    border-radius: 6px;
     color: #ffffff;
     font-family: "Poppins";
     font-weight: 400;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    ${props => ({
-        background: props.theme === 'secondary'
-            ? 'rgba(72, 74, 132, 1)' : props.theme === 'warning'
-                ? 'rgba(255, 170, 43, 1)'
-                : '#052970',
-        height: props.size === 'large' ? '54px'
-            : props.size === 'small'
-                ? '32px' : '40px',
-        ":hover": {
-            background: props.theme === 'secondary'
-                ? 'rgba(72, 74, 132, .9)'
-                : props.theme === 'warning'
-                ? 'rgba(255, 170, 43, .7)' : '#05297099'
-        }
-    })}
+    ${themes[theme]}
+    ${sizes[size]}
+  `}
 `;

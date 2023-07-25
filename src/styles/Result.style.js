@@ -9,7 +9,6 @@ export const TextContainerResult = styled.div`
     font-size: 20px;
     text-align: center;
     letter-spacing: -0.01em;
-    font-feature-settings: 'calt' off;
   }
   @media (max-width: 768px) {
     margin: 1%;
@@ -44,9 +43,11 @@ export const Container = styled.div`
 `;
 
 export const ContainerSpecialty = styled.div`
-     margin-left: 10%;
+     padding-left: 10%;
+     padding-right: 10%;
     @media (max-width: 768px) {
-        margin-left: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
     }
 `;
 
@@ -58,10 +59,15 @@ export const StatisticsContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   position:relative;
+
+  .scorefield-container {
+    max-width: 800px;
+    padding: 0 16px;
+    width: 100%;
+  }
 `;
 
 export const ContainerRetroAlim = styled.div`
-    max-width: 1020px;
     background: #FCFCFC;
     border: 0.5px solid #585555;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -77,11 +83,25 @@ export const ReturnDemoButtonContainer = styled.div`
 
 export const TextStatic = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 900px;
-  padding-left: 3%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   padding-top: 15px;
+  font-size: large;
+
+  & p {
+    color: #052970;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  & .span-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    width: 100%; 
+  }
 
   & span {
     font-family: 'Poppins';
@@ -116,4 +136,59 @@ export const TextStatic = styled.div`
 
 `;
 
+export const ReturnButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 20px;
+  padding-top: 10px;
+`;
 
+export const ContainerCustomModal = styled.div`
+  overflow: auto;
+  max-height: 300px;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #093e8f;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  & span:nth-of-type(1){
+    display: flex;
+    justify-content: center;
+    color: #052970;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  & span:nth-of-type(2){
+    display: flex;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  & span:nth-of-type(3){
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+  }
+`;

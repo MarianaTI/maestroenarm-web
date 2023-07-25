@@ -10,11 +10,11 @@ const CustomShoppingDetails = ({
     <DetailContainer>
       <span>Detalles de la compra</span>
       <Row>
-        <p className="ImportantText">{productName}</p>
-        <p className="ImportantText">$ {productPrice}</p>
+        <p className="ImportantTextName">{productName}</p>
+        <p className="ImportantTextPrice">$ {productPrice}</p>
       </Row>
       <p className="DetailText">
-        {productTopics}
+      {productTopics.join(", ").toLowerCase()}
       </p>
     </DetailContainer>
   );

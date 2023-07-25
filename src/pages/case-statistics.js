@@ -1,5 +1,4 @@
 import ButtomAlertModal from "../components/AlertButtom/Index";
-import Navigation from "../components/Nab"
 import ProgressBar from "../components/ProgressBar";
 import { StyledTextContainer } from "../styles/CaseStatistics.style";
 import { StyleText, StyledCardCategory, StyledCards, StyledContainer, StyledLine, StyledRow, } from "../styles/CaseStatistics.style";
@@ -20,12 +19,11 @@ function TextCard({ Title, Subtitle, Percentage, }) {
 const CaseStatistics = () => {
     return (
         <>
-            <Navigation />
             <StyledContainer>
                 <StyledRow>
                     <StyledCards>
-                        <ButtomAlertModal Title="¿Qué es la Precision?" message="Descripcion"/>
-                        <TextCard Title="Precision" Percentage="0.00%"/>
+                        <ButtomAlertModal Title="¿Qué es la Precision?" message="Descripcion" />
+                        <TextCard Title="Precision" Percentage="0.00%" />
                     </StyledCards>
                     <StyledCards>
                         <ButtomAlertModal
@@ -40,13 +38,13 @@ const CaseStatistics = () => {
                 </StyledRow>
                 <StyledRow>
                     <StyledCards>
-                        <ButtomAlertModal Title="¿Qué es el tiempo aproximado por quiz?" message=" Descripcion"/>
-                        <TextCard Title="Tiempo Prom." Subtitle="Por Quiz" Percentage="0.0min." /> 
-                        </StyledCards>
+                        <ButtomAlertModal Title="¿Qué es el tiempo aproximado por quiz?" message=" Descripcion" />
+                        <TextCard Title="Tiempo Prom." Subtitle="Por Quiz" Percentage="0.0min." />
+                    </StyledCards>
                     <StyledCards>
-                        <ButtomAlertModal Title="¿Qué es el tiempo aproximado por pregunta?"message="Descripcion"/>
+                        <ButtomAlertModal Title="¿Qué es el tiempo aproximado por pregunta?" message="Descripcion" />
                         <TextCard Title="Tiempo Prom." Subtitle="Por Pregunta" Percentage="0.0min." />
-                        </StyledCards>
+                    </StyledCards>
                 </StyledRow>
                 <StyledLine />
                 <StyledTextContainer><span> Resultado Por Categorias:</span></StyledTextContainer>

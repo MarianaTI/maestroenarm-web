@@ -9,9 +9,6 @@ import {
   LinkText,
   QuestionStyled,
   GridImage,
-  BackLoginContainer,
-  BackLoginIcon,
-  BackLoginLink,
   GridForm,
   OpenModalButton,
   BackQuestionStyled,
@@ -28,7 +25,7 @@ import { CustomButton } from "../components/CustomButton";
 import { signInByGoogle } from "../services/firebase/providers/google";
 import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
 import { signInByMaestroEnarm } from "../services/firebase/providers/email";
-import { signInByApple } from "../services/firebase/providers/apple";
+// import { signInByApple } from "../services/firebase/providers/apple";
 import { useAuth } from "../context/AuthProvider";
 import { signInByFacebook } from "../services/firebase/providers/facebook";
 
@@ -37,7 +34,7 @@ const loginSchema = yup.object({
   password: yup.string().required(),
 });
 
-const Sesion = () => {
+export default function Login() {
   const router = useRouter();
   const [isErrorLogin, setErrorLogin] = useState(false);
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
@@ -125,7 +122,7 @@ const Sesion = () => {
               <CustomOptionsLogin icon="./google.svg" onClick={signInByGoogle} />
               <CustomOptionsLogin icon="./microsoft.svg" onClick={signInByMicrosoft} />
               <CustomOptionsLogin icon="./facebook.svg" onClick={signInByFacebook} />
-              <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} />
+              {/* <CustomOptionsLogin icon="./apple.svg" onClick={signInByApple} /> */}
             </BoxOptions>
             <BackQuestionStyled>
               <span>
@@ -150,12 +147,7 @@ const Sesion = () => {
           control={control}
         />
         <CustomButton text="Enviar" onClick={handleOpenChangePassword} type />
-        <BackLoginContainer>
-          <BackLoginIcon />
-          <BackLoginLink href="/sesion">Regresar al login</BackLoginLink>
-        </BackLoginContainer>
       </CustomModal>
     </LoginGrid>
   );
 };
-export default Sesion;

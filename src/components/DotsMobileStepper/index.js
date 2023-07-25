@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTheme, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import { Container } from './Index.style'; 
 

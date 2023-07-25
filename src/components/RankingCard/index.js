@@ -2,52 +2,29 @@ import Avatar from "../Avatar";
 import NumbersIcon from "@mui/icons-material/Numbers";
 import { PositionSpan, StyledCard, TextContainer } from "./index.style";
 
-const DEFAULT_DISPLAY_FIELDS = ["name", "university", "specialty", "point"];
-
 const RankingCard = ({
-  data,
-  position,
+  name,
+  university = 'none',
+  specialty,
+  score = 'none',
   variant,
   avatar,
-  universityStyle = {},
-  isDisplayFields = DEFAULT_DISPLAY_FIELDS,
+  rankedNumber = '1',
 }) => {
   return (
     <StyledCard variant={variant}>
-      <div style={{ display: "flex" }}>
-        <PositionSpan>
-          <NumbersIcon style={{ marginTop: "10px", fontSize: "33px" }} />
-          {position}
-        </PositionSpan>
-
-        {data.profilePicture && (
-          <div
-            style={{
-              display: "flex",
-              marginRight: "50px",
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {avatar && <Avatar>{avatar}</Avatar>}
-          </div>
-        )}
+      <PositionSpan>
+        <NumbersIcon style={{ marginTop: "8px", fontSize: "33px" }} />
+        {rankedNumber}
+      </PositionSpan>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {avatar && <Avatar>{avatar}</Avatar>}
       </div>
-
-      <TextContainer universityStyle={universityStyle}>
-        {isDisplayFields.includes("name") && (
-          <span className="name">{data.name}</span>
-        )}
-        {isDisplayFields.includes("university") && data.university && (
-          <span className="university">{data.university}</span>
-        )}
-        {isDisplayFields.includes("specialty") && (
-          <span className="specialty">{data.specialty}</span>
-        )}
-        {isDisplayFields.includes("point") && data.point && (
-          <span className="point">{data.point}</span>
-        )}
+      <TextContainer>
+        {name && <span className="name">{name}</span>}
+        <span className={!avatar && 'name'}>{university}</span>
+        {specialty && <span className="specialty">{specialty}</span>}
+        <span className="point">{score}</span>
       </TextContainer>
     </StyledCard>
   );

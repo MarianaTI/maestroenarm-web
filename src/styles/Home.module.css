@@ -8,7 +8,6 @@
   @media (max-width: 767px) {
     padding: 10px;
   }
-
 }
 
 .button {
@@ -139,70 +138,6 @@
   margin-left: 50%;
 }
 
-.bienvenido {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 120%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.01em;
-  color: #052970;
-}
-
-
-
-.boton {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 24px;
-  gap: 8px;
-  width: 643px;
-  height: 90px;
-  background: #052970;
-  border-radius: 15px;
-}
-
-.boton span {
-
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  font-feature-settings: 'calt' off;
-  color: #FFFFFF;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-}
-
-.saltarDemo {
-  position: relative;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  display: flex;
-  align-items: flex-end;
-  letter-spacing: -0.01em;
-  font-feature-settings: 'calt' off;
-  margin-inline-start: 350px;
-  color: #000000;
-  margin-top: 10px;
-}
-
-.saltarDemo a {
-  color: #052970;
-  font-weight: 700;
-}
-
 .countCase {
   font-family: 'Poppins';
   font-size: normal;
@@ -213,7 +148,7 @@
 }
 
 .pregunta {
-  font-family: 'Lato';
+  font-family: 'Poppins';
   font-weight: 700;
   font-size: 20px;
   margin-left: 120px;
@@ -229,45 +164,4 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
-}
-
-/* Estilos para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  .imagenDoctor {
-    width: 150px;
-    height: 160px;
-  }
-
-  .boton {
-    width: 100%;
-    left: 0;
-    top: auto;
-    margin-top: 20px;
-  }
-
-  .boton span {
-    font-size: 16px;
-  }
-
-  .saltarDemo {
-    width: 100%;
-    margin: 20px auto;
-    text-align: center;
-    margin-inline-start: 0;
-  }
-}
-
-/* Estilos para pantallas más pequeñas */
-@media screen and (max-width: 480px) {
-  .bienvenido {
-    font-size: 40px;
-  }
-
-  .boton {
-    height: 70px;
-  }
-
-  .saltarDemo {
-    font-size: 16px;
-  }
 }

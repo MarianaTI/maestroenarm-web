@@ -1,34 +1,50 @@
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
-import { useState } from 'react';
 import { Container } from './index.style';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
+import { addCollapse, addSpecialty } from '../../store/slices/filterDrawerSlice';
 import { Collapse } from '@mui/material';
 
-export default function ListFilterDrawer({ subspecialties, label, children }) {
-    const [open, setOpen] = useState(false)
+export default function ListFilterDrawer({ subspecialties, label, children, value, collapseList }) {
+    const dispatch = useDispatch()
+    const isOpen = collapseList.includes(label)
+    function handleChange(checkboxText) {
+        if (!value.includes(checkboxText)) dispatch(addSpecialty([...value, checkboxText]))
+        if (value.includes(checkboxText)) dispatch(addSpecialty(value.filter(subspecialty => subspecialty !== checkboxText)))
+    }
+
+    function handleExpanded() {
+        if (!collapseList.includes(label)) dispatch(addCollapse([...collapseList, label]))
+        if (collapseList.includes(label)) dispatch(addCollapse(collapseList.filter(collapseName => collapseName !== label)))
+    }
     return (
         <>
-            <ListItemButton onClick={() => setOpen(!open)}>
+            <ListItemButton onClick={handleExpanded}>
                 {children}
                 <ListItemText primary={label} />
-                {open ? <ExpandLess /> : <ExpandMore />}
+                {isOpen ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse in={open} timeout="auto" unmountOnExit>
+            <Collapse in={isOpen} timeout="auto" unmountOnExit>
                 <Container>
-                    {subspecialties.map(({ id, label }) => <FilterCheckbox key={id} label={label} />)}
+                    {subspecialties.map((subspecialty, index) => <FilterCheckbox
+                        label={subspecialty}
+                        key={subspecialty + index}
+                        checked={value.includes(subspecialty)}
+                        onChange={handleChange}
+                    />)}
                 </Container>
             </Collapse>
         </>
     )
 }
 
-function FilterCheckbox({ label }) {
+function FilterCheckbox({ label, checked, onChange }) {
+    function handleChange() { onChange(label) }
     return (
-        <label style={{ marginLeft: 20 }}>
-            <input type='checkbox' style={{ marginRight: 16 }} />
-            {label}
+        <label style={{ marginLeft: 20 }} >
+            <input type='checkbox' checked={checked} onChange={handleChange} />
+            <span style={{ paddingLeft: 8 }}>{label}</span>
         </label>
     )
 }

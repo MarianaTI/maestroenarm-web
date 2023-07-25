@@ -3,7 +3,7 @@ import { Tabs } from "@mui/material";
 
 export const MainContainer = styled.div`
   width: 800px;
-  margin: 64px;
+  padding: 32px;
   @media (max-width: 800px) {
     width: 600px;
   }
@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 `;
 
 export const TabContainer = styled.div`
-  margin: 56px; 
+  padding: 0 32px; 
   @media (max-width: 900px) {
     width: 400px;
   }

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-    margin-top: 64px;
+    margin-top: 32px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -9,20 +9,24 @@ export const Container = styled.div`
 `;
 
 export const ChartContainer = styled.div`
-    height: 368px;
-    width: 368px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    @media screen and (max-width: 300px) {
+        width: 200px;
+        height: 200px;
+    }
 `;
 
 export const CustomUl = styled.ul`
+    gap: 16px;
     display: flex;
     flex-wrap: wrap;
-    gap: 48px;
+    justify-content: space-evenly;
     padding: 0;
 `;
 
 export const CustomLi = styled.li`
-    width: 100px;
-    margin-top: 16px;
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -31,8 +35,8 @@ export const CustomLi = styled.li`
 
 export const Image = styled.img`
     margin: auto;
-    height: 32px;
-    width: 32px;
+    max-width: 32px;
+    max-height: 32px;
     object-fit: cover;
 `;
 

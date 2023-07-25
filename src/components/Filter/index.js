@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 export default function Filter({ setState = () => { } }) {
     const dispatch = useDispatch()
-    const handleChange = e => { setState(e.target.value) }
+    const handleChange = e => { setState(e.target.value.toUpperCase()) }
     return (
         <FilterContainer>
             <SearchInput type="search" placeholder='Buscar' onChange={handleChange} />
