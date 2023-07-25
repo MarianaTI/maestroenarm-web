@@ -85,7 +85,6 @@ const aboutUs = () => {
                 </AboutCard>
             </AvatarsContainer>
         </Container>  
-
     )
 }
 export default aboutUs; 
