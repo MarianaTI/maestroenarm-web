@@ -26,13 +26,14 @@ export default function Results() {
   const { quizAccuracy } = useSelector(state => state.game);
   const bookList = [];
   const feedbackList = [];
+  const specialityList = [];
+  const subSpecialityList = [];
   const router = useRouter();
   const items = answerCount();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
   const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
 
-  console.log(gameSpecialityAndSubspeciality)
 
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
@@ -72,7 +73,16 @@ export default function Results() {
     };
   });
 
-  console.log('game.gameSpecialityAndSubspeciality.0.uniqueSpeciality: ', gameSpecialityAndSubspeciality.uniqueSpeciality)
+
+  specialityAndSubspeciality.forEach((item) => {
+    if (!specialityList.includes(item.speciality)) {
+      specialityList.push(item.speciality);
+    }
+    if (!subSpecialityList.includes(item.subSpeciality)) {
+      subSpecialityList.push(item.subSpeciality, item.percentage);
+    }
+  })
+  console.log(subSpecialityList)
 
   return (
     <Container>
@@ -88,23 +98,22 @@ export default function Results() {
           <CollapseComponent />
         </ContainerRetroAlim>
 
-        {specialityAndSubspeciality.map((speciality, index) => (
-          <TextStatic key={index}>
-            <span> speciality: {speciality.speciality}</span>
-            <span> subSpeciality: {speciality.subSpeciality}</span>
-          </TextStatic>
-        ))};
         <TextContainerResult>
           <span>Resultados por categoria</span>
         </TextContainerResult>
-        <TextStatic >
-          <span>Ginecologia 1/1 - 100% </span>
-          <span>Remautologia 4/5 - 80% </span>
-          <span>Hematología 2/3 - 67% </span>
-          <span>Neonatología 1/1 - 100% </span>
-          <span>Neonatología 1/2 - 50% </span>
-          <span>Gastroenterología 0/1 - 0% </span>
-        </TextStatic>
+
+        {specialityList.map((speciality, index) => (
+          <TextStatic key={index}>
+            <p> Specialidad de {speciality}</p>
+            <div className="span-container">
+              <span> {subSpecialityList[index]} </span>
+              <span>Ejemplo 1</span>
+              <span>Ejemplo 2</span>
+              <span>Ejemplo 3</span>
+            </div>
+          </TextStatic>
+        ))};
+
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />
 
