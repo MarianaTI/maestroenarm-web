@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 export const VideoContainer = styled.div`
-    gap: 32px;
     display: grid;
     place-content: center;
 `;
 
 export const VideoCardContainer = styled.div`
-    padding: 16px;
+    padding: 32px 16px;
     display: grid;
     place-content: center;
     gap: 16px;
@@ -19,8 +17,8 @@ export const AcademyVideoBanner = styled.div`
     display: grid;
     padding: 32px 16px;
     gap: 16px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 400px;
+    grid-template-columns: 8fr 4fr;
+    grid-template-rows: 300px;
 
     & > * {
         width: 100%;

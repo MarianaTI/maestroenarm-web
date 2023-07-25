@@ -23,7 +23,7 @@ export const FilterContainer = styled.div`
     margin: auto;
     display: flex;
     width: 800px;
-    padding: 0 24px;
+    padding: 0 16px;
     @media screen and (max-width: 1020px) {
         width: 100%;
     }   

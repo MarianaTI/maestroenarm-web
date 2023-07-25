@@ -1,20 +1,38 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
-import { ImagenDoctor } from "../styles/demo.style";
+import Link from "next/link";
+import { CustomButton } from "../components/CustomButton";
+import {
+  ContainerBienvenido,
+  ImagenInicioDemo,
+  InformationContainer,
+  WelcomeTitle,
+  BOOMPharase,
+  Button,
+  SaltarDemo
+} from "../styles/demo.style";
 
 const Bienvenido = () => {
   return (
-    <div className={styles.contenedorCentrado}>
-      <h1 className={styles.bienvenido}>Bienvenido a Maestro ENARM</h1>
-      <ImagenDoctor src="./doctor.svg" width={222} height={222}/>
-      <a className={styles.boton} href="/demo">
-        <span>Jugar Demo</span>
-      </a>
-      <p className={styles.saltarDemo}>
-        Desea saltar la DEMO? <a href="/sesion"> Saltar</a>
-      </p>
-    </div>
+    <ContainerBienvenido>
+      <ImagenInicioDemo src="./iniciodemo.svg" width={500} height={500} />
+        <InformationContainer>
+          <WelcomeTitle>Bienvenido a Maestro ENARM</WelcomeTitle>
+          <BOOMPharase>¡Juega, compite y aprende en nuestra página:
+            el lugar donde la preparación para el examen
+            de ERNAM se vuelve divertida y accesible, con
+            recursos de estudio incluidos!</BOOMPharase>
+          <Button>
+              <Link href="/demo">
+               <CustomButton text="Jugar Demo" fullWidth size="large"/>  
+              </Link>
+          </Button>
+          <SaltarDemo>
+            Desea saltar la DEMO? <Link href="/login"> Saltar</Link>
+          </SaltarDemo>
+        </InformationContainer>
+    </ContainerBienvenido>
   );
 };
+
 
 export default Bienvenido;

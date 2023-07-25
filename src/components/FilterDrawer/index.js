@@ -2,17 +2,20 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import CloseIcon from '@mui/icons-material/Close';
 import ListFilterDrawer from '../ListFilterDrawer';
-import { closeDrawer } from '../../store/slices/filterDrawerSlice';
+import { clearFilter, closeDrawer } from '../../store/slices/filterDrawerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, DrawerBody, DrawerHeader, IconButtonStyled } from './index.style';
+import { Delete } from '@material-ui/icons';
+import { Button } from '@mui/material';
 
 const specialties = [
     { id: 1, label: 'Cardiología', subspecialties: ['cardiología clínica', 'cardiología pediátrica'] },
-    { id: 2, label: 'Cirugia', subspecialties: ['cirgia general', 'cirugia pediatrica', 'cirugía bariátria', 'cirugia de trasplantes'] },
+    { id: 2, label: 'Cirugia', subspecialties: ['cirugía general', 'cirugía pediátrica', 'cirugía bariátrica', 'cirugía de trasplantes'] },
     { id: 3, label: 'Geriatria', subspecialties: ['cardio geriatria', 'orto geriatría', 'geriatría general'] },
     { id: 4, label: 'Ginecología', subspecialties: ['obstetricia', 'medicina materno fetal', 'urológica'] },
     { id: 5, label: 'Medicina', subspecialties: ['medicina iterna', 'medicina familiar'] },
     { id: 6, label: 'Odontología', subspecialties: ['endodoncia', 'ortodoncia', 'cirugia oral', 'prostodoncia'] },
+    { id: 7, label: 'Oncología', subspecialties: ['oncología quirúrgica', 'oncología intervencionista', 'oncología pediátrica', 'oncología hematológica', 'uroncología'] },
 ]
 
 export default function FilterDrawer() {
@@ -33,8 +36,12 @@ export default function FilterDrawer() {
                         value={drawerItems}
                         label={label}
                         collapseList={drawerCollapse}
-                        subspecialties={subspecialties} />)}
+                        subspecialties={subspecialties} 
+                    />)}
                 </List>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', padding: 16 }}>
+                    <CleanFilterButton />
+                </div>
             </DrawerBody>
         </Drawer >
     );
@@ -46,5 +53,14 @@ function CloseButton() {
         <IconButtonStyled onClick={() => dispatch(closeDrawer())}>
             <CloseIcon />
         </IconButtonStyled>
+    )
+}
+
+function CleanFilterButton() {
+    const dispatch = useDispatch();
+    return (
+        <Button variant="outlined" color='error' startIcon={<Delete />} onClick={() => dispatch(clearFilter())} >
+            Limpiar
+        </Button>
     )
 }

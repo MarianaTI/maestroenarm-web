@@ -17,3 +17,4 @@ export const ButtonStyled = styled(Button)`
     background: #6E85B7;
   }
 `;
+

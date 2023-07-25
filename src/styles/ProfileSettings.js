@@ -11,12 +11,14 @@ export const AvatarContainer = styled.div`
 export const ButtonGroup = styled.div`
     margin: auto;
     padding: 0 16px;
-    max-width: 250px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     justify-content: center;
-    align-items: center;
-    gap: 8px
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const ProfileSettingsContainer = styled.div`

@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Navbar from "../components/Nab";
 import CustomEditField from "../components/EditCustomInput";
 import { StyledAvatar, StyledSubmitButton, StyledSubmitButtonContainer, StyledTextContainer } from "../styles/EditProfile.style";
-import AvatarComponent from "../components/AvatarEdit";
+import Avatar from "../components/Avatar";
 
 const EditProfileSchema = yup.object({
   usuario: yup.string().required(),
@@ -25,9 +24,8 @@ const EditProfile = () => {
   const onSubmit = data => console.log(data);
   return (
     <>
-      <Navbar />
       <form onSubmit={handleSubmit(onSubmit)}>
-       <StyledAvatar><AvatarComponent/></StyledAvatar>
+        <Avatar />
         <StyledTextContainer>
           <CustomEditField
             label="Usuario"
@@ -118,7 +116,7 @@ const EditProfile = () => {
           <StyledSubmitButtonContainer>
             <StyledSubmitButton type="submit" value="Guardar" />
           </StyledSubmitButtonContainer>
-        </StyledTextContainer> 
+        </StyledTextContainer>
       </form>
     </>
   );

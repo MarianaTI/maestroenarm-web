@@ -18,6 +18,6 @@ export const filterDrawerSlice = createSlice({
     },
 });
 
-export const { openDrawer, closeDrawer, addSpecialty, addCollapse } = filterDrawerSlice.actions;
+export const { openDrawer, closeDrawer, addSpecialty, addCollapse, clearFilter } = filterDrawerSlice.actions;
 
 export default filterDrawerSlice.reducer;

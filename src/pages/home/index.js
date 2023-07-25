@@ -8,12 +8,13 @@ import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
 import ShareIcon from "@mui/icons-material/Share";
-import { CustomButton } from "../../components/CustomButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { clinicalCases } from "../../constants";
-import {setAddSpecialityAndSubspeciality} from "../../store/slices/menuCheckBoxSlice";
+import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
+import { IconButton } from "@mui/material";
+import Link from "next/link";
 
 export default function Game() {
   const router = useRouter();
@@ -22,22 +23,6 @@ export default function Game() {
   const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
     useState(false);
   const [roomId, setRoomId] = useState("");
-  const dispatch= useDispatch(); 
-
-  useEffect(() => {
-
-    const especialidadesUnicas = new Set();
-    const subEspecialidadesUnicas = new Set();
-
-    for(const index in clinicalCases) {
-      const caso = clinicalCases[index];
-      especialidadesUnicas.add(caso.speciality);
-      subEspecialidadesUnicas.add(caso.subSpeciality);
-    }
-    dispatch(setAddSpecialityAndSubspeciality({especialidadesUnicas, subEspecialidadesUnicas}));
-  }, [dispatch]);
-
-
 
   useEffect(() => {
     if (roomId) {
@@ -74,24 +59,26 @@ export default function Game() {
     navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
   return (
-    <div style={{ padding: 16 }}>
+    <div style={{ padding: '0 16px' }}>
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO PRÁCTICA</h1>
         <p>Feedback déspues de cada pregunta</p>
       </TitleGameContainer>
-      <a href="/game">
+      <Link href="/game">
         <GameField label="Aleatorio" />
-      </a>
+      </Link>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
-      <GameSettingsModal isOpen={open} />
+      {/* <GameSettingsModal isOpen={open} /> */}
 
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
         <p>Feedback al finalizar el exámen</p>
         <p>AMISTOSO</p>
       </TitleGameContainer>
-      <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
-      <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      <div>
+        <GameField label="Aleatorio" onClick={handleRandomMultiplayerClick} />
+        <GameField label="Por Categoría" disabled onClick={() => setOpen(true)} />
+      </div>
       <GameSettingsModal isOpen={open} closedModal={() => setOpen(!open)} />
       <CustomModal
         title="¡Estamos esperando a tu contrincante!"
@@ -103,9 +90,9 @@ export default function Game() {
           <span>Copiar Link</span>
           <div className="link-container">
             <span>{`localhost:3000/home/match/${roomId}`}</span>
-            <CustomButton theme="icon" onClick={handleCopyLinkToClipboard}>
+            <IconButton onClick={handleCopyLinkToClipboard}>
               <ShareIcon />
-            </CustomButton>
+            </IconButton>
           </div>
           <span>Esperando...</span>
         </LinkModalBody>

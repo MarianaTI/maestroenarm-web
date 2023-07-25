@@ -57,31 +57,6 @@ export const rankingUsers = [
   },
 ];
 
-export const userAccount = [
-  {
-    email: "mariana@hotmail.com",
-    password: "mariana123",
-  },
-  {
-    email: "angel@hotmail.com",
-    password: "angel123",
-  },
-  {
-    email: "cloe@hotmail.com",
-    password: "cloe123",
-  },
-];
-
-export const userRegister = [
-  {
-    namee: "Sugey",
-    lastname: "Rosado",
-    email: "syra478xd@gmail.com",
-    password: "123sugey",
-    confirmpassword: "123sugey",
-  },
-];
-
 export const books = [];
 export const videosInterest = [];
 export const audiobooksInterest = [];
@@ -306,6 +281,43 @@ export const clinicalCases = {
       {
         id: 2,
         text: "¿Cuál es el objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo?",
+        correctAnswer: 2,
+        feedbackQuestion:
+          "En esta pregunta, la respuesta correcta es la opción B: Restablecer el flujo sanguíneo cerebral. El objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo es restablecer el flujo sanguíneo cerebral lo antes posible para minimizar el daño cerebral y mejorar el pronóstico del paciente.",
+        answers: [
+          {
+            id: 1,
+            option: "A",
+            text: "Reducir la presión intracraneal",
+            answer:
+              "Respuesta incorrecta. Si bien el control de la presión intracraneal puede ser importante en ciertos casos de accidente cerebrovascular, el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+          {
+            id: 2,
+            option: "B",
+            text: "Restablecer el flujo sanguíneo cerebral",
+            answer:
+              "Respuesta correcta. El objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo es restablecer el flujo sanguíneo cerebral lo antes posible para minimizar el daño cerebral y mejorar el pronóstico del paciente.",
+          },
+          {
+            id: 3,
+            option: "C",
+            text: "Prevenir futuros accidentes cerebrovasculares",
+            answer:
+              "Respuesta incorrecta. Si bien la prevención de futuros accidentes cerebrovasculares es importante, el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+          {
+            id: 4,
+            option: "D",
+            text: "Controlar los síntomas de manera conservadora",
+            answer:
+              "Respuesta incorrecta. El control conservador de los síntomas puede ser parte del manejo a largo plazo del accidente cerebrovascular, pero el objetivo principal del tratamiento agudo es restablecer el flujo sanguíneo cerebral.",
+          },
+        ],
+      },
+      {
+        id: 3,
+        text: "SOY LA PREGUNTA TRES: ¿Cuál es el objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo?",
         correctAnswer: 2,
         feedbackQuestion:
           "En esta pregunta, la respuesta correcta es la opción B: Restablecer el flujo sanguíneo cerebral. El objetivo principal del tratamiento del accidente cerebrovascular isquémico agudo es restablecer el flujo sanguíneo cerebral lo antes posible para minimizar el daño cerebral y mejorar el pronóstico del paciente.",
