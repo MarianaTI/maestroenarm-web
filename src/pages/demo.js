@@ -69,13 +69,20 @@ export default function Demo() {
     }
   };
   const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
+    console.log(isAnswerCorrect)
+
     if (!isCounting) {
       const percentageBySubspecialty = 100 / lengthQuestions;
-      const subSpecialtyScores = percentageBySubspecialty * isAnswerCorrectSubspecialty;
 
       if (isAnswerCorrect == question.correctAnswer) {
-        setIsAnswerCorrectSubspecialty((preIsAnswerCorrectSubspecialty) => preIsAnswerCorrectSubspecialty + 1);
+        setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
+        console.log('SI ENTRE')
       }
+      console.log(isAnswerCorrectSubspecialty)
+
+      // if (uniqueSubSpeciality !== clinicalCase.subSpeciality) {
+      //   setIsAnswerCorrectSubspecialty(0);
+      // }
 
       dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, percentageBySubspecialty }))
     }

@@ -11,7 +11,7 @@ import { useSelector } from "react-redux"
 export default function Videos() {
     const { drawerItems } = useSelector(state => state.filterDrawer)
     const [query, setQuery] = useState('')
-    const { data: videos, isLoading, refetch } = useGetVideosByTitleQuery(query)
+    const { data: videos, isLoading, refetch } = useGetVideosByTitleQuery({ title: query, specialties: drawerItems.join(' OR tags:') })
     useEffect(() => {
         const debouncing = setTimeout(() => { refetch() }, 500)
         return () => clearTimeout(debouncing)

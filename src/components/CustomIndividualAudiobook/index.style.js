@@ -55,6 +55,7 @@ export const BuyContainer = styled.div`
   @media (max-width: 400px) {
     align-items: center;
     justify-content: center;
+    padding: 72px 16px;
   }
 `;
 
@@ -67,6 +68,11 @@ export const IncludeContainer = styled.div`
     color: #2d3648;
     font-weight: 500;
     font-size: 12px;
+  }
+  @media (max-width: 400px) {
+    text-align: center;
+    white-space: nowrap;
+    margin: 24px;
   }
 `;
 
@@ -122,7 +128,8 @@ export const BasicInformation = styled.div`
   @media (max-width: 400px) {
     align-items: start;
     justify-content: center;
-    padding: 16px;
+    padding: 32px;
+    margin-top: 88px;
   }
 `;
 
@@ -143,7 +150,7 @@ export const MoreDetail = styled.div`
   @media (max-width: 400px) {
     align-items: center;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 4px;
     padding: 24px;
   }
 `;

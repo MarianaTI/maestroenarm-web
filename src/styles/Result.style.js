@@ -83,11 +83,25 @@ export const ReturnDemoButtonContainer = styled.div`
 
 export const TextStatic = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 900px;
-  padding-left: 3%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   padding-top: 15px;
+  font-size: large;
+
+  & p {
+    color: #052970;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  & .span-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    width: 100%; 
+  }
 
   & span {
     font-family: 'Poppins';

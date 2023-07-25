@@ -5,7 +5,14 @@ export const videosApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
     endpoints: builder => ({
         getVideos: builder.query({ query: () => `/videos` }),
-        getVideosByTitle: builder.query({ query: title => `/videos?title=${title}` }),
+        getVideosByTitle: builder.query({ query: (options) => ({
+            url: '/videos',
+            method: 'GET',
+            params: {
+                title: options.title,
+                specialties: options.specialties
+            }})
+        }),
         getVideo: builder.query({ query: id => `/videos/${id}` }),
         getPremiumVideos: builder.query({ query: () => '/videos/premium' }),
         getMyVideos: builder.query({ query: () => '/my-videos' }),
