@@ -18,12 +18,8 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                     Selecciona el número de casos que desea responder y tiempo deseado
                 </Typography>
                 <RangeContainer>
-                    <label>Casos:
-                        <input type='range' />
-                    </label>
-                    <label>Tiempo: 5 min
-                        <input type='range' />
-                    </label>
+                    <label>Casos: <input type='range' /></label>
+                    <label>Tiempo: 5 min <input type='range' /></label>
                     <CustomButton text='continuar' theme="primary" onClick={closeModal} />
                 </RangeContainer>
             </ModalBody>
