@@ -27,7 +27,7 @@ export default function FrecuentQuestions() {
                         information={"Si, ofrece una sección para practicar de forma individual. Aquí, tendrás acceso a una serie de preguntas en modo aleatorio que podrás responder tantas veces como desees. Esta sección te permite practicar de manera autónoma y mejorar tus habilidades sin la necesidad de competir o compararte con otros usuarios."}
                     />
                     <SelectQuestions
-                        question={"¿Cómo puedo seleccionar la rama de la medicina en la sección de práctica individual?"}
+                        question={"¿Cómo puedo seleccionar una rama en la sección de práctica individual?"}
                         information={" En la sección de práctica individual, tendrás la opción de elegir la rama de la medicina en la que deseas practicar. Puedes navegar por las diferentes especialidades médicas disponibles y seleccionar aquella en la que quieras enfocarte. Esto te permitirá centrar tu estudio en áreas específicas de interés o en las que necesites más práctica."}
                     />
                 </QuestionsFrequent>

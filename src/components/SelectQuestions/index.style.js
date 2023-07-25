@@ -34,9 +34,21 @@ export const TextQuestion = styled.p`
   font-family: "Poppins";
   width: 550px;
   margin: 0px 10px 0px 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 14px;
+  }
 `;
 export const Text = styled.p`
   font-family: "Poppins";
   font-size: 17px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+  }
 `;
