@@ -25,6 +25,7 @@ import { Snackbar, Alert } from "@mui/material";
 import { useState } from "react";
 import CustomModal from "../../../../components/CustomModal";
 import { CustomButton } from "../../../../components/CustomButton";
+import { useRouter } from "next/router";
 
 const stripePromise = loadStripe(
   "pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat"
@@ -38,6 +39,7 @@ const CheckoutForm = () => {
   const [openSnackbarSucceeded, setOpenSnackbarSucceeded] = useState(false);
   const [openSnackbarError, setOpenSnackbarError] = useState(false);
   const [isOpenConditions, setIsOpenConditions] = useState(false);
+  const router = useRouter();
 
   const toggleConditions = () => {
     setIsOpenConditions(true);
@@ -53,6 +55,7 @@ const CheckoutForm = () => {
   const {
     control,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -102,6 +105,9 @@ const CheckoutForm = () => {
             const data = await response.json();
             console.log(data);
             setOpenSnackbarSucceeded(true);
+            setValue("cardName");
+            elements.getElement(CardElement).clear();
+            router.push("/academy/audiobooks")
           } else {
             console.log("Pago exitoso, pero no se devolvió ningún contenido");
           }
