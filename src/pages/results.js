@@ -112,7 +112,7 @@ export default function Results() {
               <span>Ejemplo 3</span>
             </div>
           </TextStatic>
-        ))};
+        ))}
 
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />

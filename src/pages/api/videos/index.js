@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         }
         const { resources } = await cloudinary.search.expression(`resource_type:video`).with_field('context').max_results(limit).execute()
         res.status(200).json(resources)
-    } catch ({ error }) {
-        res.status(error.http_code).json({ error: error.message });
+    } catch (error) {
+        res.status(500).json({ error: 'server error' });
     }
 };
