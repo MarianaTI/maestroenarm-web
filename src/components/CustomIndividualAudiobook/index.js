@@ -19,6 +19,7 @@ import { saveAs } from "file-saver";
 import { CustomButton } from "../CustomButton";
 
 const CustomIndividualAudiobook = ({
+  id,
   imgFront,
   imgBack,
   name,
@@ -37,6 +38,7 @@ const CustomIndividualAudiobook = ({
   const dispatch = useDispatch();
   const handleClick = () => {
     const productInfo = {
+      id,
       name,
       topics,
       price,
