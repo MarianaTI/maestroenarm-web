@@ -28,6 +28,7 @@ import { CustomButton } from "../../../../components/CustomButton";
 import { db } from "../../../../services/firebase/config";
 import { addDoc, collection, serverTimestamp } from "@firebase/firestore";
 import { useAuth } from "../../../../context/AuthProvider";
+import { useRouter } from "next/router";
 
 const stripePromise = loadStripe(
   "pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat"
@@ -42,6 +43,7 @@ const CheckoutForm = () => {
   const [openSnackbarError, setOpenSnackbarError] = useState(false);
   const [isOpenConditions, setIsOpenConditions] = useState(false);
   const auth = useAuth();
+  const router = useRouter();
 
   const toggleConditions = () => {
     setIsOpenConditions(true);
@@ -121,6 +123,10 @@ const CheckoutForm = () => {
                 paymentMethod: paymentMethod,
                 timestamp: serverTimestamp(),
               });
+
+              setTimeout(() => {
+                router.push(`/academy/audiobooks/view/${product.id}`);
+              },10000);
             } catch (error) {
               console.error("Error al añadir el documento: ", error);
             }
