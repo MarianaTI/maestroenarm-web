@@ -1,12 +1,13 @@
 import { AboutContainer, Container, ImageStyle, AvatarsContainer, AboutCard } from "../styles/about-us.style"
 import Avatar from "../components/Avatar";
+import Link from "next/link";
 
 const aboutUs = () => {
     return(
           <Container>
             <h1>Sobre nosotros</h1>
             <AboutContainer>
-                <p>"Lorem ipsum dolor sit amet, 
+                <p>Lorem ipsum dolor sit amet, 
                     consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et 
                     dolore magna aliqua. Ut enim ad minim veniam, 
@@ -15,8 +16,8 @@ const aboutUs = () => {
                     irure dolor in reprehenderit in voluptate velit 
                     esse cillum dolore eu fugiat nulla pariatur. 
                     Excepteur sint occaecat cupidatat non proident, 
-                    sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    "Lorem ipsum dolor sit amet, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, 
                     consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et 
                     dolore magna aliqua. Ut enim ad minim veniam, 
@@ -25,7 +26,8 @@ const aboutUs = () => {
                     irure dolor in reprehenderit in voluptate velit 
                     esse cillum dolore eu fugiat nulla pariatur. 
                     Excepteur sint occaecat cupidatat non proident, 
-                    sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.<br/> <br/>
+                    ¿Tienes alguna duda sobre Maestro Enarm? <Link href="/frequent-questions">Consulta aquí</Link>
                 </p>
                 <ImageStyle src="./aboutus.svg" width={500} height={500}/>
             </AboutContainer>    
