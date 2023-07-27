@@ -59,10 +59,29 @@ export const BuyContainer = styled.div`
   }
 `;
 
+export const BuyContainerPurchased = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 0px 24px;
+  .DetailOptionStyled {
+    color: #2d3648;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 24px;
+  }
+  @media (max-width: 400px) {
+    align-items: center;
+    justify-content: center;
+    padding: 72px 16px;
+  }
+`;
+
 export const IncludeContainer = styled.div`
   margin: 16px;
   border: 2px solid #484a84;
   border-radius: 15px;
+  
   padding: 8px;
   .DetailOptionStyled {
     color: #2d3648;
