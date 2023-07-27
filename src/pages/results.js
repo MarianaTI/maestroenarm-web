@@ -88,7 +88,7 @@ export default function Results() {
     lastResultsBySubSpeciality[subSpeciality] = result;
   });
   
-  
+  console.log(specialityAndSubspeciality)
 
   return (
     <Container>

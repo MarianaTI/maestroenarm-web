@@ -82,18 +82,17 @@ export default function Demo() {
       
       if (isAnswerCorrect == question.correctAnswer) {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
-        const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 1
+        const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 1;
         resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
-      }
-      const result = Math.ceil(resultSubSpeciality);
-
-        // if (  nowquestionCounter === lengthQuestions - 1) {
-        //   dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
-        // }
-        
-        
+        const result = Math.ceil(resultSubSpeciality);
         dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
-      
+      }else {
+        setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 0);
+        const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 0;
+        resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
+        const result = Math.ceil(resultSubSpeciality);
+        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
+      }
     }
     prevIsCountingRef.current = isCounting;
   };
