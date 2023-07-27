@@ -30,8 +30,8 @@ import { useAuth } from "../context/AuthProvider";
 import { signInByFacebook } from "../services/firebase/providers/facebook";
 
 const loginSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email("Por favor, ingresa un correo electrónico válido").required("Por favor, ingresa tu correo electrónico"),
+  password: yup.string().required("Por favor, confirma tu contraseña"),
 });
 
 export default function Login() {

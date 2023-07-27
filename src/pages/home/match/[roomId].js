@@ -73,13 +73,12 @@ export default function Game() {
   };
 
   return (
-    <Layout>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ margin: "64px 0px 16px 82px" }}>
-          Modo Multijugador amistoso
-        </span>
-        <span style={{ margin: "0px auto 64px auto" }}>
-          TE HAS UNIDO A LA PARTIDA
+        <h1 style={{ textAlign: "center", margin : "20px", color: "#052970", fontSize : "25px" }}>
+         MODO MULTIJUGADOR AMISTOSO
+        </h1>
+        <span style={{ margin: "0px auto 50px auto" }}>
+          ¡Bienvenido! Te has unido a esta partida
         </span>
         <MatchCardContainer>
           <FlexRightWrapper>
@@ -103,6 +102,5 @@ export default function Game() {
           </CustomButton>
         </MatchLobbyFooter>
       </div>
-    </Layout>
   );
 }
