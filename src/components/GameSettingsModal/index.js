@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState  } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
@@ -8,8 +8,7 @@ import { clinicalCases } from "../../constants";
 import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
 import { ModalBody, RangeContainer } from './index.style';
 
-export const GameSettingsModal = ({ isOpen, closeModal }) => {
-
+export const GameSettingsModal = ({ isOpen, closedModal }) => {
     const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
     const [isChecked, setIsChecked] = useState(false);
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -77,7 +76,7 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                         label="Check me"
                         checked={isChecked}
                         onChange={handleCheckboxChange} />
-                    <CustomButton text='continuar' theme="primary" onClick={closeModal} />
+                    <CustomButton text='continuar'  onClick={closedModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>
