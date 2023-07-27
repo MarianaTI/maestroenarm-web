@@ -58,6 +58,7 @@ export default function Game() {
   const handleCopyLinkToClipboard = () => {
     navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
+
   return (
     <div style={{ padding: '0 16px' }}>
       <TitleGameContainer>
@@ -67,7 +68,8 @@ export default function Game() {
       <Link href="/game">
         <GameField label="Aleatorio" />
       </Link>
-      <GameField label="Por Categoría" onClick={() => setOpen(true)} />
+      <GameField label="Por Categoría" onClick={() => setOpen(true)}
+       />
       {/* <GameSettingsModal isOpen={open} /> */}
 
       <TitleGameContainer>
