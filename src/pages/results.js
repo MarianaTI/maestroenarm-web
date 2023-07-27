@@ -28,12 +28,12 @@ export default function Results() {
   const feedbackList = [];
   const specialityList = [];
   const subSpecialityList = [];
+  const lastResultsBySubSpeciality = {};
   const router = useRouter();
   const items = answerCount();
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const gameHistory = useSelector((state) => state.game.gameHistory);
   const gameSpecialityAndSubspeciality = useSelector((state) => state.game.gameSpecialityAndSubspeciality);
-
 
   const toggleForgotPasswordModal = () => {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
@@ -69,7 +69,7 @@ export default function Results() {
     return {
       speciality: specialityArr[0],
       subSpeciality: subSpecialityArr[0],
-      percentage: item.percentageBySubspecialty,
+      result: item.result,
     };
   });
 
@@ -79,10 +79,16 @@ export default function Results() {
       specialityList.push(item.speciality);
     }
     if (!subSpecialityList.includes(item.subSpeciality)) {
-      subSpecialityList.push(item.subSpeciality, item.percentage);
+      subSpecialityList.push(item.subSpeciality);
     }
   })
-  console.log(subSpecialityList)
+
+  specialityAndSubspeciality.forEach((result) => {
+    const subSpeciality = result.subSpeciality;
+    lastResultsBySubSpeciality[subSpeciality] = result;
+  });
+  
+  console.log(specialityAndSubspeciality)
 
   return (
     <Container>
@@ -102,17 +108,17 @@ export default function Results() {
           <span>Resultados por categoria</span>
         </TextContainerResult>
 
-        {specialityList.map((speciality, index) => (
+        {Object.keys(lastResultsBySubSpeciality).map((subSpeciality, index) => {
+        const result = lastResultsBySubSpeciality[subSpeciality];
+        return (
           <TextStatic key={index}>
-            <p> Specialidad de {speciality}</p>
+            <p>Specialidad de {result.speciality}</p>
             <div className="span-container">
-              <span> {subSpecialityList[index]} </span>
-              <span>Ejemplo 1</span>
-              <span>Ejemplo 2</span>
-              <span>Ejemplo 3</span>
+              <span>{result.subSpeciality}: {result.result}/100</span>
             </div>
           </TextStatic>
-        ))}
+        );
+      })}
 
         <ReturnButtonsContainer>
           <CustomButton text="Salir" type="submit" onClick={handleClick} />

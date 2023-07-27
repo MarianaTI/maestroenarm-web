@@ -10,9 +10,6 @@ import CustomModal from "../../components/CustomModal";
 import ShareIcon from "@mui/icons-material/Share";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { clinicalCases } from "../../constants";
-import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
 import { IconButton } from "@mui/material";
 import Link from "next/link";
 
@@ -68,7 +65,7 @@ export default function Game() {
         <GameField label="Aleatorio" />
       </Link>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
-      {/* <GameSettingsModal isOpen={open} /> */}
+      <GameSettingsModal isOpen={open} closedModal={() => setOpen(false)}/>
 
       <TitleGameContainer>
         <h1 style={{ fontWeight: "500" }}>MODO MULTIJUGADOR</h1>
