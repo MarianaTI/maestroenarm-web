@@ -74,7 +74,7 @@ export default function Game() {
 
   return (
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <h1 style={{ textAlign: "center", margin : "20px", color: "#052970", fontSize : "25px" }}>
+        <h1 style={{ textAlign: "center", margin : "20px", color: "#052970", fontSize : "26px" }}>
          MODO MULTIJUGADOR AMISTOSO
         </h1>
         <span style={{ margin: "0px auto 50px auto" }}>
