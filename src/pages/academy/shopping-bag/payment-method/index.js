@@ -25,7 +25,9 @@ import { Snackbar, Alert } from "@mui/material";
 import { useState } from "react";
 import CustomModal from "../../../../components/CustomModal";
 import { CustomButton } from "../../../../components/CustomButton";
-import { useRouter } from "next/router";
+import { db } from "../../../../services/firebase/config";
+import { addDoc, collection, serverTimestamp } from "@firebase/firestore";
+import { useAuth } from "../../../../context/AuthProvider";
 
 const stripePromise = loadStripe(
   "pk_test_51NQEZFEgjOGrqMGrKaOwcNLpCuvostnvfCEvigbYUI8tFogD1Jv2PVoQfFaiD77tOhF1Zyh4vYoasX7bABG6QtOK00qDnV4jat"
@@ -39,7 +41,7 @@ const CheckoutForm = () => {
   const [openSnackbarSucceeded, setOpenSnackbarSucceeded] = useState(false);
   const [openSnackbarError, setOpenSnackbarError] = useState(false);
   const [isOpenConditions, setIsOpenConditions] = useState(false);
-  const router = useRouter();
+  const auth = useAuth();
 
   const toggleConditions = () => {
     setIsOpenConditions(true);
@@ -87,7 +89,7 @@ const CheckoutForm = () => {
     } else {
       const { id } = paymentMethod;
       try {
-        const response = await fetch("http://localhost:3001/api/checkout", {
+        const response = await fetch(`/api/checkout`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -107,13 +109,32 @@ const CheckoutForm = () => {
             setOpenSnackbarSucceeded(true);
             setValue("cardName");
             elements.getElement(CardElement).clear();
-            router.push("/academy/audiobooks")
+
+            try {
+              await addDoc(collection(db, "purchases"), {
+                productName: product.name,
+                productPrice: product.price,
+                productId: product.id,
+                authName: auth.user.displayName,
+                authEmail: auth.user.email,
+                authId: auth.user.uid,
+                paymentMethod: paymentMethod,
+                timestamp: serverTimestamp(),
+              });
+            } catch (error) {
+              console.error("Error al añadir el documento: ", error);
+            }
           } else {
             console.log("Pago exitoso, pero no se devolvió ningún contenido");
           }
         } else {
-          const errorData = await response.json();
-          console.log("Error en la solicitud:", response.status, errorData);
+          const text = await response.text();
+          try {
+            const errorData = JSON.parse(text);
+            console.log("Error en la solicitud:", response.status, errorData);
+          } catch {
+            console.log("Error en la solicitud:", response.status, text);
+          }
           setOpenSnackbarError(true);
         }
       } catch (error) {
