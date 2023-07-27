@@ -24,7 +24,6 @@
     "cloudinary": "^1.37.3",
     "cloudinary-react": "^1.8.1",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
     "file-saver": "^2.0.5",
     "firebase": "^9.23.0",
     "helmet": "^7.0.0",

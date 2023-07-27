@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BasicInformation,
   BasicInformationContainer,
   BuyContainer,
+  BuyContainerPurchased,
   Container,
   HoverImage,
   ImageContainer,
@@ -17,8 +18,20 @@ import { useDispatch } from "react-redux";
 import { setCurrentProduct } from "../../store/slices/productSlice";
 import { saveAs } from "file-saver";
 import { CustomButton } from "../CustomButton";
+import { useAuth } from "../../context/AuthProvider";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "@firebase/firestore";
+import { auth, db } from "../../services/firebase/config";
+import { async } from "@firebase/util";
 
 const CustomIndividualAudiobook = ({
+  id,
   imgFront,
   imgBack,
   name,
@@ -34,9 +47,14 @@ const CustomIndividualAudiobook = ({
   const handleButtonClick = () => setOpenSnackbar(true);
   const handleSnackbarClose = () => setOpenSnackbar(false);
 
+  const user = useAuth();
+  const [isPurchased, setIsPurchased] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   const dispatch = useDispatch();
   const handleClick = () => {
     const productInfo = {
+      id,
       name,
       topics,
       price,
@@ -46,13 +64,40 @@ const CustomIndividualAudiobook = ({
 
   const handleDownload = async () => {
     try {
-      const audioDownload = await fetch(audio).then(download => download.blob());
-      saveAs(audioDownload, 'audiolibro.mp3');
+      const audioDownload = await fetch(audio).then((download) =>
+        download.blob()
+      );
+      saveAs(audioDownload, "audiolibro.mp3");
       setOpenSnackbar(true);
     } catch (error) {
-      console.error('Error descargando el archivo: ', error);
+      console.error("Error descargando el archivo: ", error);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      const checkPurchase = async () => {
+        const purchasesCollection = collection(db, "purchases");
+        const purchaseQuery = query(
+          purchasesCollection,
+          where("authId", "==", user.user.uid),
+          where("productId", "==", id)
+        );
+        const querySnapshot = await getDocs(purchaseQuery);
+        if (!querySnapshot.empty) {
+          setIsPurchased(true);
+        }
+        setIsLoading(false);
+      };
+      checkPurchase();
+    } else {
+      setIsLoading(false);
+    }
+  }, [user, id]);
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <Container>
@@ -86,16 +131,29 @@ const CustomIndividualAudiobook = ({
             </div>
           </BasicInformation>
           {price > 0.0 ? (
-            <BuyContainer>
-              <span className="DetailOptionStyled">$ {price}</span>
-              <Link href="/academy/shopping-bag/payment-method">
+            isPurchased ? (
+              <BuyContainerPurchased>
                 <CustomButton
+                  showIcon
+                  onClick={handleDownload}
                   type="button"
                   theme="secondary"
-                  onClick={handleClick}
-                >Comprar ahora</CustomButton>
-              </Link>
-            </BuyContainer>
+                />
+              </BuyContainerPurchased>
+            ) : (
+              <BuyContainer>
+                <span className="DetailOptionStyled">$ {price}</span>
+                <Link href="/academy/shopping-bag/payment-method">
+                  <CustomButton
+                    type="button"
+                    theme="secondary"
+                    onClick={handleClick}
+                  >
+                    Comprar ahora
+                  </CustomButton>
+                </Link>
+              </BuyContainer>
+            )
           ) : (
             <BuyContainer>
               <IncludeContainer>
@@ -103,8 +161,12 @@ const CustomIndividualAudiobook = ({
                   Incluido en la suscripción
                 </span>
               </IncludeContainer>
-              <CustomButton showIcon onClick={handleDownload} type="button"
-                  theme="secondary"/>
+              <CustomButton
+                showIcon
+                onClick={handleDownload}
+                type="button"
+                theme="secondary"
+              />
             </BuyContainer>
           )}
         </div>

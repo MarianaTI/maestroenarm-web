@@ -7,6 +7,7 @@ export const Container = styled.div`
     font-family: "Poppins";
     font-weight: 600;
     padding: 15px;
+    color: #052970;
 
     @media (max-width: 768px){
       font-size: 25px;

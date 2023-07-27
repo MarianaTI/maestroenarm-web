@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState  } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
@@ -6,19 +6,35 @@ import { CustomButton } from '../CustomButton';
 import CheckBoxButton from "../CheckBoxButton";
 import { clinicalCases } from "../../constants";
 import { setAddSpecialityAndSubspeciality } from "../../store/slices/menuCheckBoxSlice";
-import { ModalBody, RangeContainer } from './index.style';
+import { 
+ModalBody, 
+RangeContainer, 
+CloseIconStyle, 
+SpecialityContainer, 
+SpecialityText,
+SubSpecialityText,
+SubSpecialityContainer,
+SubSpecialityCheckbox
+} from './index.style';
 
-export const GameSettingsModal = ({ isOpen, closeModal }) => {
+
+export const GameSettingsModal = ({ isOpen, closedModal }) => {
 
     const specialityAndSubspeciality = useSelector((state) => state.checkBoxMenu.specialityAndSubspeciality);
     const [isChecked, setIsChecked] = useState(false);
     const [dataLoaded, setDataLoaded] = useState(false);
-
+    
     const dispatch = useDispatch();
 
     const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked);
     };
+
+    const [selectedSpeciality, setSelectedSpeciality] = useState(null);
+
+    const handleSpecialityClick = (speciality) => {
+        setSelectedSpeciality(speciality);
+      };
 
     useEffect(() => {
 
@@ -34,13 +50,17 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
         setDataLoaded(true);
     }, [dispatch]);
 
+    
+
     return (
         <Modal
             open={isOpen}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
+            closeModal={closedModal}
         >
             <ModalBody>
+                <CloseIconStyle onClick={closedModal} />
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                     Por categoría
                 </Typography>
@@ -55,29 +75,34 @@ export const GameSettingsModal = ({ isOpen, closeModal }) => {
                         <input type='range' />
                     </label>
                     {dataLoaded ? ( 
-                        <div>
-                            <span>-Especialidades: </span>
+                        <SpecialityContainer>
                             {Array.from(specialityAndSubspeciality[0].especialidadesUnicas).map(
                                 (especialidad, especialidadIndex) => (
-                                    <span key={especialidadIndex}>{especialidad}</span>
+                                    <SpecialityText key={especialidadIndex} onClick={()=> handleSpecialityClick(especialidad)}
+                                >{especialidad}</SpecialityText>
                                 )
                             )}
-
-                            <span>-Subespecialidades: </span>
-                            {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).map(
-                                (subespecialidad, subespecialidadIndex) => (
-                                    <span key={subespecialidadIndex}>{subespecialidad}</span>
-                                )
+                                {selectedSpeciality && (
+                                <SubSpecialityContainer>
+                                    {Array.from(specialityAndSubspeciality[0].subEspecialidadesUnicas).filter((subespecialidad) =>
+                                    subespecialidad.startsWith(selectedSpeciality)
+                                    )
+                                        .map((subespecialidad, subespecialidadIndex) => (
+                                    <CheckBoxButton
+                                    key={subespecialidadIndex}
+                                    subSpeciality={subespecialidad}
+                                    />
+                                ))}
+                            </SubSpecialityContainer>
                             )}
-                        </div>
+                        </SpecialityContainer>
                     ) : (
                         <div>Loading...</div>
                     )}
-                    <CheckBoxButton
-                        label="Check me"
+                    {/* <CheckBoxButton
                         checked={isChecked}
-                        onChange={handleCheckboxChange} />
-                    <CustomButton text='continuar' theme="primary" onClick={closeModal} />
+                        onChange={handleCheckboxChange} /> */}
+                    <CustomButton text='Continuar' theme="primary" onClick={closedModal} />
                 </RangeContainer>
             </ModalBody>
         </Modal>

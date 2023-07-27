@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Case from "../components/Case";
 import constants from "../constants";
 import styles from "../styles/Home.module.css";
@@ -22,6 +22,8 @@ export default function Demo() {
   const [isCounting, setIsCounting] = useState(true);
   const [isOpenFeedback, setOpenFeedback] = useState(false);
   const [isAnswerCorrectSubspecialty, setIsAnswerCorrectSubspecialty] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const prevIsCountingRef = useRef(isCounting)
   const dispatch = useDispatch();
   const router = useRouter();
   const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
@@ -44,6 +46,10 @@ export default function Demo() {
 
   uniqueSpeciality.add(speciality);
   uniqueSubSpeciality.add(subSpeciality);
+
+  useEffect(() => {
+    setIsAnswerCorrectSubspecialty(0);
+  }, [clinicalCaseCounter]);
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -69,29 +75,36 @@ export default function Demo() {
     }
   };
   const handleSpecialityAnswerCorrect = (isAnswerCorrect) => {
-    console.log(isAnswerCorrect)
 
-    if (!isCounting) {
+    if (!isCounting && prevIsCountingRef.current) {
       const percentageBySubspecialty = 100 / lengthQuestions;
-
+      let resultSubSpeciality = 0;
+      
       if (isAnswerCorrect == question.correctAnswer) {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
-        console.log('SI ENTRE')
+        const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 1;
+        resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
+        const result = Math.ceil(resultSubSpeciality);
+        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
+      }else {
+        setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 0);
+        const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 0;
+        resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
+        const result = Math.ceil(resultSubSpeciality);
+        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
       }
-      console.log(isAnswerCorrectSubspecialty)
-
-      // if (uniqueSubSpeciality !== clinicalCase.subSpeciality) {
-      //   setIsAnswerCorrectSubspecialty(0);
-      // }
-
-      dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, percentageBySubspecialty }))
     }
+    prevIsCountingRef.current = isCounting;
   };
   useEffect(() => {
 
-    handleSpecialityAnswerCorrect();
-
-  }, [uniqueSpeciality, uniqueSubSpeciality])
+    const updateSpecialityAnswer = () => {
+      const isAnswerCorrect = selectedAnswer; 
+        handleSpecialityAnswerCorrect(isAnswerCorrect);
+    };
+  
+    updateSpecialityAnswer();
+  }, [ uniqueSpeciality, uniqueSubSpeciality])
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
@@ -107,6 +120,7 @@ export default function Demo() {
     toggleResultRevealed();
     setIsCounting(false);
     handleAnswer(isAnswerCorrect);
+    setSelectedAnswer(isAnswerCorrect);
     handleSpecialityAnswerCorrect(isAnswerCorrect);
   };
 

@@ -52,6 +52,7 @@ export default function View() {
     fetchRelatedAudiobooks();
   }, [audiobook]);
 
+  
   if (!audiobook) {
     return <LoadingPage />;
   }
@@ -59,6 +60,7 @@ export default function View() {
   return (
     <ViewContainer>
       <CustomIndividualAudiobook
+      id={audiobook.id}
         imgFront={audiobook.imgFront}
         imgBack={audiobook.imgBack}
         name={audiobook.name}

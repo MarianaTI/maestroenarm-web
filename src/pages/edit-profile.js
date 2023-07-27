@@ -6,14 +6,14 @@ import { StyledAvatar, StyledSubmitButton, StyledSubmitButtonContainer, StyledTe
 import Avatar from "../components/Avatar";
 
 const EditProfileSchema = yup.object({
-  usuario: yup.string().required(),
-  nombreCompleto: yup.string().required(),
-  sexo: yup.string().required(),
-  fechaNacimiento: yup.string().required(),
-  especialidad: yup.string().required(),
-  subcategoria: yup.string().required(),
-  estado: yup.string().required(),
-  universidad: yup.string().required(),
+  usuario: yup.string().required('El nombre de usuario es obligatorio.'),
+  nombreCompleto: yup.string().required('El nombre completo es obligatorio.'),
+  sexo: yup.string().required('Selecciona el sexo.'),
+  fechaNacimiento: yup.string().required('La fecha de nacimiento es obligatoria.'),
+  especialidad: yup.string().required('La especialidad es obligatoria.'),
+  subcategoria: yup.string().required('La subcategoría es obligatoria.'),
+  estado: yup.string().required('El estado es obligatorio.'),
+  universidad: yup.string().required('La universidad es obligatoria.'),
 }).required();
 
 const EditProfile = () => {
