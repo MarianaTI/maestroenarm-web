@@ -1,8 +1,7 @@
-import QuizIcon from '@mui/icons-material/Quiz';
+import Link from 'next/link';
 import { CustomButton } from "../../../../components/CustomButton";
 import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar, MainContentPlaceholder } from "../../../../styles/Watch.style";
 import { useRouter } from "next/router";
-import Link from 'next/link';
 import { setCurrentProduct } from '../../../../store/slices/productSlice';
 import { useDispatch } from 'react-redux';
 import { cloudinaryReact } from '../../../../services/cloudinary/config';
@@ -32,12 +31,19 @@ export default function Preview() {
                         <div style={{ marginTop: 16 }}>
                             <h2 style={{ margin: 0 }}>{video[0]?.context?.caption || 'No Title'}</h2>
                             <p style={{ margin: "6px 0" }}>{video[0]?.context?.alt || 'Not description'}</p>
-                            <Link href="/academy/shopping-bag/payment-method" onClick={() => dispatch(setCurrentProduct({ ...video }))}>
-                                <CustomButton theme="secondary" >
-                                    <span style={{ fontSize: 16 }}>comprar</span>
-                                </CustomButton>
-                            </Link>
-                            <span style={{ margin: 16 }}>$ {video[0].context?.price || '0.00'}</span>
+                            {video[0].context?.price &&
+                                <Link href="/academy/shopping-bag/payment-method" onClick={() => dispatch(
+                                    setCurrentProduct({ name: video[0]?.context?.caption, price: video[0].context?.price, topics: [video[0]?.context?.alt || 'none', ...video[0]?.tags] }))}>
+                                    <CustomButton theme="secondary" size="small" >
+                                        Adquirir por ${video[0].context?.price}
+                                    </CustomButton>
+                                </Link>
+                            }
+                            {!video[0].context?.price &&
+                                <span style={{ border: '1px solid rgb(72, 74, 132)', borderRadius: 4, padding: '0 16px', color: 'rgb(72, 74, 132)' }}>
+                                    Incluido en la subscripción
+                                </span>
+                            }
                         </div>
                     </MainContent >
                     : <h1>NO se encontró el recurso</h1>
@@ -46,7 +52,7 @@ export default function Preview() {
                 {isLoading && <>
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
-                    <CardVideoPlaceholder isReponsive={true} />    
+                    <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />

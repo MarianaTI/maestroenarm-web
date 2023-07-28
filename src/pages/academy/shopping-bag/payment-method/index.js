@@ -107,25 +107,19 @@ const CheckoutForm = () => {
             response.headers.get("content-type")?.includes("application/json")
           ) {
             const data = await response.json();
-            console.log(data);
+            console.log(product);
             setOpenSnackbarSucceeded(true);
             setValue("cardName");
             elements.getElement(CardElement).clear();
 
             try {
               await addDoc(collection(db, "purchases"), {
-                productName: product.name,
-                productPrice: product.price,
-                productId: product.id,
-                authName: auth.user.displayName,
-                authEmail: auth.user.email,
-                authId: auth.user.uid,
-                paymentMethod: paymentMethod,
-                timestamp: serverTimestamp(),
+                email: auth.user.email,
+                item: product
               });
 
               setTimeout(() => {
-                router.push(`/academy/audiobooks/view/${product.id}`);
+                router.push(`/academy/shopping-bag`);
               },10000);
             } catch (error) {
               console.error("Error al añadir el documento: ", error);
@@ -186,16 +180,16 @@ const CheckoutForm = () => {
           </CardContainer>
         </PayContainer>
         <CustomShoppingDetails
-          productName={product.name}
-          productTopics={product.topics}
-          productPrice={product.price}
+          productName={product?.name}
+          productTopics={product?.topics}
+          productPrice={product?.price}
         />
       </div>
       <PaymentContainer>
         <CompletePayment>
           <CustomCalculateTotal
-            originalPrice={product.price}
-            totalPrice={product.price}
+            originalPrice={product?.price}
+            totalPrice={product?.price}
           />
           <span className="DetailText">
             Al completar la compra, aceptas estas{" "}
