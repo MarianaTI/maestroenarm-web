@@ -7,6 +7,10 @@ export const MainContainer = styled.div`
   @media (max-width: 800px) {
     width: 600px;
   }
+  @media (max-width: 500px) {
+    width: 450px;
+    margin: 40px;
+  }
   @media (max-width: 400px) {
     width: 300px;
     margin: 40px;
@@ -21,8 +25,8 @@ export const TabContainer = styled.div`
   @media (max-width: 800px) {
     width: 600px;
   }
-  @media (max-width: 400px) {
-    width: 300px;
+  @media (max-width: 500px) {
+    max-width: 400px;
     margin: 24px;
   }
 `;
@@ -75,7 +79,7 @@ export const TabInformation = styled.div`
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 300px);
   }
-  @media (max-width: 400px)  {
+  @media (max-width: 500px)  {
     grid-template-columns: 1fr;
   }  
 `;
