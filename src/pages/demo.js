@@ -157,7 +157,7 @@ export default function Demo() {
         ></LinearProgress>
         <TimeIcon
           onTimeFinish={handleQuestionTimeFinished}
-          seconds={13}
+          seconds={60}
           isCounting={isCounting}
         ></TimeIcon>
         <Case>{clinicalCaseName}</Case>

@@ -7,6 +7,7 @@ import {
 import { ProfileField } from "../components/ProfileField";
 import { CustomButton } from "../components/CustomButton/index";
 import { useAuth } from "../context/AuthProvider";
+import Link from "next/link";
 
 export default function ProfileSettings() {
   const { closeSesion, user } = useAuth()
@@ -27,9 +28,11 @@ export default function ProfileSettings() {
         ))}
       </ProfileSettingsContainer>
       <ButtonGroup>
-        <CustomButton theme="warning" fullWidth>
+        <Link href="/payment-plans">
+        <CustomButton theme="warning" fullWidth >
           Premium
         </CustomButton>
+        </Link>
         <CustomButton fullWidth onClick={closeSesion}>
           Cerrar sesión
         </CustomButton>

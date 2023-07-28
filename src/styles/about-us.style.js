@@ -10,7 +10,9 @@ export const Container = styled.div`
     font-weight: 300px;
     color: #052970;
     text-align: center;
-
+  }
+  & span {
+    text-align: center;
   }
 `;
 
@@ -19,6 +21,10 @@ export const AboutContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: left;
+  & a {
+    color:#052970;
+    font-weight: 600;
+  }
   @media (min-width: 1020px) {
     flex-direction: row;
     justify-content: space-between;
@@ -60,4 +66,8 @@ export const AboutCard = styled(Box)`
     margin: 10px;
   }
 `;
+/* export const FrequentQuestions = styled.span`
+  text-align: center;
 
+`;
+ */
