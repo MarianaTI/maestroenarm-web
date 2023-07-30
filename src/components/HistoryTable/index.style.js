@@ -17,5 +17,6 @@ const liStyled = ({ isSelected }) => css`
 `;
 
 export const CustomLi = styled.li`
+    cursor: pointer;
     ${liStyled}
 `;

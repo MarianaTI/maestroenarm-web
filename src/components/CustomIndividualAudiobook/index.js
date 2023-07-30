@@ -21,17 +21,15 @@ import { CustomButton } from "../CustomButton";
 import { useAuth } from "../../context/AuthProvider";
 import {
   collection,
-  doc,
-  getDoc,
   getDocs,
   query,
   where,
 } from "@firebase/firestore";
-import { auth, db } from "../../services/firebase/config";
-import { async } from "@firebase/util";
+import { db } from "../../services/firebase/config";
 
 const CustomIndividualAudiobook = ({
   id,
+  type,
   imgFront,
   imgBack,
   name,
@@ -42,6 +40,7 @@ const CustomIndividualAudiobook = ({
   price,
   details,
   audio,
+  resource_type
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);
@@ -55,9 +54,12 @@ const CustomIndividualAudiobook = ({
   const handleClick = () => {
     const productInfo = {
       id,
+      type,
       name,
       topics,
       price,
+      imgFront,
+      resource_type
     };
     dispatch(setCurrentProduct(productInfo));
   };

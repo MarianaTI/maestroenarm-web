@@ -59,6 +59,8 @@ export default function View() {
   return (
     <ViewContainer>
       <CustomIndividualBook
+        type="Productos"
+        id={book.id}
         imgFront={book.images.font}
         imgBack={book.images.back}
         name={book.name}
@@ -66,6 +68,7 @@ export default function View() {
         topics={book.topics}
         price={book.price}
         details={book.detail}
+        resource_type='book'
       />
       <InterestContainer>
         <span className="InterestTitle">Articulos relacionados:</span>

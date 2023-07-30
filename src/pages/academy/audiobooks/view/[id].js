@@ -52,7 +52,7 @@ export default function View() {
     fetchRelatedAudiobooks();
   }, [audiobook]);
 
-  
+
   if (!audiobook) {
     return <LoadingPage />;
   }
@@ -60,7 +60,8 @@ export default function View() {
   return (
     <ViewContainer>
       <CustomIndividualAudiobook
-      id={audiobook.id}
+        id={audiobook.id}
+        type="Productos"
         imgFront={audiobook.imgFront}
         imgBack={audiobook.imgBack}
         name={audiobook.name}
@@ -71,6 +72,7 @@ export default function View() {
         price={audiobook.price}
         details={audiobook.detail}
         audio={audiobook.audio}
+        resource_type='audiobook'
       />
       <InterestContainer>
         <span className="InterestTitle">Articulos relacionados:</span>

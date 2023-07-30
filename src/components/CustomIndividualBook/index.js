@@ -19,6 +19,8 @@ import { useDispatch } from "react-redux";
 import { setCurrentProduct } from "../../store/slices/productSlice";
 
 const CustomIndividualBook = ({
+  id,
+  type,
   imgFront,
   imgBack,
   name,
@@ -26,6 +28,7 @@ const CustomIndividualBook = ({
   topics,
   price,
   details,
+  resource_type,
 }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleButtonClick = () => setOpenSnackbar(true);
@@ -34,9 +37,13 @@ const CustomIndividualBook = ({
   const dispatch = useDispatch();
   const handleClick = () => {
     const productInfo = {
+      id,
+      type,
       name,
       topics,
       price,
+      imgFront,
+      resource_type,
     };
     dispatch(setCurrentProduct(productInfo));
   };

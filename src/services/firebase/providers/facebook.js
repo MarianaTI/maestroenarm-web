@@ -3,16 +3,11 @@ import { auth } from "../config";
 
 const facebookProvider = new FacebookAuthProvider()
 
-export function signInByFacebook() {
-    signInWithPopup(auth, facebookProvider)
-        .then(result => {
-            const { user } = result;
-            const { accessToken } = FacebookAuthProvider.credentialFromResult(result)
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = FacebookAuthProvider.credentialFromError(error);
-        })
+export async function signInByFacebook() {
+    try {
+        const result = await signInWithPopup(auth, facebookProvider)
+        FacebookAuthProvider.credentialFromResult(result)
+    } catch (err) {
+        FacebookAuthProvider.credentialFromError(err);
+    }
 }

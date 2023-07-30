@@ -84,7 +84,6 @@ const CheckoutForm = () => {
         name: formData.cardName,
       },
     });
-    console.log("Payment Method:", paymentMethod);
 
     if (error) {
       console.log("Error al crear el método de pago:", error);
@@ -115,12 +114,10 @@ const CheckoutForm = () => {
             try {
               await addDoc(collection(db, "purchases"), {
                 email: auth.user.email,
-                item: product
+                item: product,
+                timestamp: serverTimestamp()
               });
-
-              setTimeout(() => {
-                router.push(`/academy/shopping-bag`);
-              },10000);
+              router.push(`/academy/shopping-bag`);
             } catch (error) {
               console.error("Error al añadir el documento: ", error);
             }

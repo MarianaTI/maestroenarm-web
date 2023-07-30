@@ -11,7 +11,7 @@ const CustomAudiobook = ({ img, name, author, price, showIcon }) => {
   
   return (
     <Container>
-      <ImgStyled src={img} />
+      <ImgStyled src={img} alt={img} />
       <DetailsContainer>
         <div className="NameStyle">{name}</div>
         <div className="AuthorStyle">{author}</div>

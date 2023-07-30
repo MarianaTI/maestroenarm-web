@@ -2,33 +2,11 @@ import styled from "@emotion/styled";
 import { Tabs } from "@mui/material";
 
 export const MainContainer = styled.div`
-  width: 800px;
   padding: 32px;
-  @media (max-width: 800px) {
-    width: 600px;
-  }
-  @media (max-width: 500px) {
-    width: 450px;
-    margin: 40px;
-  }
-  @media (max-width: 400px) {
-    width: 300px;
-    margin: 40px;
-  }
 `;
 
 export const TabContainer = styled.div`
   padding: 0 32px; 
-  @media (max-width: 900px) {
-    width: 400px;
-  }
-  @media (max-width: 800px) {
-    width: 600px;
-  }
-  @media (max-width: 500px) {
-    max-width: 400px;
-    margin: 24px;
-  }
 `;
 
 export const StyledTabs = styled(Tabs)`

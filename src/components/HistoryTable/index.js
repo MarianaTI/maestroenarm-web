@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { CustomLi, CustomUl } from "./index.style";
+import { serverTimestamp } from "firebase/firestore";
 
 function TableNav({ setType }) {
     const [listName, setListName] = useState('Productos')
@@ -29,7 +30,7 @@ function TableNav({ setType }) {
 
 export default function HistoryTable({ rows }) {
     const [type, setType] = useState('Productos')
-    const items = rows.filter(item => item.type === type)
+    const items = rows.filter(row => row.item.type === type)
     return (
         <>
             <TableNav setType={setType} />
@@ -46,15 +47,15 @@ export default function HistoryTable({ rows }) {
                     <TableBody>
                         {items.map(row =>
                             <TableRow
-                                key={row.name}
+                                key={row.item.name}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     <ShoppingCartOutlinedIcon />
                                 </TableCell>
-                                <TableCell align="left">{row.name}</TableCell>
-                                <TableCell align="left">{row.date}</TableCell>
-                                <TableCell align="left">$ {row.prize}</TableCell>
+                                <TableCell align="left">{row.item.name}</TableCell>
+                                <TableCell align="left">{new Date(row.timestamp.seconds * 1000).toLocaleDateString('es-ES')}</TableCell>
+                                <TableCell align="left">$ {row.item.price}</TableCell>
                             </TableRow>
                         )}
                     </TableBody>

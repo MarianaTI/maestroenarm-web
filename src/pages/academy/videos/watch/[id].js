@@ -5,14 +5,28 @@ import { PlayerVideo, VideoContainer, WatchContainer, MainContent, Sidebar, Main
 import { useRouter } from "next/router";
 import { cloudinaryReact } from '../../../../services/cloudinary/config';
 import { CardVideo, CardVideoPlaceholder } from '../../../../components/CardVideo';
-import { useGetPremiumVideosQuery, useGetVideoQuery } from '../../../../store/apis/videoApi';
-import { Download } from '@mui/icons-material';
+import { useGetVideoQuery } from '../../../../store/apis/videoApi';
+import { useAuth } from '../../../../context/AuthProvider';
+import { useEffect, useState } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../../services/firebase/config';
 
 export default function Watch() {
-    //todo: ahhhh si ingresa el public id, aun asi se reproduce el video, es un bug muy malo,puede visualizar contenido premium gratiss!!!!1
     const router = useRouter()
-    const { data: videos, isLoading } = useGetPremiumVideosQuery()
+    const { loading, user } = useAuth();
+    const [purchases, setPurchases] = useState();
     const { data: video, isLoading: isLoadingPlayer } = useGetVideoQuery(router.query?.id?.replace('/', '%2F'));
+    const [isLoading, setIsLoading] = useState(true);
+    async function getPurchases() {
+        if (loading) return;
+        const snapshot = await getDocs(query(collection(db, 'purchases'), where('email', '==', user.email), where('item.resource_type', '==', 'video') ))
+        setPurchases(snapshot.docs.map(doc => doc.data()))
+        setIsLoading(false)
+    }
+
+    useEffect(() => {
+        getPurchases()
+    }, [loading])
     return (
         <WatchContainer>
             {isLoadingPlayer ?
@@ -39,11 +53,11 @@ export default function Watch() {
                                             <QuizIcon />
                                         </CustomButton>
                                     </Link>
-                                    <div>
+                                    {/* <div>
                                         <CustomButton theme="secondary"  >
                                             <Download />
                                         </CustomButton>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -59,13 +73,12 @@ export default function Watch() {
                     <CardVideoPlaceholder isReponsive={true} />
                     <CardVideoPlaceholder isReponsive={true} />
                 </>}
-                {!isLoading && videos.map(({ asset_id, public_id, context }) => <CardVideo
-                    key={asset_id}
-                    title={context?.caption}
-                    description={context?.alt}
-                    price={context?.price}
-                    url={`/academy/videos/watch/${public_id.replace('/', '%2F')}`}
-                    player={cloudinaryReact.video(public_id)}
+                {!isLoading && purchases.map(({ item }) => <CardVideo
+                    key={item?.id}
+                    title={item?.name}
+                    isPurchased
+                    url={`/academy/videos/watch/${item.id.replace('/', '%2F')}`}
+                    player={cloudinaryReact.video(item.id)}
                     isReponsive={true}
                 >
                 </CardVideo>)}

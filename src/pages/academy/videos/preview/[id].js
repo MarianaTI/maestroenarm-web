@@ -33,7 +33,13 @@ export default function Preview() {
                             <p style={{ margin: "6px 0" }}>{video[0]?.context?.alt || 'Not description'}</p>
                             {video[0].context?.price &&
                                 <Link href="/academy/shopping-bag/payment-method" onClick={() => dispatch(
-                                    setCurrentProduct({ name: video[0]?.context?.caption, price: video[0].context?.price, topics: [video[0]?.context?.alt || 'none', ...video[0]?.tags] }))}>
+                                    setCurrentProduct({ 
+                                        name: video[0]?.context?.caption, 
+                                        price: video[0].context?.price, 
+                                        resource_type: 'video', 
+                                        id: video[0].public_id, 
+                                        type: 'Productos', 
+                                        topics: [video[0]?.context?.alt || 'none', ...video[0]?.tags] }))}>
                                     <CustomButton theme="secondary" size="small" >
                                         Adquirir por ${video[0].context?.price}
                                     </CustomButton>

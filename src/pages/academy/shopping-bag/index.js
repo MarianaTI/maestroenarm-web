@@ -5,20 +5,47 @@ import {
   StyledTabs,
   TabContainer,
   TabInformation,
-  TabInformationBook,
 } from "../../../styles/ShoppingBag.style";
 import { Tab } from "@mui/material";
-import { audiobooksInterest, videosInterest, booksInterest } from "../../../constants";
 import CustomAudiobook from "../../../components/CustomAudiobook";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../../services/firebase/config";
+import { useAuth } from "../../../context/AuthProvider";
+import { CardVideo } from "../../../components/CardVideo";
+import { cloudinaryReact } from "../../../services/cloudinary/config";
+import { VideoCardContainer } from "../../../styles/Videos.style"; 
 
 export default function ShoppingBag() {
+  const { user, loading } = useAuth()
+  const [purchases, setPurchases] = useState()
+  const [videos, setVideos] = useState()
+  const [audiobooks, setAudiobooks] = useState()
+  const [books, SetBooks] = useState()
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  async function getPurchases() {
+    if (loading) return;
+    const snapshot = await getDocs(query(collection(db, 'purchases'), where('email', '==', user.email)))
+    setPurchases(snapshot.docs.map(doc => doc.data()))
+  }
+
+  useEffect(() => {
+    setVideos(purchases?.filter(video => video.item.resource_type == 'video'))
+    SetBooks(purchases?.filter(video => video.item.resource_type == 'book'))
+    setAudiobooks(purchases?.filter(video => video.item.resource_type == 'audiobook'))
+  }, [value])
+
+  useEffect(() => {
+    getPurchases()
+  }, [loading]);
+
   return (
     <div>
       <MainContainer>
@@ -35,16 +62,19 @@ export default function ShoppingBag() {
           <Tab label="Libros" />
         </StyledTabs>
         {value === 0 && (
-          <TabInformation>
-            {videosInterest.length > 0 ? (
-              videosInterest.map((item, index) => (
-                <CustomAudiobook
-                  key={index}
-                  img={item.img}
-                  name={item.name}
-                  topics={item.topics}
-                  price={item.price}
-                />
+          <VideoCardContainer>
+            {videos?.length > 0 ? (
+              videos.map((video) => (
+                <CardVideo
+                  key={video.item.id}
+                  title={video.item.name}
+                  description={video.item.topics.join('')}
+                  price={video.item.price}
+                  url={`/academy/videos/watch/${video.item.id.replace('/', '%2F')}`}
+                  player={cloudinaryReact.video(video.item.id)}
+                  isReponsive={true}
+                >
+                </CardVideo>
               ))
             ) : (
               <EmptyStateContainer>
@@ -52,22 +82,22 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
-          </TabInformation>
+          </VideoCardContainer>
         )}
         {value === 1 && (
           <TabInformation>
-            {audiobooksInterest.length > 0 ? (
-              audiobooksInterest.map((item, index) => (
+            {audiobooks?.length > 0 ? (
+              audiobooks.map((audiobook) => (
                 <Link
-                  href="/academy/audiobooks/view/[id]"
-                  as={`/academy/audiobooks/view/${item.id}`}
-                  key={item.id}
+                  href={"/academy/audiobooks/view/" + audiobook.item.id}
+                  key={audiobook.item.id}
                 >
                   <CustomAudiobook
-                    key={index}
-                    img={item.img}
-                    name={item.name}
-                    topics={item.topics}
+                    key={audiobook.item.id}
+                    img={audiobook.item.imgFront}
+                    name={audiobook.item.name}
+                    topics={audiobook.item.topics}
+                    price={audiobook.item.price}
                   />
                 </Link>
               ))
@@ -81,24 +111,21 @@ export default function ShoppingBag() {
         )}
         {value === 2 && (
           <TabInformation>
-            {booksInterest.length > 0 ? (
-              booksInterest.map((item, index) => (
-                <Link
-                  href="/academy/books/view/[id]"
-                  as={`/academy/books/view/${item.id}`}
-                  key={item.id}
-                >
-                  <CustomAudiobook
-                    key={index}
-                    img={item.img}
-                    name={item.name}
-                    topics={item.topics}
-                  />
-                </Link>
+            {books?.length > 0 ? (
+              books.map((book) => (
+
+                <CustomAudiobook
+                  key={book.item.id}
+                  img={book.item.imgFront}
+                  name={book.item.name}
+                  topics={book.item.topics}
+                  price={book.item.price}
+                />
+
               ))
             ) : (
               <EmptyStateContainerBook>
-                <Image src="/img/shop.svg" width={150} height={150} alt="book-shop"/>
+                <Image src="/img/shop.svg" width={150} height={150} alt="book-shop" />
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainerBook>
             )}
