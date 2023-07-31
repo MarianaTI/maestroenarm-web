@@ -84,12 +84,11 @@ export default function ShoppingBag() {
           <>
             {audiobooks?.length > 0 ? (
               audiobooks.map((audiobook) => (
-                <Link href={`/academy/audiobooks/view/${audiobook.item.id}`}>
+                <Link key={audiobook.item.id} href={`/academy/audiobooks/view/${audiobook.item.id}`} >
                   <CustomBook
                     img={audiobook.item.imgFront}
                     name={audiobook.item.name}
                     price={audiobook.item.price}
-                    key={audiobook.item.id}
                   />
                 </Link>
               ))
@@ -105,12 +104,11 @@ export default function ShoppingBag() {
           <>
             {books?.length > 0 ? (
               books.map((book) => (
-                <Link href={`/academy/books/view/${book.item.id}`}>
+                <Link key={book.item.id} href={`/academy/books/view/${book.item.id}`}>
                   <CustomBook
                     img={book.item.imgFront}
                     name={book.item.name}
                     price={book.item.price}
-                    key={book.item.id}
                   />
                 </Link>
               ))
