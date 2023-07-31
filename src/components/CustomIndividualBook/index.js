@@ -11,6 +11,7 @@ import {
   ImageStyled,
   IncludeContainer,
   MoreDetail,
+  containerImageAndSpan,
 } from "./index.style";
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
@@ -51,6 +52,7 @@ const CustomIndividualBook = ({
   return (
     <Container>
       <BasicInformationContainer>
+        <containerImageAndSpan>
         <ImageContainer>
           <ImageStyled src={imgFront}></ImageStyled>
           <HoverImage src={imgBack}></HoverImage>
@@ -72,6 +74,8 @@ const CustomIndividualBook = ({
             <CustomButton showIcon onClick={handleButtonClick} />
           </BuyContainer>
         )}
+        </containerImageAndSpan>
+        
         <div>
           <BasicInformation>
             <div className="NameStyled">{name}</div>

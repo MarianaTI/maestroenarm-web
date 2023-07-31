@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  margin: 48px 80px;
-  width: 800px;
+  padding: 0px 20px;
   @media (max-width: 800px) {
-    margin: 48px 40px;
+    padding: 18px 0px;
     width: 650px;
+  }
+  @media (max-width: 620px) {
+    padding: 10px;
+    width: 500px;
   }
   @media (max-width: 400px) {
     margin: 28px 20px;
@@ -16,6 +19,9 @@ export const Container = styled.div`
 export const BasicInformationContainer = styled.div`
   display: flex;
   align-items: center;
+  @media (max-width: 620px) {
+    flex-direction: column;
+  }
   @media (max-width: 400px) {
     flex-direction: column;
   }
@@ -34,14 +40,12 @@ export const ImageContainer = styled.div`
 
 export const ImageStyled = styled.img`
   position: absolute;
-  width: 400px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
 `;
 
 export const HoverImage = styled.img`
   position: absolute;
-  width: 400px;
   height: 100%;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
@@ -50,12 +54,11 @@ export const HoverImage = styled.img`
   }
 `;
 
-
 export const BuyContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 8px;
+  padding: 0px 10px;
   & span {
     font-size: 22px;
     font-weight: 700;
@@ -66,6 +69,11 @@ export const BuyContainer = styled.div`
     margin: 8px;
   }
 `;
+
+export const containerImageAndSpan = styled.div`
+  flex-direction: column;
+`;
+
 export const IncludeContainer = styled.div`
   margin: 16px 0px;
   border: 2px solid #484A84;
@@ -80,12 +88,8 @@ export const IncludeContainer = styled.div`
 
 export const BasicInformation = styled.div`
   width: 490px;
-  height: 300px;
-  display: flex;
   flex-direction: column;
   margin-left: 24px;
-  white-space: normal;
-  margin-bottom: 60px;
   .NameStyled {
     color: #2d3648;
     font-weight: 700;
@@ -106,9 +110,10 @@ export const BasicInformation = styled.div`
     font-size: 16px;
     margin-left: 8px;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 400px) {
     width: 300px;
   }
+  
   @media (max-width: 400px) {
     align-items: start;
     justify-content: center;
@@ -121,18 +126,16 @@ export const BasicInformation = styled.div`
 `;
 
 export const  MoreDetail = styled.div`
-    margin-top: 56px;
+    padding: 15px;
     .DetailOptionStyled {
     color: #2d3648;
     font-weight: 700;
     font-size: 16px;
-    margin-bottom: 12px;
   }
   .DetailStyled {
     color: #2d3648;
     font-weight: 500;
     font-size: 16px;
-    margin-left: 8px;
   }
   @media (max-width: 400px) {
     align-items: center;
