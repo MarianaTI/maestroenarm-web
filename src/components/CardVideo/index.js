@@ -1,7 +1,11 @@
 import { CardBody, CardBodyPlaceholder } from "./index.style";
 import { AdvancedVideo } from "@cloudinary/react";
 
-export const CardVideo = ({ url, title = 'title', description = 'description', isPurchased = false, price = '0.00', isReponsive = false, player }) => {
+export const CardVideo = ({
+    url, title = 'title',
+    description = 'description',
+    isPurchased = false, price = '0.00',
+    isReponsive = false, player }) => {
     return (
         <CardBody href={url} isResponsive={isReponsive} >
             <AdvancedVideo className="card__video" cldVid={player} />

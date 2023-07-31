@@ -3,11 +3,8 @@ import {
   EmptyStateContainerBook,
   MainContainer,
   StyledTabs,
-  TabContainer,
-  TabInformation,
-} from "../../../styles/ShoppingBag.style";
+} from "../../../styles/ShoppingBag.styles";
 import { Tab } from "@mui/material";
-import CustomAudiobook from "../../../components/CustomAudiobook";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,14 +14,14 @@ import { db } from "../../../services/firebase/config";
 import { useAuth } from "../../../context/AuthProvider";
 import { CardVideo } from "../../../components/CardVideo";
 import { cloudinaryReact } from "../../../services/cloudinary/config";
-import { VideoCardContainer } from "../../../styles/Videos.style"; 
+import CustomBook from "../../../components/CustomBook";
 
 export default function ShoppingBag() {
   const { user, loading } = useAuth()
-  const [purchases, setPurchases] = useState()
-  const [videos, setVideos] = useState()
-  const [audiobooks, setAudiobooks] = useState()
-  const [books, SetBooks] = useState()
+  const [purchases, setPurchases] = useState([])
+  const [videos, setVideos] = useState([])
+  const [audiobooks, setAudiobooks] = useState([])
+  const [books, SetBooks] = useState([])
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -47,22 +44,22 @@ export default function ShoppingBag() {
   }, [loading]);
 
   return (
-    <div>
-      <MainContainer>
+    <MainContainer>
+      <div>
         <h1>Mis compras</h1>
         <span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </span>
-      </MainContainer>
-      <TabContainer>
-        <StyledTabs value={value} onChange={handleChange}>
-          <Tab label="Videos" />
-          <Tab label="Audiolibros" />
-          <Tab label="Libros" />
-        </StyledTabs>
+      </div>
+      <StyledTabs value={value} onChange={handleChange}>
+        <Tab label="Videos" />
+        <Tab label="Audiolibros" />
+        <Tab label="Libros" />
+      </StyledTabs>
+      <div className="resource-container">
         {value === 0 && (
-          <VideoCardContainer>
+          <>
             {videos?.length > 0 ? (
               videos.map((video) => (
                 <CardVideo
@@ -72,7 +69,6 @@ export default function ShoppingBag() {
                   price={video.item.price}
                   url={`/academy/videos/watch/${video.item.id.replace('/', '%2F')}`}
                   player={cloudinaryReact.video(video.item.id)}
-                  isReponsive={true}
                 >
                 </CardVideo>
               ))
@@ -82,22 +78,18 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
-          </VideoCardContainer>
+          </>
         )}
         {value === 1 && (
-          <TabInformation>
+          <>
             {audiobooks?.length > 0 ? (
               audiobooks.map((audiobook) => (
-                <Link
-                  href={"/academy/audiobooks/view/" + audiobook.item.id}
-                  key={audiobook.item.id}
-                >
-                  <CustomAudiobook
-                    key={audiobook.item.id}
+                <Link href={`/academy/audiobooks/view/${audiobook.item.id}`}>
+                  <CustomBook
                     img={audiobook.item.imgFront}
                     name={audiobook.item.name}
-                    topics={audiobook.item.topics}
                     price={audiobook.item.price}
+                    key={audiobook.item.id}
                   />
                 </Link>
               ))
@@ -107,21 +99,20 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainer>
             )}
-          </TabInformation>
+          </>
         )}
         {value === 2 && (
-          <TabInformation>
+          <>
             {books?.length > 0 ? (
               books.map((book) => (
-
-                <CustomAudiobook
-                  key={book.item.id}
-                  img={book.item.imgFront}
-                  name={book.item.name}
-                  topics={book.item.topics}
-                  price={book.item.price}
-                />
-
+                <Link href={`/academy/books/view/${book.item.id}`}>
+                  <CustomBook
+                    img={book.item.imgFront}
+                    name={book.item.name}
+                    price={book.item.price}
+                    key={book.item.id}
+                  />
+                </Link>
               ))
             ) : (
               <EmptyStateContainerBook>
@@ -129,9 +120,9 @@ export default function ShoppingBag() {
                 <span>Aún no hay compras disponibles</span>
               </EmptyStateContainerBook>
             )}
-          </TabInformation>
+          </>
         )}
-      </TabContainer>
-    </div>
+      </div>
+    </MainContainer>
   );
 }
