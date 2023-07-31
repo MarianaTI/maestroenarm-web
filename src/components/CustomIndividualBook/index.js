@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomButton from "../CustomButtonAcademy";
+import { saveAs } from "file-saver";
 
 import {
   BasicInformation,
@@ -11,7 +12,6 @@ import {
   ImageStyled,
   IncludeContainer,
   MoreDetail,
-  containerImageAndSpan,
 } from "./index.style";
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
@@ -49,33 +49,46 @@ const CustomIndividualBook = ({
     dispatch(setCurrentProduct(productInfo));
   };
 
+  const handleDownload = async () => {
+    try {
+      const audioDownload = await fetch('https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781847657862_preview.pdf').then((download) =>
+        download.blob()
+      );
+      saveAs(audioDownload, "libro.pdf");
+      setOpenSnackbar(true);
+    } catch (error) {
+      console.error("Error descargando el archivo: ", error);
+    }
+  };
+
+
   return (
     <Container>
       <BasicInformationContainer>
         <containerImageAndSpan>
-        <ImageContainer>
-          <ImageStyled src={imgFront}></ImageStyled>
-          <HoverImage src={imgBack}></HoverImage>
-        </ImageContainer>
-        {price > 0.0 ? (
-          <BuyContainer>
-            <span>$ {price}</span>
-            <Link href="/academy/shopping-bag/payment-method">
-              <CustomButton buttonText="Comprar ahora" type="button" onClick={handleClick} />
-            </Link>
-          </BuyContainer>
-        ) : (
-          <BuyContainer>
-            <IncludeContainer>
-              <span className="DetailOptionStyled">
-                Incluido en la suscripción
-              </span>
-            </IncludeContainer>
-            <CustomButton showIcon onClick={handleButtonClick} />
-          </BuyContainer>
-        )}
+          <ImageContainer>
+            <ImageStyled src={imgFront}></ImageStyled>
+            <HoverImage src={imgBack}></HoverImage>
+          </ImageContainer>
+          {price > 0.0 ? (
+            <BuyContainer>
+              <span>$ {price}</span>
+              <Link href="/academy/shopping-bag/payment-method">
+                <CustomButton buttonText="Comprar ahora" type="button" onClick={handleClick} />
+              </Link>
+            </BuyContainer>
+          ) : (
+            <BuyContainer>
+              <IncludeContainer>
+                <span className="DetailOptionStyled">
+                  Incluido en la suscripción
+                </span>
+              </IncludeContainer>
+              <CustomButton showIcon onClick={handleDownload} />
+            </BuyContainer>
+          )}
         </containerImageAndSpan>
-        
+
         <div>
           <BasicInformation>
             <div className="NameStyled">{name}</div>

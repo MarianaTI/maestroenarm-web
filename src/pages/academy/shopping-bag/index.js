@@ -65,7 +65,7 @@ export default function ShoppingBag() {
                 <CardVideo
                   key={video.item.id}
                   title={video.item.name}
-                  description={video.item.topics.join('')}
+                  description={video.item.topics[0]}
                   price={video.item.price}
                   url={`/academy/videos/watch/${video.item.id.replace('/', '%2F')}`}
                   player={cloudinaryReact.video(video.item.id)}

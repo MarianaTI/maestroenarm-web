@@ -54,7 +54,7 @@ export default function HistoryTable({ rows }) {
                                     <ShoppingCartOutlinedIcon />
                                 </TableCell>
                                 <TableCell align="left">{row.item.name}</TableCell>
-                                <TableCell align="left">{new Date(row.timestamp.seconds * 1000).toLocaleDateString('es-ES')}</TableCell>
+                                <TableCell align="left">{new Date(row.timestamp.seconds * 1000).toLocaleString('es-ES')}</TableCell>
                                 <TableCell align="left">$ {row.item.price}</TableCell>
                             </TableRow>
                         )}
