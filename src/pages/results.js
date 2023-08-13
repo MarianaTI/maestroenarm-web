@@ -26,8 +26,6 @@ export default function Results() {
   const { quizAccuracy } = useSelector(state => state.game);
   const bookList = [];
   const feedbackList = [];
-  const specialityList = [];
-  const subSpecialityList = [];
   const lastResultsBySubSpeciality = {};
   const router = useRouter();
   const items = answerCount();
@@ -62,33 +60,12 @@ export default function Results() {
     }
   });
 
-  const specialityAndSubspeciality = gameSpecialityAndSubspeciality.map((item) => {
-    const specialityArr = Array.from(item.uniqueSpeciality);
-    const subSpecialityArr = Array.from(item.uniqueSubSpeciality);
-
-    return {
-      speciality: specialityArr[0],
-      subSpeciality: subSpecialityArr[0],
-      result: item.result,
-    };
-  });
-
-
-  specialityAndSubspeciality.forEach((item) => {
-    if (!specialityList.includes(item.speciality)) {
-      specialityList.push(item.speciality);
-    }
-    if (!subSpecialityList.includes(item.subSpeciality)) {
-      subSpecialityList.push(item.subSpeciality);
-    }
-  })
-
-  specialityAndSubspeciality.forEach((result) => {
+  gameSpecialityAndSubspeciality.forEach((result) => {
     const subSpeciality = result.subSpeciality;
     lastResultsBySubSpeciality[subSpeciality] = result;
   });
   
-  console.log(specialityAndSubspeciality)
+  console.log(gameSpecialityAndSubspeciality)
 
   return (
     <Container>

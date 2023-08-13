@@ -8,6 +8,7 @@ const initialState = {
   totalGameTime: 0,
   timePerQuestion: 0,
   gameSpecialityAndSubspeciality: [],
+  shuffleArray: [],
 };
 
 
@@ -37,6 +38,9 @@ export const gameSlice = createSlice({
     setGameSpecialityAndSubspeciality: (state, action) => {
       state.gameSpecialityAndSubspeciality.push(action.payload)
     },
+    setShuffleArray: (state, action) => {
+      state.shuffleArray.push(action.payload)
+    }
   },
 });
 
@@ -47,6 +51,7 @@ export const {
   setQuizAccuracy, 
   setAddGameHistory, 
   setTotalGameTimeAndTimePerQuestion,
-  setGameSpecialityAndSubspeciality } = gameSlice.actions;
+  setGameSpecialityAndSubspeciality,
+  setShuffleArray } = gameSlice.actions;
 
 export default gameSlice.reducer;

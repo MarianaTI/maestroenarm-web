@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Case from "../components/Case";
-import constants from "../constants";
 import styles from "../styles/Home.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LinearProgress from "../components/LinearProgress/index";
 import DotsMobileStepper from "../components/DotsMobileStepper";
 import TimeIcon from "../components/TimeIcon/index";
@@ -12,7 +11,12 @@ import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
 import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
 
-export default function Home() {
+export default function Game() {
+  const shuffledClinicalCases = useSelector((state) => state.game.shuffleArray);
+  if (shuffledClinicalCases.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   const [clinicalCaseCounter, setClinicalCaseCounter] = useState(0);
   const [questionCounter, setQuestionCounter] = useState(0);
   const [isCounterHidden, setIsCounterHidden] = useState(true);
@@ -25,11 +29,11 @@ export default function Home() {
   const prevIsCountingRef = useRef(isCounting)
   const dispatch = useDispatch();
   const router = useRouter();
-  const clinicalCase = constants.clinicalCases[clinicalCaseCounter];
+  const clinicalCase = shuffledClinicalCases[0].shuffledArray[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
   const question = clinicalCase.question[questionCounter];
   const questionText = question.text;
-  const lengthClinicalCase = constants.clinicalCases.length;
+  const lengthClinicalCase = shuffledClinicalCases[0].shuffledArray.length;
   const lengthQuestions = clinicalCase.question.length;
   const nowClinicalCaseCounter = clinicalCaseCounter + 1;
   const nowquestionCounter = questionCounter + 1;
@@ -40,15 +44,16 @@ export default function Home() {
   const feedbackGeneralCase = clinicalCase.feedbackGeneral;
   const speciality = clinicalCase.speciality;
   const subSpeciality = clinicalCase.subSpeciality;
-  const uniqueSpeciality = new Set();
-  const uniqueSubSpeciality = new Set();
 
-  uniqueSpeciality.add(speciality);
-  uniqueSubSpeciality.add(subSpeciality);
 
   useEffect(() => {
     setIsAnswerCorrectSubspecialty(0);
   }, [clinicalCaseCounter]);
+
+  const updateSpecialityAnswer = () => {
+    const isAnswerCorrect = selectedAnswer; 
+      handleSpecialityAnswerCorrect(isAnswerCorrect);
+  };
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -60,11 +65,12 @@ export default function Home() {
 
   const goNext = () => {
     const question = clinicalCase.question[nowquestionCounter];
+
     if (question) {
       setQuestionCounter(nowquestionCounter);
     } else {
       const nextClinicalCaseCounter = nowClinicalCaseCounter;
-      if (nextClinicalCaseCounter < constants.clinicalCases.length) {
+      if (nextClinicalCaseCounter < shuffledClinicalCases[0].shuffledArray.length) {
         setClinicalCaseCounter(nextClinicalCaseCounter);
         setQuestionCounter(0);
       } else {
@@ -78,32 +84,27 @@ export default function Home() {
     if (!isCounting && prevIsCountingRef.current) {
       const percentageBySubspecialty = 100 / lengthQuestions;
       let resultSubSpeciality = 0;
-      
+
       if (isAnswerCorrect == question.correctAnswer) {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
         const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 1;
         resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
         const result = Math.ceil(resultSubSpeciality);
-        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
-      }else {
+        dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality, result }))
+      } else {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 0);
         const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 0;
         resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
         const result = Math.ceil(resultSubSpeciality);
-        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
+        dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality, result }))
       }
     }
     prevIsCountingRef.current = isCounting;
   };
-  useEffect(() => {
 
-    const updateSpecialityAnswer = () => {
-      const isAnswerCorrect = selectedAnswer; 
-        handleSpecialityAnswerCorrect(isAnswerCorrect);
-    };
-  
+  useEffect(() => {
     updateSpecialityAnswer();
-  }, [ uniqueSpeciality, uniqueSubSpeciality])
+  }, [ isCounting ])
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
@@ -134,7 +135,6 @@ export default function Home() {
     toggleResultRevealed();
     setIsCounting(true);
     dispatch(setAddGameHistory({ clinicalCaseName, questionText, correctAnswer, answers, book, feedbackGeneralCase }))
-    dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality }));
     if (!isOpenFeedback) {
       goNext();
     }
@@ -151,7 +151,7 @@ export default function Home() {
         ></LinearProgress>
         <TimeIcon
           onTimeFinish={handleQuestionTimeFinished}
-          seconds={13}
+          seconds={60}
           isCounting={isCounting}
         ></TimeIcon>
         <Case>{clinicalCaseName}</Case>

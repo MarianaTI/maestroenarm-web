@@ -41,15 +41,15 @@ export default function Demo() {
   const feedbackGeneralCase = clinicalCase.feedbackGeneral;
   const speciality = clinicalCase.speciality;
   const subSpeciality = clinicalCase.subSpeciality;
-  const uniqueSpeciality = new Set();
-  const uniqueSubSpeciality = new Set();
-
-  uniqueSpeciality.add(speciality);
-  uniqueSubSpeciality.add(subSpeciality);
 
   useEffect(() => {
     setIsAnswerCorrectSubspecialty(0);
   }, [clinicalCaseCounter]);
+
+  const updateSpecialityAnswer = () => {
+    const isAnswerCorrect = selectedAnswer; 
+      handleSpecialityAnswerCorrect(isAnswerCorrect);
+  };
 
   const toggleResultRevealed = () => {
     setIsResultRevealed(!isResultRevealed);
@@ -79,32 +79,27 @@ export default function Demo() {
     if (!isCounting && prevIsCountingRef.current) {
       const percentageBySubspecialty = 100 / lengthQuestions;
       let resultSubSpeciality = 0;
-      
+
       if (isAnswerCorrect == question.correctAnswer) {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 1);
         const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 1;
         resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
         const result = Math.ceil(resultSubSpeciality);
-        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
-      }else {
+        dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality, result }))
+      } else {
         setIsAnswerCorrectSubspecialty((prevIsAnswerCorrectSubspecialty) => prevIsAnswerCorrectSubspecialty + 0);
         const updateIsAnswerCorrectSubspecialty = isAnswerCorrectSubspecialty + 0;
         resultSubSpeciality = percentageBySubspecialty * updateIsAnswerCorrectSubspecialty;
         const result = Math.ceil(resultSubSpeciality);
-        dispatch(setGameSpecialityAndSubspeciality({ uniqueSpeciality, uniqueSubSpeciality, result }))
+        dispatch(setGameSpecialityAndSubspeciality({ speciality, subSpeciality, result }))
       }
     }
     prevIsCountingRef.current = isCounting;
   };
-  useEffect(() => {
 
-    const updateSpecialityAnswer = () => {
-      const isAnswerCorrect = selectedAnswer; 
-        handleSpecialityAnswerCorrect(isAnswerCorrect);
-    };
-  
+  useEffect(() => {
     updateSpecialityAnswer();
-  }, [ uniqueSpeciality, uniqueSubSpeciality])
+  }, [ isCounting ])
 
   const handleAnswer = (isAnswerCorrect) => {
     if (isAnswerCorrect == question.correctAnswer) {
@@ -113,7 +108,6 @@ export default function Demo() {
       dispatch(setFalseAnswerCount({ valor: 1 }));
     }
   }
-
 
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);

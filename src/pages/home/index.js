@@ -7,13 +7,19 @@ import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
+import {shuffleArray} from "../fisher-yates"
+import constants from "../../constants";
 import ShareIcon from "@mui/icons-material/Share";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconButton } from "@mui/material";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setShuffleArray } from "../../store/slices/gameSlice";
+
 
 export default function Game() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const auth = useAuth();
@@ -56,6 +62,11 @@ export default function Game() {
     navigator.clipboard.writeText(`localhost:3000/home/match/${roomId}`);
   };
 
+  const handleGameAleatory = () => {
+    const shuffledArray = shuffleArray(constants.clinicalCases);
+    dispatch(setShuffleArray({shuffledArray}));
+  }
+
   return (
     <div style={{ padding: '0 16px' }}>
       <TitleGameContainer>
@@ -63,7 +74,7 @@ export default function Game() {
         <p>Feedback déspues de cada pregunta</p>
       </TitleGameContainer>
       <Link href="/game">
-        <GameField label="Aleatorio" />
+        <GameField label="Aleatorio" onClick={handleGameAleatory}/>
       </Link>
       <GameField label="Por Categoría" onClick={() => setOpen(true)} />
       <GameSettingsModal isOpen={open} closedModal={() => setOpen(false)}/>
