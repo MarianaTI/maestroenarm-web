@@ -7,7 +7,7 @@ import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../services/firebase/config";
 import { useAuth } from "../../context/AuthProvider";
 import CustomModal from "../../components/CustomModal";
-import {shuffleArray} from "../fisher-yates"
+import {shuffleArray} from "../../utils/fisher-yates"
 import constants from "../../constants";
 import ShareIcon from "@mui/icons-material/Share";
 import { useEffect } from "react";
@@ -23,8 +23,7 @@ export default function Game() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const auth = useAuth();
-  const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] =
-    useState(false);
+  const [isMultiplayerLinkModalOpen, setIsMultiplayerLinkModalOpen] = useState(false);
   const [roomId, setRoomId] = useState("");
 
   useEffect(() => {
@@ -39,6 +38,7 @@ export default function Game() {
       return () => unsub();
     }
   }, [roomId]);
+
   const handleRandomMultiplayerClick = async () => {
     const randomClinicalCases = getRandomClinicalCases(2);
     const docRef = await addDoc(collection(db, "games"), {

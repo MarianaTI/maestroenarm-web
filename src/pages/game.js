@@ -10,9 +10,13 @@ import { CustomButton } from "../components/CustomButton"
 import CustomModal from "../components/CustomModal";
 import { ReturnButtonContainer } from "../styles/demo.style";
 import { setFalseAnswerCount, setTrueAnswerCount, setAddGameHistory, setGameSpecialityAndSubspeciality } from "../store/slices/gameSlice";
+import { useAuth } from "../context/AuthProvider";
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
+import { db } from "../services/firebase/config";
 
 export default function Game() {
   const shuffledClinicalCases = useSelector((state) => state.game.shuffleArray);
+  const { trueAnswerCount } = useSelector(state => state.game)
   if (shuffledClinicalCases.length === 0) {
     return <div>Loading...</div>;
   }
@@ -21,6 +25,7 @@ export default function Game() {
   const [questionCounter, setQuestionCounter] = useState(0);
   const [isCounterHidden, setIsCounterHidden] = useState(true);
   const [isResultRevealed, setIsResultRevealed] = useState(false);
+  const [updateTotalGame, setUpdateTotalGame] = useState(false);
   const [isFeedbackHidden, setIsFeedbackHidden] = useState(true);
   const [isCounting, setIsCounting] = useState(true);
   const [isOpenFeedback, setOpenFeedback] = useState(false);
@@ -29,6 +34,8 @@ export default function Game() {
   const prevIsCountingRef = useRef(isCounting)
   const dispatch = useDispatch();
   const router = useRouter();
+  const  {user}  = useAuth();
+  const userEmail = user.email;
   const clinicalCase = shuffledClinicalCases[0].shuffledArray[clinicalCaseCounter];
   const clinicalCaseName = clinicalCase.case;
   const question = clinicalCase.question[questionCounter];
@@ -44,7 +51,6 @@ export default function Game() {
   const feedbackGeneralCase = clinicalCase.feedbackGeneral;
   const speciality = clinicalCase.speciality;
   const subSpeciality = clinicalCase.subSpeciality;
-
 
   useEffect(() => {
     setIsAnswerCorrectSubspecialty(0);
@@ -63,6 +69,24 @@ export default function Game() {
     setOpenFeedback((isOpenFeedback) => !isOpenFeedback);
   };
 
+  const updateUserTotalGameScore = async () => {
+    const userCollection = collection(db, 'users');
+    const userQuery = query(userCollection, where('email', '==', userEmail));
+    const userQuerySnapshot = await getDocs(userQuery);
+
+    if (!userQuerySnapshot.empty) {
+
+      const userDocRef = userQuerySnapshot.docs[0].ref;
+
+      const currentTotalGameScore = (await getDoc(userDocRef)).data().totalGameScore || 0;
+      const newTotalGameScore = currentTotalGameScore + trueAnswerCount;
+
+      await updateDoc(userDocRef, { totalGameScore: newTotalGameScore });
+      setUpdateTotalGame(true);
+    }
+  
+  };
+
   const goNext = () => {
     const question = clinicalCase.question[nowquestionCounter];
 
@@ -74,7 +98,10 @@ export default function Game() {
         setClinicalCaseCounter(nextClinicalCaseCounter);
         setQuestionCounter(0);
       } else {
-        router.push("/results");
+        updateUserTotalGameScore();
+        if (!updateTotalGame){
+          router.push("/results");
+        }
       }
       setIsCounting(true);
     }
@@ -113,7 +140,6 @@ export default function Game() {
       dispatch(setFalseAnswerCount({ valor: 1 }));
     }
   }
-
 
   const handleAnswerClick = (isAnswerCorrect) => {
     setIsCounterHidden(false);

@@ -22,6 +22,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import { CustomButton } from "../components/CustomButton";
+import { addDoc, getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../services/firebase/config";
 import { signInByGoogle } from "../services/firebase/providers/google";
 import { signInByMicrosoft } from "../services/firebase/providers/microsoft";
 import { signInByMaestroEnarm } from "../services/firebase/providers/email";
@@ -40,11 +42,50 @@ export default function Login() {
   const [isOpenForgotPassword, setOpenForgotPassword] = useState(false);
   // const [openChangePassword, setOpenChangePassword] = useState(false);
   const [isShowPassword, setShowPassword] = useState(false);
-  const { user } = useAuth();
+  const [roomId, setRoomId] = useState("");
+  const [renderPage, setRenderPage] = useState(true);
+  const  {user}  = useAuth();
 
   useEffect(() => {
-    if (user) router.push("/home")
-  })
+    if (user && renderPage) {
+      handleSendingDataToTheDB()
+    }
+    if (roomId) {
+      router.push("/home")
+    }
+  }, [user, renderPage])
+
+  const handleSendingDataToTheDB = async () => {
+    if (user) {
+      const usersRef = collection(db, "users");
+      const consulta = query(usersRef, where("email", "==", user.email)); 
+      const querySnapshot = await getDocs(consulta);
+
+      if (querySnapshot.empty) {
+        const docRef = await addDoc(usersRef, {
+          email: user.email,
+          name: user.displayName,
+          photoURL: user.photoURL,
+          resources: {
+            audiobooks: [],
+            books: [],
+            videos: [],
+          },
+          speciality: "",
+          totalGameScore: 0,
+          university: "",
+        });
+        const roomId = docRef.id;
+        setRoomId(roomId);
+      } else {
+        // El usuario ya existe, puedes redirigirlo a la página de inicio aquí si lo deseas
+        router.push("/home");
+      }
+    }
+    setRenderPage(false);
+  };
+  
+
 
   const {
     handleSubmit,

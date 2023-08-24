@@ -65,7 +65,6 @@ export default function Results() {
     lastResultsBySubSpeciality[subSpeciality] = result;
   });
   
-  console.log(gameSpecialityAndSubspeciality)
 
   return (
     <Container>
