@@ -1,34 +1,78 @@
+import { useEffect, useState } from "react";
 import RankingCard from "../../components/RankingCard";
 import RankingList from "../../components/RankingList";
 import { RankingContainer } from "../../styles/Ranking.Style";
+import { db } from "../../services/firebase/config";
+import { collection, getDocs, query, where } from "@firebase/firestore";
 
 export default function Ranking() {
+
+    const [filterItems, setFilterItems] = useState([])
+    let snapshot;
+
+    async function getUserInformation() {
+		snapshot = await getDocs(query(collection(db, 'users')));
+		const userInformation = snapshot.docs.map(doc => doc.data());
+        userInformation.sort((a, b) => b.totalGameScore - a.totalGameScore);
+		setFilterItems(userInformation)
+	}
+    
+    useEffect(() => {
+		const debouncing = setTimeout(() => { getUserInformation() }, 500)
+		return () => clearTimeout(debouncing)
+	}, []);
+
+    const maxScoreUser = filterItems[0];
+    const secondMaxScoreUser = filterItems[1];
+
     return <RankingContainer>
         <div className="ranking-top-wrapper">
-            <RankingCard rankedNumber="2"
-                avatar
-                name="Eduardo Moreno"
-                university="Universidad Tecnológica Metropolitana"
-                specialty="Pediatra" score="11,000"
-            />
-            <RankingCard rankedNumber="1"
-                avatar
-                name="Angel Ricardez"
-                university="Universidad Tecnológica Metropolitana"
-                specialty="Psicólogo" score="12,000"
-            />
-            <RankingCard rankedNumber="3"
-                avatar
-                name="Alberto Canto"
-                university="Universidad Tecnológica Metropolitana"
-                specialty="Odontología" score="10,000"
-            />
-        </div>
+        {secondMaxScoreUser && (
+        <RankingCard
+          rankedNumber={2}
+          avatar
+          name={secondMaxScoreUser.name}
+          university={secondMaxScoreUser.university}
+          specialty={secondMaxScoreUser.specialty}
+          score={secondMaxScoreUser.totalGameScore.toString()}
+        />
+      )}
+      {maxScoreUser && (
+        <RankingCard
+          rankedNumber={1}
+          avatar
+          name={maxScoreUser.name}
+          university={maxScoreUser.university}
+          specialty={maxScoreUser.specialty}
+          score={maxScoreUser.totalGameScore.toString()}
+        />
+      )}
+
+      {filterItems[2] && (
+        <RankingCard
+          rankedNumber={3}
+          avatar
+          name={filterItems[2].name}
+          university={filterItems[2].university}
+          specialty={filterItems[2].specialty}
+          score={filterItems[2].totalGameScore.toString()}
+        />
+      )}
+    </div>
         <div className="ranking-wrapper">
-            <RankingList ranked_number={4} avatar="none" name="Adrian Mis" score="9,000" specialty="neurología" university="Universidad Tecnológica Metropolitana" />
-            <RankingList ranked_number={5} avatar="none" name="Adrian Mis" score="9,000" specialty="neurología" university="Universidad Tecnológica Metropolitana" />
-            <RankingList ranked_number={6} avatar="none" name="Adrian Mis" score="9,000" specialty="neurología" university="Universidad Tecnológica Metropolitana" />
-            <RankingList ranked_number={7} avatar="none" name="Adrian Mis" score="9,000" specialty="neurología" university="Universidad Tecnológica Metropolitana" />
+        {filterItems.slice(3).map((item, index) => (
+            (
+                <RankingList
+                  key={index}
+                  ranked_number={index + 4}
+                  avatar="none"
+                  name={item.name}
+                  score={item.totalGameScore.toString()}
+                  specialty={item.specialty}
+                  university={item.university}
+                />
+              ) 
+            ))}
         </div>
     </RankingContainer>
 }
